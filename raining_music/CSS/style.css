@@ -1,0 +1,506 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{	
+	margin:0px;
+	padding:0px;
+	background-image:url(pictures/fond.png);
+	background-attachment:fixed;
+	
+
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:medium;
+	
+
+	
+	
+}
+
+a
+{
+	font-size:medium;
+	font-weight:bold;
+	color:#009;
+	text-decoration:none;
+		
+}
+
+
+div.conteneur
+{	
+	width:100%;
+	background-color:#009;
+		
+}
+
+div.right
+{
+	width:42%;
+	float:right;
+	
+	text-decoration:none;
+
+	min-height:675px;
+	
+	
+}
+
+div.left
+{
+	width:42%;
+	float:left;
+	
+	text-decoration:none;
+
+	min-height:675px;
+
+}
+
+div.main
+{
+	height:100%;
+	margin-left:0%;
+
+}
+
+div.pied
+{
+	
+	float:inherit;
+	margin:0px;
+	padding:0px;
+	top:0px;
+	margin-left:0px;
+	margin-right:0px;
+
+	
+	position:relative;
+	clear:both;
+bottom: 0px;
+
+}
+
+.text
+{
+	border-color:#000;
+	border-width:2px;
+	border-style:solid;
+	margin-left:4px;
+	overflow:hidden;
+	border: 1px solid #696;
+	padding: 60px 0;
+	text-align: left;
+	padding:15px;
+	border-radius: 10px;
+	box-shadow: #666 0px 0px 6px;
+	
+
+}
+
+/*login form*/
+
+		#loginForm
+            {
+            	height:170px;
+            	width:250px;
+		background-color:#0075b7;
+	       	display:none;
+		
+            }
+              #loginForm fieldset
+            {
+            	padding:10px;
+            	border:none;
+            }   
+             #loginForm label
+            {
+            	display:block;
+            	color:black;
+            }      
+            #loginForm input[type=text]
+            {
+            	display:block;
+            	border:solid 1px black;
+            	width:100%;
+            	margin-bottom:10px;
+            	height:24px;
+            }  
+            #loginForm textarea
+            {
+            	display:block;
+            	border:solid 1px black;
+            	width:100%;
+            	margin-bottom:10px;
+            }  
+            #loginForm input[type=submit]
+            {
+            	background-color:#d8624f;
+            	border:solid 1px #23150c;
+            	color:black;
+            	padding:5px;
+				border-radius: 5px
+            }                
+            #loginLink
+            {
+            	height:40px;
+            	width:250px;
+            	background-image:url('./pictures/connexion.png');
+            	display:block;
+            	cursor:pointer;
+		
+		
+            }
+            #messageSent
+            {
+            	color:#ff9933;
+            	display:none;
+            }
+          
+.grey {color: #999999; text-decoration:none;}   			
+			
+			
+
+
+
+
+/* css menu*/
+
+a.menu:hover {text-decoration: none; text-decoration:underline;}
+
+div.conteneur-menu
+{
+	background-color:#e83103;
+	margin-left:31%;
+	height:40px;
+	top:5px;
+	position:relative;
+	opacity:1;
+	border-radius:7px 0px 0px 7px;
+
+	
+}
+
+div.menu
+{
+	position:absolute;
+	
+	
+}
+dl.menu
+{
+	
+	height:40px;
+	margin:0px;
+	padding:0px;
+	display:block;
+	float:left;
+
+}
+
+dt
+{
+	cursor:pointer;
+	width:150px;
+	display:block;
+	height:40px;
+	color:#000;
+	line-height:40px;
+	text-align:center;
+	border-right:dotted 1px black;
+	font-weight:bold;
+	
+	
+	
+}
+
+dd
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+	background-color:#3b7383;
+	
+}
+	
+dd ul
+{
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	list-style:none;
+} 
+
+dd ul li
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+}
+
+dd ul li a
+{
+	color:#000;
+	text-decoration:none;
+	height:30px;
+	line-height:30px;
+	border-top:dotted 1px black;
+	
+	display:block;
+}
+
+dd ul li a:hover
+{
+	color:#000;
+	background-color:#FFF;
+}
+
+dl dd
+{	
+	display:none;
+}
+
+dl:hover dd
+{
+	display:block;	
+}
+
+
+
+
+/*connexion*/
+
+
+body, div, h1, form, fieldset, input, textarea {
+	margin: 0; padding: 0; border: 0; outline: none;
+}
+
+html {
+	height: 100%;
+}
+
+
+nav { 
+	display:block; 
+	margin:0 auto 20px; 
+	position:relative;
+	border:none;
+	
+}
+
+nav ul {
+	border-radius: 0px 0px 10px 0px;
+	height:40px;
+	border:none;
+	padding:0; margin:-7px 0 0 0;
+	border-top:1px solid #2a323f;
+	border-bottom:1px solid #2a323f;
+	background:#00a0e8;
+	background: -moz-linear-gradient(top, #00a0e8 0%, #39414c 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00a0e8), color-stop(100%,#39414c)); 
+	box-shadow: 0 2px 4px #424346;
+	-moz-box-shadow: 0 2px 4px #424346;
+	-webkit-box-shadow: 0 2px 4px #424346;
+}
+
+nav li {
+	border:none;
+	position:relative;
+	float:left;
+}
+
+nav ul:before { 
+	
+	content: '';  
+	width: 100%;  
+	position: absolute;  
+}
+
+nav ul:after {
+	border:none;
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+nav ul ul {
+	border:none;
+	display:none;
+	width:100%;
+	position:absolute;
+	left:0;
+}
+
+
+nav ul li {
+	border:none;
+	list-style:none;
+	float:left;
+	padding:0; margin:0;
+	position:relative;
+}
+
+nav ul li a {
+	border:none;
+	float:left;
+	padding:0 20px 0 20px; margin:0;
+	height:40px;
+	line-height:40px;
+	color:#e0e1e3;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px 1px 1px #101215;
+	-webkit-transition: color 0.3s ease-in;
+	-moz-transition: color 0.3s ease-in;
+	-o-transition: color 0.3s ease-in;
+	border-right:1px solid #2a323f;
+	border-left: 1px solid #6d7581;
+}
+
+nav li a {
+	border:none;
+	display:block;
+}
+
+nav ul li:first-child a {
+	
+	border-left:none;
+}
+nav ul li:last-child a {
+	border-right:none;
+}
+
+nav ul li a:hover {
+	background: #586375;
+	background: -moz-linear-gradient(top, #586375 0%, #4c5766 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#586375), color-stop(100%,#4c5766)); 
+	color:#fff;
+}
+
+nav ul li ul {
+	position:absolute;
+	top:40px;
+	left:0;
+	border:none;
+	background:#2a323f;
+	height:auto;
+	width:130px;
+	padding:1px 0 0 0; margin:0;
+	-moz-border-bottom-right-radius: 10px; 
+    -webkit-border-bottom-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
+	-moz-border-bottom-left-radius: 10px; 
+    -webkit-border-bottom-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+	
+}
+nav ul li ul:before { 
+	border-top: none; 
+}
+
+nav ul li ul li a {
+	color:#a5a5a5;
+	padding:0 0 0 20px; margin:0;
+	width:110px; height:30px; line-height:30px;
+	border:none;
+	border-top:1px solid #2a323f;
+}
+nav ul li ul li a:hover {
+	color:#fff;
+	background: #b64f40;
+	background: -moz-linear-gradient(top, #ec6e59 0%, #b64f40 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ec6e59), color-stop(100%,#b64f40)); 
+	border-top:1px solid #f28d7c;
+	box-shadow: 0 0px 8px #3b3b3b;
+	-moz-box-shadow: 0 0px 8px #3b3b3b;
+	-webkit-box-shadow: 0 0px 8px #3b3b3b;
+}
+
+nav ul li ul li:last-child a {
+	-moz-border-bottom-left-radius: 10px; 
+	-webkit-border-bottom-left-radius: 10px; 
+	border-bottom-left-radius: 10px;
+	-moz-border-bottom-right-radius: 10px; 
+	-webkit-border-bottom-right-radius: 10px; 
+	border-bottom-right-radius: 10px;
+}
+
+/*twitter */
+
+
+#twitter {
+width:600px;
+height:170px;
+margin-left:15px;
+margin:10px;
+padding-left:140px;
+margin-top:100px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+background-color:#b8ddf3;
+font-family:Georgia, "Times New Roman", Times, serif;
+font-size:17px;
+color:#458cc5;
+
+
+
+
+}
+
+.oiseau {position:relative; left:-120px; top:-130px;} 
+
+.at {position:absolute; left:240px; top:120px; color:#0e4c8b; font-family:arial; font-size:12px; font-style:normal; text-shadow:none;}
+
+
+
+/*BARRE DE RECHERCHE*/
+
+
+ 
+#search {
+float:right;
+width:300px;
+height:24px;
+background:#F5F2F0;
+box-shadow: 1px 1px 2px rgba(0,0,0,.3) inset
+
+}
+ 
+#search .btn-left-loupe {
+display:block;
+background:url(pictures/twitter_guillemet.png);
+width:10%;
+height:100%;
+float:left;
+margin:0
+}
+ 
+#search .btn-right-send {
+display:block;
+width:19%;
+height:100%;
+float:right;
+
+}
+ 
+#search input {
+outline:0;
+border:0
+position: right;
+}
+ 
+#search input[type=text] {
+display:block;
+font:300 12px HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+background:none;
+text-shadow:0 1px white;
+float:left;
+height:24px;
+width:70%;
+line-height:25px;
+color:#666;
+margin:0
+}
