@@ -168,6 +168,7 @@ div.conteneur-menu
 	background-color:#e83103;
 	margin-left:31%;
 	height:40px;
+	
 	top:5px;
 	position:relative;
 	opacity:1;
@@ -179,6 +180,7 @@ div.conteneur-menu
 div.menu
 {
 	position:absolute;
+	
 	
 	
 }
@@ -193,7 +195,7 @@ dl.menu
 
 }
 
-dt
+/*dt
 {
 	cursor:pointer;
 	width:150px;
@@ -258,7 +260,7 @@ dl dd
 dl:hover dd
 {
 	display:block;	
-}
+}*/
 
 
 
@@ -286,6 +288,7 @@ nav {
 
 nav ul {
 	border-radius: 0px 0px 10px 0px;
+	width:100%;
 	height:40px;
 	border:none;
 	padding:0; margin:-7px 0 0 0;
@@ -335,6 +338,13 @@ nav ul li {
 	list-style:none;
 	float:left;
 	padding:0; margin:0;
+	position:relative;
+}
+nav ul li:last-child {
+	border:none;
+	list-style:none;
+	float:right;
+	padding-right:10px; margin-top:-3px;
 	position:relative;
 }
 
@@ -457,29 +467,22 @@ color:#458cc5;
 
  
 #search {
+margin-top:10px;
 float:right;
-width:300px;
+width:80%;
 height:24px;
 background:#F5F2F0;
 box-shadow: 1px 1px 2px rgba(0,0,0,.3) inset
 
 }
  
-#search .btn-left-loupe {
+#search .btn-right-loupe {
 display:block;
-background:url(pictures/twitter_guillemet.png);
-width:10%;
-height:100%;
-float:left;
-margin:0
-}
- 
-#search .btn-right-send {
-display:block;
-width:19%;
+
+width:39%;
 height:100%;
 float:right;
-
+margin:0
 }
  
 #search input {
@@ -487,6 +490,8 @@ outline:0;
 border:0
 position: right;
 }
+
+
  
 #search input[type=text] {
 display:block;
@@ -495,7 +500,7 @@ background:none;
 text-shadow:0 1px white;
 float:left;
 height:24px;
-width:70%;
+width:60%;
 line-height:25px;
 color:#666;
 margin:0
