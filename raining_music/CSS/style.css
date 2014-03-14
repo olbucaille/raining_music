@@ -5,7 +5,7 @@ body
 {	
 	margin:0px;
 	padding:0px;
-	background-image:url(pictures/fond.png);
+	background-image:url(./../pictures/fond.png);
 	background-attachment:fixed;
 	
 
@@ -142,7 +142,7 @@ bottom: 0px;
             {
             	height:40px;
             	width:250px;
-            	background-image:url('./pictures/connexion.png');
+            	background-image:url('./../pictures/connexion.png');
             	display:block;
             	cursor:pointer;
 		
