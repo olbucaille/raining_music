@@ -512,3 +512,16 @@ line-height:25px;
 color:#666;
 margin:0
 }
+
+
+
+/*FORMULAIRE DE CONTACT*/
+
+#formulaireContact{
+	/*couleur fond*/
+	background:#737476;
+	background:-moz-linear-gradient(top,#edeeef 0%, #f3f4f7 100%);
+	background:-webkit-gradient(linear,left top, left bottom, color-stop(0%, #edeeef), color-stop(100%, #f3f4f7)') 
+	
+}
+
