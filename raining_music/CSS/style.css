@@ -519,9 +519,43 @@ margin:0
 
 #formulaireContact{
 	/*couleur fond*/
-	background:#737476;
-	background:-moz-linear-gradient(top,#edeeef 0%, #f3f4f7 100%);
-	background:-webkit-gradient(linear,left top, left bottom, color-stop(0%, #edeeef), color-stop(100%, #f3f4f7)') 
 	
+	width:80%;
+	
+
+	
+	/*positionnement et marge*/
+	float: left;
+	clear: left;
+	margin:  0 0 0 0;
+		
 }
 
+
+.centerForm{
+	width:100%;
+	
+	min-height:675px;
+}
+
+
+div.CenterForm article form fieldset input{
+	/*marge*/
+	width:20%;
+	height: 20px;
+	/*bordure*/
+	border: 1px solid  #b6b7b9;
+	border-radius: 5px;
+	
+	
+}
+div.CenterForm article form fieldset textarea{
+	/*marge*/
+	width:70%;
+	height: 80px;
+	/*bordure*/
+	border: 1px solid  #b6b7b9;
+	border-radius: 5px;
+	
+	
+}
