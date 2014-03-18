@@ -99,7 +99,72 @@ bottom: 0px;
 
 		#loginForm
             {
-            	height:170px;
+            	height:170px;/*dt
+{
+	cursor:pointer;
+	width:150px;
+	display:block;
+	height:40px;
+	color:#000;
+	line-height:40px;
+	text-align:center;
+	border-right:dotted 1px black;
+	font-weight:bold;
+	
+	
+	
+}
+
+dd
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+	background-color:#3b7383;
+	
+}
+	
+dd ul
+{
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	list-style:none;
+} 
+
+dd ul li
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+}
+
+dd ul li a
+{
+	color:#000;
+	text-decoration:none;
+	height:30px;
+	line-height:30px;
+	border-top:dotted 1px black;
+	
+	display:block;
+}
+
+dd ul li a:hover
+{
+	color:#000;
+	background-color:#FFF;
+}
+
+dl dd
+{	
+	display:none;
+}
+
+dl:hover dd
+{
+	display:block;	
+}*/
             	width:250px;
 		background-color:#0075b7;
 	       	display:none;
@@ -168,34 +233,7 @@ div.conteneur-menu
 	background-color:#e83103;
 	margin-left:31%;
 	height:40px;
-	
-	top:5px;
-	position:relative;
-	opacity:1;
-	border-radius:7px 0px 0px 7px;
-
-	
-}
-
-div.menu
-{
-	position:absolute;
-	
-	
-	
-}
-dl.menu
-{
-	
-	height:40px;
-	margin:0px;
-	padding:0px;
-	display:block;
-	float:left;
-
-}
-
-/*dt
+	/*dt
 {
 	cursor:pointer;
 	width:150px;
@@ -261,10 +299,31 @@ dl:hover dd
 {
 	display:block;	
 }*/
+	top:5px;
+	position:relative;
+	opacity:1;
+	border-radius:7px 0px 0px 7px;
 
+	
+}
 
+div.menu
+{
+	position:absolute;
+	
+	
+	
+}
+dl.menu
+{
+	
+	height:40px;
+	margin:0px;
+	padding:0px;
+	display:block;
+	float:left;
 
-
+}
 
 /*connexion*/
 
@@ -519,9 +578,47 @@ margin:0
 
 #formulaireContact{
 	/*couleur fond*/
-	background:#737476;
-	background:-moz-linear-gradient(top,#edeeef 0%, #f3f4f7 100%);
-	background:-webkit-gradient(linear,left top, left bottom, color-stop(0%, #edeeef), color-stop(100%, #f3f4f7)') 
+	width:80%;
+	
+	/*positionnement et marge*/
+	float: left;
+	clear: left;
+	margin:  0 0 0 0;
+		
+}
+
+.centerForm{
+	width:100%;
+	
+	min-height:675px;
+}
+
+div.CenterForm article form fieldset input{
+	/*marge*/
+	width:20%;
+	height: 20px;
+	/*bordure*/
+	border: 1px solid  #b6b7b9;
+	border-radius: 5px;
+	
+	
+}
+div.CenterForm article form fieldset textarea{
+	/*marge*/
+	width:70%;
+	height: 80px;
+	/*bordure*/
+	border: 1px solid  #b6b7b9;
+	border-radius: 5px;
+	display: block;
+	float: left;
+}
+
+/*alignement des blocs d'input*/
+label{
+	display: block;
+	float: left;
+	width: 200px;
 	
 }
 
