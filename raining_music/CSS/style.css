@@ -101,7 +101,72 @@ bottom: 0px;
 
 		#loginForm
             {
-            	height:170px;
+            	height:170px;/*dt
+{
+	cursor:pointer;
+	width:150px;
+	display:block;
+	height:40px;
+	color:#000;
+	line-height:40px;
+	text-align:center;
+	border-right:dotted 1px black;
+	font-weight:bold;
+	
+	
+	
+}
+
+dd
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+	background-color:#3b7383;
+	
+}
+	
+dd ul
+{
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	list-style:none;
+} 
+
+dd ul li
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+}
+
+dd ul li a
+{
+	color:#000;
+	text-decoration:none;
+	height:30px;
+	line-height:30px;
+	border-top:dotted 1px black;
+	
+	display:block;
+}
+
+dd ul li a:hover
+{
+	color:#000;
+	background-color:#FFF;
+}
+
+dl dd
+{	
+	display:none;
+}
+
+dl:hover dd
+{
+	display:block;	
+}*/
             	width:250px;
 		background-color:#0075b7;
 	       	display:none;
@@ -170,34 +235,7 @@ div.conteneur-menu
 	background-color:#e83103;
 	margin-left:31%;
 	height:40px;
-	
-	top:5px;
-	position:relative;
-	opacity:1;
-	border-radius:7px 0px 0px 7px;
-
-	
-}
-
-div.menu
-{
-	position:absolute;
-	
-	
-	
-}
-dl.menu
-{
-	
-	height:40px;
-	margin:0px;
-	padding:0px;
-	display:block;
-	float:left;
-
-}
-
-/*dt
+	/*dt
 {
 	cursor:pointer;
 	width:150px;
@@ -263,10 +301,31 @@ dl:hover dd
 {
 	display:block;	
 }*/
+	top:5px;
+	position:relative;
+	opacity:1;
+	border-radius:7px 0px 0px 7px;
 
+	
+}
 
+div.menu
+{
+	position:absolute;
+	
+	
+	
+}
+dl.menu
+{
+	
+	height:40px;
+	margin:0px;
+	padding:0px;
+	display:block;
+	float:left;
 
-
+}
 
 /*connexion*/
 
@@ -521,10 +580,7 @@ margin:0
 
 #formulaireContact{
 	/*couleur fond*/
-	
 	width:80%;
-	
-
 	
 	/*positionnement et marge*/
 	float: left;
@@ -533,13 +589,11 @@ margin:0
 		
 }
 
-
 .centerForm{
 	width:100%;
 	
 	min-height:675px;
 }
-
 
 div.CenterForm article form fieldset input{
 	/*marge*/
@@ -558,6 +612,111 @@ div.CenterForm article form fieldset textarea{
 	/*bordure*/
 	border: 1px solid  #b6b7b9;
 	border-radius: 5px;
+	display: block;
+	float: left;
+}
+
+/*alignement des blocs d'input*/
+label{
+	display: block;
+	float: left;
+	width: 200px;
+	
+}
+
+
+/*PRESENTATION GROUPE*/
+
+.texte-pres-group
+{
+	border-color:#000;
+	border-width:2px;
+	border-style:solid;
+	margin-left:4px;
+	overflow:hidden;
+	border: 1px solid #696;
+	padding: 60px 0;
+	text-align: left;
+	padding:15px;
+	border-radius: 10px;
+	box-shadow: #666 0px 0px 6px;
+
+}
+
+
+dt
+{
+	cursor:pointer;
+	width:150px;
+	display:block;
+	height:40px;
+	color:#000;
+	line-height:40px;
+	text-align:center;
+	border-right:dotted 1px black;
+	font-weight:bold;
 	
 	
+	
+}
+
+dd
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+	background-color:#3b7383;
+	
+}
+	
+dd ul
+{
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	list-style:none;
+} 
+
+dd ul li
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+}
+
+dd ul li a
+{
+	color:#000;
+	text-decoration:none;
+	height:30px;
+	line-height:30px;
+	border-top:dotted 1px black;
+	
+	display:block;
+}
+
+dd ul li a:hover
+{
+	color:#000;
+	background-color:#FFF;
+}
+
+dl dd
+{	
+	display:none;
+}
+
+dl:hover dd
+{
+	display:block;	
+}
+
+
+a
+{
+	font-size:medium;
+	font-weight:bold;
+	color:#009;
+	text-decoration:none;
+		
 }
