@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
-<link rel="icon" type="image/gif" href="pictures/favicon.gif" />
+<link rel="icon" type="image/gif" href="pictures/favicon.ico" />
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <title>RainingMusic - Soyez arrosé d'informations !</title>
 </head>
-
+<!-- body : "racine" de la page !-->
 <body>
+<!-- div conteneur : premiere div, elle permet de placer tous les autres composants!--> 
 <div class="conteneur"style="margin-left:10%; width:80%;min-width:900px;min-height:1000px; background-color:#c8c8c8; ">
-
+<!-- haut de page : photo + connexion !-->
 <header class="banniere">      
 		<img src="pictures/RMBanniere.png" alt="RainingMusic" title="RainingMusic" height="100%" width="100%" style="max-height:200px;" />
         <div style="position:absolute;top:0px;margin-left:70%;">
@@ -53,10 +54,10 @@
                 setTimeout('$("#messageSent").hide();$("#loginForm").slideUp("slow")', 500);
 				toto           }
         </script>
-
+<!-- nav : menu !-->
 <nav id="menu" >
 	<ul>
-		<li><a  class="menu" href="#" title="Home">Home</a></li>
+		<li><a  class="menu" href="index.htm" title="Home">Home</a></li>
 		<li><a  class="menu" href="#" title="IndexConcerts">Index des concerts</a>
 		  <ul>
 				<li><a  class="menu" href="AVenir" title="Logotypes">A venir</a></li>
@@ -65,7 +66,7 @@
 			</ul>
 		</li>
   		<li><a class="menu" href="#" title="IndexGroupes">Index des groupes</a></li>
-		<li><a  class="menu" href="index.php?page=inscription" title="username">Index des salles</a></li> 
+		<li><a  class="menu" href="ContactForm.html" title="username">Nous contacter</a></li> 
 		<li class="search">
 				
 				<form  class="search" method="post">
@@ -98,110 +99,95 @@
 
 
 
-<!-- -->
+<!-- debut de la page en elle meme-->
 
 
 <div class="conteneur" style="margin-left:5%; width:90%; min-height:500px; height:100%; background-color:#c8c8c8; ">
 	
+	
+	<!--exemple d'element 1-->
     <p class="text"><big><big><strong>RM Management tools</strong></big></big><br /><br />Bienvenue sur l'application de RainingMusic. Blabla bla blablabla </p>	<div class="main">
-    	<table style="border-top:#0b8dca thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;   padding-left:10px;">
+    	
+    	
+    <table style="border-top:#0b8dca thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;   padding-left:10px;">
     <tr><td>
-      <p >
-    
- &nbsp sur le site de RainingMusic
-   
-   	
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisl sed nunc tincidunt vehicula aliquam id nisl. Vivamus orci quam, ornare a venenatis vel, facilisis et nibh. Quisque porttitor aliquam leo ac facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras sapien lorem, pellentesque non egestas
-</td>
-<td>
- 
-
-<img src="pictures/braid.jpg" alt="braid" border=":#0b8dca thick solid" height="100" width="200" style="position:relative;top:10px; margin-right:10px;"  /></p>
-</td>
-</tr>
-  </table>
+	      <p >    
+	 		&nbsp sur le site de RainingMusic
+	 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non nisl sed nunc tincidunt vehicula aliquam id nisl. Vivamus orci quam, ornare a venenatis vel, facilisis et nibh. Quisque porttitor aliquam leo ac facilisis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras sapien lorem, pellentesque non egestas
+		</td>
+		<td>
+		<img src="pictures/braid.jpg" alt="braid" border=":#0b8dca thick solid" height="100" width="200" style="position:relative;top:10px; margin-right:10px;"  /></p>
+		</td>
+	
+	</tr>
+  	</table>
+  	
   <br /><br />
-    </div>
+ </div>
 
-
+<!-- separation de la page en 2 colonnes droite et gauche-->
     <div class="right" style="  padding-left:10px;" >
         
        <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 7px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;MAP&nbsp;</span> 
-       
-      
-    <p style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;"/>
-    <iframe src="https://mapsengine.google.com/map/embed?mid=zcDbx-dwquYs.kZPouQMZ2Ma0" width=100% height=100%></iframe>
-    <br /></p>
-  <hr />       <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 0px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;World of Goo </span> 
+     
+	   <p style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;"/>
+    	<iframe src="https://mapsengine.google.com/map/embed?mid=zcDbx-dwquYs.kZPouQMZ2Ma0" width=100% height=100%></iframe>
+    	<br />
+       </p>
+  <hr />       
+  
+ 		<span style=" background-color:#236586;font-weight:bold;border-radius: 7px 0px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;World of Goo </span> 
+        <img  src="pictures/WorldOf.jpg" height="100" width="150" alt="toto" align="baseline" style="border:11px solid #236586; border-radius: 7px 7px 7px 0px;"/>
+ 		<p style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;"/>   
+			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, cque um ac felis. Donec mauris arcu, ullamcorper id malesuada quis, aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br /></p>
+		  
+      	
+      	<span style=" background-color:#236586;font-weight:bold;border-radius: 7px 0px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;World of Goo </span> 
+        <img  src="pictures/WorldOf.jpg" height="100" width="150" alt="toto" align="baseline" style="border:11px solid #236586; border-radius: 7px 7px 7px 0px;"/>
+    	<p style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;"/>
+    		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sititae, fermentum ac felis. Donec mauris arcu, ullamcorper id malesuada quis, aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br /></p>
+    	</div>
     
-       <img  src="pictures/WorldOf.jpg" height="100" width="150" alt="toto" align="baseline" style="border:11px solid #236586; border-radius: 7px 7px 7px 0px;"/>
-    <p style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;"/>
-   
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, cque um ac felis. Donec mauris arcu, ullamcorper id malesuada quis, aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br /></p>
-<hr/>  
-        <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 0px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;World of Goo </span> 
-       
-       <img  src="pictures/WorldOf.jpg" height="100" width="150" alt="toto" align="baseline" style="border:11px solid #236586; border-radius: 7px 7px 7px 0px;"/>
-    <p style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;"/>
+    <!-- deuxieme colone(gauche) !-->	
+   	  <div class="left">  
     
-
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sititae, fermentum ac felis. Donec mauris arcu, ullamcorper id malesuada quis, aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br /></p>
-    </div>
-    <div class="left">
-   
+   		 <p style="border-top:#147fb2 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  padding:10px;">
     
-    <p style="border-top:#147fb2 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  padding:10px;">
-    
-    <span style="
-    background-image:url(pictures/back.png);font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;" >&nbsp;Bienvenue </span>&nbsp sur le site de dotgamehouse
-   
-   	
-
-L turuada quis, aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-
-Maecenas a nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae sem tempus lobortis. Nullam porttitor turpis at risus placerat scelerisque. Praesent sed lectus metus, non elementum neque. Duis consequat imperdiet iaculis. Sed scelerisque elit at augue mollis tincidunt. In hac habitasse platea dictumst. 
-    </p>
+  		 <span style="background-image:url(pictures/back.png);font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
+    		font-size:20px;" >&nbsp;Bienvenue </span>&nbsp sur le site de dotgamehouse
+			L turuada quis, aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+			Maecenas a nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae sem tempus lobortis. Nullam porttitor turpis at risus placerat scelerisque. Praesent sed lectus metus, non elementum neque. Duis consequat imperdiet iaculis. Sed scelerisque elit at augue mollis tincidunt. In hac habitasse platea dictumst. 
+   		 </p>
     
         <br />
-    <p style="border-top:#147fb2 thick solid; border-radius: 0px 7px 7px 7px;	 padding:10px;">
+   		<p style="border-top:#147fb2 thick solid; border-radius: 0px 7px 7px 7px;	 padding:10px;">
   
-    <span style="
-    background-image:url(pictures/back.png);font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;" >&nbsp;News  </span>&nbsp sur le site de dotgamehouse
+   		 <span style=" background-image:url(pictures/back.png);font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
+   			font-size:20px;" >&nbsp;News  </span>&nbsp sur le site de dotgamehouse
    
-   	
+   			 turuada quis, aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+			 <hr />
+			 s a nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae sem tempus lobortis. Nullam porttitor turpis at risus placerat scelerisque. Praesent sed lectus metus, non elementum neque. Duis consequat imperdiet iaculis. Sed scelerisque elit at augue mollis tincidunt. In hac habitasse platea dictumst. 
+             Maecenas 
+             <hr /> nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae sem tempus lobortis. Nullam porttitor turpis at risus placerat scelerisque. Praesent sed lectus metus, non elementum neque. Duis consequat imperdiet iaculis. Sed scelerisque elit at augue mollis tincidunt. In hac habitasse platea dictumst.Maecenas a nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae s<hr />em tempus lobortis. Nullam porttitor turpis at risus placerat scelerisque. Praesent sed lectus metus, non elementum neque. Duis consequat imperdiet iaculis. Sed scelerisque elit at augue mollis tincidunt. In hac habitasse platea dictumst.
+	    </p>
 
-L turuada quis, aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-<hr />s a nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae sem tempus lobortis. Nullam porttitor turpis at risus placerat scelerisque. Praesent sed lectus metus, non elementum neque. Duis consequat imperdiet iaculis. Sed scelerisque elit at augue mollis tincidunt. In hac habitasse platea dictumst. 
-Maecenas <hr /> nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae sem tempus lobortis. Nullam porttitor turpis at risus placerat scelerisque. Praesent sed lectus metus, non elementum neque. Duis consequat imperdiet iaculis. Sed scelerisque elit at augue mollis tincidunt. In hac habitasse platea dictumst.Maecenas a nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae s<hr />em tempus lobortis. Nullam porttitor turpis at risus placerat scelerisque. Praesent sed lectus metus, non elementum neque. Duis consequat imperdiet iaculis. Sed scelerisque elit at augue mollis tincidunt. In hac habitasse platea dictumst.
-
-    </p>
-    
-
-    </div>
+   	 </div>
     
    
-   
- 
-    
+      
 </div>
   <div class="pied"> 
- 
-
-            <section id="twitter">
-            
-   
+              <section id="twitter">
+                
 <div style="width:500px;font-size:8px;text-align:right;"><script type="text/javascript">
 document.write(unescape("%3Cscript src='http://twitterforweb.com/twitterbox.js?username=@dotgamehouse&settings=1,0,3,500,125,f4f4f4,1,c4c4c4,101010,1,1,336699' type='text/javascript'%3E%3C/script%3E"));</script></div>
-               <img src="pictures/oiseau.png" class="oiseau" alt="twitter" />
+<img src="pictures/oiseau.png" class="oiseau" alt="twitter" />
             
-              <div class="at">@dotgamehouse</div>
-              
-              </section>
-              <br /><br />
-              </div><img src="pictures/piedpage.png" alt=".dotGameHouse" title=".dotGameHouse" height="100%" width="100%" style="max-height:250px;position:relative; top:15px;" /></div>
+<div class="at">@dotgamehouse</div>
+</section>
+ <br /><br />
+ </div><img src="pictures/piedpage.png" alt=".dotGameHouse" title=".dotGameHouse" height="100%" width="100%" style="max-height:250px;position:relative; top:15px;" /></div>
 
 
 

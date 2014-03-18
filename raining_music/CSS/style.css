@@ -512,3 +512,50 @@ line-height:25px;
 color:#666;
 margin:0
 }
+
+
+
+/*FORMULAIRE DE CONTACT*/
+
+#formulaireContact{
+	/*couleur fond*/
+	
+	width:80%;
+	
+
+	
+	/*positionnement et marge*/
+	float: left;
+	clear: left;
+	margin:  0 0 0 0;
+		
+}
+
+
+.centerForm{
+	width:100%;
+	
+	min-height:675px;
+}
+
+
+div.CenterForm article form fieldset input{
+	/*marge*/
+	width:20%;
+	height: 20px;
+	/*bordure*/
+	border: 1px solid  #b6b7b9;
+	border-radius: 5px;
+	
+	
+}
+div.CenterForm article form fieldset textarea{
+	/*marge*/
+	width:70%;
+	height: 80px;
+	/*bordure*/
+	border: 1px solid  #b6b7b9;
+	border-radius: 5px;
+	
+	
+}
