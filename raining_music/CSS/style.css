@@ -47,7 +47,9 @@ div.left
 {
 	width:42%;
 	float:left;
-	
+	margin-left:15%;
+	margin-right:15%;
+	margin-top:30%;
 	text-decoration:none;
 
 	min-height:675px;
