@@ -47,10 +47,6 @@ div.right
 div.left
 {
 	width:42%;
-	float:left;
-	margin-left:15%;
-	margin-right:15%;
-	margin-top:30%;
 	text-decoration:none;
 
 	min-height:675px;
@@ -206,6 +202,11 @@ body, div, h1, form, fieldset, input, textarea {
 
 html {
 	height: 100%;
+}
+
+label#connexion
+{
+	float:none;
 }
 
 
