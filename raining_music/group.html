@@ -20,9 +20,9 @@
                 <div id="loginForm">
                     <fieldset>
                     <form method="post" action="./scripts/identification.php">
-                        <label for="username">Pseudonyme</label>
+                        <label id="connexion" for="username">Pseudonyme</label>
                         <input name="username" type="text" />
-                        <label for="password">Mot de passe</label>
+                        <label id="connexion" for="password">Mot de passe</label>
                         <input name="password" type="password" /><br /> <br />
                         <input id="ok" name="ok" value="valider" onClick="closeForm()" type="submit" />&nbsp; <a href="#">S'inscrire</a>
                     </form>
@@ -57,21 +57,22 @@
 <!-- nav : menu !-->
 <nav id="menu" >
 	<ul>
-		<li><a  class="menu" href="index.htm" title="Home">Home</a></li>
-		<li><a  class="menu" href="#" title="IndexConcerts">Index des concerts</a>
+		<li><a  class="menu" href="index.htm" title="Accueil">Accueil</a></li>
+		<li><a  class="menu" href="#" title="Actualites">Actualités</a>
 		  <ul>
-				<li><a  class="menu" href="AVenir" title="Logotypes">A venir</a></li>
-				<li><a  class="menu" href="Passés" title="Webdesign">Passés</a></li>
+				<li><a  class="menu" href="AVenir" title="Concerts">Les concerts</a></li>
+				<li><a  class="menu" href="Passés" title="Nouveaux artistes">Les nouveaux artistes</a></li>
 				
 			</ul>
 		</li>
-  		<li><a class="menu" href="#" title="IndexGroupes">Index des groupes</a></li>
-		<li><a  class="menu" href="ContactForm.html" title="username">Nous contacter</a></li> 
+		<li><a class="menu" href="#" title="Profil">Mon profil</a></li>
+  		<li><a class="menu" href="#" title="Recherche avancée">Recherche avancée</a></li>
+		<li><a  class="menu" href="ContactForm.html" title="Nous contacter">Nous contacter</a></li> 
 		<li class="search">
 				
 				<form  class="search" method="post">
-			
-				<input class="search_data" name="saisie" type="text" placeholder="Mot clé" required />
+				<!-- <label>Recherche rapide:</label> --> 
+				<input class="search_data" name="saisie" type="text" placeholder="Recherche rapide" required />
 				<input class="btn-right-loupe" name="go" type="submit" />
 				</form></li>
 		
@@ -121,11 +122,12 @@
             </td>
             
            <td class="texte" >
-            	dfgfggggggggg
+            	année
            </td>
             <td class="texte">
-            	 <a href=\"./index.php?mode=11;&etape=2;&nom=$resultat[1]\">modifier &nbsp; </a><br /> <a href=\"./scripts/gestionAct.php?nom=$resultat[1]&etape=10\">supprimer</a>
+            	 <a href="#">modifier &nbsp; </a><br /> <a href="#">supprimer</a>
             </td>
+         
    		 </tr>
   
 	 <tr>

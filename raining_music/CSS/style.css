@@ -5,10 +5,11 @@ body
 {	
 	margin:0px;
 	padding:0px;
-	background-image:url(./../pictures/fond.png);    
-	background-attachment:fixed;
 	
-
+	background-image:url(./../pictures/Sanstitre3.bmp);    
+	background-attachment:fixed;
+	background-size:contain;
+	
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:medium;
 	
@@ -46,13 +47,10 @@ div.right
 div.left
 {
 	width:42%;
-	float:left;
-	margin-left:15%;
-	margin-right:15%;
-	margin-top:30%;
 	text-decoration:none;
 
 	min-height:675px;
+	float:left;
 
 }
 
@@ -103,72 +101,7 @@ bottom: 0px;
 
 		#loginForm
             {
-            	height:170px;/*dt
-{
-	cursor:pointer;
-	width:150px;
-	display:block;
-	height:40px;
-	color:#000;
-	line-height:40px;
-	text-align:center;
-	border-right:dotted 1px black;
-	font-weight:bold;
-	
-	
-	
-}
-
-dd
-{
-	display:block;
-	margin:0px;
-	padding:0px;
-	background-color:#3b7383;
-	
-}
-	
-dd ul
-{
-	margin:0px;
-	padding:0px;
-	text-align:center;
-	list-style:none;
-} 
-
-dd ul li
-{
-	display:block;
-	margin:0px;
-	padding:0px;
-}
-
-dd ul li a
-{
-	color:#000;
-	text-decoration:none;
-	height:30px;
-	line-height:30px;
-	border-top:dotted 1px black;
-	
-	display:block;
-}
-
-dd ul li a:hover
-{
-	color:#000;
-	background-color:#FFF;
-}
-
-dl dd
-{	
-	display:none;
-}
-
-dl:hover dd
-{
-	display:block;	
-}*/
+            	height:170px;
             	width:250px;
 		background-color:#0075b7;
 	       	display:none;
@@ -243,72 +176,10 @@ div.conteneur-menu
 	background-color:#e83103;
 	margin-left:31%;
 	height:40px;
-	/*dt
-{
-	cursor:pointer;
-	width:150px;
-	display:block;
-	height:40px;
-	color:#000;
-	line-height:40px;
-	text-align:center;
-	border-right:dotted 1px black;
-	font-weight:bold;
+<<<<<<< HEAD
 	
-	
-	
-}
-
-dd
-{
-	display:block;
-	margin:0px;
-	padding:0px;
-	background-color:#3b7383;
-	
-}
-	
-dd ul
-{
-	margin:0px;
-	padding:0px;
-	text-align:center;
-	list-style:none;
-} 
-
-dd ul li
-{
-	display:block;
-	margin:0px;
-	padding:0px;
-}
-
-dd ul li a
-{
-	color:#000;
-	text-decoration:none;
-	height:30px;
-	line-height:30px;
-	border-top:dotted 1px black;
-	
-	display:block;
-}
-
-dd ul li a:hover
-{
-	color:#000;
-	background-color:#FFF;
-}
-
-dl dd
-{	
-	display:none;
-}
-
-dl:hover dd
-{
-	display:block;	
-}*/
+=======
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
 	top:5px;
 	position:relative;
 	opacity:1;
@@ -344,6 +215,11 @@ body, div, h1, form, fieldset, input, textarea {
 
 html {
 	height: 100%;
+}
+
+label#connexion
+{
+	float:none;
 }
 
 
@@ -485,7 +361,7 @@ nav ul li ul:before {
 nav ul li ul li a {
 	color:#a5a5a5;
 	padding:0 0 0 20px; margin:0;
-	width:110px; height:30px; line-height:30px;
+	width:	200px; height:30px; line-height:30px;
 	border:none;
 	border-top:1px solid #2a323f;
 }
@@ -629,6 +505,13 @@ label{
 	display: block;
 	float: left;
 	width: 200px;
+	
+}
+/*Style du bouton d'envoi du formulaire*/
+
+
+input:hover, textarea:hover{
+	background-color: #DDEEFF;
 	
 }
 
