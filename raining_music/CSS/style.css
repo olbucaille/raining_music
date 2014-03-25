@@ -5,10 +5,11 @@ body
 {	
 	margin:0px;
 	padding:0px;
-	background-image:url(./../pictures/fond.png);    
-	background-attachment:fixed;
 	
-
+	background-image:url(./../pictures/Sanstitre3.bmp);    
+	background-attachment:fixed;
+	background-size:contain;
+	
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:medium;
 	
@@ -46,8 +47,6 @@ div.right
 div.left
 {
 	width:42%;
-	float:left;
-	
 	text-decoration:none;
 
 	min-height:675px;
@@ -168,7 +167,10 @@ div.conteneur-menu
 	background-color:#e83103;
 	margin-left:31%;
 	height:40px;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
 	top:5px;
 	position:relative;
 	opacity:1;
@@ -195,77 +197,6 @@ dl.menu
 
 }
 
-/*dt
-{
-	cursor:pointer;
-	width:150px;
-	display:block;
-	height:40px;
-	color:#000;
-	line-height:40px;
-	text-align:center;
-	border-right:dotted 1px black;
-	font-weight:bold;
-	
-	
-	
-}
-
-dd
-{
-	display:block;
-	margin:0px;
-	padding:0px;
-	background-color:#3b7383;
-	
-}
-	
-dd ul
-{
-	margin:0px;
-	padding:0px;
-	text-align:center;
-	list-style:none;
-} 
-
-dd ul li
-{
-	display:block;
-	margin:0px;
-	padding:0px;
-}
-
-dd ul li a
-{
-	color:#000;
-	text-decoration:none;
-	height:30px;
-	line-height:30px;
-	border-top:dotted 1px black;
-	
-	display:block;
-}
-
-dd ul li a:hover
-{
-	color:#000;
-	background-color:#FFF;
-}
-
-dl dd
-{	
-	display:none;
-}
-
-dl:hover dd
-{
-	display:block;	
-}*/
-
-
-
-
-
 /*connexion*/
 
 
@@ -275,6 +206,11 @@ body, div, h1, form, fieldset, input, textarea {
 
 html {
 	height: 100%;
+}
+
+label#connexion
+{
+	float:none;
 }
 
 
@@ -416,7 +352,7 @@ nav ul li ul:before {
 nav ul li ul li a {
 	color:#a5a5a5;
 	padding:0 0 0 20px; margin:0;
-	width:110px; height:30px; line-height:30px;
+	width:	200px; height:30px; line-height:30px;
 	border:none;
 	border-top:1px solid #2a323f;
 }
@@ -519,10 +455,7 @@ margin:0
 
 #formulaireContact{
 	/*couleur fond*/
-	
 	width:80%;
-	
-
 	
 	/*positionnement et marge*/
 	float: left;
@@ -531,13 +464,11 @@ margin:0
 		
 }
 
-
 .centerForm{
 	width:100%;
 	
 	min-height:675px;
 }
-
 
 div.CenterForm article form fieldset input{
 	/*marge*/
@@ -556,6 +487,118 @@ div.CenterForm article form fieldset textarea{
 	/*bordure*/
 	border: 1px solid  #b6b7b9;
 	border-radius: 5px;
+	display: block;
+	float: left;
+}
+
+/*alignement des blocs d'input*/
+label{
+	display: block;
+	float: left;
+	width: 200px;
+	
+}
+/*Style du bouton d'envoi du formulaire*/
+
+
+input:hover, textarea:hover{
+	background-color: #DDEEFF;
+	
+}
+
+
+/*PRESENTATION GROUPE*/
+
+.texte-pres-group
+{
+	border-color:#000;
+	border-width:2px;
+	border-style:solid;
+	margin-left:4px;
+	overflow:hidden;
+	border: 1px solid #696;
+	padding: 60px 0;
+	text-align: left;
+	padding:15px;
+	border-radius: 10px;
+	box-shadow: #666 0px 0px 6px;
+
+}
+
+
+dt
+{
+	cursor:pointer;
+	width:150px;
+	display:block;
+	height:40px;
+	color:#000;
+	line-height:40px;
+	text-align:center;
+	border-right:dotted 1px black;
+	font-weight:bold;
 	
 	
+	
+}
+
+dd
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+	background-color:#3b7383;
+	
+}
+	
+dd ul
+{
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	list-style:none;
+} 
+
+dd ul li
+{
+	display:block;
+	margin:0px;
+	padding:0px;
+}
+
+dd ul li a
+{
+	color:#000;
+	text-decoration:none;
+	height:30px;
+	line-height:30px;
+	border-top:dotted 1px black;
+	
+	display:block;
+}
+
+dd ul li a:hover
+{
+	color:#000;
+	background-color:#FFF;
+}
+
+dl dd
+{	
+	display:none;
+}
+
+dl:hover dd
+{
+	display:block;	
+}
+
+
+a
+{
+	font-size:medium;
+	font-weight:bold;
+	color:#009;
+	text-decoration:none;
+		
 }
