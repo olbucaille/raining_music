@@ -603,3 +603,29 @@ a
 	text-decoration:none;
 		
 }
+
+/*Bouton HAUT DE PAGE*/
+#btntop
+{
+	
+background-image:url(./../pictures/btnWhite03.png);
+width:64px; 
+height:64px; 
+position: fixed; /*fixed permet un positionnement par rapport à la fenetre du navigateur*/
+
+right:50px; /*décalage gauche de 30px*/
+bottom:35px; /*décalage par rapport au bas de page de 35px*/
+opacity:0.3;
+}
+
+
+#btntop:hover
+{
+background-image:url(./../pictures/btnWhite03.png); 
+width:64px; 
+height:64px; 
+position: fixed; 
+right:50px;
+bottom:35px;
+opacity:0.8;
+}
