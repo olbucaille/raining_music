@@ -97,6 +97,8 @@ bottom: 0px;
 
 }
 
+
+
 /*login form*/
 
 		#loginForm
@@ -228,9 +230,15 @@ dl:hover dd
 
 /* css menu*/
 
-a.menu:hover {text-decoration: none; text-decoration:underline;}
+a.menu:hover 
+
+{
+	text-decoration: none;
+	text-decoration:underline;
+}
 
 div.conteneur-menu
+
 {
 	background-color:#e83103;
 	margin-left:31%;
