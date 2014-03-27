@@ -6,9 +6,13 @@ body
 	margin:0px;
 	padding:0px;
 	
-	background-image:url(./../pictures/Sanstitre3.bmp);    
+	background-image:url(./../pictures/RainingMusicBackground01.bmp);    
 	background-attachment:fixed;
-	background-size:contain;
+	background-size:cover;
+	/*-webkit-background-size: cover; /* pour Chrome et Safari 
+  	-moz-background-size: cover; /* pour Firefox 
+  	-o-background-size: cover; /* pour Opera */
+ 	
 	
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:medium;
@@ -624,11 +628,54 @@ opacity:0.3;
 
 #btntop:hover
 {
-background-image:url(./../pictures/btnWhite03.png); 
-width:64px; 
-height:64px; 
-position: fixed; 
-right:50px;
-bottom:35px;
+
 opacity:0.8;
+}
+
+
+
+
+
+/*BOUTON RESAUX SOCIAUX*/
+
+ .social {
+width: 293px;
+margin: 0 auto;
+padding:0;
+height: 52px;
+margin-top: 20px;
+
+position:absolute;top:0px;margin-right:70%;
+-webkit-font-smoothing: subpixel-antialiased;
+
+}
+
+
+
+
+
+
+ a.twitterbutton {
+background: url("https://korben.info/wp-content/themes/korben2013/hab/social-twitter-btn.png");
+width: 59px;
+height: 53px;
+display: block;
+font-size: 0px;
+margin-left: -1px;
+
+opacity:0.5;
+}
+
+ a.facebookbutton:hover {opacity:1;}
+ a.twitterbutton:hover{opacity:1;}
+
+ a.facebookbutton {
+background: url("https://korben.info/wp-content/themes/korben2013/hab/social-facebook-btn.png") ;
+width: 59px;
+height: 53px;
+display: block;
+font-size: 0px;
+margin-left: -1px;
+
+opacity:0.5;
 }
