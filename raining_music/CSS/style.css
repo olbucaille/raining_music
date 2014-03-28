@@ -478,7 +478,8 @@ margin:0
 
 div.left article form fieldset input{
 	/*marge*/
-	width:50%;
+	width:55%;
+	max-width:55%;
 	height: 20px;
 	/*bordure*/
 	border: 1px solid  #b6b7b9;
@@ -488,8 +489,10 @@ div.left article form fieldset input{
 }
 div.left article form fieldset textarea{
 	/*marge*/
-	width:70%;
-	height: 80px;
+	width:100%;
+	max-width:480px;
+	height: 100px;
+	max-height:120px;
 	
 	/*bordure*/
 	border: 1px solid  #b6b7b9;
@@ -502,7 +505,7 @@ div.left article form fieldset textarea{
 label{
 	display: block;
 	float: left;
-	width: 150px;
+	width: 170px;
 	
 }
 /*Style du bouton d'envoi du formulaire*/
@@ -645,7 +648,7 @@ padding:0;
 height: 52px;
 margin-top: 20px;
 
-position:absolute;top:0px;margin-right:70%;
+position:fixed;top:0px;margin-right:70%;
 -webkit-font-smoothing: subpixel-antialiased;
 
 }

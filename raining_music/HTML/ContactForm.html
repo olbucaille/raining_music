@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="CSS/style.css"/>
-<link rel="stylesheet" type="text/css" href="CSS/ContactStyle.css"/>
-<link rel="icon" type="image/gif" href="pictures/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../CSS/style.css"/>
+
+<link rel="icon" type="image/gif" href="../pictures/favicon.ico" />
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -15,10 +15,11 @@
 
 <!-- BOUTON HAUT DE PAGE -->
 
-<a href="#hautpage" id="btntop" ></a> <!-- lien vers le haut de page -->
-<a  id="hautpage"></a>
+<a href="#hautpage"><div id="btntop"></div></a> <!-- lien vers le haut de page -->
+<a name="hautpage" id="hautpage"></a>
+<div id = "header"></div>
 
-<div class="social" style="position:absolute;top:0px;margin-right:70%;">
+<div class="social" >
 <ul>
 <li><a class="twitterbutton" href="http://twitter.com">Twitter</a></li>
 <li><a class="facebookbutton" href="http://www.facebook.com/rainingmusic.isepgroup">Facebook</a></li>
@@ -36,7 +37,7 @@
 <div class="conteneur"style="margin-left:10%; width:80%;min-width:900px;min-height:1000px; background-color:#c8c8c8; ">
 
 <header class="banniere">      
-		<a href="index.htm"><img src="pictures/RMBanniere.png" alt="RainingMusic" title="RainingMusic" height="100%" width="100%" style="max-height:200px;" /></a>
+		<a href="index.htm"><img src="../pictures/RMBanniere.png" alt="RainingMusic" title="RainingMusic" height="100%" width="100%" style="max-height:200px;" /></a>
         <div style="position:absolute;top:0px;margin-left:70%;">
             <div id="loginFormContainer">
                 <div id="loginForm">
@@ -140,7 +141,7 @@ Cependant, avant de poser votre question, veuillez consulter les sujets déjà p
 <td>
  
 
-<a href="#"> <img src="pictures/FAQresize.bmp" alt="Vers la F.A.Q" border=":#0b8dca thick solid" height="100" width="200" style="position:relative;top:10px; margin-right:10px;"  /></a>
+<a href="#"> <img src="../pictures/FAQresize.bmp" alt="Vers la F.A.Q" border=":#0b8dca thick solid" height="100" width="200" style="position:relative;top:10px; margin-right:10px;"  /></a>
 </p></td>
 </tr>
   </table>
@@ -155,7 +156,7 @@ Cependant, avant de poser votre question, veuillez consulter les sujets déjà p
  
  <p style="text-align:justify; border-top:#147fb2 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  padding:10px;">
     
-  		 <span style="background-image:url(pictures/back.png);font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
+  		 <span style="background-image:url(../pictures/back.png);font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
     		font-size:20px;" >&nbsp;Des questions particulières ? </span><br/><br/> Aucun souci, toute l'équipe de Raining Music est à votre disposition pour répondre à vos questions quant à notre organisme, 
     		nos motivations, nos ambitions, le recrutement (pourquoi pas ?!). Et encore bien d'autres choses. N'hésitez pas à nous contacter pour tous sujets (même sans rapport direct avec le contenu même
     		 du site), nous serons heureux de pouvoir vous répondre et vous aider à mieux comprendre notre fonctionnement ou encore qui nous sommes réellement (même si, pour ce point, une page y est dédiée)
@@ -169,7 +170,7 @@ Cependant, avant de poser votre question, veuillez consulter les sujets déjà p
     	
     
     <!-- deuxieme colone(gauche) !-->	
-   	  <div class="left" style="width: 56% ;min-height: 400px;">  
+   	  <div class="left" style="width: 56% ;min-height: 400px; min-width: 56%">  
    	  
    	
    	  <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 7px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;Formulaire de contact&nbsp;</span> 
@@ -220,11 +221,11 @@ Cependant, avant de poser votre question, veuillez consulter les sujets déjà p
         
        <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 7px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;Carte&nbsp;</span> 
      
-	   <p style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;"/>
+	   <p style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;">
 	   Notre adresse:<br/>
 	   28 rue, Notre Dame des Champs<br/>
-	   75006 PARIS
-    	<iframe src="https://mapsengine.google.com/map/u/0/embed?mid=zcDbx-dwquYs.kNFb3RvLdEWo" width=100% height="400"></iframe>
+	   75006 PARIS<br/><br/>
+    	<iframe src="https://mapsengine.google.com/map/u/0/embed?mid=zcDbx-dwquYs.kNFb3RvLdEWo" width=100% height="400" ></iframe>
     	<br />
        </p>
   <hr />   
@@ -237,18 +238,6 @@ Cependant, avant de poser votre question, veuillez consulter les sujets déjà p
 <div class="pied"> 
  
 
-            <section id="twitter">
-            
-   
-<div style="width:500px;font-size:8px;text-align:right;"><script type="text/javascript">
-document.write(unescape("%3Cscript src='http://twitterforweb.com/twitterbox.js?username=@RainingMusic&settings=1,0,3,500,125,f4f4f4,1,c4c4c4,101010,1,1,336699' type='text/javascript'%3E%3C/script%3E"));</script></div>
-               <img src="pictures/oiseau.png" class="oiseau" alt="twitter" />
-            
-              <div class="at">@RainingMusic</div>
-              
-              </section>
-              <br /><br />
-              </div><img src="pictures/piedpage.png" alt=".RainingMusic" title=".RainingMusic" height="100%" width="100%" style="max-height:250px;position:relative; top:15px;" /></div>
-
+          
 </body>
 </html>
