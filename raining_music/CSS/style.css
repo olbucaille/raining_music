@@ -5,10 +5,10 @@ body
 {	
 	margin:0px;
 	padding:0px;
-	
-	background-image:url(./../pictures/RainingMusicBackground01.bmp);    
+	background-color:#000;
+	/*background-image:url(./../pictures/RainingMusicBackground01.bmp);    
 	background-attachment:fixed;
-	background-size:cover;
+	background-size:cover;*/
 	/*-webkit-background-size: cover; /* pour Chrome et Safari 
   	-moz-background-size: cover; /* pour Firefox 
   	-o-background-size: cover; /* pour Opera */
