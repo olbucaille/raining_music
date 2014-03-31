@@ -25,15 +25,17 @@ if(isset($_SESSION['user']))
 {
 		
 	$t = $_SESSION['user'];
-	echo"$t";
-}
+	
+	echo"<li id=\"idconnect\">
+				bonjour";
+	echo"&nbsp$t";
+
 	?>
-				<li id="menu">
-				bonjour 
+				 
 				<a class="menu" href="./../index.php?action='deco'" >deco</a>
 					
 				</li>
-				<?php ?>
+				<?php }?>
 		
 	 </ul>       
 </nav>

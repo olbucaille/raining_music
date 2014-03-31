@@ -1,5 +1,6 @@
 <?php
-include("db_connect.inc.php");
+require_once("db_connect.inc.php");
+
 require_once("model/user.php");
 $r = "action";
 global $action;

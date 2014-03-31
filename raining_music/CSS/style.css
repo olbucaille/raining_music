@@ -297,7 +297,7 @@ nav ul li form.search:last-child {
 	
 }
 
-nav ul li a {
+nav ul li a{
 	border:none;
 	float:left;
 	padding:0 20px 0 20px; margin:0;
@@ -313,6 +313,23 @@ nav ul li a {
 	border-right:1px solid #2a323f;
 	border-left: 1px solid #6d7581;
 }
+
+nav ul li#idconnect{
+border:none;
+	float:left;
+	padding:0; margin:0;
+	height:40px;
+	line-height:40px;
+	color:#e0e1e3;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px 1px 1px #101215;
+	-webkit-transition: color 0.3s ease-in;
+	-moz-transition: color 0.3s ease-in;
+	-o-transition: color 0.3s ease-in;
+	border-right:1px solid #2a323f;
+	border-left: 1px solid #6d7581;
+	}
 
 nav li a {
 	border:none;
