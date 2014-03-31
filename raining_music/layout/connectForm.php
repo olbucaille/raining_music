@@ -21,7 +21,7 @@ if(!isset($_SESSION['user']))
 		
 </script>
 
-        <script src="./../../js/jquery-1.js" type="text/javascript"></script>
+        <script src="./../js/jquery-1.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function(){
 

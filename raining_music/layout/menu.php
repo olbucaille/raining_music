@@ -2,17 +2,17 @@
 <!-- nav : menu !-->
 <nav id="menu" >
 <ul>
-<li><a  class="menu" href="index.htm" title="Accueil">Accueil</a></li>
+<li><a  class="menu" href="./../index.php" title="Accueil">Accueil</a></li>
 <li><a  class="menu" href="#" title="Actualites">Actualités</a>
 <ul>
 <li><a  class="menu" href="#" title="Concerts">Les concerts</a></li>
-<li><a  class="menu" href="group.html" title="Nouveaux artistes">Les nouveaux artistes</a></li>
+<li><a  class="menu" href="./../HTML/group.html" title="Nouveaux artistes">Les nouveaux artistes</a></li>
 
 </ul>
 </li>
 <li><a class="menu" href="#" title="Profil">Mon profil</a></li>
-<li><a class="menu" href="Bienvenue.html" title="Recherche avancée">Recherche avancée</a></li>
-<li><a  class="menu" href="ContactForm.html" title="Nous contacter">Nous contacter</a></li>
+<li><a class="menu" href="./../HTML/Bienvenue.html" title="Recherche avancée">Recherche avancée</a></li>
+<li><a  class="menu" href="./../HTML/ContactForm.html" title="Nous contacter">Nous contacter</a></li>
 <li class="search">
 
 <form  class="search" method="post">
@@ -41,8 +41,8 @@ if(isset($_SESSION['user']))
 </nav>
 
 
-<script src="./../../js/jquery.js"></script>
-<script src="./../../js/modernizr.js"></script>
+<script src="./../js/jquery.js"></script>
+<script src="./../js/modernizr.js"></script>
 <script>
 (function($){
 	var nav = $("#menu");

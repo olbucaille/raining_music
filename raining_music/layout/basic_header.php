@@ -5,8 +5,8 @@ session_start();
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="../../CSS/style.css"/>
-<link rel="icon" type="image/gif" href="../../pictures/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../CSS/style.css"/>
+<link rel="icon" type="image/gif" href="../pictures/favicon.ico" />
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -42,7 +42,7 @@ par la ligne ci-dessous. Celle-ci appelera le code HTML du fichier Buttons.html 
 <div class="conteneur">
 <!-- haut de page : photo + connexion !-->
 <header class="banniere">      
-		<a href="index.htm"><img src="../../pictures/NewBanner04.bmp" alt="RainingMusic" title="RainingMusic" height="100%" width="100%" style="max-height:300px;" /></a>
+		<a href="index.htm"><img src="../pictures/NewBanner04.bmp" alt="RainingMusic" title="RainingMusic" height="100%" width="100%" style="max-height:300px;" /></a>
         <div style="position:absolute;top:0px;margin-left:70%;">
             <div id="loginFormContainer">
 
