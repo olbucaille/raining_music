@@ -1,6 +1,7 @@
 <?php
-include("controller.inc.php");
 session_start();
+include("controller.inc.php");
+
 
 
 
