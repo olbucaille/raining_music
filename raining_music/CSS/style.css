@@ -5,10 +5,14 @@ body
 {	
 	margin:0px;
 	padding:0px;
-	
-	background-image:url(./../pictures/Sanstitre3.bmp);    
+	background-color:#000;
+	/*background-image:url(./../pictures/RainingMusicBackground01.bmp);    
 	background-attachment:fixed;
-	background-size:contain;
+	background-size:cover;*/
+	/*-webkit-background-size: cover; /* pour Chrome et Safari 
+  	-moz-background-size: cover; /* pour Firefox 
+  	-o-background-size: cover; /* pour Opera */
+ 	
 	
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:medium;
@@ -28,7 +32,8 @@ a
 div.conteneur
 {	
 	width:100%;
-	background-color:#009;
+	
+	margin-left:10%; width:80%;min-width:1000px;max-width:1300px;min-height:1000px; background-color:#c8c8c8; 
 		
 }
 
@@ -300,7 +305,7 @@ nav ul li form.search:last-child {
 	
 }
 
-nav ul li a {
+nav ul li a{
 	border:none;
 	float:left;
 	padding:0 20px 0 20px; margin:0;
@@ -316,6 +321,23 @@ nav ul li a {
 	border-right:1px solid #2a323f;
 	border-left: 1px solid #6d7581;
 }
+
+nav ul li#idconnect{
+border:none;
+	float:left;
+	padding:0; margin:0;
+	height:40px;
+	line-height:40px;
+	color:#e0e1e3;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px 1px 1px #101215;
+	-webkit-transition: color 0.3s ease-in;
+	-moz-transition: color 0.3s ease-in;
+	-o-transition: color 0.3s ease-in;
+	border-right:1px solid #2a323f;
+	border-left: 1px solid #6d7581;
+	}
 
 nav li a {
 	border:none;
@@ -344,7 +366,7 @@ nav ul li ul {
 	border:none;
 	background:#2a323f;
 	height:auto;
-	width:130px;
+	width:220px;
 	padding:1px 0 0 0; margin:0;
 	-moz-border-bottom-right-radius: 10px; 
     -webkit-border-bottom-right-radius: 10px; 
@@ -364,6 +386,7 @@ nav ul li ul li a {
 	width:	200px; height:30px; line-height:30px;
 	border:none;
 	border-top:1px solid #2a323f;
+	
 }
 nav ul li ul li a:hover {
 	color:#fff;
@@ -479,9 +502,10 @@ margin:0
 	min-height:675px;
 }
 
-div.CenterForm article form fieldset input{
+div.left article form fieldset input{
 	/*marge*/
-	width:20%;
+	width:55%;
+	max-width:55%;
 	height: 20px;
 	/*bordure*/
 	border: 1px solid  #b6b7b9;
@@ -489,10 +513,13 @@ div.CenterForm article form fieldset input{
 	
 	
 }
-div.CenterForm article form fieldset textarea{
+div.left article form fieldset textarea{
 	/*marge*/
-	width:70%;
-	height: 80px;
+	width:100%;
+	max-width:480px;
+	height: 100px;
+	max-height:120px;
+	
 	/*bordure*/
 	border: 1px solid  #b6b7b9;
 	border-radius: 5px;
@@ -504,7 +531,7 @@ div.CenterForm article form fieldset textarea{
 label{
 	display: block;
 	float: left;
-	width: 200px;
+	width: 170px;
 	
 }
 /*Style du bouton d'envoi du formulaire*/
@@ -515,6 +542,7 @@ input:hover, textarea:hover{
 	
 }
 
+#sendButton{width:150px}
 
 /*PRESENTATION GROUPE*/
 
@@ -610,4 +638,73 @@ a
 	color:#009;
 	text-decoration:none;
 		
+}
+
+/*Bouton HAUT DE PAGE*/
+#btntop
+{
+	
+background-image:url(./../pictures/btnWhite03.png);
+width:64px; 
+height:64px; 
+position: fixed; /*fixed permet un positionnement par rapport à la fenetre du navigateur*/
+
+right:50px; 
+bottom:35px; /*décalage par rapport au bas de page de 35px*/
+opacity:0.3;
+}
+
+
+#btntop:hover
+{
+
+opacity:0.8;
+}
+
+
+
+
+
+/*BOUTON RESAUX SOCIAUX*/
+
+ .social {
+width: 293px;
+margin: 0 auto;
+padding:0;
+height: 52px;
+margin-top: 20px;
+
+position:fixed;top:0px;margin-right:70%;
+-webkit-font-smoothing: subpixel-antialiased;
+
+}
+
+
+
+
+
+
+ a.twitterbutton {
+background: url("https://korben.info/wp-content/themes/korben2013/hab/social-twitter-btn.png");
+width: 59px;
+height: 53px;
+display: block;
+font-size: 0px;
+margin-left: -1px;
+
+opacity:0.5;
+}
+
+ a.facebookbutton:hover {opacity:1;}
+ a.twitterbutton:hover{opacity:1;}
+
+ a.facebookbutton {
+background: url("https://korben.info/wp-content/themes/korben2013/hab/social-facebook-btn.png") ;
+width: 59px;
+height: 53px;
+display: block;
+font-size: 0px;
+margin-left: -1px;
+
+opacity:0.5;
 }
