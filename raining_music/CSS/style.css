@@ -8,21 +8,12 @@ body
 	background-color:#000;
 	/*background-image:url(./../pictures/RainingMusicBackground01.bmp);    
 	background-attachment:fixed;
-<<<<<<< HEAD
-	background-size:cover;*/
-	/*-webkit-background-size: cover; /* pour Chrome et Safari 
-  	-moz-background-size: cover; /* pour Firefox 
-  	-o-background-size: cover; /* pour Opera */
- 	
-	   		<br />
-=======
 	background-size:cover;*/
 	/*-webkit-background-size: cover; /* pour Chrome et Safari 
   	-moz-background-size: cover; /* pour Firefox 
   	-o-background-size: cover; /* pour Opera */
  	
 	
->>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:medium;
 	
@@ -190,10 +181,6 @@ div.conteneur-menu
 	background-color:#e83103;
 	margin-left:31%;
 	height:40px;
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
 	top:5px;
 	position:relative;
 	opacity:1;
