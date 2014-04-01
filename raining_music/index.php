@@ -18,6 +18,11 @@ if(isset($_POST['username']) && isset($_POST['username']) )
 	header("location:./template/accueil.php");
 }
 
+if(strcmp($action,'inscription'))
+{
+	// rediriger vers inscription
+}
+
 
 	header("location:./template/accueil.php");
 
