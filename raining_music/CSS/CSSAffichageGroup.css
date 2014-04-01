@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{	
+	margin:0px;
+	padding:0px;
+	
+	background-image:url(./../pictures/Sanstitre3.bmp);    
+	background-attachment:fixed;
+	background-size:contain;
+	 
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:medium;
+	
+}
+
+a
+{
+	font-size:medium;
+	font-weight:bold;
+	color:#009;
+	text-decoration:none;
+		
+}
+
+
+div.conteneur
+{	
+	width:100%;
+	background-color:#009;
+		
+}
+
+div.right
+{
+	width:42%;
+	float:right;
+	position : relative;
+	top:-300px;
+	text-decoration:none;
+
+	min-height:675px;
+	
+	
+}
+
+div.left
+{
+	width:42%;
+	float:left;
+	text-decoration:none;
+
+	min-height:675px;
+
+}
