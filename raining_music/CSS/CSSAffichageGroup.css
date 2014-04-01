@@ -5,11 +5,10 @@ body
 {	
 	margin:0px;
 	padding:0px;
-	
-	background-image:url(./../pictures/Sanstitre3.bmp);    
+	background-color:#000;
+	background-image:url(./../pictures/RainingMusicBackground01.bmp);    
 	background-attachment:fixed;
-	background-size:contain;
-	 
+	background-size:contain; 
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:medium;
 	
@@ -28,8 +27,7 @@ a
 div.conteneur
 {	
 	width:100%;
-	background-color:#009;
-		
+	margin-left:10%; width:80%;min-width:1000px;max-width:1300px;min-height:1000px; background-color:#c8c8c8;	
 }
 
 div.right
