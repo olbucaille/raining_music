@@ -15,29 +15,55 @@ if(!isset($_SESSION['user']))
                    </fieldset>
                 </div>
                 
-                <div id="loginLink"></div><?php }?>
-            </div>
+                <div id="loginLink"></div><?php } else { ?>
+                
+                
+               <div id="loginForm">
+              
+               <ul>
+               <li><a href="#">Voir mon profil</a></li>
+               <li><a href="#">Mes artistes preferes</a></li>
+               <li><a href="#">Mes concerts suivis</a></li>
+               <li><a class="menu" href="./../index.php?action='deco'" >Deconnexion</a></li>
+				</ul>
+               </div>
+               <div id="profilLink"></div>
+               <!-- <div id="profilLink"> <?php		
+					$userName = $_SESSION['user'];
+	
+					echo"<li id=\"idconnect\">
+					bonjour";
+					echo"&nbsp$userName";?>
+				</div>-->
+            <?php } ?> 
 </header>
 		
 </script>
 
         <script src="./../js/jquery-1.js" type="text/javascript"></script>
         <script type="text/javascript">
-            $(document).ready(function(){
+            $(document).ready(function()
+            {
 
-                $("#loginLink").click(function(){
-                    if ($("#loginForm").is(":hidden")){
-                        $("#loginForm").slideDown("slow");
-                    }
-                    else{
-                        $("#loginForm").slideUp("slow");
-                    }
-                });
-                
+            	$("#profilLink, #loginLink").click( 
+                function ()
+                {
+                     if ($("#loginForm").is(":hidden"))
+                     {
+                         $("#loginForm").slideDown("slow");
+                     }
+                     else{
+                         $("#loginForm").slideUp("slow");
+                     }
+                 }
+               
+            );
             });
             
-            function closeForm(){
+            function closeForm()
+            {
                 $("#messageSent").show("slow");
                 setTimeout('$("#messageSent").hide();$("#loginForm").slideUp("slow")', 500);
-		   }
+		   	 }
+           
         </script>
