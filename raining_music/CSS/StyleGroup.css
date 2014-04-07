@@ -51,6 +51,7 @@ div.left
 	float:left;
 	margin-left:15%;
 	margin-right:15%;
+<<<<<<< HEAD
 	margin-top:5%;
 	text-decoration:blink;
 	min-height:100px;
@@ -63,6 +64,12 @@ div.left
     font-size:20px;
     text-align:justify;
     color:#000000;
+=======
+	margin-top:30%;
+	text-decoration:none;
+	min-height:675px;
+
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
 }
 
 div.Bienvenue
@@ -87,6 +94,8 @@ div.Bienvenue
 
 
 
+
+
 .text
 {
 	border-color:#000;
@@ -103,4 +112,5 @@ div.Bienvenue
 	
 
 }
+	
 	
