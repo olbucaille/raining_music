@@ -2,7 +2,7 @@
 <!-- nav : menu !-->
 <nav id="menu" >
 <ul>
-<li><a  class="menu" href="./../index.php" title="Accueil">Accueil</a></li>
+<li><a  class="menu" href="./../template/accueil.php" title="Accueil">Accueil</a></li>
 <li><a  class="menu" href="#" title="Actualites">Actualités</a>
 <ul>
 <li><a  class="menu" href="#" title="Concerts">Les concerts</a></li>
@@ -12,7 +12,7 @@
 </li>
 <li><a class="menu" href="#" title="Profil">Mon profil</a></li>
 <li><a class="menu" href="./../HTML/Bienvenue.html" title="Recherche avancée">Recherche avancée</a></li>
-<li><a  class="menu" href="./../HTML/ContactForm.html" title="Nous contacter">Nous contacter</a></li>
+<li><a  class="menu" href="./../template/ContactPage.php" title="Nous contacter">Nous contacter</a></li>
 <li class="search">
 
 <form  class="search" method="post">
@@ -20,22 +20,7 @@
 <input class="search_data" name="saisie" type="search" placeholder="Mot clé" required />
 <input class="btn-right-loupe" name="go" type="submit" />
 </form></li>
-<?php
-if(isset($_SESSION['user']))
-{
-		
-	$t = $_SESSION['user'];
-	
-	echo"<li id=\"idconnect\">
-				bonjour";
-	echo"&nbsp$t";
 
-	?>
-				 
-				<a class="menu" href="./../index.php?action='deco'" >deco</a>
-					
-				</li>
-				<?php }?>
 		
 	 </ul>       
 </nav>

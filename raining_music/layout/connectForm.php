@@ -17,6 +17,7 @@ if(!isset($_SESSION['user']))
                 
                 <div id="loginLink"></div><?php }?>
             </div>
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
 </header>
 		
 </script>
@@ -25,6 +26,21 @@ if(!isset($_SESSION['user']))
         <script type="text/javascript">
             $(document).ready(function(){
 
+<<<<<<< HEAD
+            	$("#profilLink, #loginLink").click( 
+                function ()
+                {
+                     if ($("#loginForm, #loginFormLogIn").is(":hidden"))
+                     {
+                         $("#loginForm, #loginFormLogIn").slideDown("slow");
+                     }
+                     else{
+                         $("#loginForm, #loginFormLogIn").slideUp("slow");
+                     }
+                 }
+               
+            );
+=======
                 $("#loginLink").click(function(){
                     if ($("#loginForm").is(":hidden")){
                         $("#loginForm").slideDown("slow");
@@ -34,10 +50,20 @@ if(!isset($_SESSION['user']))
                     }
                 });
                 
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
             });
             
             function closeForm(){
                 $("#messageSent").show("slow");
+<<<<<<< HEAD
+                setTimeout('$("#messageSent").hide();$("#loginForm, #loginFormLogIn").slideUp("slow")', 500);
+		   	 }
+           
+        </script>
+        
+      
+=======
                 setTimeout('$("#messageSent").hide();$("#loginForm").slideUp("slow")', 500);
 		   }
         </script>
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
