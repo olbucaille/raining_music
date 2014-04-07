@@ -62,7 +62,7 @@ div.left
 	float:left;
 	margin-left:15%;
 	margin-right:15%;
-	margin-top:5%;
+	margin-top:10%;
 	text-decoration:none;
 	min-height:675px;
 
@@ -70,17 +70,6 @@ div.left
 
 
 
-div.right
-{
-	width:42%;
-	float:right;
-	position : relative;
-	text-decoration:none;
-    margin-top :5%;
-	min-height:675px;
-	
-	
-}
 
 .text
 {
@@ -98,6 +87,8 @@ div.right
 	
 
 }
+	
+
 	
 
 
