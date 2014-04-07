@@ -58,7 +58,17 @@ include("./../layout/basic_header.php");
 		    <input name="password2" "/><br/><br/>
 		    
 		    <label for="password2">Verification du mot de passe :</label>
-		    <input type="date" name="password2" "/><br/><br/>
+		    <input type="date" name="password2"/><br/><br/>
+		    
+		     
+		     <script>
+$(function() {
+$( "#datepicker" ).datepicker();
+});
+</script>
+
+<p>Date: <input type="text" id="datepicker"></p>
+		    
 		    
 		 	<br/><br/>
 		    	
