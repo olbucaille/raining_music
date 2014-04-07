@@ -3,11 +3,6 @@
 include("./../layout/basic_header.php");
 ?>
 
-
-
-
-
-
 <!-- -->
 
 
@@ -62,13 +57,13 @@ Cependant, avant de poser votre question, veuillez consulter les sujets déjà pré
          
             <fieldset> 
             <label for="prenomNom" >Prénom et Nom:</label>
-   			<input type="text" id="prenomNom" placeholder="Jean-Michel Dumont"/><br/><br/>
+   			<input type="text" name="prenomNom" placeholder="Jean-Michel Dumont"/><br/><br/>
              
             <label for="emailAddress">Adresse e-mail:</label> 
-   			<input type="email" id="emailAddress" placeholder="Exemple@mail.com" />  <br/><br/>
+   			<input type="email" name="emailAddress" placeholder="Exemple@mail.com" />  <br/><br/>
              
             <label for="telNum">Numéro de téléphone:</label>
-		    <input type="tel" id="telNum" placeholder="0123344556"/><br/><br/>
+		    <input type="tel" name="telNum" placeholder="0123344556"/><br/><br/>
 		    
 		    <label for="subjectChoice">Sujet:</label>
 		    <select name="subjectChoice" >

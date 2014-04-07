@@ -43,8 +43,8 @@ par la ligne ci-dessous. Celle-ci appelera le code HTML du fichier Buttons.html 
 <!-- haut de page : photo + connexion !-->
 <header class="banniere">      
 		<a href="./../index.php"><img src="../pictures/NewBanner04.bmp" alt="RainingMusic" title="RainingMusic" height="100%" width="100%" style="max-height:300px;" /></a>
-        <div style="position:absolute;top:0px;margin-left:70%;">
-            <div id="loginFormContainer">
+      
+           
 
 <?php 
 include("./../layout/connectForm.php");
