@@ -5,100 +5,52 @@ body
 {	
 	margin:0px;
 	padding:0px;
-	background-image:url(./../pictures/fond.png);    
+	
+	background-image:url(./../pictures/Sanstitre3.bmp);    
 	background-attachment:fixed;
+	background-size:contain;
+	 
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:medium;
 	
 }
 
-div.header
-
-{
-   position:absolute;
-   top:0px;
-   margin-left:70%;
-}
-
 a
-
 {
-	margin-left:5px;
-	white-space:pre;
-	font-size:120%;
+	font-size:medium;
 	font-weight:bold;
 	color:#009;
-	text-decoration:underline;		
-}
-
-div.conteneur-prime
-
-{
-margin-left:10%;
-width:80%;
-min-width:850px;
-min-height:1000px;
-background-color:#c7c7c7;
-}
-
-
-span.left
-
-{
-    background-image:url(pictures/back.png);
-    font-weight:bold;
-    border-radius: 0px 0px 7px 7px;
-    box-shadow: #666 6px 6px 6px 0px;
-    padding-top:11px; 
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;"	
-}
-	
-
-
-div.left
-{
-	width:42%;
-	float:left;
-	margin-left:15%;
-	margin-right:15%;
-	margin-top:5%;
 	text-decoration:none;
-	min-height:675px;
-
+		
 }
 
 
+div.conteneur
+{	
+	width:100%;
+	background-color:#009;
+		
+}
 
 div.right
 {
 	width:42%;
 	float:right;
 	position : relative;
+	top:-300px;
 	text-decoration:none;
-    margin-top :5%;
+
 	min-height:675px;
 	
 	
 }
 
-.text
+div.left
 {
-	border-color:#000;
-	border-width:2px;
-	border-style:solid;
-	margin-left:4px;
-	overflow:hidden;
-	border: 1px solid #696;
-	padding: 60px 0;
-	text-align: left;
-	padding:15px;
-	border-radius: 10px;
-	box-shadow: #666 0px 0px 6px;
-	
+	width:42%;
+	float:left;
+	text-decoration:none;
+
+	min-height:675px;
 
 }
-	
-
-
-

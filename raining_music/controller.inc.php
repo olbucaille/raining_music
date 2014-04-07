@@ -1,9 +1,7 @@
 <?php
-//on inclut le modele et la BD
 require_once("db_connect.inc.php");
-require_once("model/user.php");
 
-//affecte la $action
+require_once("model/user.php");
 $r = "action";
 global $action;
 $action = "unknown";

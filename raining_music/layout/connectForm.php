@@ -15,6 +15,7 @@ if(!isset($_SESSION['user']))
                    </fieldset>
                 </div>
                 
+<<<<<<< HEAD
                 <div id="loginLink"></div><?php } else { ?>
                 
                 
@@ -34,15 +35,19 @@ if(!isset($_SESSION['user']))
                </div>
                <div id="profilLink"></div><?php }?>
              
+=======
+                <div id="loginLink"></div><?php }?>
+            </div>
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
 </header>
 		
 </script>
 
         <script src="./../js/jquery-1.js" type="text/javascript"></script>
         <script type="text/javascript">
-            $(document).ready(function()
-            {
+            $(document).ready(function(){
 
+<<<<<<< HEAD
             	$("#profilLink, #loginLink").click( 
                 function ()
                 {
@@ -56,14 +61,30 @@ if(!isset($_SESSION['user']))
                  }
                
             );
+=======
+                $("#loginLink").click(function(){
+                    if ($("#loginForm").is(":hidden")){
+                        $("#loginForm").slideDown("slow");
+                    }
+                    else{
+                        $("#loginForm").slideUp("slow");
+                    }
+                });
+                
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
             });
             
-            function closeForm()
-            {
+            function closeForm(){
                 $("#messageSent").show("slow");
+<<<<<<< HEAD
                 setTimeout('$("#messageSent").hide();$("#loginForm, #loginFormLogIn").slideUp("slow")', 500);
 		   	 }
            
         </script>
         
       
+=======
+                setTimeout('$("#messageSent").hide();$("#loginForm").slideUp("slow")', 500);
+		   }
+        </script>
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git

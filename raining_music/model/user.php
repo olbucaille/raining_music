@@ -1,7 +1,4 @@
 <?php
-
-//modele user 
-// permet de dialoguer avec la BDD, et effectuer des opération sur les données
 $result;
 function identify($login, $mdp) {
 	global $connect;

@@ -1,5 +1,4 @@
 <?php 
-// permet de charger la session courante : avec par exemple les données relative à la connexion de l'utilisateur
 session_start();
 ?>
 <!DOCTYPE html >

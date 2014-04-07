@@ -147,6 +147,7 @@ bottom: 0px;
             	background-image:url('./../pictures/connexion.png');
             	display:block;
             	cursor:pointer;
+<<<<<<< HEAD
             }
             #profilLink
             {
@@ -167,6 +168,10 @@ bottom: 0px;
             } 
             #loginFormLogIn li{
             list-style-type:none;
+=======
+		
+		
+>>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
             }
             #messageSent
             {
@@ -798,7 +803,7 @@ opacity:0.5;
 @keyframes slider {  
     0%, 20%, 100%   { left: 0 }  
     25%, 45%        { left: -100% }  
-    50%, 65%        { left: -200% }  
+    50%, 70%        { left: -200% }  
     75%, 95%        { left: -300% }  
 } 
 
