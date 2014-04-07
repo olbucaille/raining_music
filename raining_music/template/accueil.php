@@ -1,4 +1,6 @@
-<?php 
+
+<?php
+//on inclut le header 
 include("./../layout/basic_header.php");
 ?>
 <!-- debut de la page en elle meme-->
@@ -80,5 +82,6 @@ include("./../layout/basic_header.php");
       
 </div>
 <?php 
+//... puis le footer
 include("./../layout/basic_footer.php");
 ?>
