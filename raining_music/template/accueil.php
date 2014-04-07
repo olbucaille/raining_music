@@ -1,6 +1,4 @@
-
-<?php
-//on inclut le header 
+<?php 
 include("./../layout/basic_header.php");
 ?>
 <!-- debut de la page en elle meme-->
@@ -27,7 +25,36 @@ include("./../layout/basic_header.php");
   	</table>
   	
   <br /><br />
- </div>
+
+ <section id="slideshow">  
+          
+    <div class="container">  
+        <div class="c_slider"></div>  
+        <div class="slider">  
+         <figure>  
+                <img src="../pictures/slideshow.jpg" alt="" width="640" height="310" />  
+                <figcaption>concert</figcaption>  
+ 
+            </figure>
+            <figure>  
+                <img src="../pictures/slideshow1.jpg" alt="" width="640" height="310" />  
+                <figcaption>concert2</figcaption>  
+            </figure>
+            <figure>  
+                <img src="../pictures/slideshow3.jpg" alt="" width="640" height="310" />  
+                <figcaption>concert3</figcaption>  
+            </figure>
+            <figure>  
+                <img src="../pictures/slideshow2.jpg" alt="" width="640" height="310" />  
+                <figcaption>concert4</figcaption>  
+            </figure>
+        </div>  
+
+     </div>  
+ 
+    <span id="timeline"></span>            
+
+</section>         
 
 <!-- separation de la page en 2 colonnes droite et gauche-->
     <div class="right" style="  padding-left:10px;" >
@@ -82,6 +109,5 @@ include("./../layout/basic_header.php");
       
 </div>
 <?php 
-//... puis le footer
 include("./../layout/basic_footer.php");
 ?>
