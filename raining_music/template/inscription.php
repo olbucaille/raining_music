@@ -3,6 +3,25 @@
 //on inclut le header 
 include("./../layout/basic_header.php");
 ?>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script> $(function() {
+	$( "#datepicker" ).datepicker({
+		showOn: "button",
+		 minDate: new Date(1900, 100 - 100, 100),
+		 changeMonth: true,
+		 changeYear: true,
+		buttonImage: "images/calendar.gif",
+		buttonImageOnly: true
+		});
+	
+		});
+$( "#datepicker" ).datepicker( "option", "minDate", new Date(1907, 1 - 1, 1) );
+		
+</script>
+
+
 
 
 <!-- debut de la page en elle meme-->
@@ -59,14 +78,8 @@ include("./../layout/basic_header.php");
 		    
 		    <label for="password2">Verification du mot de passe :</label>
 		    <input type="date" name="password2"/><br/><br/>
-		    
-		     
-		     <script>
-$(function() {
-$( "#datepicker" ).datepicker();
-});
-</script>
 
+			
 <p>Date: <input type="text" id="datepicker"></p>
 		    
 		    
