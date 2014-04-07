@@ -2,7 +2,7 @@
 <!-- nav : menu !-->
 <nav id="menu" >
 <ul>
-<li><a  class="menu" href="./../index.php" title="Accueil">Accueil</a></li>
+<li><a  class="menu" href="./../template/accueil.php" title="Accueil">Accueil</a></li>
 <li><a  class="menu" href="#" title="Actualites">Actualités</a>
 <ul>
 <li><a  class="menu" href="#" title="Concerts">Les concerts</a></li>
@@ -12,7 +12,7 @@
 </li>
 <li><a class="menu" href="#" title="Profil">Mon profil</a></li>
 <li><a class="menu" href="./../HTML/Bienvenue.html" title="Recherche avancée">Recherche avancée</a></li>
-<li><a  class="menu" href="./../HTML/ContactForm.html" title="Nous contacter">Nous contacter</a></li>
+<li><a  class="menu" href="./../template/ContactPage.php" title="Nous contacter">Nous contacter</a></li>
 <li class="search">
 
 <form  class="search" method="post">

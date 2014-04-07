@@ -18,8 +18,13 @@ if(!isset($_SESSION['user']))
                 <div id="loginLink"></div><?php } else { ?>
                 
                 
-               <div id="loginForm">
-              
+               <div id="loginFormLogIn">
+              	<?php		
+					$userName = $_SESSION['user'];
+	
+					echo"<li id=\"idconnect\">
+					&nbspHello";
+					echo"&nbsp$userName";?>
                <ul>
                <li><a href="#">Voir mon profil</a></li>
                <li><a href="#">Mes artistes preferes</a></li>
@@ -27,15 +32,8 @@ if(!isset($_SESSION['user']))
                <li><a class="menu" href="./../index.php?action='deco'" >Deconnexion</a></li>
 				</ul>
                </div>
-               <div id="profilLink"></div>
-               <!-- <div id="profilLink"> <?php		
-					$userName = $_SESSION['user'];
-	
-					echo"<li id=\"idconnect\">
-					bonjour";
-					echo"&nbsp$userName";?>
-				</div>-->
-            <?php } ?> 
+               <div id="profilLink"></div><?php }?>
+             
 </header>
 		
 </script>
@@ -48,12 +46,12 @@ if(!isset($_SESSION['user']))
             	$("#profilLink, #loginLink").click( 
                 function ()
                 {
-                     if ($("#loginForm").is(":hidden"))
+                     if ($("#loginForm, #loginFormLogIn").is(":hidden"))
                      {
-                         $("#loginForm").slideDown("slow");
+                         $("#loginForm, #loginFormLogIn").slideDown("slow");
                      }
                      else{
-                         $("#loginForm").slideUp("slow");
+                         $("#loginForm, #loginFormLogIn").slideUp("slow");
                      }
                  }
                
@@ -63,7 +61,9 @@ if(!isset($_SESSION['user']))
             function closeForm()
             {
                 $("#messageSent").show("slow");
-                setTimeout('$("#messageSent").hide();$("#loginForm").slideUp("slow")', 500);
+                setTimeout('$("#messageSent").hide();$("#loginForm, #loginFormLogIn").slideUp("slow")', 500);
 		   	 }
            
         </script>
+        
+      

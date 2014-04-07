@@ -103,8 +103,8 @@ bottom: 0px;
             {
             	height:170px;
             	width:250px;
-		background-color:#0075b7;
-	       	display:none;
+				background-color:#0075b7;
+	       		display:none;
 		
             }
               #loginForm fieldset
@@ -156,8 +156,17 @@ bottom: 0px;
             	background-image:url('./../pictures/ActionsButton.png');
             	display:block;
             	cursor:pointer;
-		
-		
+		    }
+		    #loginFormLogIn 
+            {
+            	height:140px;
+            	width:250px;
+				background-color:#0075b7;
+	       		display:none;
+	       		list-style-type:none;
+            } 
+            #loginFormLogIn li{
+            list-style-type:none;
             }
             #messageSent
             {
