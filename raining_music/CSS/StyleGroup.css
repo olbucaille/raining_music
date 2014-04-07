@@ -5,93 +5,6 @@ body
 {	
 	margin:0px;
 	padding:0px;
-	background-image:url(./../pictures/fond.png);    
-	background-attachment:fixed;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:medium;
-	
-}
-
-div.header
-
-{
-   position:absolute;
-   top:0px;
-   margin-left:70%;
-}
-
-a
-
-{
-	margin-left:5px;
-	white-space:pre;
-	font-size:120%;
-	font-weight:bold;
-	color:#009;
-	text-decoration:underline;		
-}
-
-div.conteneur-prime
-
-{
-margin-left:10%;
-width:80%;
-min-width:850px;
-min-height:1000px;
-background-color:#c7c7c7;
-}
-
-
-span.left
-
-{
-    background-image:url(pictures/back.png);
-    font-weight:bold;
-    border-radius: 0px 0px 7px 7px;
-    box-shadow: #666 6px 6px 6px 0px;
-    padding-top:11px; 
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;"	
-}
-	
-
-
-div.left
-{
-	width:42%;
-	float:left;
-	margin-left:15%;
-	margin-right:15%;
-	margin-top:30%;
-	text-decoration:none;
-	min-height:675px;
-}
-
-
-.text
-{
-	border-color:#000;
-	border-width:2px;
-	border-style:solid;
-	margin-left:4px;
-	overflow:hidden;
-	border: 1px solid #696;
-	padding: 60px 0;
-	text-align: left;
-	padding:15px;
-	border-radius: 10px;
-	box-shadow: #666 0px 0px 6px;
-	
-
-}
-	
-@charset "utf-8";
-/* CSS Document */
-
-body
-{	
-	margin:0px;
-	padding:0px;
 	background-color:#001000;
 	/*background-image:url(./../pictures/fond.png);   */
 	background-attachment:fixed;
@@ -138,7 +51,7 @@ div.left
 	float:left;
 	margin-left:15%;
 	margin-right:15%;
-<<<<<<< HEAD
+
 	margin-top:5%;
 	text-decoration:blink;
 	min-height:100px;
@@ -151,12 +64,10 @@ div.left
     font-size:20px;
     text-align:justify;
     color:#000000;
-=======
 	margin-top:30%;
 	text-decoration:none;
 	min-height:675px;
 
->>>>>>> branch 'master' of https://github.com/olbucaille/raining_music.git
 }
 
 div.Bienvenue
@@ -200,3 +111,122 @@ div.Bienvenue
 
 }
 	
+#search 
+{
+margin-top:10px;
+float:right;
+width:100%;
+height:24px;
+background:#F5F2F0;
+box-shadow: 1px 1px 2px rgba(0,0,0,.3) inset
+
+}
+
+#search .btn-right-loupe 
+{
+display:block;
+width:39%;
+height:100%;
+float:right;
+margin:0
+}
+
+div.header
+
+{
+   position:absolute;
+   top:0px;
+   margin-left:70%;
+}
+
+a
+{
+	margin-left:27px;
+	white-space:pre;
+	font-size:120%;
+	font-weight:bold;
+	color:#4010F0;
+	text-decoration:underline;	
+	
+}
+
+div.conteneur-prime
+
+{
+margin-left:10%;
+width:80%;
+min-width:850px;
+min-height:1000px;
+background-color:#c7c7c7;
+
+}
+
+
+
+div.left
+{
+	width:30%;
+	float:left;
+	margin-left:15%;
+	margin-right:15%;
+
+	margin-top:5%;
+	text-decoration:blink;
+	min-height:100px;
+	border-top:thick solid #147fb2; 
+	border-radius:7px;	
+	box-shadow:2px 2px 5px #424346;  
+	padding:10px;
+	font-weight:bold;  
+	font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
+    text-align:justify;
+    color:#000000;
+
+	margin-top:30%;
+	text-decoration:none;
+	min-height:675px;
+
+
+}
+
+div.Bienvenue
+{
+	width:30%;
+	float:left;
+	margin-left:15%;
+	margin-right:15%;
+	margin-top:5%;
+	text-decoration:blink;
+	min-height:100px;
+	border-top:thick solid #147fb2; 
+	border-radius:7px;	
+	box-shadow:2px 2px 5px #424346;  
+	padding:10px;
+	font-weight:bold;  
+	font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
+    text-align:justify;
+    color:#000000;
+}
+
+
+
+
+
+.text
+{
+	border-color:#000;
+	border-width:2px;
+	border-style:solid;
+	margin-left:4px;
+	overflow:hidden;
+	border: 1px solid #696;
+	padding: 60px 0;
+	text-align: left;
+	padding:15px;
+	border-radius: 10px;
+	box-shadow: #666 0px 0px 6px;
+	
+
+}
