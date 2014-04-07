@@ -34,7 +34,11 @@ if(!isset($_SESSION['user']))
 				</ul>
                </div>
                <div id="profilLink"></div><?php }?>
-            
+
+            </div>
+
+</header>
+
 		
 </script>
 
@@ -69,5 +73,4 @@ if(!isset($_SESSION['user']))
         </script>
         
 
- </div>
- </div>
+ 
