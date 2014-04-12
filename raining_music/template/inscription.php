@@ -76,19 +76,19 @@ Pour en savoir plus sur la sécurité en ligne, y compris sur la manière de vous p
             $_SESSION['messageErreur']='';
             }?>
             
-            <label for="pseudo" >Pseudo:</label>
+            <label for="pseudo" >Pseudo*:</label>
    			<input type="text" name="pseudo" placeholder="chazinou" required/><br/><br/>
              
-            <label for="emailAddress">Adresse e-mail:</label> 
+            <label for="emailAddress">Adresse e-mail*:</label> 
    			<input type="email" name="emailAddress" placeholder="Exemple@mail.com" required/>  <br/><br/>
              
-            <label for="password">Mot de passe:</label>
+            <label for="password">Mot de passe*:</label>
 		    <input type="password" name="password" required/><br/><br/>
 		    
-		    <label for="password2">Verification Mdp :</label>
+		    <label for="password2">Verification Mdp*:</label>
 		    <input type="password" name="password2" required/><br/><br/>
 		    
-		    <label for="DoB">Date de naissance</label>
+		    <label for="DoB">Date de naissance *</label>
 		    <input type="date" name="DoB" required><br/><br/>
 		    
 		    <label for="DoB">Localisation</label>
