@@ -1,6 +1,6 @@
 <?php
 
-class User{
+class User implements serializable{
 
 	
 	//attributs classe User
@@ -11,10 +11,11 @@ class User{
 	var $sexe;
 	var $DoB;
 	var $localisation;
-
-
-	//constructeur à 6 champs (inscription principalement)
-	function __construct($pseudo,$mail,$pass,$DoB,$localisation,$gender)
+	var $picture;
+	var $commentaire;
+	//constructeur à x champs
+	
+	function __construct($pseudo,$mail,$pass,$DoB,$localisation,$gender,$nom,$picture,$commentaire)
 	{
 		$this->login = $pseudo;
 		$this->password = $pass;
@@ -22,15 +23,52 @@ class User{
 		$this->sexe = $gender;
 		$this->localisation = $localisation;
 		$this->DoB = $DoB;
+		$this->nom = $nom;
+		$this->picture = $picture;
+		$this->password = $pass;
+		$this->picure = $picture;
+		$this->commentaire = $commentaire;
 
-		
 	}
 
+	//permet de serialiser un objet user et le passer en SESSION
+ public function serialize() {
+        
+        return serialize(
+            array(
+                'login' => $this->login,
+                'mail' => $this->mail,
+                'nom' => $this->nom,
+                'sexe' => $this->sexe,
+                'DoB' => $this->DoB,
+            	'localisation' => $this->localisation,
+                'picture' => $this->picture,
+            	'commentaire' => $this->commentaire,
+            		
+            )
+        );
+    }
+
+    //appel de cette fonction dans une vue (par exemple) afin de deserialiser et exploiter l'objet!
+    public function unserialize($data) {
+    	
+    	$data = unserialize($data);
+       	$this->login = $data['login'];
+    	$this->mail = $data['mail'];
+    	$this->nom =$data['nom'];
+    	$this->sexe= $data['sexe'];
+    	$this->DoB = $data['DoB'];
+    	$this->localisation =$data['localisation'];
+    	$this->picture = $data['picture'];
+    	$this->commentaire = $data['commentaire'];
+    	
+    }
+	
 	public static function identify($login, $mdp) {
 		//normalement, $connexion est connue partout(variable globale) et est initialisé avant mais si on ne fait pas ça, ça ne marche pas TT
 
 		$connexion = connect();
-		$requete= $connexion->prepare("SELECT Password FROM membre WHERE Login =\"$login\""); //preparation requete
+		$requete= $connexion->prepare("SELECT * FROM membre WHERE Login =\"$login\""); //preparation requete
 		$requete->execute();//execution(pas de verification securité a faire => automatique)
 
 		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
@@ -38,7 +76,9 @@ class User{
 			
 			if( $lignes->Password ==md5($mdp))	//si ok
 			{
-				$_SESSION['user'] = $login; //chargement de variable de session
+				$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Sexe,$lignes->Nom,"unknonw",'pas de commentaire');
+				$_SESSION['user'] = serialize($userIdentified); //chargement de variable de session
+				
 				return true;
 			}
 			else

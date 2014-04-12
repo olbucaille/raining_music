@@ -21,11 +21,11 @@ if(!isset($_SESSION['user']))
                 
                <div id="loginFormLogIn">
               	<?php		
-					$userName = $_SESSION['user'];
+					$user = unserialize($_SESSION['user']);
 	
 					echo"<li id=\"idconnect\">
 					&nbspHello";
-					echo"&nbsp$userName";?>
+					echo"&nbsp$user->login";?>
                <ul>
                <li><a href="#">Voir mon profil</a></li>
                <li><a href="#">Mes artistes preferes</a></li>

@@ -34,7 +34,13 @@ function c_Identify()
 	echo"ok function";
 	if(isset($_POST['username']) && isset($_POST['password']) )
 		if(User::identify($_POST['username'],$_POST['password']))
-		header("location:./template/accueil.php");
+			header("location:./template/accueil.php");
+		else 
+		{
+			$_SESSION['message'] = "c'est bête mais vous vous etes trompé ! ";
+			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
+			
+		}
 }
 
 //inscrire un utilisateur
@@ -61,7 +67,7 @@ function c_RegisterUser()
 			 $_POST['gender'] = null;
 
 		//construction de l'objet user
-		$newuser= new User($_POST['pseudo'],$_POST['emailAddress'],$pass,$_POST['DoB'],$_POST['localisation'],$_POST['gender']);
+		$newuser= new User($_POST['pseudo'],$_POST['emailAddress'],$pass,$_POST['DoB'],$_POST['localisation'],$_POST['gender'],'','','');
 		
 		
 			//appel du model

@@ -10,8 +10,13 @@
 
 </ul>
 </li>
-<li><a class="menu" href="#" title="Profil">Mon profil</a></li>
-<li><a class="menu" href="./../HTML/Bienvenue.html" title="Recherche avancÃ©e">Recherche avancée</a></li>
+<?php 
+if(isset($_SESSION['user']))
+{?>
+<li><a class="menu" href="./Profil.php" title="Profil">Mon profil</a></li>
+<?php }?>
+
+<li><a class="menu" href="./../HTML/Bienvenue.html" title="Recherche avancee">Recherche avancée</a></li>
 <li><a  class="menu" href="./../template/ContactPage.php" title="Nous contacter">Nous contacter</a></li>
 <li class="search">
 
