@@ -64,20 +64,32 @@ Pour en savoir plus sur la sécurité en ligne, y compris sur la manière de vous p
      <form action="../index.php?action='inscription_utilisateur'" method="post">
          
             <fieldset> 
+            ²
+            <?php 
+            //affichage d'un message d'erreur si besoin
+            if(isset($_SESSION['messageErreur']))
+            {
+            echo "<p style=\"color:red; font-weight:bold;\">";
+            echo $_SESSION['messageErreur'];
+            echo "</p>";
+            //destruction pour ne pas retrouver un vieux message plus tard
+            $_SESSION['messageErreur']='';
+            }?>
+            
             <label for="pseudo" >Pseudo:</label>
-   			<input type="text" name="pseudo" placeholder="chazinou"/><br/><br/>
+   			<input type="text" name="pseudo" placeholder="chazinou" required/><br/><br/>
              
             <label for="emailAddress">Adresse e-mail:</label> 
-   			<input type="email" name="emailAddress" placeholder="Exemple@mail.com" />  <br/><br/>
+   			<input type="email" name="emailAddress" placeholder="Exemple@mail.com" required/>  <br/><br/>
              
             <label for="password">Mot de passe:</label>
-		    <input type="password" name="password" /><br/><br/>
+		    <input type="password" name="password" required/><br/><br/>
 		    
 		    <label for="password2">Verification Mdp :</label>
-		    <input type="password" name="password2" "/><br/><br/>
+		    <input type="password" name="password2" required/><br/><br/>
 		    
 		    <label for="DoB">Date de naissance</label>
-		    <input type="date" name="DoB"><br/><br/>
+		    <input type="date" name="DoB" required><br/><br/>
 		    
 		    <label for="DoB">Localisation</label>
 		    <input type="text" name="localisation" placeholder="chazinouLand"><br/><br/>			

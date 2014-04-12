@@ -2,6 +2,9 @@
 
 
 function connect(){
+	
+	//parametre pour se connecter
+	//!! plus tard metre ca dans un fichier
 	$PARAM_hote='localhost'; // le chemin vers le serveur
 	$PARAM_port='3306';
 	$PARAM_nom_bd='bd_raining_music'; // le nom de votre base de données
