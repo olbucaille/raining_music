@@ -110,6 +110,24 @@ class User implements serializable{
 	}
 
 
+	public function update($requeteImage)
+	{
+		$connexion = connect();
+		if($requeteImage != '')
+		{
+		$requete= $connexion->prepare($requeteImage); //preparation requete
+		$requete->execute();//execution(pas de verification securité a faire => automatique)
+		}
+		
+		$requete = $connexion->prepare("UPDATE membre SET Mail=\"$this->mail\",Nom=\"$this->nom\",Sexe=\"$this->sexe\",DoB=\"$this->DoB\",Localisation=\"$this->localisation\",Commentaire=\"$this->commentaire\" WHERE Login=\"$this->login\";");
+		$requete->execute();
+		
+		
+		$_SESSION['user'] = serialize($this); //chargement de variable de session
+				
+	}
+	
+	
 }
 
 ?>
