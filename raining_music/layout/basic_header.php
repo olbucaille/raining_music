@@ -18,11 +18,6 @@ require_once '../model/user.php';
 <!-- body : "racine" de la page !-->
 <body>
 
-<!-- LORSQUE LE CODE SERA HERBEGE SUR UN SERVEUR, REMPLACER LE CODE "bouton haut de page" et "Boutons Facebook et Twitter 
-par la ligne ci-dessous. Celle-ci appelera le code HTML du fichier Buttons.html -->
-
-<!-- #include virtual="Buttons.html"-->
-
 
 <!-- DEBUT - Bouton haut de page -->
 <a href="#hautpage"><div id="btntop"></div></a>
