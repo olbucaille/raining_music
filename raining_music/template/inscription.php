@@ -57,14 +57,14 @@ Pour en savoir plus sur la sécurité en ligne, y compris sur la manière de vous p
    	  <div class="left" style="width: 56% ;min-height: 400px; min-width: 56%">  
    	  
    	
-   	  <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 7px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;Formulaire de contact&nbsp;</span> 
+   	  <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 7px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;Formulaire d'Inscription&nbsp;</span> 
      <br/>
-     <!-- ------- FORMULAIRE DE CONTACT ------------ -->
+     <!-- ------- FORMULAIRE DEn CONTACT ------------ -->
     <article id="formulaireContact" style="border:11px solid #236586;margin-top:15px; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width=100%">
      <form action="../index.php?action='inscription_utilisateur'" method="post">
          
             <fieldset> 
-            ²
+            
             <?php 
             //affichage d'un message d'erreur si besoin
             if(isset($_SESSION['messageErreur']))
