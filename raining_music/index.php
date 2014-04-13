@@ -63,6 +63,7 @@ function c_RegisterUser()
 		else {//redirection vers formulaire avec message
 			$_SESSION['messageErreur'] = "oups, les mots de passes sont differents";
 			header("location:./template/inscription.php");
+			return;
 		}
 		
 		if(!isset($_POST['localisation']))
