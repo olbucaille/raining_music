@@ -160,7 +160,7 @@ bottom: 0px;
 		    }
 		    #loginFormLogIn 
             {
-            	height:140px;
+            	height:180px;
             	width:250px;
 				background-color:#0075b7;
 	       		display:none;
@@ -170,6 +170,22 @@ bottom: 0px;
             list-style-type:none;
 
             }
+            #loginFormLogIn ul li a{
+	border:none;
+	float:left;
+	padding:0 0px 0 0px; margin:0;
+	height:30px;
+	line-height:40px;
+	color:#e0e1e3;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px 1px 1px #101215;
+	-webkit-transition: color 0.3s ease-in;
+	-moz-transition: color 0.3s ease-in;
+	-o-transition: color 0.3s ease-in;
+	/*border-right:1px solid #2a323f;*/
+	border-left: 1px solid #6d7581;
+}
             #messageSent
             {
             	color:#ff9933;
@@ -247,7 +263,7 @@ nav {
 	
 }
 
-nav ul {
+nav ul, #loginFormLogIn ul li {
 	border-radius: 0px 0px 10px 0px;
 	width:100%;
 	height:40px;
@@ -263,7 +279,7 @@ nav ul {
 	-webkit-box-shadow: 0 2px 4px #424346;
 }
 
-nav li {
+nav li, #loginFormLogIn li	 {
 	border:none;
 	position:relative;
 	float:left;
@@ -363,7 +379,7 @@ nav ul li:last-child a {
 	border-right:none;
 }
 
-nav ul li a:hover {
+nav ul li a:hover , #loginFormLogIn ul li a:hover{
 	background: #586375;
 	background: -moz-linear-gradient(top, #586375 0%, #4c5766 100%); 
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#586375), color-stop(100%,#4c5766)); 
@@ -804,8 +820,8 @@ opacity:0.5;
 @-webkit-keyframes slider {  
     0%, 20%, 100%   { left: 0 }  
     25%, 45%        { left: -100% }  
-    50%, 70%        { left: -201% }  
-    75%, 95%        { left: -302% }  
+    50%, 70%        { left: -200% }  
+    75%, 95%        { left: -300% }  
 
 }  
 
