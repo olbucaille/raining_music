@@ -11,7 +11,7 @@ if(!isset($_SESSION['user']))
                         <input name="username" type="text" />
                         <label id="connexion" for="password">Mot de passe</label>
                         <input name="password" type="password" /><br /> <br />
-                        <input id="ok" name="ok" value="valider" onClick="closeForm()" type="submit" />&nbsp; <a href="./../index.php?action='inscription'">S'inscrire</a>
+                        <input id="ok" name="ok" value="valider" onClick="closeForm()" type="submit" />&nbsp; <a href="./../template/inscription.php">S'inscrire</a>
                     </form>
                    </fieldset>
                 </div>
@@ -21,11 +21,11 @@ if(!isset($_SESSION['user']))
                 
                <div id="loginFormLogIn">
               	<?php		
-					$userName = $_SESSION['user'];
+					$user = unserialize($_SESSION['user']);
 	
 					echo"<li id=\"idconnect\">
 					&nbspHello";
-					echo"&nbsp$userName";?>
+					echo"&nbsp$user->login";?>
                <ul>
                <li><a href="#">Voir mon profil</a></li>
                <li><a href="#">Mes artistes preferes</a></li>

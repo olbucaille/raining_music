@@ -1,7 +1,7 @@
-<?php
-require_once("db_connect.inc.php");
-
-require_once("model/user.php");
+<?php 
+ 
+require_once 'db_connect.inc.php';
+include_once 'model/user.php'; 
 $r = "action";
 global $action;
 $action = "unknown";

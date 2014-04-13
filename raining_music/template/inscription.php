@@ -3,8 +3,8 @@
 //on inclut le header 
 include("./../layout/basic_header.php");
 ?>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+ <script src="//code.jquery.com/jquery-1.9.1.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script> $(function() {
 	$( "#datepicker" ).datepicker({
@@ -21,7 +21,7 @@ $( "#datepicker" ).datepicker( "option", "minDate", new Date(1907, 1 - 1, 1) );
 		
 </script>
 
-
+ -->
 
 
 <!-- debut de la page en elle meme-->
@@ -41,10 +41,10 @@ $( "#datepicker" ).datepicker( "option", "minDate", new Date(1907, 1 - 1, 1) );
  <p style="text-align:justify; border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  padding:10px;">
     
   	 <span style="font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
-    		font-size:20px;" >&nbsp;Des questions particulières ? </span><br/><br/> Aucun souci, toute l'équipe de Raining Music est à votre disposition pour répondre à vos questions quant à notre organisme, 
-    		nos motivations, nos ambitions, le recrutement (pourquoi pas ?!). Et encore bien d'autres choses. N'hésitez pas à nous contacter pour tous sujets (même sans rapport direct avec le contenu même
-    		 du site), nous serons heureux de pouvoir vous répondre et vous aider à mieux comprendre notre fonctionnement ou encore qui nous sommes réellement (même si, pour ce point, une page y est dédiée)
-    		 , etc. Merci à vous tous de faire vivre notre communauté! <br/><br/>L'équipe.
+    		font-size:20px;" >&nbsp;Des questions particulières ? </span><br/><br/> 
+    		Nous savons que vous accordez une grande importance à la sécurité et à la confidentialité, et c'est également notre cas. C'est la raison pour laquelle Raining Music fait de la protection de vos données et de leur disponibilité une priorité.
+Nous veillons en permanence à assurer une sécurité maximale, à protéger votre vie privée, et à rendre les produits et services Raining Music encore plus pratiques et plus utiles pour vous. À cette fin, nous consacrons chaque année une part importante de notre budget à la sécurité, et nous faisons appel à des spécialistes de la sécurité des données mondialement reconnus. Nous avons par ailleurs développé des outils de sécurité et de confidentialité simples à utiliser. Vous conservez ainsi la maîtrise des informations que vous partagez avec Google.
+Pour en savoir plus sur la sécurité en ligne, y compris sur la manière de vous protéger, vous et votre famille, lorsque vous utilisez Internet, veuillez nous contacter<br/><br/>L'équipe.
 	</p>
     
   
@@ -61,34 +61,45 @@ $( "#datepicker" ).datepicker( "option", "minDate", new Date(1907, 1 - 1, 1) );
      <br/>
      <!-- ------- FORMULAIRE DE CONTACT ------------ -->
     <article id="formulaireContact" style="border:11px solid #236586;margin-top:15px; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width=100%">
-     <form action="#" method="post">
+     <form action="../index.php?action='inscription_utilisateur'" method="post">
          
             <fieldset> 
-            <label for="pseudo" >Pseudo:</label>
-   			<input type="text" name="prenomNom" placeholder="Jean-Michel Dumont"/><br/><br/>
+            ²
+            <?php 
+            //affichage d'un message d'erreur si besoin
+            if(isset($_SESSION['messageErreur']))
+            {
+            echo "<p style=\"color:red; font-weight:bold;\">";
+            echo $_SESSION['messageErreur'];
+            echo "</p>";
+            //destruction pour ne pas retrouver un vieux message plus tard
+            $_SESSION['messageErreur']='';
+            }?>
+            
+            <label for="pseudo" >Pseudo*:</label>
+   			<input type="text" name="pseudo" placeholder="chazinou" required/><br/><br/>
              
-            <label for="emailAddress">Adresse e-mail:</label> 
-   			<input type="email" name="emailAddress" placeholder="Exemple@mail.com" />  <br/><br/>
+            <label for="emailAddress">Adresse e-mail*:</label> 
+   			<input type="email" name="emailAddress" placeholder="Exemple@mail.com" required/>  <br/><br/>
              
-            <label for="password">Mot de passe:</label>
-		    <input  name="password" /><br/><br/>
+            <label for="password">Mot de passe*:</label>
+		    <input type="password" name="password" required/><br/><br/>
 		    
-		    <label for="password2">Verification du mot de passe :</label>
-		    <input name="password2" "/><br/><br/>
+		    <label for="password2">Verification Mdp*:</label>
+		    <input type="password" name="password2" required/><br/><br/>
 		    
-		    <label for="password2">Verification du mot de passe :</label>
-		    <input type="date" name="password2"/><br/><br/>
-
+		    <label for="DoB">Date de naissance *</label>
+		    <input type="date" name="DoB" required><br/><br/>
+		    
+		    <label for="DoB">Localisation</label>
+		    <input type="text" name="localisation" placeholder="chazinouLand"><br/><br/>			
 			
-<p>Date: <input type="text" id="datepicker"></p>
-		    
-		    
-		 	<br/><br/>
-		    	
-		    
-		<br/><br/><br/>
-
-           <input id="sendButton" type="submit" value="Envoyer"/>
+		    Homme <input type= "radio" name="gender" value="0"> <br />
+			Femme <input type= "radio" name="gender" value="1">  <br/><br/>
+			
+			<br /> <br />
+			
+            <input id="sendButton" type="submit" value="Envoyer"/>
              
             </fieldset>
          
