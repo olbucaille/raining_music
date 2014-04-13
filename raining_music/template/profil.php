@@ -4,7 +4,19 @@ if(isset($_SESSION['user']))
 {
 	$user = unserialize($_SESSION['user']);
 }
+
+/*
+ * 
+pour la technique, je fait pas d'appel au controleur, en fait quand tu t'identifie,
+j'ai sérialisé l'objet user il suffi de le déserialiser à l'arrivée (veut dire qu'il faut inclure le modele mais bon) 
+et toutes les infos sont dans la variable session ! 
+et PAF ça fait des chocapics \o/
+ */
 ?>
+
+<!-- script relatif à la page, permet par exemple de gerer la modification :) -->
+<script src="./../js/js_MyProfile.js"></script>
+
 <!-- debut de la page en elle meme-->
 <div class="conteneur"
 	style="margin-left: 5%; width: 90%; min-width: 800px; height: 100%; background-color: #c8c8c8;">
@@ -47,7 +59,7 @@ if(isset($_SESSION['user']))
 			<span style="font-weight: bold; font-size:25px; "> -> Fiche d'identité</span> <br /><br /><br />
 
 			<fieldset>
-				<span style="font-weight: bold;"> pseudo</span> : <?php echo $user->login?><br /><br />
+				<span style="font-weight: bold;"> pseudo</span> : <span id="Info"><?php echo $user->login?></span><br /><br />
 			    <span style="font-weight: bold;"> Nom</span> :  <?php echo $user->nom?><br /><br />
 			    <span style="font-weight: bold;">mail </span>: <?php echo $user->mail?><br /><br />
 			    <span style="font-weight: bold;">Sexe </span>: <?php if ($user->sexe==0) echo 'Masculin'; else echo'Feminin'; ?><br /><br />
@@ -57,9 +69,9 @@ if(isset($_SESSION['user']))
 
 				<br /><br />
 				
-				<form  class="search" method="post">
-				<input class="btn-right-loupe" name="go" type="submit" value="modifier" />
-				</form>
+				
+				<input class="btn-right-loupe" name="go" type="submit" value="modifier"  onclick="modifInfoMyProfile()" />
+				
 			</fieldset>
 		</div>
 
@@ -68,3 +80,4 @@ if(isset($_SESSION['user']))
 <?php 
 include("./../layout/basic_footer.php");
 ?>
+

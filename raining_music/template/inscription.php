@@ -64,7 +64,7 @@ Pour en savoir plus sur la sécurité en ligne, y compris sur la manière de vous p
      <form action="../index.php?action='inscription_utilisateur'" method="post">
          
             <fieldset> 
-            ²
+            
             <?php 
             //affichage d'un message d'erreur si besoin
             if(isset($_SESSION['messageErreur']))
