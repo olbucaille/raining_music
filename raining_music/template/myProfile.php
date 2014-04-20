@@ -53,7 +53,7 @@ et PAF ça fait des chocapics \o/
 
      
 		<span class="profile">&nbsp;<?php echo $user->login?> </span><img class="profile"
-			src="<?php echo $user->picture?>" height="180" width="250" alt="toto"
+			src="<?php echo $user->picture ?>" height="180" width="250" alt="toto"
 			align="baseline" />
 		<div
 			style="border: 11px solid #236586; border-radius: 0px 7px 7px 7px; position: relative; bottom: 25px; padding: 20px;">

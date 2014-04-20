@@ -13,7 +13,7 @@
 <?php 
 if(isset($_SESSION['user']))
 {?>
-<li><a class="menu" href="./Profil.php" title="Profil">Mon profil</a></li>
+<li><a class="menu" href="./myProfile.php" title="Profil">Mon profil</a></li>
 <?php }?>
 
 <li><a class="menu" href="./../HTML/Bienvenue.html" title="Recherche avancee">Recherche avancée</a></li>

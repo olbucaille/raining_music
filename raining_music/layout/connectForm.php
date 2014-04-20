@@ -27,7 +27,7 @@ if(!isset($_SESSION['user']))
 					&nbspHello";
 					echo"&nbsp$user->login";?>
                <ul>
-               <li><a href="#">Voir mon profil</a></li>
+               <li><a href="./myProfile.php">Voir mon profil</a></li>
                <li><a href="#">Mes artistes preferes</a></li>
                <li><a href="#">Mes concerts suivis</a></li>
                <li><a class="menu" href="./../index.php?action='deco'" >Deconnexion</a></li>

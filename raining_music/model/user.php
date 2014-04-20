@@ -76,7 +76,9 @@ class User implements serializable{
 			
 			if( $lignes->Password ==md5($mdp))	//si ok
 			{
-				$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Sexe,$lignes->Nom,"unknonw",'pas de commentaire');
+				if($lignes->image == '')
+					$lignes->image = './../pictures/inconnu.bmp';
+				$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Sexe,$lignes->Nom,$lignes->image,$lignes->commentaire);
 				$_SESSION['user'] = serialize($userIdentified); //chargement de variable de session
 				
 				return true;

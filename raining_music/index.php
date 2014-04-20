@@ -104,34 +104,18 @@ function c_ModifMyProfile()
 	if(isset($_SESSION['user']))
 	{
 		$user = unserialize($_SESSION['user']);
-	}
+	}else 
+		header("location:./template/inscription.php");
+
 	
-	// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
-	if (isset($_FILES['profilePic']) AND $_FILES['profilePic']['error'] == 0)
-	{
-		// Testons si le fichier n'est pas trop gros
-		if ($_FILES['profilePic']['size'] <= 10000000)
-		{
-			// Testons si l'extension est autorisée
-			$infosfichier = pathinfo($_FILES['profilePic']['name']);
-			$extension_upload = $infosfichier['extension'];
-			$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
-			if (in_array($extension_upload, $extensions_autorisees))
-			{
-				// On peut valider le fichier et le stocker définitivement
-				move_uploaded_file($_FILES['profilePic']['tmp_name'], './upload/' . basename($_FILES['profilePic']['name']));
-				
-			}
 	
-		}
-		//le chemin vers l'image...
-		$chemin= './../upload/' . basename($_FILES['profilePic']['name']);
-		//que l'on met dans une requete � executer...
+		$chemin = gererAjoutMedia($_FILES['profilePic']);
+	
 		$req="UPDATE membre SET image=\"$chemin\" WHERE Login=\"$user->login\";";
 		//.. et dans lobjet user pour que ce soit pris en compte quand on le reserialisera
 		$user->picture = $chemin;
-	
-	}
+		
+		
 		//y a t-il vraiment besoin d'expliquer... ? 
 		if (isset($_POST['gender']))
 			$user->sexe =$_POST['gender'];
@@ -160,6 +144,36 @@ function c_ModifMyProfile()
 		
 	
 
+}
+
+
+function gererAjoutMedia($file)
+{
+	
+	// Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
+	if (isset($file) AND $file['error'] == 0)
+	{
+		// Testons si le fichier n'est pas trop gros
+		if ($file['size'] <= 10000000)
+		{
+			// Testons si l'extension est autorisée
+			$infosfichier = pathinfo($file['name']);
+			$extension_upload = $infosfichier['extension'];
+			$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+			if (in_array($extension_upload, $extensions_autorisees))
+			{
+				// On peut valider le fichier et le stocker définitivement
+				move_uploaded_file($file['tmp_name'], './upload/' . basename($file['name']));
+	
+			}
+	
+		}
+		//le chemin vers l'image...
+		$chemin= './../upload/' . basename($file['name']);
+		//que l'on met dans une requete � executer...
+		return $chemin;
+	}
+	
 }
 
 ?>
