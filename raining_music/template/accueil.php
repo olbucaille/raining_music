@@ -2,43 +2,58 @@
 include("./../layout/basic_header.php");
 ?>
 <!-- debut de la page en elle meme-->
+<div class="main">
+
+<!-- boite de musique-->
+<script src="./../js/Music_box.js"></script>
+<audio id="myMusic" > </audio> 
+
+<input id="PauseTime"  type="hidden" />
 
 
-<div class="conteneur"
-	style="margin-left: 5%; width: 90%; min-width: 800px; height: 100%; background-color: #c8c8c8;">
+    <div class="MusicBox" >
 
-	<!--exemple d'element 1-->
+    <div class="LeftControl" ></div> <!-- icone morceau precedent -->
+    <div id="MainControl" class="MainControl" ></div> <!-- icone jouer et arreter -->
+    <div class="RightControl" ></div> <!-- icone morceau suivant -->
+    
+    <div class="ProcessControl"><!-- barre d'avancement -->
+    <div class="SongName">Music Box!</div> <!-- titre du morceau-->
+    <div class="SongTime">00:00&nbsp;|&nbsp;00:00</div> <!-- duration -->
+    <div class="Process" ></div> <!-- barre de duree du morceau -->
+    <div class="ProcessYet"></div> <!-- temps jou¨¦-->
+    </div>
+    
+    <div class="VoiceEmp"></div> <!-- icone muet -->
+    <div class="VoidProcess" ></div><!-- barre de son --> 
+    <div class="VoidProcessYet" ></div> <!-- son choisi -->
+    <div class="VoiceFull" ></div><!-- son max -->
+    <div class="ShowMusicList" ></div> <!-- montrer ou masquer la liste de musique -->
+
+    </div>
+    
+    
+    <div class="MusicList">  
+    <div class="Author">
+    </div> 
+    <div class="List"> 
+    
+    <div class="Single" > 
+    <span class="SongName" KV="Moves Like Jagger" >01.Maroon 5 - Moves Like Jagger</span>
+    </div> 
+    <div class="Single" > 
+    <span class="SongName" KV="Let It Go" >02.Demi Lovato - Let It Go</span>
+    </div> 
+    
+    </div>
+    </div>
+
+	<br /> 
+	<br />
 	<p class="text">
-		<big><big><strong>RM Management tools</strong> </big> </big><br /> <br />Bienvenue
-		sur l'application de RainingMusic. Blabla bla blablabla
+		<big><big><strong>Revivez les moments emotionnels</strong> </big> </big>
 	</p>
-	<div class="main">
-
-
-		<table
-			style="border-top: #0b8dca thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding-left: 10px;">
-			<tr>
-				<td>
-					<p>&nbsp sur le site de RainingMusic Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Nam non nisl sed nunc tincidunt
-						vehicula aliquam id nisl. Vivamus orci quam, ornare a venenatis
-						vel, facilisis et nibh. Quisque porttitor aliquam leo ac
-						facilisis. Pellentesque habitant morbi tristique senectus et netus
-						et malesuada fames ac turpis egestas. Cras sapien lorem,
-						pellentesque non egestas
-				
-				</td>
-				<td><img src="../pictures/braid.jpg" alt="braid"
-					border=":#0b8dca thick solid" height="100" width="200"
-					style="position: relative; top: 10px; margin-right: 10px;" />
-					</p>
-				</td>
-
-			</tr>
-		</table>
-
-		<br /> <br />
-
+	
 		<section id="slideshow">
 
 			<div class="container">
@@ -72,6 +87,13 @@ include("./../layout/basic_header.php");
 			<span id="timeline"></span>
 
 		</section>
+
+<div class="conteneur"
+	style="margin-left: 5%; width: 90%; min-width: 800px; height: 100%; background-color: #c8c8c8;">
+
+
+	<br />
+	<br />
 
 		<!-- separation de la page en 2 colonnes droite et gauche-->
 		<div class="right" style="padding-left: 10px;">
