@@ -44,6 +44,7 @@ include("./../layout/basic_header.php");
     <div class="Single" > 
     <span class="SongName" KV="Let It Go" >02.Demi Lovato - Let It Go</span>
     </div> 
+
     
     </div>
     </div>
@@ -90,102 +91,30 @@ include("./../layout/basic_header.php");
 
 <div class="conteneur"
 	style="margin-left: 5%; width: 90%; min-width: 800px; height: 100%; background-color: #c8c8c8;">
-
-
+	
+	</span>
 	<br />
-	<br />
-
-		<!-- separation de la page en 2 colonnes droite et gauche-->
-		<div class="right" style="padding-left: 10px;">
-
-			<span
-				style="background-color: #236586; font-weight: bold; border-radius: 7px 7px 0px 0px; padding-top: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px; position: relative; top: -8px;">&nbsp;MAP&nbsp;</span>
-
-			<p
-				style="border: 11px solid #236586; border-radius: 0px 7px 7px 7px; position: relative; bottom: 25px; padding: 10px;" />
-			<iframe
-				src="https://mapsengine.google.com/map/embed?mid=zcDbx-dwquYs.kZPouQMZ2Ma0"
-				width=100% height=100%></iframe>
-			<br />
-			</p>
 			<hr />
-
-			<span
-				style="background-color: #236586; font-weight: bold; border-radius: 7px 0px 0px 0px; padding-top: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px; position: relative; top: -8px;">&nbsp;World
-				of Goo </span> <img src="../pictures/WorldOf.jpg" height="100"
-				width="150" alt="toto" align="baseline"
-				style="border: 11px solid #236586; border-radius: 7px 7px 7px 0px;" />
-			<p
-				style="border: 11px solid #236586; border-radius: 0px 7px 7px 7px; position: relative; bottom: 25px; padding: 10px;" />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, cque
-			um ac felis. Donec mauris arcu, ullamcorper id malesuada quis,
-			aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante
-			ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-			Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut
-			massa. Pellentesque habitant morbi tristique senectus et netus et
-			malesuada fames ac turpis egestas.
-				
-				<br />
-			
-			</p>
-		  
-      	
-      	<span
-				style=" background-color:#236586;font-weight:bold;border-radius: 7px 0px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; ">&nbsp;World of Goo </span> 
-        <img src="../pictures/WorldOf.jpg" height="100" width="150"
-				alt="toto" align="baseline"
-				style="border:11px solid #236586; border-radius: 7px 7px 7px 0px;" />
-    	<p
-				style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;" />
-    		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sititae, fermentum ac felis. Donec mauris arcu, ullamcorper id malesuada quis, aliquet vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br />
-			
-			</p>
-    	</div>
-
-		<!-- deuxieme colone(gauche) !-->
-		<div class="left">
-
-			<p
+	
+	<p
 				style="border-top: #147fb2 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px;">
 
 				<span
-					style="background-image: url(../pictures/back.png); font-weight: bold; border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">&nbsp;Bienvenue
-				</span>&nbsp sur le site de dotgamehouse L turuada quis, aliquet
-				vitae libero. Nullam sit amet arcu augue. Vestibulum ante ipsum
-				primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-				Nulla nec magna sit amet velit hendrerit fermentum eget ut massa.
-				Pellentesque habitant morbi tristique senectus et netus et malesuada
-				fames ac turpis egestas. Maecenas a nulla vitae nisi suscipit
-				tincidunt. Ut rutrum ipsum vitae sem tempus lobortis. Nullam
-				porttitor turpis at risus placerat scelerisque. Praesent sed lectus
-				metus, non elementum neque. Duis consequat imperdiet iaculis. Sed
-				scelerisque elit at augue mollis tincidunt. In hac habitasse platea
-				dictumst.
-			</p>
-
-			<br />
-			<p
-				style="border-top: #147fb2 thick solid; border-radius: 0px 7px 7px 7px; padding: 10px;">
-
-				<span
-					style="background-image: url(../pictures/back.png); font-weight: bold; border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">&nbsp;News
-				</span>&nbsp sur le site de dotgamehouse turuada quis, aliquet vitae
-				libero. Nullam sit amet arcu augue. Vestibulum ante ipsum primis in
-				faucibus orci luctus et ultrices posuere cubilia Curae; Nulla nec
-				magna sit amet velit hendrerit fermentum eget ut massa. Pellentesque
-				habitant morbi tristique senectus et netus et malesuada fames ac
-				turpis egestas.
+					style="background-image: url(../pictures/back.png); font-weight: bold; 
+					border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; 
+					padding-top: 11px; font-family: Arial, Helvetica, sans-serif; 
+					font-size: 20px;">&nbsp;A Monparnasse Paris, le 28/04/14
+				
+				</span>
+			<br/>
+			<br/>
 			
-			
-			
-			
-			
-			<hr />
 			s a nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae sem
 			tempus lobortis. Nullam porttitor turpis at risus placerat
 			scelerisque. Praesent sed lectus metus, non elementum neque. Duis
 			consequat imperdiet iaculis. Sed scelerisque elit at augue mollis
 			tincidunt. In hac habitasse platea dictumst. Maecenas
+			
 			<hr />
 			nulla vitae nisi suscipit tincidunt. Ut rutrum ipsum vitae sem tempus
 			lobortis. Nullam porttitor turpis at risus placerat scelerisque.
@@ -199,6 +128,26 @@ include("./../layout/basic_header.php");
 			consequat imperdiet iaculis. Sed scelerisque elit at augue mollis
 			tincidunt. In hac habitasse platea dictumst.
 			</p>
+			
+	<br />
+	<span style="background-color: #236586; font-weight: bold; border-radius: 7px 7px 0px 0px; padding-top: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px; position: relative; top: -8px;">&nbsp;Concerts&nbsp;</span>
+			<p
+				style="border: 11px solid #236586; border-radius: 0px 7px 7px 7px; position: relative; bottom: 25px; padding: 10px;" />
+			<iframe
+				src="https://mapsengine.google.com/map/embed?mid=zcDbx-dwquYs.kZPouQMZ2Ma0"
+				width=100% height=350px></iframe>
+			<br />
+			</p>
+
+
+	<br />
+
+				
+				<br />
+			
+			</p>
+	  
+      	
 
 		</div>
 
