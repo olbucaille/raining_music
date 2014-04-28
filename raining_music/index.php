@@ -17,9 +17,6 @@ switch (( string ) $action) {
 	case '\'inscription_utilisateur\'' :
 		c_RegisterUser ();
 		break;
-	case '\'recherche_avancee\'' :
-		search ();
-		break;
 	case '\'Modification_MyProfile\'' :
 		c_ModifMyProfile ();
 		break;
@@ -159,6 +156,9 @@ function c_ModifMyProfile() {
 		
 		header ( "location:./template/profil.php" );
 	}
+}
+	
+	
 	function search() { // on verifie que l'utilisateur ait choisi entre les options : salle, groupe ou concert
 		$connexion = mysql_connect ( 'localhost', 'root', '' ) or die ( 'Ereur de connexion' );
 		mysql_select_db ( 'bd_raining_music' ) or die ( 'Erreur de sélection de la base de données' );
@@ -170,26 +170,25 @@ function c_ModifMyProfile() {
 			// barre de recherche non vide à l'envoi
 			// donc envoi de la requete a la bdd
 			if (isset ( $_POST ['motcleSearch'] ) && ($_POST ['motcleSearch'] != null) && ($_POST ['motcleSearch'] != "")) {
-				$_SESSION ['message'] = "Les resultats de la recherche seront affiches quand on saura les afficher...";
-				header ( "location:./template/RechercheAvancee.php" );
 				
-				/*
-				 * // On crée la requête SQL pour la modification d'une table existante. // Ici, on index des colonnes en fonction des options choisies $sql = 'ALTER TABLE membre ADD FULLTEXT INDEX searchProfil (Login, Mail, Localisation)'; // On envoie la requête $req = mysql_query ( $sql ) or die ( 'Erreur SQL !<br>' . $sql . '<br>' . mysql_error () ); $searchWord = $_POST ['motcleSearch']; // On crée la requête SQL qui va nous permettre de récupérer les résultats de la recherche $sql = 'SELECT * FROM membre WHERE MATCH(Login, Mail, Localisation) AGAINST ($searchWord)'; // On envoie la requête $req = mysql_query ( $sql ) or die ( 'Erreur SQL !<br>' . $sql . '<br>' . mysql_error () ); // on fait une boucle qui va faire un tour pour chaque enregistrement while (isset( $data)== mysql_fetch_assoc ( $req ) ){ // on affiche les informations de l'enregistrement en cours //echo '<b>' . $data ['Login'] . '</b> (' . $data ['Mail'] . ')'; echo " $data ['Login'] .(' . $data ['Mail'] .')'"; echo ' <i>Localisation : ' . $data ['Localisation'] . '</i><br>'; }
-				 */
+				
+				$requeteChecherLogin = mysql_query ( 'SELECT Login, Mail FROM membre' ) or die ( 'Erreur de la requête MySQL' );
+					
+				while ( $resultat = mysql_fetch_array ( $requeteChecherLogin ) ) {
+					$_SESSION ['message'] = "'Login:' . $resultat . '. Mail :' . $resultat . ";
+					header ( "location:./template/RechercheAvancee.php" );
+				}
+
 			} else {
 				$_SESSION ['messageErreur'] = "Veuillez remplir le champ de recherche avec un/plusierus mot(s) clé(s)";
 				header ( "location:./template/RechercheAvancee.php" );
 				
-				if ($_POST ['kindOfObject'] == 3) 				// 0=salle 1=concert 2=groupe 3=Profil
+				if ($_POST ['kindOfObject'] == "utilisateur") 				// 0=salle 1=concert 2=groupe 3=Profil
 				{
 					header ( "location:./template/RechercheAvancee.php" );
-					$_SESSION ['messageErreur'] = "La valeur de kindOfObject est 3";
+					$_SESSION ['messageErreur'] = "La valeur de kindOfObject est utilisateur";
 					
-					$requeteChecherLogin = mysql_query ( 'SELECT Login, Mail FROM membre' ) or die ( 'Erreur de la requête MySQL' );
-					
-					while ( $resultat = mysql_fetch_array ( $requeteChecherLogin ) ) {
-						echo '<p>Login:' . $resultat . '. Mail :' . $resultat . '</p>';
-					}
+
 				}
 			}
 		}
@@ -220,5 +219,5 @@ function c_ModifMyProfile() {
 			return $chemin;
 		}
 	}
-}
+
 ?>

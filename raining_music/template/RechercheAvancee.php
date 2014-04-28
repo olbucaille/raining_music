@@ -24,12 +24,12 @@ include ("./../layout/basic_header.php");
             }?>
 
 
-<form method="post" action="../index.php?action='recherche_avancee'">
+<form method="post" action="../Controller/traitementSearch.php">
 	<label>Vous recherchez :</label><br/>
-		une salle <input type= "radio" name="kindOfObject" value="0"> <br />
-		un concert <input type= "radio" name="kindOfObject" value="1">  <br/>
-		un groupe <input type= "radio" name="kindOfObject" value="2">  <br/>
-		un utilisateur <input type= "radio" name="kindOfObject" value="3">  <br/>
+		une salle <input type= "radio" name="kindOfObject" value="salle"> <br />
+		un concert <input type= "radio" name="kindOfObject" value="concert">  <br/>
+		un groupe <input type= "radio" name="kindOfObject" value="groupe">  <br/>
+		un utilisateur <input type= "radio" name="kindOfObject" value="membre">  <br/>
 	Entrez un mot clé:<br> <input type="text" name="motcleSearch" size="15"> <input
 		type="submit" value="Rechercher" alt="Lancer la recherche!"><br/>
 		
