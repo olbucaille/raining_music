@@ -38,16 +38,13 @@ include("./../layout/basic_header.php");
                     </form>
                    </fieldset>
                 </div>
-                <div id="loginLink"></div>
-            </div>
-    	
-        <div class="right"style="margin-right:70px ;margin-bottom: 50%; margin-top: 4%;">
-         <p style="border:11px solid #236586; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px;"/>
-    	<iframe src="https://mapsengine.google.com/map/embed?mid=zcDbx-dwquYs.kZPouQMZ2Ma0" width=100% height=100%></iframe>
-    	<br />
+                 </div>
+    
 
+    </li>
+    </div>
         
-       
+       <?php 
 include("./../layout/basic_footer.php");
 	?>
         
