@@ -3,176 +3,46 @@
 include_once 'requestSQL.php';
 
 class checkDataBase {
-	/*
-	 * 	Test si l'utilisateur possÃ¨de un compte actif. 
-	* 	Return :	0 <-- son compte n'est pas actif
-	* 				1 <-- son compte est actif.
-	* */
-	function isActive ($table, $login){
-        $request = new requestSQL();          //	Instance de la classe requestSQL permettant de crï¿½er des requï¿½tes.
-        $data = $request->select($table, '*', "Mail = '" . $login . "'"); //	ï¿½mission de la requï¿½te ï¿½ la base de donnï¿½e
-        $request = null;
-        $temp = $data->fetch();
-        $actived = $temp['Activated'];
-        return $actived;
-	}
-	
-    function checkUser($login) {
-        /*
-         * 	Test si un utilisateur ayant comme login la valeur passï¿½ en argument existe.
-         * 	Return :	0 <-- l'utilisateur n'existe pas
-         * 				1 <-- l'utilisateur existe
-         * */
-        $request = new requestSQL();          //	Instance de la classe requestSQL permettant de crï¿½er des requï¿½tes.
-        $data = $request->select('users', '*', "Mail = '" . $login . "'"); //	ï¿½mission de la requï¿½te ï¿½ la base de donnï¿½e
-        $request = null;
-        if ($data->fetch() != null)          //	LIGNE A COMPRENDRE : On fait un fetch, ce qui nous retourne un tableau associatif de la ligne si elle est dispo
-        //	Ce qui signifie une chaï¿½ne de caractï¿½re si la requï¿½te nous a remis un rï¿½sultat, nul si c'est un objet (cas oï¿½ elle nous a rien remis) 
-            return 1;
-        else
-            return 0;
-    }
-
-    function checkOrganizers($login) {
-        /*
-         * 	Test si un organisateur ayant comme login la valeur passï¿½ en argument existe.
-         * 	Return :	0 <-- l'organisateur n'existe pas
-         * 				1 <-- l'organisateur existe
-         * */
-        $request = new requestSQL();          //	Instance de la classe requestSQL permettant de crï¿½er des requï¿½tes.
-        $data = $request->select('organizers', '*', "Mail = '" . $login . "'"); //	ï¿½mission de la requï¿½te ï¿½ la base de donnï¿½e
-        $request = null;
-        if ($data->fetch() != null)          //	LIGNE A COMPRENDRE : On fait un fetch, ce qui nous retourne un tableau associatif de la ligne si elle est dispo
-        //	Ce qui signifie une chaï¿½ne de caractï¿½re si la requï¿½te nous a remis un rï¿½sultat, nul si c'est un objet (cas oï¿½ elle nous a rien remis) 
-            return 1;
-        else
-            return 0;
-    }
-    
-    function checkAdmins($login) {
-    	/*
-    	 * 	Test si un organisateur ayant comme login la valeur passï¿½ en argument existe.
-    	* 	Return :	0 <-- l'admin n'existe pas
-    	* 				1 <-- l'admin existe
-    	* */
-    	$request = new requestSQL();          //	Instance de la classe requestSQL permettant de crï¿½er des requï¿½tes.
-    	$data = $request->select('admins', '*', "Mail = '" . $login . "'"); //	ï¿½mission de la requï¿½te ï¿½ la base de donnï¿½e
-    	$request = null;
-    	if ($data->fetch() != null)          //	LIGNE A COMPRENDRE : On fait un fetch, ce qui nous retourne un tableau associatif de la ligne si elle est dispo
-    		//	Ce qui signifie une chaï¿½ne de caractï¿½re si la requï¿½te nous a remis un rï¿½sultat, nul si c'est un objet (cas oï¿½ elle nous a rien remis)
-    		return 1;
-    	else
-    		return 0;
-    }
-
-    function checkUserPassword($login){
-        $request = new requestSQL();
-        $data = $request->select('users', 'Password', "Mail = '" . $login . "'");
-        $temp = $data->fetch();
-        $request = null;
-        return ($temp['Password']);
-    }
-
-    function checkOrganizersPassword($login) {
-        /*
-         * Cette mï¿½thode doit ï¿½tre appellï¿½ QUE si l'utilisateur existe
-         * Return : l'empreinte du mot de passe cryptï¿½ */
-        $request = new requestSQL();
-        $data = $request->select('organizers', 'Password', "Mail = '" . $login . "'");
-        $temp = $data->fetch();
-        $request = null;
-        return ($temp['Password']);
-    }
-    
-    function checkAdminsPassword($login) {
-    	/*
-    	 * Cette mï¿½thode doit ï¿½tre appellï¿½ QUE si l'utilisateur existe
-    	* Return : l'empreinte du mot de passe cryptï¿½ */
-    	$request = new requestSQL();
-    	$data = $request->select('admins', 'Password', "Mail = '" . $login . "'");
-    	$temp = $data->fetch();
-    	$request = null;
-    	return ($temp['Password']);
-    }
 
     function checkRecherche($table, $condition) {
-        $request = new requestSQL();        // 	Crï¿½ation d'un objet Request SQL permettant de faire une requï¿½te SQL prï¿½-construite 
-        $data = $request->select($table, '*', $condition);  //	Recherche de toutes les entrï¿½es de la table membre selon les conditions passï¿½s en arguments		       
+        $request = new requestSQL();        // 	Création d'un objet Request SQL permettant de faire une requete SQL pré-construite 
+        $data = $request->select($table, '*', $condition);  //	Recherche de toutes les entrées de la table membre selon les conditions passés en arguments		       
         
-        $temp = $data->fetchAll();        //	Puisque l'on recherche tous les users, il y a un risque d'y avoir plus d'une entrï¿½e. C'est pour cette raison que l'on utilise fetchall
+        $temp = $data->fetchAll();        //	Puisque l'on recherche tous les users, il y a un risque d'y avoir plus d'une entrée. C'est pour cette raison que l'on utilise fetchall
         $request = null;
         //	Destruction de l'objet requestSQL
-        return ($temp);            //	Renvoie de la donnï¿½e contenue dans la base de donnï¿½e sous le format STRING
+        return ($temp);            //	Renvoie de la donnée contenue dans la base de donnée sous le format STRING
     }
-
-    function checkVille($condition) {
-        /* 	Prï¿½paration de la requï¿½te SQL	 */
-        
-        $request = new requestSQL();        // 	Crï¿½ation d'un objet Request SQL permettant de faire une requï¿½te SQL prï¿½-construite 
-        $data = $request->select('maps_ville','nom,cp',$condition);  //	Recherche de toutes les entrï¿½es de la table ï¿½venement selon les conditions passï¿½s en arguments		
-        //var_dump($data);
-        $temp = $data->fetchAll();
-        //var_dump($temp); //	Puisque l'on recherche tous les ï¿½vï¿½nements, il y a un risque d'y avoir plus d'une entrï¿½e. C'est pour cette raison que l'on utilise fetchall
-        $request = null;
-        //	Destruction de l'objet requestSQL
-        return ($temp);            //	Renvoie de la donnï¿½e contenue dans la base de donnï¿½e sous le format STRING
-    }
-
-       function checkkm ($km,$localite, $cp) // on recupere les diffÃ©rentes villes situÃ©es Ã  l'intÃ©rieur du pÃ©rimetre spÃ©cifiÃ© en km
-      {
-      $requestkm = new requestSQL(); // 	Crï¿½ation d'un objet Request SQL permettant de faire une requï¿½te SQL prï¿½-construite 
-      
-      //var_dump($UserLat); 
-      $chlat = new checkDataBase();
-      $UserLat=$chlat -> checklat($localite,$cp);
-      $chlng = new checkDataBase();
-      $UserLng=$chlng -> checklon($localite,$cp);
-      
-      $formule="6366*ACos( Cos(RADIANS(lat)) * Cos(RADIANS('".$UserLat['lat']."'))
-      * Cos(RADIANS('".$UserLng['lon']."') - RADIANS(lon)) + Sin(RADIANS(lat)) * Sin(RADIANS('".$UserLat['lat']."')) )";
-      $data = $requestkm ->select('maps_ville','nom', "$formule <= '".$km."'");      
-      
-      //Recherche de toutes les entrï¿½es de la table ï¿½venement selon les conditions passï¿½s en arguments
-      $temp = $data -> fetchAll();
-  
-//	Puisque l'on recherche tous les ï¿½vï¿½nements, il y a un risque d'y avoir plus d'une entrï¿½e. C'est pour cette raison que l'on utilise fetchall
-      $requestkm = null;
-  //    var_dump($temp);
-      //	Destruction de l'objet requestSQL
-      return ($temp);	
-      //	Renvoie de la donnï¿½e contenue dans la base de donnï¿½e sous le format STRING
-     }
-
-    function checklat($loc,$cp) // on recupere la latitude de la ville
-    {
-      $requestlat = new requestSQL(); 
-      $Lat=$requestlat ->select ('maps_ville','lat'," nom='".$loc."' AND cp='".$cp."'"); // recupere la la
-      $temp= $Lat->fetch();
-      $requestlat = null;
-      return($temp);
-        
-    }
-    function checklon($loc,$cp) // on recupere la longitude de la ville
-    {
-      $requestlng = new requestSQL();
-      $Lng=$requestlng ->select('maps_ville','lon',"nom= '".$loc."' AND cp='".$cp."' " );
-      $temp= $Lng -> fetch();
-      $requestlng = null; 
-      return($temp);
-        
-    }       
-    function checkTable($table) { // on recherche dans la table les diffÃ©rentes colonnes
+     
+    function checkTable($table) { // on recherche dans la table les différentes colonnes
         $request = new requestSQL();
         $data = $request->show($table);
         $temp = $data->fetchAll();
         $request = null;
         return ($temp);
     }
-	function Req_encodage() {
-	    $request = new requestSQL();        // 	Crï¿½ation d'un objet Request SQL permettant de faire une requï¿½te SQL prï¿½-construite 
-	    $request->encodage();
-	    $request = null;
-	}
+    
+    
+
+    // FONCTION INUTILE....
+    function checkMusicStyle($musicStyle){
+    	//SELECT Id_groupe From groupe_genre_musical where Nom_genre_musical = 'Rock'
+    	$requestMusicStyle=new requestSQL();
+    	$allDataFromMusicStyle=$requestMusicStyle ->select('groupe_genre_musical', 'Id_groupe',"Nom_genre_musical='".$musicStyle."'" );
+    	$temp=$allDataFromMusicStyle->fetchAll();
+    	$requestMusicStyle=null;
+    	
+    	
+    	
+    	/*$requestMusicGroupsFromThisStyle=new requestSQL;
+    	$allMusicGroupsFromThisStyle=$requestMusicGroupsFromThisStyle ->select('groupe', 'Nom', "Id IN (".$allDataFromMusicStyle.")");
+    	$temp=$allMusicGroupsFromThisStyle->fetchAll();
+    	$requestMusicGroupsFromThisStyle=null;*/
+    	
+    	return ($temp);
+    	//return $allDataFromMusicStyle;
+    }
+
 
 }
 ?>

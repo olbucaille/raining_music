@@ -1,58 +1,92 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+// on inclut le header
+include ("./../layout/basic_header.php");
+?>
+
+<div>
+	<H1>Résultats de la recherche</H1>
+</div>
+<p>
+		Recherche sur un<?php
+		
+if ($_POST ['kindOfObject'] == "salle") :
+			echo "e " . $_POST ['kindOfObject'];
+		 else :
+			echo " " . $_POST ['kindOfObject'];
+		endif;
+		?> 
+		avec comme mot(s) clé(s) : "<i><?php echo $_POST['motcleSearch']?></i>" et un filtre sur : 
+		<?php
+		
+if ($_POST ['kindOfObject'] == "membre") :
+			echo $_POST ['userParam'];
+		 elseif ($_POST ['kindOfObject'] == "groupe") :
+			echo "le style de musique => " . $_POST ['styleMusique'];
+		 else :
+			echo "aucun paramètre filtré";
+		endif;
+		?></p>
 
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Resultat_de_recherche</title>
-       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       
-     
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> 
 
-    </head>
+<div>
+	</br>
+         <?php   if (($nb_resultats != "0")&&($_POST['kindOfObject']=="membre")): ?>
     
-    <body class="body1">
-
-        
-        <div  > <H1> RÃ©sultats de la recherche </H1> </div>
-
-        <div class="middle">
-            </br>
-         <?php   if ($nb_resultats != "0"): ?>
-    
-             <?php foreach ($resultats as $events): ?>
+             <?php foreach ($resultats as $infos): ?>
              
-            <div class="event event<?php echo $events['Login'];?>">
-          
-             <div class="infos"> 
-             <a href="/paris/ensta-paristech/vendredi-14-decembre-boom-ensta-paristech,1,616360.html" class="title">
-             </a>
-             <span>
-             <span>
-             <span class="event_nom"> <?php echo $events['Nom']; ?> </span>
-             </a> 
-            <span class="event_lieu">
-              <?php echo $events['Mail'];  ?></span>
-             </span>
-             </span>
-             <div class="event_type">
-             <span property="v:eventType"><?php echo $events['DoB'];  ?> </span>
-             <span class="event_date"> <?php echo $events['Localisation'];  ?>  </span>
-             </div>
-             </div>
-            
-             </div>               
-             </div>
-           <?php endforeach; ?> <!-- fin de la boucle -->
-    <?php else:  
-         echo "<h2>Aucun rÃ©sultat ne correspond Ã  votre recherche</h2>"; ?>
+    <div>
+		<h1><?php echo $infos['Login'];?></h1>
+
+		<div>
+			<span> <span> <span> <?php echo $infos['Nom']; ?> </span> <span> <?php echo $infos['Mail'];  ?></span>
+			</span>
+			</span>
+			<div>
+				<span><?php echo $infos['DoB'];  ?> </span> <span> <?php echo $infos['Localisation'];  ?>  </span>
+			</div>
+		</div>
+
+	</div>
+
+<?php endforeach; ?></div>
+<!-- fin de la boucle -->
+
+<?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="groupe")): ?>
+    
+             <?php foreach ($resultats as $infos): ?>
+
+<div>
+	<h2><?php echo $infos['Nom'];?></h2>
+
+	<div>
+		<span> <span> <span> <?php echo "ID du groupe en BdD: ".$infos['Id']; ?> </span>
+             <?php if( $infos['Popularite']!=null):?>
+            	<span> <?php echo "Popularite: ".$infos['Popularite'];
+            	else :echo "Popularite: cet(te) artiste n'est pas encore évalué(e)";  ?></span>
+            <?php endif;?>
+            <span> <?php if($_POST['styleMusique']!="NonSpecifie")echo "Genre musical: ".$_POST['styleMusique'];  ?></span>
+		</span>
+		</span>
+
+	</div>
+
+
+<?php endforeach; ?></div>
+
+<!-- fin de la boucle -->
+
+									 <?php
+else :
+										echo "<h2>Aucun résultat ne correspond à  votre recherche</h2>";
+										?>
            
         <?php endif;?>
-        
-         
-    </body>
-</html>
+
+
+
+<!-- PIED DE PAGE -->
+<?php
+// ... puis le footer
+include ("./../layout/basic_footer.php");
+?>

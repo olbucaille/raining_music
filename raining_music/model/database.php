@@ -1,10 +1,4 @@
 <?php
- 
-// 		$Base = Database::connectDatabase();
-// 		$req = "INSERT INTO  (name, firstname, email, password, birthday, codePostal, gender) VALUES ('$name', '$firstname', '$email', '$password', '$birthday', '$codePostal', '$gender')";
-// 		$Base -> exec($req);
-// 		$Base = Database::disconnectDatabase();
-// 		$Base = null;
 
 
 class Database{
@@ -12,110 +6,30 @@ class Database{
         //private static $instanceville = null;
 	
 	public static function connectDatabase(){
-		if(self::$instance == null){			//	Si l'objet n'est pas encore instancier (ce qui signifie que l'on a pas encore utilisï¿½ le mot clï¿½ new), alors on peut faire ce qui suit.
+		if(self::$instance == null){			//	Si l'objet n'est pas encore instancier (ce qui signifie que l'on a pas encore utilisé le mot clé new), alors on peut faire ce qui suit.
 			try{
 				self::$instance = new PDO('mysql:host=localhost;dbname=bd_raining_music', 'root', '');
-				/*				--	Explication sur cette ligne de code	--
-				 * PDO : PHP Data Object --> Nouveautï¿½ apportï¿½ par PHP5 qui permet de rendre le PHP orientï¿½ Objet (Comme le Java).
-				 * 		Il faut donc penser avec des objets que l'on crï¿½e et que l'on manipule.
-				 * 		Attention !!! ==> l'objet PDO est rï¿½servï¿½ pour les bases de donnï¿½es (quelqu'elles soient : PostgreSQL, Oracle, MySQL...).
-				 * List des arguments :
-				 * 		--> mysql : dï¿½fini le SGBD (Systï¿½me de Gestion de Base de Donnï¿½e)
-				 * 		--> host = localhost : dï¿½fini le serveur d'application oï¿½ la base est hï¿½bergï¿½. Cette donnï¿½e aura tendance ï¿½ changer si on stocke notre site sur un serveur.
-				 * 		--> dbname=mydb : dï¿½finit le nom sous lequel la base de donnï¿½es est connue dans le serveur d'application (ici, localhost).
-				 * 		--> root : Nom d'accï¿½s ï¿½ la base de donnï¿½e.
-				 * 		--> '' : Correspond au champ du mot de passe. On a fait en sorte que notre base n'ait pas besoin de mdp pour le moment Mï¿½ME si dans le futur il y en aura bien ï¿½videmment un.
-				 * self::$instance :
-				 * 		--> Le mot clï¿½ "self" permet de cibler le champ de classe (dï¿½fini avec le mot clï¿½ static). 
-				 * 				ATTENTION : Ne pas confondre self & this. This permet d'utiliser la rï¿½fï¿½rence d'un objet instanciï¿½. Ce qui signifie que l'on parle d'un attribut/mï¿½thode d'un objet.
-				 * 		--> $instance correspond au nom de la variable. Pour dire que c'est une variable,  on utilise l'identificateur '$'. */
 			}
 			catch (Exception $e){
 				die('Erreur : ' . $e->getMessage());
 				/*
-				 * Si pour une raison, quelqu'elle soit, on n'arrive pas ï¿½ se connecter ï¿½ la base, on retourne le message.*/
+				 * Si pour une raison, quelqu'elle soit, on n'arrive pas é se connecter é la base, on retourne le message.*/
 			}
 		}
                 
-		return self::$instance;	//	A cette ï¿½tape, $instance est un champ de classe contenant la rï¿½fï¿½rence d'un objet de type PDO qui donne accï¿½s ï¿½ toutes les mï¿½thodes pour dialoguer avec une B2D.
+		return self::$instance;	//	A cette étape, $instance est un champ de classe contenant la référence d'un objet de type PDO qui donne accés é toutes les méthodes pour dialoguer avec une B2D.
 	}
 	/*
          */
   
         /*_________________________________________________________________________*/
 	public static function disconnectDatabase(){
-		$instance=null; 	//	Une fois l'utilisation fini, il est important de liberer de la mï¿½moire. Pour se faire, il suffit de changer la rï¿½fï¿½rence contenue dans $instance par null. 
+		$instance=null; 	//	Une fois l'utilisation fini, il est important de liberer de la mémoire. Pour se faire, il suffit de changer la référence contenue dans $instance par null. 
 		return null;		//	Retourne null pour utilisation de l'objet PDO dans d'autre fichier.
 	}
         
 	/*______________________________________________________________________________*/
 	
-	public static function remplirTable($table, $champ, $donnee){
-		/*		--		Explication sur la mï¿½thode		--
-		 * On crï¿½e une connexion ï¿½ la base de donnï¿½e dans un premier temps. 		 	--> 1
-		 * On construit la requï¿½te SQL (Explication sur la concatï¿½nation plus bas)	 	--> 2
-		 * On execute la requï¿½te. Puisque l'on n'attends pas un retour de la base (Comme dans un Select), la mï¿½thode exec nous suffit. --> 3
-		 * On supprime la connexion ï¿½ la base de donnï¿½e. 								--> 4
-		 * 
-		 * 		--		Explication sur la concatï¿½nation des donnï¿½es		--
-		 * On peut crï¿½er une chaï¿½ne de caractï¿½re de maniï¿½re dynamique avec des arguments variables. Cela s'appelle la concatï¿½nation.
-		 * Exemple : On dira pour l'exemple que $table = "'users'";, $champ = "'email','Password'" et $donnee = "'conotte.benjamin@gmail.com','azerty123'"
-		 * 		"'INSERT INTO'.$table.'('... donnera "'INSERT INTO 'users' (...
-		 * */
-		$Base = self::connectDatabase(); 
-		$Base -> query("SET NAMES utf8");												// Etape --> 1
-		$req = "INSERT INTO ".$table."(".$champ.") VALUES (".$donnee.")"; 				// Etape --> 2
-		$Base -> exec ($req);															// Etape --> 3
-		$Base = self::disconnectDatabase();												// Etape --> 4
-	}
-	
-	/*_____________________________________________________________________________*/
-	
-	public static function lectureTable($table, $champCible, $champDonnee){
-		/*		--		Explication sur la mï¿½thode		--
-		 * Elle ressemble de maniï¿½re trï¿½s similaire ï¿½ la mï¿½thode remplirTable(); ï¿½ la diffï¿½rence de l'ï¿½tape 3
-		 * 				--> ï¿½tape 3 : Puisque l'on attends une donnï¿½e en retour, la mï¿½thode a utilisï¿½ doit ï¿½tre query
-		 * 						ATTENTION : Cet mï¿½thode retourne un objet PDO ! Il ne peut donc pas ï¿½tre utilisï¿½ tel quel !
-		 *  return $test : On retourne l'objet PDO contenant le rï¿½sultat de la requï¿½te.
-		 * */
-		$Base = self::connectDatabase(); 
-		$Base -> query("SET NAMES utf8");													// Etape --> 1
-		$req = "SELECT ".$champCible."  FROM ".$table." WHERE ".$champDonnee; 			// Etape --> 2
-		$retour = $Base -> query ($req);												// Etape --> 3
-        $Base = self::disconnectDatabase();												// Etape --> 4
-		return $retour;
-	}
-	
-	/*_____________________________________________________________________________*/
-	
-	public static function modifierTable($table, $champ, $valeur, $condition){
-		/*		--		Explication sur la mï¿½thode		--
-		* On crï¿½e une connexion ï¿½ la base de donnï¿½e dans un premier temps. 		 	--> 1
-		* On construit la requï¿½te SQL (Explication sur la concatï¿½nation plus bas)	 	--> 2
-		* On execute la requï¿½te. Puisque l'on n'attends pas un retour de la base (Comme dans un Select), la mï¿½thode exec nous suffit. --> 3
-		* On supprime la connexion ï¿½ la base de donnï¿½e. 								--> 4
-		*
-		*/
-		$Base = self::connectDatabase(); 
-		$Base -> query("SET NAMES utf8");												// Etape --> 1
-		$req = "UPDATE ".$table." SET ".$champ."=".$valeur." WHERE ".$condition; 		// Etape --> 2		
-		
-		var_dump($req);
-		
-		$Base -> exec ($req);															// Etape --> 3
-		$Base = self::disconnectDatabase();												// Etape --> 4
-	}
-	
-	/*_____________________________________________________________________________*/
-	
-	public static function effacerEnregistrement($table, $condition){
-	
-		$Base = self::connectDatabase();
-		$Base -> query("SET NAMES utf8");												// Etape --> 1
-		$req = "DELETE FROM ".$table." WHERE ".$condition; 								// Etape --> 2
-		$Base -> exec ($req);															// Etape --> 3
-		$Base = self::disconnectDatabase();												// Etape --> 4
-	}
 	
 }
 

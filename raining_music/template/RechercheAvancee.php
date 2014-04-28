@@ -24,13 +24,31 @@ include ("./../layout/basic_header.php");
             }?>
 
 
-<form method="post" action="../Controller/traitementSearch.php">
-	<label>Vous recherchez :</label><br/>
+<form method="post" action="../Controller/traitementSearch.php" style="margin-left: 90px;">
+	<label>Vous recherchez :</label><br/><br/>
 		une salle <input type= "radio" name="kindOfObject" value="salle"> <br />
 		un concert <input type= "radio" name="kindOfObject" value="concert">  <br/>
 		un groupe <input type= "radio" name="kindOfObject" value="groupe">  <br/>
+		Style de musique:
+                    <select class="selectStyle" id="styleMusique" name ="styleMusique">
+                    	<option value="NonSpecifie">Non spécifié</option>
+                        <option value="Hip-Hop">Hip-Hop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="J-Pop">J-Pop</option>
+                        <option value="Blues">Blues</option>
+                        <option value="Dancehall">Dancehall</option>
+                     
+                    </select ><br/>
 		un utilisateur <input type= "radio" name="kindOfObject" value="membre">  <br/>
-	Entrez un mot clé:<br> <input type="text" name="motcleSearch" size="15"> <input
+				Dont
+                    <select class="selectUserParam" id="userParam" name ="userParam">
+                   		<option value="NonSpecifie">N'importe quel champ</option>
+                    	<option value="Login">le pseudo</option>
+                    	<option value="Nom">le (vrai) nom</option>
+                        <option value="Mail">l'adresse mail</option>
+                        <option value="Localisation">la ville</option> 
+                         </select >contient le(s) mot(s) clé(s) suivant(s)<br/>
+	Entrez un mot clé:<span style=" font-size: small; color: red; font-weight:bold;">/!\ Attention, pour le moment, il est impératif de remplir le champ de mot clé pour ne pas générer d'erreur. /!\</span><br> <input type="text" name="motcleSearch" size="15"> <input
 		type="submit" value="Rechercher" alt="Lancer la recherche!"><br/>
 		
 			

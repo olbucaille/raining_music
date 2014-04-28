@@ -1,91 +1,17 @@
 <?php
 include_once 'database.php';
-/* Contient toutes les requï¿½tes SQL qui nous intï¿½resse ï¿½ savoir :
- * 		- insert
- * 		- update 
- * 		- delete
- * 		- select
- * 
- * Elles ont toutes ï¿½tï¿½ testï¿½s. Pour les utiliser, voici comment il faut faire :
- * 		- Instancier un objet
- * 		- Lancer la requï¿½te avec les paramï¿½tres voulu.
- * Exemple :
- * 		$request = new requestSQL();
- * 		$request -> insert ();*/
+
 
 class requestSQL{
 	
-	function insert($table, $champs, $donnee){
-		$bdd = Database::connectDatabase();
-                
-        $bdd -> query("SET NAMES utf8");		
-		/*	Prï¿½paration de la requï¿½te SQL :
-		 * On commence par crï¿½er un "patron" ï¿½ l'aide de la mï¿½thode prepare de la class PDO oï¿½ des champs sont ï¿½ remplir */	
-		$sql = "INSERT INTO ".$table." ( ".$champs." ) VALUES ( ".$donnee." )";
-		$req = $bdd -> prepare($sql);
-		/*	On execute la commande	*/
-		$req -> execute();
-		/*	On se dï¿½connecte de la base	*/
-		$bdd = Database::disconnectDatabase();
-		$bdd = null;
-	}
 	
-	function update($table, $champs, $data, $cible, $dataCible){
-		/*
-		 * Mettre ï¿½ jour un ï¿½lï¿½ment de la table (Mot de passe pour un utilisateur tiers, par exemple) :
-		 * 		update('users','Password','LeFameuxMotDePasse','Login','CeluiDontOnVeutModifierLeMotDePasse');
-		 * Supprimer un attribut du tableau :
-		 * 		update('NomDeLaTable','LAttributQueLOnVeutModifier','','PRIMARY_KEY','Valeur');*/
-		/*	On se connecte ï¿½ la base de donnï¿½e*/
-		$bdd = Database::connectDatabase();
-                  $bdd -> query("SET NAMES utf8");
-		
-		/*	Prï¿½paration de la requï¿½te SQL*/
-		$sql = "UPDATE ".$table." SET ".$champs." = '".$data."' WHERE ".$cible." = '".$dataCible."'";
-		$req = $bdd -> prepare($sql);
-		/*	On execute la commande	*/
-		$req -> execute();
-		/*	On se dï¿½connecte de la base	*/
-		$bdd = Database::disconnectDatabase();
-		$bdd = null;
-	}
-	
-	function delete($table, $condition){
-		/*
-		 * Supprimer un champs d'une ligne d'une table :
-		 * 			Utiliser la requï¿½te Update avec un champs NULL ï¿½ la place !
-		 * Supprimer une ligne d'une table : 
-		 * 			delete ('NomDeLaTable','PRIMARY_KEY ="value"');
-		 *Supprimer tout le contenue d'une table
-		 *			delete ('NomDeLaTable','1');
-		 * */
-		
-		/*	Connection ï¿½ la base de donnï¿½e	*/
-		$bdd = Database::connectDatabase();
-                  $bdd -> query("SET NAMES utf8");
-		
-		/*	Prï¿½paration de la requï¿½te SQL	*/
-		$sql = "DELETE FROM ".$table." WHERE ".$condition;
-		$req = $bdd -> prepare($sql);
-		/*	On execute la commande			*/
-		$req -> execute();
-		/*	On se dï¿½connecte de la base		*/
-		$bdd = Database::disconnectDatabase();
-		$bdd = null;
-	}
 	function select($table, $champs, $condition){
-		/*
-		 * Retourner le prï¿½nom (Firstname) d'un utilisateur caractï¿½risï¿½ par son adresse mail
-		 * 		$test -> select('users', 'Firstname', "Login = 'SonAdresseMail'");
-		 * Attention ! Cet mï¿½thode vous retourne un objet PDO ! CE qui signifie qu'il n'est pas utilisable tel quel.
-		 * Vous devez utiliser la mï¿½thode fetch afin de pouvoir utiliser cet donnï¿½e.
-		 * 
-		 * */
-		/*	Connection ï¿½ la base de donnï¿½e	*/
+		
+		/*	Connection à la base de donnée	*/
 		$bdd = Database::connectDatabase();
 		
         $bdd -> query("SET NAMES utf8");
-		/*	Prï¿½paration de la requï¿½te SQL	*/
+		/*	Préparation de la requete SQL	*/
         if ($condition != "Order by Date"){
 			$sql = "SELECT ".$champs." FROM ".$table." WHERE ".$condition;
         }
@@ -103,30 +29,21 @@ class requestSQL{
         function show($table)
       {
 	/*
-		 * Retourner l'ensemble des colonnes de la table
-		 * Attention ! Cet mï¿½thode vous retourne un objet PDO ! CE qui signifie qu'il n'est pas utilisable tel quel.
-		 * Vous devez utiliser la mï¿½thode fetch afin de pouvoir utiliser cet donnï¿½e.
-		 * 
-		 * */
-		/*	Connection ï¿½ la base de donnï¿½e	*/
+		
+		/*	Connection à la base de donnée	*/
 		$bdd = Database::connectDatabase();
                   $bdd -> query("SET NAMES utf8");
 		
-		/*	Prï¿½paration de la requï¿½te SQL	*/
+		/*	Préparation de la requete SQL	*/
 		$sql = "SHOW COLUMNS FROM ".$table;
                 		/*	On execute la commande			*/
 		$resultat = $bdd -> query($sql);
-                		/*	On se dï¿½connecte de la base		*/
+                		/*	On se déconnecte de la base		*/
 		$bdd = Database::disconnectDatabase();
 		$bdd = null;
 		return $resultat ;	
 	}
-	function encodage(){
-		$bdd = Database::connectDatabase();
-		$bdd->exec('SET NAMES utf8');
-		$bdd = Database::disconnectDatabase();        
-		$bdd = null;
-	}
+
 }
 
 ?>
