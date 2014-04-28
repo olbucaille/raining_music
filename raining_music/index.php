@@ -139,7 +139,7 @@ function c_ModifMyProfile()
 		$user->update($req);
 		
 		
-		header("location:./template/profil.php");
+		header("location:./template/myProfile.php");
 	
 		
 	

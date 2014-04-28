@@ -10,7 +10,7 @@ include("./../layout/basic_header.php");
 <p> 
 <center><font size = 18> DAFT PUNK </font></center>
 
-<img src="pictures/DP3.jpeg" alt="DP" border=":#0b8dca thick solid" height="200" width="250" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p>
+<img src="./../pictures/DP3.jpeg" alt="DP" border=":#0b8dca thick solid" height="200" width="250" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p>
 
     <div class="left" style="  padding-left:10px;">
     	<p>
@@ -36,9 +36,9 @@ include("./../layout/basic_header.php");
    		<br />
    		<font size =5><font color="black">Mai 2014</font></font>
    		<br />
-  		<font size = 5><font color="black"><a href ="PageEvent.html">6 et 7 Mai à Paris-Bercy</a></font></font>
+  		<font size = 5><font color="black"><a href ="PageEvent.php">6 et 7 Mai à Paris-Bercy</a></font></font>
    		<br />
-   		<font size = 5><font color="black"><a href ="PageEvent.html">15 et 16 Mai au Bataclan</a></font></font>
+   		<font size = 5><font color="black"><a href ="PageEvent.php">15 et 16 Mai au Bataclan</a></font></font>
 
 
    		
