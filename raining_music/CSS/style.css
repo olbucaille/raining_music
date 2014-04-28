@@ -1,6 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
+
+#menu 
+{
+	z-index : 1000;
+}
 body
 {	
 	margin:0px;
@@ -1063,7 +1068,7 @@ opacity:0.5;
   
      padding:2px 5px;
      position:absolute;
-     z-index:1000;
+     z-index:10;
      display:none;
    }
 
