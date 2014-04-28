@@ -6,7 +6,8 @@
 <li><a  class="menu" href="#" title="Actualites">Actualités</a>
 <ul>
 <li><a  class="menu" href="#" title="Concerts">Les concerts</a></li>
-<li><a  class="menu" href="./../HTML/group.html" title="Nouveaux artistes">Les nouveaux artistes</a></li>
+<li><a  class="menu" href="./../template/Redirection.php" title="Nouveaux artistes">Les nouveaux artistes</a></li>
+<li><a  class="menu" href="./../template/Salle.php" title="Nouveaux artistes">Les salles de concert</a></li>
 
 </ul>
 </li>
