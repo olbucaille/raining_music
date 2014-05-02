@@ -81,6 +81,8 @@ et PAF ça fait des chocapics \o/
 		
 </div>
 
+<input class="btn-right-loupe" name="go" type="submit" value="creer groupe" />
+		
 	</div>
 </div>
 <?php 
