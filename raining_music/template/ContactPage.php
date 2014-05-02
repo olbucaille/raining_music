@@ -53,30 +53,30 @@ Cependant, avant de poser votre question, veuillez consulter les sujets déjà pré
      <br/>
      <!-- ------- FORMULAIRE DE CONTACT ------------ -->
     <article id="formulaireContact" style="border:11px solid #236586;margin-top:15px; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width=100%">
-     <form action="#" method="post">
-         
+     <form action="../Controller/contactForm.php" method="post">
+         <p style="font-style: italic;font-size: 10px"> Les champs suivis d'une * sont obligatoires.</p>
             <fieldset> 
             <label for="prenomNom" >Prénom et Nom:</label>
-   			<input type="text" name="prenomNom" placeholder="Jean-Michel Dumont"/><br/><br/>
+   			<input type="text" name="prenomNom" required placeholder="Jean-Michel Dumont"/><span class="requiredStar">*</span><br/><br/>
              
             <label for="emailAddress">Adresse e-mail:</label> 
-   			<input type="email" name="emailAddress" placeholder="Exemple@mail.com" />  <br/><br/>
+   			<input type="email" name="emailAddress" required placeholder="Exemple@mail.com" /> <span class="requiredStar">*</span> <br/><br/>
              
             <label for="telNum">Numéro de téléphone:</label>
 		    <input type="tel" name="telNum" placeholder="0123344556"/><br/><br/>
 		    
 		    <label for="subjectChoice">Sujet:</label>
-		    <select name="subjectChoice" >
+		    <select name="subjectChoice" required>
 		    	<option value="DroitsMembre">Droits en tant que membre</option>
 		    	<option value="Medias">Les médias</option>
 		    	<option value="ContenuDuSite">Contenu du site</option>
 		    	<option value="ErgonomieSite">Ergonomie du site</option>
 		    	<option value="Autre">Autre</option>
-		    </select> <br/><br/>
+		    </select><span class="requiredStar">*</span> <br/><br/>
 		    	
 		    
 			<label for="Message">Message:</label>
-		    <textarea id="Message" placeholder="Saisissez ici votre message. Restez poli. Pas de langage SMS. Merci." style="max-height:60px; max-width: 90%"></textarea> 
+		    <textarea name="messageContact" id="Message" required placeholder="Saisissez ici votre message. Restez poli. Pas de langage SMS. Merci." style="max-height:60px; max-width: 90%"></textarea><span class="requiredStar">*</span> 
            <br/><br/><br/><br/><br/>
 
            <input id="sendButton" type="submit" value="Envoyer"/>
