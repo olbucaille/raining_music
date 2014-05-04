@@ -8,12 +8,12 @@ class User implements serializable{
 	//attributs classe User
 	
 	var $nom;
-	var $nombreDeMembre;
+	var $popularite;
 	//constructeur à x champs
 
 	function __construct($nom,$nombreDeMembre)
 	{	$this->nom = $nom;
-		$this->nombreDeMembre = $nombreDeMembre;
+		$this->popularite = $popularite;
 	}
 
 	//permet de serialiser un objet user et le passer en SESSION
@@ -21,14 +21,9 @@ class User implements serializable{
 
 		return serialize(
 				array(
-						'login' => $this->login,
-						'mail' => $this->mail,
+						
 						'nom' => $this->nom,
-						'sexe' => $this->sexe,
-						'DoB' => $this->DoB,
-						'localisation' => $this->localisation,
-						'picture' => $this->picture,
-						'commentaire' => $this->commentaire,
+						'popularite' => $this->popularite,
 
 				)
 		);
@@ -38,14 +33,8 @@ class User implements serializable{
 	public function unserialize($data) {
 		 
 		$data = unserialize($data);
-		$this->login = $data['login'];
-		$this->mail = $data['mail'];
 		$this->nom =$data['nom'];
-		$this->sexe= $data['sexe'];
-		$this->DoB = $data['DoB'];
-		$this->localisation =$data['localisation'];
-		$this->picture = $data['picture'];
-		$this->commentaire = $data['commentaire'];
+		$this->commentaire = $data['popularite'];
 		 
 	}
 	

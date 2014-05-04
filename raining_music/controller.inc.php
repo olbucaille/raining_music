@@ -1,6 +1,7 @@
 <?php 
  
 require_once 'db_connect.inc.php';
+include_once './Controller/userControler.php';
 include_once 'model/user.php'; 
 $r = "action";
 global $action;
