@@ -22,8 +22,8 @@ function server_parse($socket, $expected_response)
 function smtp_mail($to, $subject, $message, $headers = 'Content-Type: text/html; charset=\"iso-8859-1\"')
 {
     $recipients = explode(',', $to);
-    $user = 'atlanticlanguagegalway@gmail.com';
-    $pass = 'f41rgr33n';
+    $user = 'rainingmusic.isep@gmail.com';
+    $pass = 'ISEPA1G4a';
     $smtp_host = 'ssl://smtp.gmail.com';
     $smtp_port = 465;
  
