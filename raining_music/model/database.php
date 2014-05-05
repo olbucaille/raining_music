@@ -2,13 +2,11 @@
 
 
 class Database{
-	private static $instance = null;
-        //private static $instanceville = null;
 	
 	public static function connectDatabase(){
 		if(self::$instance == null){			//	Si l'objet n'est pas encore instancier (ce qui signifie que l'on a pas encore utilisé le mot clé new), alors on peut faire ce qui suit.
 			try{
-				self::$instance = new PDO('mysql:host=localhost;dbname=bd_raining_music', 'root', '');
+				self::$instance = new PDO('mysql:host=10.0.120.16;dbname=dotgamehmod1', 'dotgamehmod1', 'UOA6up7E');
 			}
 			catch (Exception $e){
 				die('Erreur : ' . $e->getMessage());
