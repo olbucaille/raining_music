@@ -1,5 +1,5 @@
 <?php
-
+include_once '../db_connect.inc.php';
 
 
 class requestSQL{
