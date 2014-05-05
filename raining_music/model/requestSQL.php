@@ -8,7 +8,7 @@ class requestSQL{
 	function select($table, $champs, $condition){
 		
 		/*	Connection à la base de donnée	*/
-		$bdd = Database::connectDatabase();
+		$bdd = connect();
 		
         $bdd -> query("SET NAMES utf8");
 		/*	Préparation de la requete SQL	*/
@@ -20,7 +20,7 @@ class requestSQL{
         }
        	/*	On execute la commande			*/
 		$resultat = $bdd -> query($sql);
-		$bdd = Database::disconnectDatabase();
+		$bdd = connect();
 		$bdd = null;
 		return $resultat ; // PDO	
 	}
@@ -31,7 +31,7 @@ class requestSQL{
 	/*
 		
 		/*	Connection à la base de donnée	*/
-		$bdd = Database::connectDatabase();
+		$bdd = connect();
                   $bdd -> query("SET NAMES utf8");
 		
 		/*	Préparation de la requete SQL	*/
@@ -39,7 +39,7 @@ class requestSQL{
                 		/*	On execute la commande			*/
 		$resultat = $bdd -> query($sql);
                 		/*	On se déconnecte de la base		*/
-		$bdd = Database::disconnectDatabase();
+		$bdd = connect();
 		$bdd = null;
 		return $resultat ;	
 	}
