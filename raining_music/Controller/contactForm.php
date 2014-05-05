@@ -12,6 +12,6 @@ $messageEtCoordonnees="Nom de l'emetteur du message: ".$emetteur.".\nNumero de t
 		
 $headers  = 'From: <' . $adresseEmail .'>' . "\n" ;
 $headers .= 'Content-Type: text/html; charset=iso-8859-15' ;
-//mail ($destinataire, $objetContact, $messageEtCoordonnees, $headers) ;
-mail("rainingmusic.isep@gmail.com","bonjour, ceci est un test", "ceci est un header de test, le message est le suivant: ")
+mail ($destinataire, $objetContact, $messageEtCoordonnees, $headers) ;
+//mail("rainingmusic.isep@gmail.com","bonjour, ceci est un test", "ceci est un header de test, le message est le suivant: ")
 ?>
