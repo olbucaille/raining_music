@@ -22,6 +22,7 @@ include("./../layout/basic_header.php");
     	</div>
         <div class="right>
         <p>
+        /div>
         <br />
         <br />
         <br />
