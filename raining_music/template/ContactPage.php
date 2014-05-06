@@ -9,8 +9,19 @@ include("./../layout/basic_header.php");
 <div class="conteneur" style="margin-left:5%; width:90%; min-width:800px; height:100%; background-color:#c8c8c8; ">
 	
    	<div class="main">
+
     	<table style="border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;   padding-left:10px;">
-    <tr><td>
+    <tr><td><p>   	            <?php 
+            //affichage d'un message si besoin
+            if(isset($_SESSION['message']))
+            {
+            echo "<p style=\"color:green; font-weight:bold;\">";
+            echo $_SESSION['message'];
+            echo "</p>";
+            //destruction pour ne pas retrouver un vieux message plus tard
+            $_SESSION['message']='';
+            }
+            ?></p>
       <p>Vous pouvez, ici, poser vos questions. Nous y répondrons le plus rapidement possible soit par e-mail, soit en créant un nouveau sujet sur la F.A.Q.<br/>
 Cependant, avant de poser votre question, veuillez consulter les sujets déjà présents sur la F.A.Q. Merci.
 </td>
