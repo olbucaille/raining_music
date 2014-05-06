@@ -2,18 +2,17 @@
 
 
 
-class User implements serializable{
+class Group implements serializable{
 
 
 	//attributs classe User
 	
 	var $nom;
-	var $popularite;
 	//constructeur à x champs
 
-	function __construct($nom,$nombreDeMembre)
-	{	$this->nom = $nom;
-		$this->popularite = $popularite;
+	function __construct($nom)
+	{	
+		$this->nom = $nom;
 	}
 
 	//permet de serialiser un objet user et le passer en SESSION
@@ -23,7 +22,6 @@ class User implements serializable{
 				array(
 						
 						'nom' => $this->nom,
-						'popularite' => $this->popularite,
 
 				)
 		);
@@ -34,8 +32,33 @@ class User implements serializable{
 		 
 		$data = unserialize($data);
 		$this->nom =$data['nom'];
-		$this->commentaire = $data['popularite'];
-		 
 	}
 	
+	//inscrire un groupe
+	public static function registerGroup(Group $g,$login,$role)
+	{
+		//conection BDD
+		$connexion = connect();
+	
+		//construction requete
+		$requete= $connexion->prepare("INSERT INTO groupe(Nom) VALUES(\"$g->nom\")"); //preparation requete
+	
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+					
+			
+			$requete= $connexion->prepare("INSERT INTO membre_groupe(Nom_groupe,Login_membre,Role) VALUES(\"$g->nom\",\"$login\",\"$role\")"); //preparation requete
+
+			echo $login;
+			if($requete->execute())
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+	
+	
+}
 	?>

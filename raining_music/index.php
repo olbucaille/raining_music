@@ -20,6 +20,9 @@ switch ((string)$action) {
 	case '\'Modification_MyProfile\'':
 		c_ModifMyProfile();
 		break;
+	case '\'creerGroupe\'':
+		c_CreerGroupe();	
+		break;
 	default :
 		header("location:./template/accueil.php");
 }

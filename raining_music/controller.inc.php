@@ -2,7 +2,9 @@
  
 require_once 'db_connect.inc.php';
 include_once './Controller/userControler.php';
+include_once './Controller/groupControler.php';
 include_once 'model/user.php'; 
+include_once 'model/group.php';
 $r = "action";
 global $action;
 $action = "unknown";
