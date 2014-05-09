@@ -10,20 +10,20 @@ include("./../layout/basic_header.php");
 <p> 
 <center><font size = 18> Le Falstaff </font></center> <br/><br/><br/>
 
-<div class="Coordonnées" style="border:9px dotted #236586; margin-top:15px; border-radius: 7px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width:50%;">
+<div class="Coordonnï¿½es" style="border:9px dotted #236586; margin-top:15px; border-radius: 7px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width:50%;">
         <font size =6><font color = "black">  Adresse :</font></font><br/>
         <blockquote><li><font size =5><font color = "black">42 rue du Montparnasse, 75014 Paris</font></blockquote></font>
-        <blockquote><li><font size =5><font color = "black">Téléphone : 01 43 35 38 29</font></blockquote></font>
+        <blockquote><li><font size =5><font color = "black">Tï¿½lï¿½phone : 01 43 35 38 29</font></blockquote></font>
         <blockquote><li><font size =5><font color = "black"> Horaires : 8h30 - 5h00</font></blockquote></font></div><br/>
         
 <blockquote><img src="./../pictures/Falstaff.jpg" alt="Le Falstaff" border=":#0b8dca thick solid" height="200" width="300" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p></blockquote></blockquote><br/>
 <blockquote><img src="./../pictures/falstaff2.jpg" alt="Le Falstaff" border=":#0b8dca thick solid" height="200" width="300" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p></blockquote></blockquote><br/>
 
-<div class="Concert à venir" style="border:9px dotted #236586; margin-top:15px; border-radius: 7px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width:50%;">
+<div class="Concert ï¿½ venir" style="border:9px dotted #236586; margin-top:15px; border-radius: 7px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width:50%;">
 
-<font size = 6><font color= "black"> Concerts à venir dans cette salle :</font></font><br/>
-        <blockquote><li><font size = 5><font color= "black"> 5 mai à 21h : Metallica</font></blockquote></font>
-        <blockquote><li><font size = 5><font color= "black">18 mai à 21h : ACDC</font></blockquote></font></div><br/><br/><br/>
+<font size = 6><font color= "black"> Concerts ï¿½ venir dans cette salle :</font></font><br/>
+        <blockquote><li><font size = 5><font color= "black"> 5 mai ï¿½ 21h : Metallica</font></blockquote></font>
+        <blockquote><li><font size = 5><font color= "black">18 mai ï¿½ 21h : ACDC</font></blockquote></font></div><br/><br/><br/>
 
 
         
@@ -43,8 +43,8 @@ if(isset($_SESSION['messageErreur']))
 	$_SESSION['messageErreur']='';
             }?>
             
-            <label for="Nom du groupe" >Nom du groupe:</label>
-   			<input type="text" name="Nom du groupe" placeholder="" required/><br/>
+            <label for="Nom" >Nom du groupe:</label>
+   			<input type="text" name="Nom" placeholder="" required/><br/>
    			
              <font size = 2> ou </font> <br/>
              

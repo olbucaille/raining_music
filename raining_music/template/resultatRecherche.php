@@ -4,7 +4,7 @@ include ("./../layout/basic_header.php");
 ?>
 
 <div>
-	<H1>Résultats de la recherche</H1>
+	<H1>Rï¿½sultats de la recherche</H1>
 </div>
 <p>
 		Recherche sur un<?php
@@ -15,15 +15,17 @@ if ($_POST ['kindOfObject'] == "salle") :
 			echo " " . $_POST ['kindOfObject'];
 		endif;
 		?> 
-		avec comme mot(s) clé(s) : "<i><?php echo $_POST['motcleSearch']?></i>" et un filtre sur : 
+		avec comme mot(s) clï¿½(s) : "<i><?php echo $_POST['motcleSearch']?></i>" et un filtre sur : 
 		<?php
 		
 if ($_POST ['kindOfObject'] == "membre") :
 			echo $_POST ['userParam'];
 		 elseif ($_POST ['kindOfObject'] == "groupe") :
 			echo "le style de musique => " . $_POST ['styleMusique'];
+		 elseif ($_POST ['kindOfObject']== "concert") :
+		 	echo $_POST ['Nom'];
 		 else :
-			echo "aucun paramètre filtré";
+			echo "aucun paramï¿½tre filtrï¿½";
 		endif;
 		?></p>
 
@@ -63,7 +65,7 @@ if ($_POST ['kindOfObject'] == "membre") :
 		<span> <span> <span> <?php echo "ID du groupe en BdD: ".$infos['Id']; ?> </span>
              <?php if( $infos['Popularite']!=null):?>
             	<span> <?php echo "Popularite: ".$infos['Popularite'];
-            	else :echo "Popularite: cet(te) artiste n'est pas encore évalué(e)";  ?></span>
+            	else :echo "Popularite: cet(te) artiste n'est pas encore ï¿½valuï¿½(e)";  ?></span>
             <?php endif;?>
             <span> <?php if($_POST['styleMusique']!="NonSpecifie")echo "Genre musical: ".$_POST['styleMusique'];  ?></span>
 		</span>
@@ -74,11 +76,23 @@ if ($_POST ['kindOfObject'] == "membre") :
 
 <?php endforeach; ?></div>
 
+<?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="concert")): ?>
+    
+             <?php foreach ($resultats as $infos): ?>
+<div>
+	<h2><?php echo $infos['date'];?></h2>
+	 <div>
+		<span> <span> <?php echo $infos['Nom']; ?>
+	</div>
+</div>
+
+<?php endforeach; ?></div>
+
 <!-- fin de la boucle -->
 
 									 <?php
 else :
-										echo "<h2>Aucun résultat ne correspond à  votre recherche</h2>";
+										echo "<h2>Aucun rï¿½sultat ne correspond ï¿½ votre recherche</h2>";
 										?>
            
         <?php endif;?>
