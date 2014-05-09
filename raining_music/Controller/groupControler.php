@@ -15,12 +15,12 @@ function c_CreerGroupe()
 		if(Group::registerGroup($newgroup,$_POST['pseudo'],$_POST['role']))
 		{
 			$_SESSION['message'] = "merci, vous avez créé un groupe avec succès ! ";
-		//	header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
+			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
 		}
 		else
 		{
 			$_SESSION['messageErreur'] = "oups, an error occured, the group already exist";
-			//header("location:./template/creerRejoindreGroupe.php");
+			header("location:./template/creerRejoindreGroupe.php");
 		}
 	
 	
@@ -30,6 +30,19 @@ function c_CreerGroupe()
 		header("location:./template/creerRejoindreGroupe.php");
 	}
 	
+	}
+	
+	function c_RejoindreGroupe()
+	{
+		
+		if(isset($_GET['groupe']))
+		{
+			if(isset($_SESSION['user']))
+				$user = unserialize($_SESSION['user']);
+			
+			Group::AddUserToGroup($_GET['groupe'],$user->login);
+			Alert::sendRequestJoinUser($_GET['groupe'],$user->login);
+		}
 	}
 	
 

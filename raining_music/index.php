@@ -21,7 +21,10 @@ switch ((string)$action) {
 		c_ModifMyProfile();
 		break;
 	case '\'creerGroupe\'':
-		c_CreerGroupe();	
+		c_CreerGroupe();
+		break;
+	case '\'rejoindre_groupe\'':	
+		c_RejoindreGroupe();
 		break;
 	default :
 		header("location:./template/accueil.php");
