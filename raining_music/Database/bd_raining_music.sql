@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 02 Mai 2014 à 08:51
+-- Généré le: Ven 09 Mai 2014 à 07:14
 -- Version du serveur: 5.6.12-log
--- Version de PHP: 5.4.12
+-- Version de PHP: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -150,24 +150,21 @@ INSERT INTO `genre_musical` (`Nom`, `Epoque`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `groupe` (
-  `Id` int(11) NOT NULL,
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(50) NOT NULL,
   `Popularite` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
+  UNIQUE KEY `Nom_3` (`Nom`),
   KEY `Nom` (`Nom`),
   KEY `Nom_2` (`Nom`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `groupe`
 --
 
 INSERT INTO `groupe` (`Id`, `Nom`, `Popularite`) VALUES
-(0, 'RainingGroup', 5),
-(1, 'HelloWorld', 5),
-(2, 'Popopow', 4),
-(3, 'Sunday Morning', NULL),
-(4, 'Coucou Olivier !', 1);
+(4, 'lrkgh', NULL);
 
 -- --------------------------------------------------------
 
@@ -306,6 +303,7 @@ CREATE TABLE IF NOT EXISTS `membre` (
   `Sexe` tinyint(1) DEFAULT NULL,
   `DoB` date NOT NULL,
   `Localisation` varchar(50) DEFAULT NULL,
+  `image` varchar(150) NOT NULL,
   PRIMARY KEY (`Login`),
   UNIQUE KEY `Mail` (`Mail`),
   KEY `Login` (`Login`,`Password`),
@@ -316,14 +314,15 @@ CREATE TABLE IF NOT EXISTS `membre` (
 -- Contenu de la table `membre`
 --
 
-INSERT INTO `membre` (`Login`, `Password`, `Mail`, `Nom`, `Sexe`, `DoB`, `Localisation`) VALUES
-('Alison', '9c0f0b59a4cb6d6c59f6002bf3892a28', 'alison.jorre@isep.com', NULL, 1, '1993-05-05', 'Groslay'),
-('Membre1', 'ae7be26cdaa742ca148068d5ac90eaca', 'm1@g.com', NULL, 0, '1111-01-01', 'Paris'),
-('Membre2', 'aaf2f89992379705dac844c0a2a1d45f', 'm2@g.com', NULL, 1, '2222-02-02', 'Lyon'),
-('Membre3', '9678f7a7939f457fa0d9353761e189c7', 'm3@g.com', NULL, 0, '1993-03-03', 'Paris'),
-('Membre4', 'fd6b6fc9220b72d21683ae8e4f50a210', 'm4@g.com', NULL, 1, '1993-04-04', 'Marseille'),
-('Membre5', '7b1f6dff14d8c2dfeb7da9487be0612d', 'm5@g.com', NULL, 1, '1995-05-05', 'Paris'),
-('membrealpha', '594f803b380a41396ed63dca39503542', 'aa@hh.fr', NULL, 1, '2014-04-10', 'Deuil-la-Barre');
+INSERT INTO `membre` (`Login`, `Password`, `Mail`, `Nom`, `Sexe`, `DoB`, `Localisation`, `image`) VALUES
+('Alison', '9c0f0b59a4cb6d6c59f6002bf3892a28', 'alison.jorre@isep.com', NULL, 1, '1993-05-05', 'Groslay', ''),
+('chazinou', 'd6138a9db90fc41e5a5df76922f831f6', 'chazinou@g.com', NULL, NULL, '0000-00-00', 'null', './../upload/1549511_844539582228279_6883406971322837778_n.jpg'),
+('Membre1', 'ae7be26cdaa742ca148068d5ac90eaca', 'm1@g.com', NULL, 0, '1111-01-01', 'Paris', './../upload/1549511_844539582228279_68834069713228'),
+('Membre2', 'aaf2f89992379705dac844c0a2a1d45f', 'm2@g.com', NULL, 1, '2222-02-02', 'Lyon', ''),
+('Membre3', '9678f7a7939f457fa0d9353761e189c7', 'm3@g.com', NULL, 0, '1993-03-03', 'Paris', ''),
+('Membre4', 'fd6b6fc9220b72d21683ae8e4f50a210', 'm4@g.com', NULL, 1, '1993-04-04', 'Marseille', ''),
+('Membre5', '7b1f6dff14d8c2dfeb7da9487be0612d', 'm5@g.com', NULL, 1, '1995-05-05', 'Paris', ''),
+('membrealpha', '594f803b380a41396ed63dca39503542', 'aa@hh.fr', NULL, 1, '2014-04-10', 'Deuil-la-Barre', '');
 
 -- --------------------------------------------------------
 
@@ -347,12 +346,19 @@ CREATE TABLE IF NOT EXISTS `membre_genre_musical` (
 
 CREATE TABLE IF NOT EXISTS `membre_groupe` (
   `Login_membre` varchar(50) NOT NULL,
-  `Id_groupe` int(11) NOT NULL,
+  `Nom_groupe` varchar(50) NOT NULL,
   `Role` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`Login_membre`,`Id_groupe`),
-  KEY `Login_membre` (`Login_membre`,`Id_groupe`),
-  KEY `IdGroupe_dans_relation_a_groupe1` (`Id_groupe`)
+  PRIMARY KEY (`Login_membre`,`Nom_groupe`),
+  KEY `Login_membre` (`Login_membre`,`Nom_groupe`),
+  KEY `IdGroupe_dans_relation_a_groupe1` (`Nom_groupe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `membre_groupe`
+--
+
+INSERT INTO `membre_groupe` (`Login_membre`, `Nom_groupe`, `Role`) VALUES
+('Membre1', 'lrkgh', 'sdlgkn');
 
 -- --------------------------------------------------------
 
@@ -409,6 +415,49 @@ CREATE TABLE IF NOT EXISTS `salle_memebre_possede` (
   PRIMARY KEY (`Proprietaire_Salle`,`Adresse_Salle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `topic`
+--
+
+CREATE TABLE IF NOT EXISTS `topic` (
+  `ID` varchar(25) NOT NULL,
+  `Auteur` varchar(25) NOT NULL,
+  `Date_Publication` date NOT NULL,
+  `Titre` varchar(25) NOT NULL,
+  `Description` varchar(50) NOT NULL,
+  `Categorie` varchar(20) NOT NULL,
+  `Abus` tinyint(1) NOT NULL,
+  `Login_Membre` varchar(25) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `Login_Membre` (`Login_Membre`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `topic_groupe`
+--
+
+CREATE TABLE IF NOT EXISTS `topic_groupe` (
+  `ID_Groupe` varchar(25) NOT NULL,
+  `ID_Topic` varchar(40) NOT NULL,
+  PRIMARY KEY (`ID_Groupe`,`ID_Topic`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `topic_salle`
+--
+
+CREATE TABLE IF NOT EXISTS `topic_salle` (
+  `ID_Topic` varchar(40) NOT NULL,
+  `Adresse_Salle` varchar(25) NOT NULL,
+  PRIMARY KEY (`ID_Topic`,`Adresse_Salle`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Contraintes pour les tables exportées
 --
@@ -430,7 +479,6 @@ ALTER TABLE `concert_membre_participe`
 -- Contraintes pour la table `groupe_genre_musical`
 --
 ALTER TABLE `groupe_genre_musical`
-  ADD CONSTRAINT `IdGroupe_dans_relation_a_groupe` FOREIGN KEY (`Id_groupe`) REFERENCES `groupe` (`Id`),
   ADD CONSTRAINT `nomgenremusical_dans_relation_a_groupe` FOREIGN KEY (`Nom_genre_musical`) REFERENCES `genre_musical` (`Nom`);
 
 --
@@ -444,8 +492,8 @@ ALTER TABLE `membre_genre_musical`
 -- Contraintes pour la table `membre_groupe`
 --
 ALTER TABLE `membre_groupe`
-  ADD CONSTRAINT `IdGroupe_dans_relation_a_groupe1` FOREIGN KEY (`Id_groupe`) REFERENCES `groupe` (`Id`),
-  ADD CONSTRAINT `loginmembre_dans_relation_a_groupe` FOREIGN KEY (`Login_membre`) REFERENCES `membre` (`Login`);
+  ADD CONSTRAINT `login` FOREIGN KEY (`Login_membre`) REFERENCES `membre` (`Login`),
+  ADD CONSTRAINT `nomgroupe dans membre_grouep` FOREIGN KEY (`Nom_groupe`) REFERENCES `groupe` (`Nom`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
