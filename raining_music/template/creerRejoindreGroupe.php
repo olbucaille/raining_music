@@ -2,6 +2,11 @@
 <?php
 //on inclut le header 
 include("./../layout/basic_header.php");
+include("./../db_connect.inc.php");
+include("./../model/group.php");
+$liste = Group::getgroup();
+
+
 if(isset($_SESSION['user']))
 {
 	$user = unserialize($_SESSION['user']);
@@ -20,14 +25,24 @@ if(isset($_SESSION['user']))
     	
     	<br /> <br />	
     	
- <div class="right" style="min-height: 400px;" padding-left:10px; " >
+ <div class="right" style="min-height: 400px; padding-left:10px; padding-top:20px; " >
  
  
- <p style="text-align:justify; border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  padding:10px;">
+ <div style="text-align:justify; border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  padding:10px;">
     
   	 <span style="font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
-    		font-size:20px;" >&nbsp;liste des groupes </span><br/><br/> 
-    		ici liste des groupes à rejoindre !</p>
+    		font-size:20px;" >&nbsp;liste des groupes </span><br/><br/>
+    		<?php 
+    		$i=0;
+    		while(isset($liste[$i])) 
+    		{
+    			echo $liste[$i]->nom;
+    			echo"<a href=\"./../index.php?action='rejoindre_groupe'&groupe=".$liste[$i]->nom."\"style=\"float:right;\">rejoindre</a>";
+    			echo"<hr />";
+    			$i++;
+			}
+    		?>		
+  	 </div>
     
   
  		
@@ -60,15 +75,14 @@ if(isset($_SESSION['user']))
             
             <label for="pseudo" >Pseudo*:</label>
    			<input type="text" disabled="disabled" name="pseudo" value="<?php echo $user->login?>" required/><br/><br/>
-            <input type="hidden"  name="pseudo" value="<?php echo $user->login?>" required/><br/><br/>
-            
             <label for="role">Votre Rôle *</label>
 		    <input type="text" name="role" required><br/><br/>
 		    
             
 		    <label for="nomGroupe">Nom du Groupe*:</label>
 		    <input type="text" name="nomGroupe" required/><br/><br/>
-		    
+		    <input type="hidden"  name="pseudo" value="<?php echo $user->login?>" required/><br/> 
+        
 			<br /> <br />
 			
             <input id="sendButton" type="submit" value="Valider"/>

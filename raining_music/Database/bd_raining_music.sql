@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 09 Mai 2014 à 07:14
+-- Généré le: Ven 09 Mai 2014 à 10:00
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -157,14 +157,20 @@ CREATE TABLE IF NOT EXISTS `groupe` (
   UNIQUE KEY `Nom_3` (`Nom`),
   KEY `Nom` (`Nom`),
   KEY `Nom_2` (`Nom`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `groupe`
 --
 
 INSERT INTO `groupe` (`Id`, `Nom`, `Popularite`) VALUES
-(4, 'lrkgh', NULL);
+(4, 'lrkgh', NULL),
+(5, 'Un Groupe', NULL),
+(6, 'ACDC', NULL),
+(7, 'un autre groupe', NULL),
+(8, 'billy talent', NULL),
+(9, 'lorenzo', NULL),
+(10, 'kilo', NULL);
 
 -- --------------------------------------------------------
 
@@ -348,6 +354,7 @@ CREATE TABLE IF NOT EXISTS `membre_groupe` (
   `Login_membre` varchar(50) NOT NULL,
   `Nom_groupe` varchar(50) NOT NULL,
   `Role` varchar(50) DEFAULT NULL,
+  `Valide` tinyint(1) NOT NULL,
   PRIMARY KEY (`Login_membre`,`Nom_groupe`),
   KEY `Login_membre` (`Login_membre`,`Nom_groupe`),
   KEY `IdGroupe_dans_relation_a_groupe1` (`Nom_groupe`)
@@ -357,8 +364,17 @@ CREATE TABLE IF NOT EXISTS `membre_groupe` (
 -- Contenu de la table `membre_groupe`
 --
 
-INSERT INTO `membre_groupe` (`Login_membre`, `Nom_groupe`, `Role`) VALUES
-('Membre1', 'lrkgh', 'sdlgkn');
+INSERT INTO `membre_groupe` (`Login_membre`, `Nom_groupe`, `Role`, `Valide`) VALUES
+('chazinou', 'ACDC', 'vchef', 0),
+('chazinou', 'billy talent', 'NWS', 0),
+('chazinou', 'lorenzo', 'lsdkjg', 1),
+('chazinou', 'un autre groupe', 'chef supreme', 0),
+('chazinou', 'Un Groupe', 'chef', 0),
+('Membre1', 'ACDC', '', 0),
+('Membre1', 'lrkgh', 'sdlgkn', 0),
+('Membre2', 'kilo', 'Chef', 1),
+('Membre3', 'ACDC', '', 0),
+('Membre3', 'kilo', '', 0);
 
 -- --------------------------------------------------------
 
