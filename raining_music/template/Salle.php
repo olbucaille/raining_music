@@ -13,7 +13,7 @@ include("./../layout/basic_header.php");
 <div class="Coordonn�es" style="border:9px dotted #236586; margin-top:15px; border-radius: 7px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width:50%;">
         <font size =6><font color = "black">  Adresse :</font></font><br/>
         <blockquote><li><font size =5><font color = "black">42 rue du Montparnasse, 75014 Paris</font></blockquote></font>
-        <blockquote><li><font size =5><font color = "black">T�l�phone : 01 43 35 38 29</font></blockquote></font>
+        <blockquote><li><font size =5><font color = "black">Téléphone : 01 43 35 38 29</font></blockquote></font>
         <blockquote><li><font size =5><font color = "black"> Horaires : 8h30 - 5h00</font></blockquote></font></div><br/>
         
 <blockquote><img src="./../pictures/Falstaff.jpg" alt="Le Falstaff" border=":#0b8dca thick solid" height="200" width="300" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p></blockquote></blockquote><br/>
@@ -21,9 +21,9 @@ include("./../layout/basic_header.php");
 
 <div class="Concert � venir" style="border:9px dotted #236586; margin-top:15px; border-radius: 7px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width:50%;">
 
-<font size = 6><font color= "black"> Concerts � venir dans cette salle :</font></font><br/>
-        <blockquote><li><font size = 5><font color= "black"> 5 mai � 21h : Metallica</font></blockquote></font>
-        <blockquote><li><font size = 5><font color= "black">18 mai � 21h : ACDC</font></blockquote></font></div><br/><br/><br/>
+<font size = 6><font color= "black"> Concerts à venir dans cette salle :</font></font><br/>
+        <blockquote><li><font size = 5><font color= "black"> 5 mai à 21h : Metallica</font></blockquote></font>
+        <blockquote><li><font size = 5><font color= "black">18 mai à 21h : ACDC</font></blockquote></font></div><br/><br/><br/>
 
 
         

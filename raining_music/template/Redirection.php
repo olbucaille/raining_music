@@ -50,16 +50,6 @@ include("./../db_connect.inc.php");
 <br />
 <br />
 
-<!--<div class="Liste-groupes" >
-  <ul>
-  	<li><a href="AffichageGroupe.php">Daft Punk</a>
-  	<li><a href="DBSK.html">DBSK</a>
-  	<li><a href="Deftones.html">Deftones</a>
-  	<li><a href="Delays.html">Delays</a>
-  	<li><a href="Destiny's Child.html">Destiny's Child</a>
-  </ul>   
-</div> -->
-
 	<?php 
 	/* se connecter à la base de données */
 	mysql_connect("localhost","root","");
