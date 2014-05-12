@@ -42,6 +42,18 @@ var objControle = document.getElementById(Controle);
 	<label>Vous recherchez :</label><br/><br/>
 		une salle <input type= "radio" name="kindOfObject" value="salle" onClick="GereControle('radio_01', 'styleMusique', '1');"> <br />
 		un concert <input type= "radio" name="kindOfObject" value="concert" onClick="GereControle('radio_01', 'styleMusique', '1');">  <br/>
+		styleMusiqueConcert
+		
+		<select class="selectStyle" id="styleMusiqueConcert" name ="styleMusiqueConcert">
+                    Style de musique:
+                    	<option value="NonSpecifie">Non spécifié</option>
+                        <option value="Hip-Hop">Hip-Hop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="J-Pop">J-Pop</option>
+                        <option value="Blues">Blues</option>
+                        <option value="Dancehall">Dancehall</option>
+                        
+                        
 		<input type= "radio" name="kindOfObject" value="groupe" id="radio_01" onClick="GereControle('radio_01', 'styleMusique', '1');" CHECKED>  <label for="radio_01"> un groupe </label><br/>
 		
                     <select class="selectStyle" id="styleMusique" name ="styleMusique">
@@ -63,7 +75,7 @@ var objControle = document.getElementById(Controle);
                         <option value="Mail">l'adresse mail</option>
                         <option value="Localisation">la ville</option> 
                          </select >contient le(s) mot(s) clé(s) suivant(s)<br/>
-	Entrez un mot clé:<span style=" font-size: small; color: red; font-weight:bold;">/!\ Attention, pour le moment, il est impératif de remplir le champ de mot clé pour ne pas générer d'erreur. /!\</span><br> <input type="text" name="motcleSearch" size="15"> <input
+	Entrez un mot clé:<!--<span style=" font-size: small; color: red; font-weight:bold;"> /!\ Attention, pour le moment, il est impératif de remplir le champ de mot clé pour ne pas générer d'erreur. /!\</span>--><br> <input type="text" name="motcleSearch" size="15"> <input
 		type="submit" value="Rechercher" alt="Lancer la recherche!"><br/>
 		
 			

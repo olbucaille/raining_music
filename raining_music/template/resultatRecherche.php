@@ -80,7 +80,7 @@ if ($_POST ['kindOfObject'] == "membre") :
     
              <?php foreach ($resultats as $infos): ?>
 <div>
-	<h2><?php echo $infos['date'];?></h2>
+	<h2><?php echo $infos['Date'];?></h2>
 	 <div>
 		<span> <span> <?php echo $infos['Nom']; ?>
 	</div>
