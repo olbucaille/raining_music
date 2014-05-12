@@ -1,11 +1,11 @@
 <?php 
 include("./../layout/basic_header.php");
 ?>
+<script src="./../js/Music_box.js"></script>
 <!-- debut de la page en elle meme-->
 <div class="main">
-
 <!-- boite de musique-->
-<script src="./../js/Music_box.js"></script>
+
 <audio id="myMusic" > </audio> 
 
 <input id="PauseTime"  type="hidden" />
@@ -49,6 +49,7 @@ include("./../layout/basic_header.php");
     </div>
     </div>
 
+
 	<br /> 
 	<br />
 	<p class="text">
@@ -63,23 +64,17 @@ include("./../layout/basic_header.php");
 	<span id="sl_i4" class="sl_command sl_i">&nbsp;</span>
 	
 <section id="slideshow">
-
-		<a class="commands prev commands1" href="#sl_i4" title="Go to last slide">&lt;</a>
-		<a class="commands next commands1" href="#sl_i2" title="Go to 2nd slide">&gt;</a>
-		<a class="commands prev commands2" href="#sl_i1" title="Go to 1rst slide">&lt;</a>
-		<a class="commands next commands2" href="#sl_i3" title="Go to 3rd slide">&gt;</a>
-		<a class="commands prev commands3" href="#sl_i2" title="Go to 2nd slide">&lt;</a>
-		<a class="commands next commands3" href="#sl_i4" title="Go to 4th slide">&gt;</a>
-		<a class="commands prev commands4" href="#sl_i3" title="Go to 3rd slide">&lt;</a>
-		<a class="commands next commands4" href="#sl_i1" title="Go to first slide">&gt;</a>
-
+	
+		<a class="play_commands pause" href="#sl_pause" title="pause">Pause</a>
+		<a class="play_commands play" href="#sl_play" title="play">Play</a>
+	
 			<div class="container">
 				<div class="c_slider"></div>
 				<div class="slider">
 					<figure>
 						<img src="../pictures/slideshow.jpg" alt="" width="640"
-							height="310" />
-						<figcaption>concert</figcaption>
+							height="310"  />
+						<figcaption>concert1</figcaption>
 
 					</figure>
 					<figure>
@@ -102,7 +97,7 @@ include("./../layout/basic_header.php");
 			</div>
 
 			<span id="timeline"></span>
-<ul class="dots_commands"><!--
+				<ul class="dots_commands"><!--
 			--><li><a title="Show slide 1" href="#sl_i1">Slide 1</a></li><!--
 			--><li><a title="Show slide 2" href="#sl_i2">Slide 2</a></li><!--
 			--><li><a title="Show slide 3" href="#sl_i3">Slide 3</a></li><!--
@@ -161,22 +156,14 @@ include("./../layout/basic_header.php");
 				width=100% height=350px></iframe>
 			<br />
 			</p>
-
-
-	<br />
-
-				
-				<br />
-			
 			</p>
-	  
-      	
-
+			
 		</div>
-
+		
 
 
 	</div>
+
 	<?php 
 	include("./../layout/basic_footer.php");
 	?>
