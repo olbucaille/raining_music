@@ -105,6 +105,7 @@ class Group implements serializable{
 	//cette fonction est ici car la requete se fait sur la table membre groupe, généraleemnt géré par le modele group
 	public static function getUserFromGroup($group)
 	{
+		$listeGroupe='';
 		$connexion = connect();
 		$requete = $connexion->prepare("SELECT Login_membre FROM membre_groupe WHERE Nom_groupe = ".$group);
 		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete

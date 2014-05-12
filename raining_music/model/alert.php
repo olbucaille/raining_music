@@ -1,5 +1,5 @@
 <?php 
-class Alert implements serializable{
+class Alert {
 
 
 	//attributs classe User
@@ -23,12 +23,12 @@ class Alert implements serializable{
 		$this->Login_membre= $Login_membre;
 	}
 	
-	public static function sendRequestJoinUser($_GET['groupe'],$user->login)
+	public static function sendRequestJoinUser($groupe,$user)
 	{
 		//objet de base
-		$alert = new Alert('','demande pour rejoindre le groupe','0',"ASK_".$user->login."_".$_GET['groupe'],'');
+		$alert = new Alert('','demande','demande pour rejoindre le groupe','',"ASK_".$user."_".$groupe,'');
 		//cherche liste des membres du groupe
-		$listedest = Group::getUserFromGroup($_GET['groupe']);
+		$listedest = Group::getUserFromGroup($groupe);
 		//construit requete 
 		
 		
