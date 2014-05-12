@@ -99,8 +99,34 @@ function remplirCondition($Motcle,$Checkbox) {
 			}
 			$Recherche .= ')';
 		
+	}else{
+		$matable = $_POST ['kindOfObject'];
+		$check = new checkDataBase (); // Instance d'un objet checkDataBase (Voir le fichier checkDataBase.php pour plus d'informations
+		$RequeteTri = $check->checkTable ( $matable );
+		
+		
+		$I = "0";
+		$Recherche = '(';
+		foreach ( $RequeteTri as $Row ) {
+			$Type = preg_replace ( "[^a-z]", "", $Row ['Type'] );
+			$Type = explode ( "(", $Type );
+			$I2 = "0";
+		
+		
+			if ($I != "0") {
+				$Recherche .= " OR ";
+			}
+			$I ++;
+		
+		}
+		$Recherche .= ')';
 	}
       
+	
+	
+	
+	
+	
    	if ($_POST ['kindOfObject'] == "groupe") {
     	$musicStyle = $_POST ['styleMusique'];
     
@@ -131,6 +157,24 @@ function remplirCondition($Motcle,$Checkbox) {
            $Recherche.=")";
     	}
     }
+    
+    
+    if ($_POST ['kindOfObject'] == "concert") {
+    	$musicStyle = $_POST ['styleMusiqueConcert'];
+    
+    	if ($musicStyle != "NonSpecifie") {
+    		$Recherche .= " AND Login IN (SELECT Login From membre where ";
+    		foreach ($RMotClef as $V) {
+    			$V = str_replace("'", "''", $V);
+    			$Recherche.= $musicStyle . " LIKE '%$V%'";
+    			 
+    			 
+    		}
+    		$Recherche.=")";
+    	}
+    }
+    
+    
     //echo "La condition de recherche est la suivante : ".$Recherche;
     return $Recherche;
 }
