@@ -75,7 +75,7 @@ if(isset($_SESSION['user']))
             
             <label for="pseudo" >Pseudo*:</label>
    			<input type="text" disabled="disabled" name="pseudo" value="<?php echo $user->login?>" required/><br/><br/>
-            <label for="role">Votre Rôle *</label>
+            <label for="role">Votre Role *</label>
 		    <input type="text" name="role" required><br/><br/>
 		    
             
