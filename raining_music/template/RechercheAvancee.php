@@ -23,14 +23,29 @@ include ("./../layout/basic_header.php");
             $_SESSION['message']='';
             }?>
 
+<script language="Javascript">
+// ==================
+//	Activations - Désactivations
+// ==================
+function GereControle(Controleur, Controle, Masquer) {
+var objControleur = document.getElementById(Controleur);
+var objControle = document.getElementById(Controle);
+	if (Masquer=='1')
+		objControle.style.visibility=(objControleur.checked==true)?'visible':'hidden';
+	else
+		objControle.disabled=(objControleur.checked==true)?false:true;
+	return true;
+}
+</script>
 
 <form method="post" action="../Controller/traitementSearch.php" style="margin-left: 90px;">
 	<label>Vous recherchez :</label><br/><br/>
-		une salle <input type= "radio" name="kindOfObject" value="salle"> <br />
-		un concert <input type= "radio" name="kindOfObject" value="concert">  <br/>
-		un groupe <input type= "radio" name="kindOfObject" value="groupe">  <br/>
-		Style de musique:
+		une salle <input type= "radio" name="kindOfObject" value="salle" onClick="GereControle('radio_01', 'styleMusique', '1');"> <br />
+		un concert <input type= "radio" name="kindOfObject" value="concert" onClick="GereControle('radio_01', 'styleMusique', '1');">  <br/>
+		<input type= "radio" name="kindOfObject" value="groupe" id="radio_01" onClick="GereControle('radio_01', 'styleMusique', '1');" CHECKED>  <label for="radio_01"> un groupe </label><br/>
+		
                     <select class="selectStyle" id="styleMusique" name ="styleMusique">
+                    Style de musique:
                     	<option value="NonSpecifie">Non spécifié</option>
                         <option value="Hip-Hop">Hip-Hop</option>
                         <option value="Rock">Rock</option>
@@ -39,7 +54,7 @@ include ("./../layout/basic_header.php");
                         <option value="Dancehall">Dancehall</option>
                      
                     </select ><br/>
-		un utilisateur <input type= "radio" name="kindOfObject" value="membre">  <br/>
+		un utilisateur <input type= "radio" name="kindOfObject" value="membre" onClick="GereControle('radio_01', 'styleMusique', '1');">  <br/>
 				Dont
                     <select class="selectUserParam" id="userParam" name ="userParam">
                    		<option value="NonSpecifie">N'importe quel champ</option>

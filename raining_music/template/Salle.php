@@ -43,8 +43,8 @@ if(isset($_SESSION['messageErreur']))
 	$_SESSION['messageErreur']='';
             }?>
             
-            <label for="Nom du groupe" >Nom du groupe:</label>
-   			<input type="text" name="Nom du groupe" placeholder="" required/><br/>
+            <label for="Nom" >Nom du groupe:</label>
+   			<input type="text" name="Nom" placeholder="" required/><br/>
    			
              <font size = 2> ou </font> <br/>
              
