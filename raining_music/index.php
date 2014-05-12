@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+ 
 global $connexion;
 $connexion='';
 include("controller.inc.php");
