@@ -1,10 +1,12 @@
 <?php 
 include("./../layout/basic_header.php");
+include("./../model/alert.php");
 if(isset($_SESSION['user']))
 {
 	$user = unserialize($_SESSION['user']);
 }
-
+//$alerts = Array();
+$alerts = Alert::getAlert($user->login);
 /*
  * 
 pour la technique, je fait pas d'appel au controleur, en fait quand tu t'identifie,
@@ -27,12 +29,18 @@ et PAF ça fait des chocapics \o/
 			<span style="font-weight: bold;">Actu</span> <br />
 
 			<fieldset>
-				mes musiques preferés :
+				Mes notifications : 
 				<ul>
-					<li>tata</li>
-					<li>tata</li>
-					<li>tata</li>
-					<li>tata</li>
+					<?php 
+					$i=1;
+					while(isset($alerts[$i]) )
+					{
+						echo "<li>";
+						$a = unserialize($alerts[$i]);
+						$i++;
+						echo $a->Description;
+						echo "</li>";
+					}?>
 				</ul>
 				
 				mes derniers concerts :

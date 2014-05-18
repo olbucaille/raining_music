@@ -2,7 +2,7 @@
 
 
 
-class Group implements serializable{
+class Group {
 
 
 	//attributs classe User
@@ -15,24 +15,6 @@ class Group implements serializable{
 		$this->nom = $nom;
 	}
 
-	//permet de serialiser un objet user et le passer en SESSION
-	public function serialize() {
-
-		return serialize(
-				array(
-
-						'nom' => $this->nom,
-
-				)
-		);
-	}
-
-	//appel de cette fonction dans une vue (par exemple) afin de deserialiser et exploiter l'objet!
-	public function unserialize($data) {
-			
-		$data = unserialize($data);
-		$this->nom =$data['nom'];
-	}
 
 	//inscrire un groupe
 	public static function registerGroup(Group $g,$login,$role)
@@ -42,12 +24,13 @@ class Group implements serializable{
 
 		//construction requete
 		$requete= $connexion->prepare("INSERT INTO groupe(Nom) VALUES(\"$g->nom\")"); //preparation requete
-
+		echo  "INSERT INTO groupe(Nom) VALUES(\"$g->nom\")";
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
+			
+			
 				
-				
-			$requete= $connexion->prepare("INSERT INTO membre_groupe(Nom_groupe,Login_membre,Role,Valide) VALUES(\"$g->nom\",\"$login\",\"$role\",1)"); //preparation requete
+			$requete= $connexion->prepare("INSERT INTO membre_groupe(Nom_groupe,Login_membre,Role,Valide,Creator) VALUES(\"$g->nom\",\"$login\",\"$role\",1,1)"); //preparation requete
 
 			echo $login;
 			if($requete->execute())
@@ -103,13 +86,21 @@ class Group implements serializable{
 	}
 
 	//cette fonction est ici car la requete se fait sur la table membre groupe, généraleemnt géré par le modele group
+	//permet de renvoyer le createur du groupe
 	public static function getUserFromGroup($group)
 	{
 		$listeGroupe='';
 		$connexion = connect();
-		$requete = $connexion->prepare("SELECT Login_membre FROM membre_groupe WHERE Nom_groupe = ".$group);
+		$requete = $connexion->prepare("SELECT Login_membre FROM membre_groupe WHERE Nom_groupe = \"".$group."\" AND Creator = 1");
+		
+		$requete->execute();//execution(pas de verification securité a faire => automatique)
+		
+		echo "SELECT Login_membre FROM membre_groupe WHERE Nom_groupe = \"".$group."\" AND Creator = 1";
 		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+		{
 				$listeGroupe[] = $lignes->Login_membre; // ajout dans la liste
+			
+		}
 		return $listeGroupe;
 		
 	}

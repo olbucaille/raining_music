@@ -32,6 +32,7 @@ function c_CreerGroupe()
 	
 	}
 	
+	//action à faire pour rejoindre un goupe
 	function c_RejoindreGroupe()
 	{
 		
@@ -42,6 +43,8 @@ function c_CreerGroupe()
 			
 			Group::AddUserToGroup($_GET['groupe'],$user->login);
 			Alert::sendRequestJoinUser($_GET['groupe'],$user->login);
+			$_SESSION['message'] = "requete envoyé ! en attente de confirmation \o/";
+			header("location:./template/MessageEtape.php");
 		}
 	}
 	
