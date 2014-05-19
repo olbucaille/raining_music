@@ -1,10 +1,13 @@
 <?php 
 include("./../layout/basic_header.php");
+include_once("../db_connect.inc.php");
+include("./../model/alert.php");
 if(isset($_SESSION['user']))
 {
 	$user = unserialize($_SESSION['user']);
 }
-
+//$alerts = Array();
+$alerts = Alert::getAlert($user->login);
 /*
  * 
 pour la technique, je fait pas d'appel au controleur, en fait quand tu t'identifie,
@@ -27,12 +30,23 @@ et PAF ça fait des chocapics \o/
 			<span style="font-weight: bold;">Actu</span> <br />
 
 			<fieldset>
-				mes musiques preferés :
+				Mes notifications : 
 				<ul>
-					<li>tata</li>
-					<li>tata</li>
-					<li>tata</li>
-					<li>tata</li>
+					<?php 
+					$i=1;
+					while(isset($alerts[$i]) )
+					{
+						$a = unserialize($alerts[$i]);
+						$i++;
+						if(!$a->Flag_lecture)
+						{
+						echo "<li>";
+						echo $a->Description;
+						echo "<a href=\"./../index.php?action='accepter_adhesion_membre_groupe'&amp;type=".$a->Type."\"> accepter</a> &nbsp 
+									<a href=\"./../index.php?action='refuser_adhesion_membre_groupe'&amp;type=".$a->Type."\">refuser</a> ";
+						echo "</li>";
+						}
+					}?>
 				</ul>
 				
 				mes derniers concerts :

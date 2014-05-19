@@ -12,7 +12,7 @@ class requestSQL{
 		
         $bdd -> query("SET NAMES utf8");
 		/*	Préparation de la requete SQL	*/
-        if ($condition != "Order by Date"){
+        if ($condition != ""){
 			$sql = "SELECT ".$champs." FROM ".$table." WHERE ".$condition;
         }
         else {

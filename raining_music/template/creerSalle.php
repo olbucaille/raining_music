@@ -71,16 +71,11 @@ if(isset($_SESSION['user']))
             //destruction pour ne pas retrouver un vieux message plus tard
             $_SESSION['messageErreur']='';
             }?>
-            
-            <label for="pseudo" >Pseudo*:</label>
-   			<input type="text" disabled="disabled" name="pseudo" value="<?php echo $user->login?>" required/><br/><br/>
-            <label for="role">Votre R�le *</label>
-		    <input type="text" name="role" required><br/><br/>
-		    
+        
             
 		    <label for="nomGroupe">Nom de la salle*:</label>
 		    <input type="text" name="nomSalle" required/><br/><br/>
-		    <input type="hidden"  name="pseudo" value="<?php echo $user->login?>" required/><br/> 
+		 
         
 			<br /> <br />
 			
