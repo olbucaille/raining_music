@@ -96,9 +96,14 @@ et PAF ça fait des chocapics \o/
 </div>
 
 <form action="./../template/creerRejoindreGroupe.php" method="post">
-	<input class="btn-right-loupe" name="go" type="submit" value="creer groupe" />
-</form>		
+	<input class="btn-right-loupe" name="go" type="submit" value="Creer groupe" />
+</form>		<br />
+
+<form action="./../template/creerSalle.php" method="post">
+	<input class="btn-right-loupe" name="go" type="submit" value="Creer salle" />
+</form>	
 	</div>
+	
 </div>
 <?php 
 include("./../layout/basic_footer.php");

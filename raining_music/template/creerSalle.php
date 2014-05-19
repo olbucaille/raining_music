@@ -30,7 +30,7 @@ if(isset($_SESSION['user']))
  <div style="text-align:justify; border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  padding:10px;">
     
   	 <span style="font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
-    		font-size:20px;" >&nbsp;liste des salles </span><br/><br/>
+    		font-size:20px;" >&nbsp;Liste des salles </span><br/><br/>
     		<?php 
     		$i=0;
     		while(isset($liste[$i])) 
@@ -53,11 +53,11 @@ if(isset($_SESSION['user']))
    	  <div class="left" style="width: 56% ;min-height: 400px; min-width: 56%">  
    	  
    	
-   	  <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 7px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;Formulaire de creation de groupe&nbsp;</span> 
+   	  <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 7px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;Formulaire de creation de salle&nbsp;</span> 
      <br/>
-     <!-- ------- FORMULAIRE DEn CONTACT ------------ -->
+     <!-- ------- FORMULAIRE D'un CONTACT ------------ -->
     <article id="formulaireContact" style="border:11px solid #236586;margin-top:15px; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width=100%">
-     <form action="../index.php?action='creerGroupe'" method="post">
+     <form action="../index.php?action='creerSalle'" method="post">
          
             <fieldset> 
             
@@ -73,7 +73,7 @@ if(isset($_SESSION['user']))
             }?>
         
             
-		    <label for="nomGroupe">Nom de la salle*:</label>
+		    <label for="nomSalle">Nom de la salle*:</label>
 		    <input type="text" name="nomSalle" required/><br/><br/>
 		 
         
