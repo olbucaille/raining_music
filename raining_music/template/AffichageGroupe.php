@@ -27,7 +27,7 @@ include("./../layout/basic_header.php");
         <br />
         <br />
         <br />
-        <font color = "black">Daft Punk est un groupe franÃ§ais de musique Ã©lectronique, originaire du premier arrondissement de Paris. Actifs depuis 1993, Thomas Bangalter et Guy-Manuel de Homem-Christo, les deux membres, ont alliÃ© Ã  leurs sons electro, house et techno des tonalitÃ©s rock, groove et disco, baptisÃ© French Touch</font>
+        <font color = "black">Daft Punk est un groupe français de musique électronique, originaire du premier arrondissement de Paris. Actifs depuis 1993, Thomas Bangalter et Guy-Manuel de Homem-Christo, les deux membres, ont allié à leurs sons electro, house et techno des tonalités rock, groove et disco, baptisé French Touch</font>
         <br />
         <br />
         <br />
@@ -37,7 +37,7 @@ include("./../layout/basic_header.php");
    		<br />
    		<font size =5><font color="black">Mai 2014</font></font>
    		<br />
-  		<font size = 5><font color="black"><a href ="PageEvent.php">6 et 7 Mai Ã  Paris-Bercy</a></font></font>
+  		<font size = 5><font color="black"><a href ="PageEvent.php">6 et 7 Mai à Paris-Bercy</a></font></font>
    		<br />
    		<font size = 5><font color="black"><a href ="PageEvent.php">15 et 16 Mai au Bataclan</a></font></font>
 
