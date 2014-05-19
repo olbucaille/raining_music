@@ -41,13 +41,54 @@ function c_CreerGroupe()
 			if(isset($_SESSION['user']))
 				$user = unserialize($_SESSION['user']);
 			
-			Group::AddUserToGroup($_GET['groupe'],$user->login);
-			Alert::sendRequestJoinUser($_GET['groupe'],$user->login);
-			$_SESSION['message'] = "requete envoyé ! en attente de confirmation \o/";
-			header("location:./template/MessageEtape.php");
+			if(Group::AddUserToGroup($_GET['groupe'],$user->login))
+			{
+				Alert::sendRequestJoinUser($_GET['groupe'],$user->login);
+				$_SESSION['message'] = "requete envoyé ! en attente de confirmation \o/";
+				header("location:./template/MessageEtape.php");
+				
+			}
+			else
+			header("location:./index.php");
+			
 		}
 	}
 	
+	
+	//refuser une adhsion à un groupe (supression de la valeur dans membre_groupe)
+	function c_RefuserAdhsionGroupe()
+	{
+		$type;
+		if(isset($_GET['type']))
+		{
+			$type =  explode("_",$_GET['type'], 3);
+			
+			if($type[0]=="ASK")
+			{
+				Alert::PutFlag1($_GET['type']);
+				Group::RemoveMembre_Group($type[1],$type[2]);
+			}
+		}
+		header("location:./template/myProfile.php");
+	}
 
+	//accepter adhesion à un groupe(validation table membre goupe)
+	function c_AccepterAdhesionGroupe()
+	{
+		$type;
+		if(isset($_GET['type']))
+		{
+			$type =  explode("_",$_GET['type'], 3);
+				
+			if($type[0]=="ASK")
+			{
+				Alert::PutFlag1($_GET['type']);
+				Group::AcceptMembre_Group($type[1],$type[2]);
+			}
+		}
+		header("location:./template/myProfile.php");
+		
+		
+	}
 
 ?>

@@ -1,5 +1,5 @@
 <?php 
-include_once("../db_connect.inc.php");
+
 class Alert implements serializable{
 
 
@@ -56,7 +56,7 @@ class Alert implements serializable{
 		
 		
 		//objet de base
-		$alert = new Alert('','demande','demande pour rejoindre le groupe','',"ASK_".$user."_".$groupe,'');
+		$alert = new Alert('','demande',"".$user." demande à rejoindre ".$groupe."",'',"ASK_".$user."_".$groupe,'');
 		//cherche liste des membres du groupe
 		$listedest = Group::getUserFromGroup($groupe);
 		$connexion = connect();
@@ -89,6 +89,21 @@ class Alert implements serializable{
 		}
 		return $listeAlert;
 	}
+
+
+	public static function PutFlag1($type)
+	{
+		$connexion = connect();
+		$requete = $connexion->prepare("UPDATE Alerte SET Flag_lecture = 1 WHERE Type = \"".$type."\"; ");
+		if($requete->execute())
+			return true;
+		else 
+		{
+			$requete = $connexion->prepare("DELETE FROM Alerte WHERE Flag_lecture = 0 AND Type = \"".$type."\"; ");
+			$requete->execute();
+		}
+			
+			
+	}
 }
-	
 ?>

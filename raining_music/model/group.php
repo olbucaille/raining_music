@@ -104,6 +104,25 @@ class Group {
 		return $listeGroupe;
 		
 	}
-
+	
+	public static function RemoveMembre_Group($user,$group)
+	{
+		$connexion = connect();
+		$requete = $connexion->prepare("DELETE FROM membre_groupe WHERE login_membre = \"".$user."\" AND Nom_groupe = \"".$group."\" ");
+		
+		if($requete->execute())
+			return true; 
+		return false;		
+		
+	}
+	public static function AcceptMembre_Group($user,$group)
+	{
+		$connexion = connect();
+		$requete = $connexion->prepare("UPDATE membre_groupe SET valide = 1 WHERE login_membre = \"".$user."\" AND Nom_groupe = \"".$group."\" ");
+		
+		if($requete->execute())
+			return true;
+		return false;
+	}
 }
 ?>

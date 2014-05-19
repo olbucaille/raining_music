@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Dim 18 Mai 2014 à 22:41
+-- Généré le: Lun 19 Mai 2014 à 11:18
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -35,19 +35,19 @@ CREATE TABLE IF NOT EXISTS `alerte` (
   `Flag_lecture` tinyint(1) NOT NULL,
   `Type` varchar(50) NOT NULL,
   `Login_membre` varchar(50) NOT NULL,
-  PRIMARY KEY (`Id`),
+  PRIMARY KEY (`Flag_lecture`,`Type`),
   KEY `Id` (`Id`,`Login_membre`),
   KEY `Login_membre` (`Login_membre`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Contenu de la table `alerte`
 --
 
 INSERT INTO `alerte` (`Id`, `Titre`, `Description`, `Flag_lecture`, `Type`, `Login_membre`) VALUES
-(3, 'demande', 'demande pour rejoindre le groupe', 0, 'ASK_Membre2_coreanBand', 'Membre3'),
-(4, 'demande', 'demande pour rejoindre le groupe', 0, 'ASK_Membre2_coreanBand', 'Membre3'),
-(5, 'demande', 'demande pour rejoindre le groupe', 0, 'ASK_Membre2_coreanBand', 'Membre3');
+(13, 'demande', 'Membre1 demande à rejoindre coreanBand', 1, 'ASK_Membre1_coreanBand', 'Membre3'),
+(16, 'demande', 'Membre2 demande à rejoindre coreanBand', 1, 'ASK_Membre2_coreanBand', 'Membre3'),
+(17, 'demande', 'Membre4 demande à rejoindre coreanBand', 1, 'ASK_Membre4_coreanBand', 'Membre3');
 
 -- --------------------------------------------------------
 
@@ -397,9 +397,9 @@ CREATE TABLE IF NOT EXISTS `membre_groupe` (
 --
 
 INSERT INTO `membre_groupe` (`Login_membre`, `Nom_groupe`, `Role`, `Valide`, `Creator`) VALUES
-('Membre1', 'coreanBand', '', 0, 0),
-('Membre2', 'coreanBand', '', 0, 0),
-('Membre3', 'coreanBand', 'chef supreme', 1, 1);
+('Membre1', 'coreanBand', '', 1, 0),
+('Membre3', 'coreanBand', 'chef supreme', 1, 1),
+('Membre4', 'coreanBand', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -477,8 +477,8 @@ ALTER TABLE `concert`
 -- Contraintes pour la table `concert_genre_musical`
 --
 ALTER TABLE `concert_genre_musical`
-  ADD CONSTRAINT `NomGenreMusical_dans_relation_a_ConcertGenre` FOREIGN KEY (`Nom_genre`) REFERENCES `genre_musical` (`Nom`),
-  ADD CONSTRAINT `IdConcert_dans_relation_a_ConcertGenreMusical` FOREIGN KEY (`Id_concert`) REFERENCES `concert` (`Id`);
+  ADD CONSTRAINT `IdConcert_dans_relation_a_ConcertGenreMusical` FOREIGN KEY (`Id_concert`) REFERENCES `concert` (`Id`),
+  ADD CONSTRAINT `NomGenreMusical_dans_relation_a_ConcertGenre` FOREIGN KEY (`Nom_genre`) REFERENCES `genre_musical` (`Nom`);
 
 --
 -- Contraintes pour la table `concert_membre_participe`
