@@ -46,7 +46,6 @@ include("./../layout/basic_header.php");
 				<input class="btn-right-loupe" name="go" type="submit" />
 				</form></div>
 				
-				<marquee>dp4.jpg</marquee>
 				
 				<?php 
 	include("./../layout/basic_footer.php");
