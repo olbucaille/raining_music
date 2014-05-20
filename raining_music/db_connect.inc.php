@@ -12,7 +12,8 @@ function connect(){
  	//$PARAM_mot_passe=''; // mot de passe de l'utilisateur pour se connecter
 	
 	
-	$PARAM_hote='10.0.120.16'; // le chemin vers le serveur
+	//$PARAM_hote='10.0.120.16'; // le chemin vers le serveur
+	$PARAM_hote='mysql5-14.perso';// le chemin vers le serveur
 	$PARAM_port='3306';
 	$PARAM_nom_bd='dotgamehmod1'; // le nom de votre base de données
 	$PARAM_utilisateur='dotgamehmod1'; // nom d'utilisateur pour se connecter
