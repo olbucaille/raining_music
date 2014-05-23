@@ -28,9 +28,9 @@ if(isset($_SESSION['user']))
 <li><a  class="menu" href="./../template/ContactPage.php" title="Nous contacter">Nous contacter</a></li>
 <li class="search">
 
-<form  class="search" method="post">
+<form  class="search" method="post" action="../Controller/traitementSearch.php">
 	
-<input class="search_data" name="saisie" type="search" placeholder="Mot clé" required />
+<input class="search_data" name="motcleSearch" type="search" placeholder="Mot clé" required />
 <input class="btn-right-loupe" name="go" type="submit" />
 </form></li>
 

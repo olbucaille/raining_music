@@ -29,6 +29,7 @@ if (isset ( $_POST ['kindOfObject'] )) { // Vrai si au moins un moins un checkbo
 	// Ici à  chaque passage $kindOfObject contiendra la valeur de l'attribut value d'une des cases à  cocher
 }
 
+
 // ---------------------------------------------------------------------------//
 // ----------Récuperation et vérification des valeurs dans la ----------------//
 // ------------------------zone de texte de mots clés-------------------------//
