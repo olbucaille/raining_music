@@ -7,17 +7,28 @@ include("./../layout/basic_header.php");
 	<p> 
 <center><font size = 18> DAFT PUNK </font></center>
 <?php
-$name=$_GET['id_groupe']."_groupe.JPG";
-	/*if (file_exists('upload_pictures/'.$name)){ echo"<img src='img/photos/$name' width='90' height='90' border='2'/>";}
-	else { echo"<img src='img/no_photo.png' width='90' height='90' border='2'/>";}
-	*/
+if(isset($_GET['id_groupe']))
+{
+  $name=$_GET['id_groupe']."_groupe.JPG";
+
+	if (file_exists('upload_pictures/'.$name))
+	{
+	 echo"<img src='img/photos/$name' width='90' height='90' border='2'/>";
+	}
+	else 
+	{ echo"<img src='img/no_photo.png' width='90' height='90' border='2'/>";
+	}
+	
+	}
 echo"<img src='upload_pictures/$name' alt='DP' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
 ?>
 </p>
 
 
 <!-- télécharger une nouvelle photo pour le groupe -->
+
 <form action="imageUpload.php" method="post" enctype="multipart/form-data"  target="hiddeniframe" >
+
    <input type="hidden" name="id_groupe" value="<?php echo $_GET['id_groupe']; ?>"> 
     <input type="file" name="imgfile" /> 
     <input type='submit' name="uploadButton" value="Changer la photo" />
