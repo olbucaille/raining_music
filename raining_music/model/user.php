@@ -128,7 +128,20 @@ class User implements serializable{
 		$_SESSION['user'] = serialize($this); //chargement de variable de session
 				
 	}
+	public function update_music($requeteMusic)
+	{
+		$connexion = connect();
+		if($requeteMusic != '')
+		{
+			$requete= $connexion->prepare($requeteMusic); //preparation requete
+			$requete->execute();//execution(pas de verification securité a faire => automatique)
+		}
 	
+		$requete = $connexion->prepare("UPDATE piste SET ID=\"$this->id\",Nom=\"$this->nom\",Groupe=\"$this->groupe\",Duree=\"$this->duree\",Album=\"$this->album\";");
+		$requete->execute();
+	
+	
+	}
 	
 }
 

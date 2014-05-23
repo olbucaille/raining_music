@@ -26,6 +26,11 @@ switch ((string)$action) {
 	case '\'rejoindre_groupe\'':	
 		c_RejoindreGroupe();
 		break;
+	case '\'upload_music\'':
+		c_UploadMusic();
+		break;
+	
+		
 	default :
 		header("location:./template/accueil.php");
 }
