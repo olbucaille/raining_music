@@ -207,7 +207,9 @@ bottom: 0px;
 
 
 /* css menu*/
-
+a.menu{
+	font-size: 11px;
+}
 a.menu:hover 
 
 {
