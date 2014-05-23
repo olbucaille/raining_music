@@ -50,17 +50,8 @@ include("./../db_connect.inc.php");
 <br />
 <br />
 
-<!--<div class="Liste-groupes" >
-  <ul>
-  	<li><a href="AffichageGroupe.php">Daft Punk</a>
-  	<li><a href="DBSK.html">DBSK</a>
-  	<li><a href="Deftones.html">Deftones</a>
-  	<li><a href="Delays.html">Delays</a>
-  	<li><a href="Destiny's Child.html">Destiny's Child</a>
-  </ul>   
-</div> -->
-
-	<?php 
+	<?php
+	$requete_faite = 0; 
 	/* se connecter à la base de données */
 	mysql_connect("localhost","root","");
 	mysql_select_db("bd_raining_music");
@@ -72,27 +63,34 @@ include("./../db_connect.inc.php");
 	$saisie=null;
 	}
 	
-	if($saisie==null)
-	{
-	/* récuperer tous les groupes dont la premiere lettre commence par la lettre selectionnée */
-	$sql = 'SELECT * FROM groupe WHERE LEFT(Nom,1) = "'.$_GET['lettre'].'"';
-	$req = mysql_query($sql);
-	}
-	else {
-	/* récuperer tous les groupes dont le nom contient le texte saisi */
-	$sql = "SELECT * FROM groupe WHERE Nom LIKE CONCAT('%','".$saisie."','%')";
-	$req = mysql_query($sql);
-	}
+		if($saisie==null && isset($_GET['lettre']))
+		{
+		/* récuperer tous les groupes dont la premiere lettre commence par la lettre selectionnée */
+			
+			$sql = 'SELECT * FROM groupe WHERE LEFT(Nom,1) = "'.$_GET['lettre'].'"';
+			$req = mysql_query($sql);
+			$requete_faite= 1;
+		}
+		else if($saisie!=null) {
+		/* récuperer tous les groupes dont le nom contient le texte saisi */
+		$sql = "SELECT * FROM groupe WHERE Nom LIKE CONCAT('%','".$saisie."','%')";
+		$req = mysql_query($sql);
+		$requete_faite = 1;
+		}
+		
+		if($requete_faite)
+		{
+			echo"<div class='Liste-groupes' >
+			<ul>";
+			while($ligne = mysql_fetch_assoc($req)) {
+			echo"<li><a href='AffichageGroupeAdmin.php?id_groupe=".$ligne['Id']."'>"; echo $ligne['Nom'].'<br />' ; echo"</a></li>";
+			}
+		}
+		mysql_close();
 	
-	echo"<div class='Liste-groupes' >
-	<ul>";
-	while($ligne = mysql_fetch_assoc($req)) {
-	echo"<li><a href='AffichageGroupe.php?id_groupe=".$ligne['Id']."'>"; echo $ligne['Nom'].'<br />' ; echo"</a></li>";
-	}
-	mysql_close();
 	echo"</ul>   
 	</div>";
-
+	
 
 	include("./../layout/basic_footer.php");
 	?>

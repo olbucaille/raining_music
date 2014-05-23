@@ -22,7 +22,7 @@ include ("./../layout/basic_header.php");
             //destruction pour ne pas retrouver un vieux message plus tard
             $_SESSION['message']='';
             }?>
-
+<!-- 
 <script language="Javascript">
 // ==================
 //	Activations - Désactivations
@@ -37,7 +37,8 @@ var objControle = document.getElementById(Controle);
 	return true;
 }
 </script>
-
+-->
+            
 <form method="post" action="../Controller/traitementSearch.php" style="margin-left: 90px;">
 	<label>Vous recherchez :</label><br/><br/>
 		une salle <input type= "radio" name="kindOfObject" value="salle" onClick="GereControle('radio_01', 'styleMusique', '1');"> <br />

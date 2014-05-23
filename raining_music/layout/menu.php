@@ -3,19 +3,26 @@
 <nav id="menu" >
 <ul>
 <li><a  class="menu" href="./../template/accueil.php" title="Accueil">Accueil</a></li>
+
+<!-- AFFICHAGE DE L'ONGLET PROFIL SI L'USER EST IDENTIFIE -->
+<?php 
+if(isset($_SESSION['user']))
+{?>
+<li><a class="menu" href="./myProfile.php" title="Profil">Mon profil</a>
+<ul><li><a class="menu" href="#" title="myGroup">Mon groupe</a></li>
+<li><a class="menu" href="#" title="myConcertHall">Ma salle de concert</a></li>
+</ul></li>
+<?php }?>
+
 <li><a  class="menu" href="#" title="Actualites">Actualités</a>
 <ul>
 <li><a  class="menu" href="#" title="Concerts">Les concerts</a></li>
 <li><a  class="menu" href="./../template/Redirection.php" title="Nouveaux artistes">Les nouveaux artistes</a></li>
-<li><a  class="menu" href="./../template/Salle.php" title="Nouveaux artistes">Les salles de concert</a></li>
-
 </ul>
 </li>
-<?php 
-if(isset($_SESSION['user']))
-{?>
-<li><a class="menu" href="./myProfile.php" title="Profil">Mon profil</a></li>
-<?php }?>
+<li><a class="menu" href="#" title="Artistes">Les artistes</a></li>
+<li><a  class="menu" href="./../template/Salle.php" title="SallesConcert">Les salles de concert</a></li>
+
 
 <li><a class="menu" href="./../template/RechercheAvancee.php" title="Recherche avancee">Recherche avancée</a></li>
 <li><a  class="menu" href="./../template/ContactPage.php" title="Nous contacter">Nous contacter</a></li>

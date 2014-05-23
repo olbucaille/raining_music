@@ -6,6 +6,7 @@ include_once './Controller/groupControler.php';
 include_once './Controller/musicControler.php';
 include_once 'model/user.php'; 
 include_once 'model/group.php';
+include_once 'model/alert.php';
 $r = "action";
 global $action;
 $action = "unknown";
