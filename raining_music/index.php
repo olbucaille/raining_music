@@ -29,6 +29,11 @@ switch ((string)$action) {
 	case '\'rejoindre_groupe\'':	
 		c_RejoindreGroupe();
 		break;
+	case '\'upload_music\'':
+		c_UploadMusic();
+		break;
+	
+		
 	case '\'refuser_adhesion_membre_groupe\'':
 		c_RefuserAdhsionGroupe();
 		break;

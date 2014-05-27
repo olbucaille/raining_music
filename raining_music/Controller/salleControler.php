@@ -5,11 +5,11 @@ function c_CreerSalle()
 	
 	
 	//elements mandatory present ?
-	if(isset($_POST['pseudo']) && isset($_POST['role']) && isset($_POST['nomSalle']))
+	if(isset($_POST['pseudo']) && isset($_POST['role']) && isset($_POST['nom']))
 	{
 		
 		//construction de l'objet salle
-		$newsalle= new Salle($_POST['nomSalle']);
+		$newsalle= new Salle($_POST['nom']);
 	
 		//appel du model
 		if(Salle::registerSalle($newsalle,$_POST['pseudo'],$_POST['role']))
@@ -45,7 +45,7 @@ function c_CreerSalle()
 			if($type[0]=="ASK")
 			{
 				Alert::PutFlag1($_GET['type']);
-				Salle::Removesalle_memebre_possede($type[1],$type[2]);
+				Salle::Removesalle_membre_possede($type[1],$type[2]);
 			}
 		}
 		header("location:./template/myProfile.php");
@@ -62,7 +62,7 @@ function c_CreerSalle()
 			if($type[0]=="ASK")
 			{
 				Alert::PutFlag1($_GET['type']);
-				Group::Acceptsalle_memebre_possede($type[1],$type[2]);
+				Group::Acceptsalle_membre_possede($type[1],$type[2]);
 			}
 		}
 		header("location:./template/myProfile.php");
