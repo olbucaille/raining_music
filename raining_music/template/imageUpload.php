@@ -9,7 +9,7 @@ if (isset($_POST["id_groupe"]) && !empty($_POST["id_groupe"])) {
         $result=$target;
 		//echo $result;
 		/* redirection vers la page AffichageGroupe */
-		header("location:AffichageGroupe.php?id_groupe=".$_POST["id_groupe"]."");
+		header("location:AffichageGroupeAdmin.php?id_groupe=".$_POST["id_groupe"]."");
     } 
     else
     {

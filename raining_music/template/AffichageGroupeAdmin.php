@@ -11,7 +11,7 @@ if(isset($_GET['id_groupe']))
 {
   $name=$_GET['id_groupe']."_groupe.JPG";
 
-	if (file_exists('upload_pictures/'.$name))
+	if (file_exists('./upload_pictures/'.$name))
 	{
 	 echo"<img src='img/photos/$name' width='90' height='90' border='2'/>";
 	}
