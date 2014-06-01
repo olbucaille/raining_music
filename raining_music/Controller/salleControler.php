@@ -33,41 +33,4 @@ function c_CreerSalle()
 	}
 	
 	
-	//refuser une adhsion à une salle
-	
-	function c_RefuserAdhsionSalle()
-	{
-		$type;
-		if(isset($_GET['type']))
-		{
-			$type =  explode("_",$_GET['type'], 3);
-			
-			if($type[0]=="ASK")
-			{
-				Alert::PutFlag1($_GET['type']);
-				Salle::Removesalle_membre_possede($type[1],$type[2]);
-			}
-		}
-		header("location:./template/myProfile.php");
-	}
-
-	//accepter adhesion à un salle(validation table salle_membre_possede)
-	function c_AccepterAdhesionSalle()
-	{
-		$type;
-		if(isset($_GET['type']))
-		{
-			$type =  explode("_",$_GET['type'], 3);
-				
-			if($type[0]=="ASK")
-			{
-				Alert::PutFlag1($_GET['type']);
-				Group::Acceptsalle_membre_possede($type[1],$type[2]);
-			}
-		}
-		header("location:./template/myProfile.php");
-		
-		
-	}
-
 ?>
