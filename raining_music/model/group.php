@@ -8,6 +8,7 @@ class Group {
 	//attributs classe User
 
 	var $nom;
+	
 	//constructeur à x champs
 
 	function __construct($nom)
@@ -22,9 +23,26 @@ class Group {
 		//conection BDD
 		$connexion = connect();
 
+		//verification groupe identique n'existe pas
+		$requete= $connexion->prepare("SELECT * FROM groupe WHERE Nom =\"$g->nom\" "); //preparation requete
+	//		echo "SELECT * FROM groupe WHERE Nom =\"$g->nom\" ";
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+		$i = 0;
+			while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+			$i++;
+		
+			//echo "i == ";
+			//echo  $i;
+			if ($i!= 0)
+				return false;
+		}
+		
+		
+		
 		//construction requete
 		$requete= $connexion->prepare("INSERT INTO groupe(Nom) VALUES(\"$g->nom\")"); //preparation requete
-		echo  "INSERT INTO groupe(Nom) VALUES(\"$g->nom\")";
+		//echo  "INSERT INTO groupe(Nom) VALUES(\"$g->nom\")";
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
 			
@@ -32,7 +50,7 @@ class Group {
 				
 			$requete= $connexion->prepare("INSERT INTO membre_groupe(Nom_groupe,Login_membre,Role,Valide,Creator) VALUES(\"$g->nom\",\"$login\",\"$role\",1,1)"); //preparation requete
 
-			echo $login;
+			//echo $login;
 			if($requete->execute())
 				return true;
 			else
@@ -40,6 +58,31 @@ class Group {
 		}
 		else
 			return false;
+	}
+	
+	//verifie si un user est validé dans le groupe
+	public static function verifyMemberValidate($user,$group)
+	{
+		//conection BDD
+		$connexion = connect();
+		
+		//construction requete
+		$requete= $connexion->prepare("SELECT * FROM membre_groupe WHERE Login_membre =\"$user\" AND Nom_groupe =\"$group\" AND Valide = 1"); //preparation requete
+		echo "SELECT * FROM membre_groupe WHERE Login_membre =\"$user\" AND Nom_groupe =\"$group\" AND Valide = 1" ;//preparation requete
+		 
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+			$i = 0;
+			while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+				$i++;
+
+			//echo "i == ";
+			//echo  $i;
+			if ($i!= 0)
+				return true;
+			return false;
+		}
+		
 	}
 
 	
@@ -50,7 +93,7 @@ class Group {
 		$connexion = connect();
 	
 		$requete= $connexion->prepare("INSERT INTO membre_groupe(Nom_groupe,Login_membre,Role,Valide) VALUES(\"$g\",\"$login\",\"\",0)"); //preparation requete
-		echo "INSERT INTO membre_groupe(Nom_groupe,Login_membre,Role,Valide) VALUES(\"$g\",\"$login\",\"\",0)";
+		//echo "INSERT INTO membre_groupe(Nom_groupe,Login_membre,Role,Valide) VALUES(\"$g\",\"$login\",\"\",0)";
 		if($requete->execute())
 			return true;
 		else
@@ -67,7 +110,7 @@ class Group {
 
 
 		$requete = $connexion->prepare("SELECT Nom FROM groupe ORDER BY Nom ASC");
-
+		
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
 			$listeGroupe = array();

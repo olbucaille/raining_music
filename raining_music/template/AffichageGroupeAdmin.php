@@ -20,7 +20,7 @@ if(isset($_GET['id_groupe']))
 	}
 	
 	}
-echo"<img src='upload_pictures/$name' alt='DP' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
+echo"<img src='./upload_pictures/$name' alt='DP' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
 ?>
 </p>
 
@@ -64,7 +64,12 @@ echo"<img src='upload_pictures/$name' alt='DP' border=':#0b8dca thick solid' hei
   		<font size = 5><font color="black"><a href ="PageEvent.php">6 et 7 Mai à Paris-Bercy</a></font></font>
    		<br />
    		<font size = 5><font color="black"><a href ="PageEvent.php">15 et 16 Mai au Bataclan</a></font></font>
+<form action="formconcert.html" method="post"  >
 
+    
+    <input type='submit' name="ajouter concert" value="ajouter concert" />
+	
+</form>
 
    		
 	<?php 

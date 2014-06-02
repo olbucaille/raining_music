@@ -19,6 +19,7 @@ function c_CreerGroupe()
 		}
 		else
 		{
+			
 			$_SESSION['messageErreur'] = "oups, an error occured, the group already exist";
 			header("location:./template/creerRejoindreGroupe.php");
 		}
@@ -44,12 +45,22 @@ function c_CreerGroupe()
 			if(Group::AddUserToGroup($_GET['groupe'],$user->login))
 			{
 				Alert::sendRequestJoinUser($_GET['groupe'],$user->login);
-				$_SESSION['message'] = "requete envoyé ! en attente de confirmation \o/";
-				header("location:./template/MessageEtape.php");
+				
+					$_SESSION['message'] = "requete envoyé ! en attente de confirmation \o/";
+					header("location:./template/MessageEtape.php");
+			
+				
 				
 			}
 			else
-			header("location:./index.php");
+			{
+				if(!Group::verifyMemberValidate($user->login,$_GET['groupe']))
+					$_SESSION['message'] = "Vous avez déjà une requete en cours, elle n'as pas encore été traité... soyez patients ! ";
+				else 	
+					$_SESSION['message'] = "Vous faites déjà parti du groupe TT";
+				
+				header("location:./template/MessageEtape.php");
+			}
 			
 		}
 	}
