@@ -19,7 +19,7 @@ class Salle {
 
 
 	//inscrire une salle
-	public static function registerSalle(Salle $s,$Nom,$Adresse)
+	public static function registerSalle(Salle $s,$Adresse)
 	{
 		//conection BDD
 		$connexion = connect();
@@ -29,7 +29,7 @@ class Salle {
 		echo  "INSERT INTO salle(Nom) VALUES(\"$s->nom\")";
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
-			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Nom, Adresse_Salle,Role,Valide,Creator) VALUES(\"$g->nom\",\"$Adresse_Salle\",\"$role\",1,1)"); //preparation requete
+			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Nom, Adresse_Salle,Role,Valide,Creator) VALUES(\"$s->nom\",\"$Adresse_Salle\",\"$role\",1,1)"); //preparation requete
 
 			echo $Nom;
 			if($requete->execute())
@@ -39,22 +39,6 @@ class Salle {
 		}
 		else
 			return false;
-	}
-
-
-	//inscrire une salle
-	public static function AddUserToSalle($s,$nom)
-	{
-		//conection BDD
-		$connexion = connect();
-
-		$requete= $connexion->prepare("INSERT INTO salle_membre_possede(Nom_Salle,Proprietaire_Salle,Role,Valide) VALUES(\"$s\",\"$login\",\"\",0)"); //preparation requete
-		echo "INSERT INTO salle_memebre_possede(Nom_Salle,Proprietaire_Salle,Role,Valide) VALUES(\"$s\",\"$login\",\"\",0)";
-		if($requete->execute())
-			return true;
-		else
-			return false;
-
 	}
 
 
