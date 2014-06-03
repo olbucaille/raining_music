@@ -1559,8 +1559,6 @@ a:focus {
    .MusicList .Author  {
         font: 9px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;
         background-color: #212121;
-        background-image:url(../pictures/maroon5.jpg);
-    
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
@@ -1601,7 +1599,12 @@ a:focus {
        width:90%;
        float:left;
      }
-
+label
+{	
+	display: block;
+	width: 200px;
+	float: left;
+}
 
 span.profile
 {
