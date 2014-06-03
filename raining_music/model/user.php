@@ -137,11 +137,11 @@ class User implements serializable{
 			$requete->execute();//execution(pas de verification securité a faire => automatique)
 		}
 	
-		$requete = $connexion->prepare("UPDATE piste SET ID=\"$this->id\",Nom=\"$this->nom\",Groupe=\"$this->groupe\",Duree=\"$this->duree\",Album=\"$this->album\";");
-		$requete->execute();
 	
 	
 	}
+	
+
 	
 }
 

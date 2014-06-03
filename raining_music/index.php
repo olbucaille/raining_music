@@ -32,8 +32,6 @@ switch ((string)$action) {
 	case '\'upload_music\'':
 		c_UploadMusic();
 		break;
-	
-		
 	case '\'refuser_adhesion_membre_groupe\'':
 		c_RefuserAdhsionGroupe();
 		break;

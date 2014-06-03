@@ -1,10 +1,16 @@
 <?php 
 include("./../layout/basic_header.php");
+include("./../db_connect.inc.php");
+include("./../model/song.php");
+$liste= array();
+$liste = Song::getSongName();
 
 ?>
 <script src="./../js/Music_box.js"></script>
 <!-- debut de la page en elle meme-->
 <div class="main">
+
+
 <!-- boite de musique-->
 
 <audio id="myMusic" > </audio> 
@@ -37,37 +43,26 @@ include("./../layout/basic_header.php");
     <div class="Author">
     </div> 
     <div class="List"> 
-    
-    <div class="Single" > 
-
-    <span class="SongName" KV="Moves Like Jagger" >01.Maroon 5 - Moves Like Jagger</span>
-    </div> 
-    <div class="Single" > 
-    <span class="SongName" KV="Let It Go" >02.Demi Lovato - Let It Go</span>
-    </div> 
-
- 
-     
-
-    
+	<input TYPE="button" VALUE="Ajouter une chanson" OnClick='document.location.href="UploadMusic.php";'>
+	</br>
+	</br>
+<?php 
+    $i=0;
+    while (isset($liste[$i])){
+	?>
+	<div class="Single" >
+	<span class="SongName" KV="<?php echo $liste[$i]->nom; ?>" > <?php echo $liste[$i]->nom; ?></span>
+	</div>
+   <?php  
+  	$i++;
+ 	 }
+ 	 ?> 	
     </div>
     </div>
-
-	<br /> 
+    </div>
+	<br />
 	<br /> 
 	<br />
-	
-
-
-
-<form enctype="multipart/form-data" action="../index.php?action='upload_music'" method="POST"> 
-<p>Uploader un fichier de musique :</p>
-<input type="hidden" name="posted" value="1">
-<input name="fichier" type="file">
-<input type="submit" value="Uploader">
-</form>
-
-	
 	<p class="text">
 		<big><big><strong>Revivez les moments emotionnels</strong> </big> </big>
 	</p>
