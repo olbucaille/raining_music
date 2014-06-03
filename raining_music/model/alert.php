@@ -63,12 +63,29 @@ class Alert implements serializable{
 		//construit requete 
 		$requete = $connexion->prepare("INSERT INTO Alerte(Titre,Description,Flag_lecture,Type,Login_membre)
 				 VALUES(\"".$alert->Titre."\",\"".$alert->Description."\",0,\"".$alert->Type."\",\"".$listedest[0]."\")");
-	
+		
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 			return true; 
 		else 
-			return false;
+			echo false;
 		
+	}
+	
+	public static function sendRequestJoinSalle($salle,$user)
+	{
+	//objet de base
+	$alert = new Alert('','demande',"".$user." demande à rejoindre ".$salle."",'',"ASK_".$user."_".$salle,'');
+	//cherche liste des membres de la salle
+	$listedest = Salle::getUserFromSalle($salle);
+	$connexion = connect();
+	//construit requete
+	$requete = $connexion->prepare("INSERT INTO Alerte(Titre,Description,Flag_lecture,Type,Login_membre)
+			VALUES(\"".$alert->Titre."\",\"".$alert->Description."\",0,\"".$alert->Type."\",\"".$listedest[0]."\")");
+	
+	if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		return true;
+	else
+		return false;
 	}
 	
 	public static function getAlert($user)
