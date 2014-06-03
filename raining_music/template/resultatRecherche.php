@@ -23,7 +23,9 @@ if ($_POST ['kindOfObject'] == "membre") :
 		 elseif ($_POST ['kindOfObject'] == "groupe") :
 			echo "le style de musique => " . $_POST ['styleMusique'];
 		 elseif ($_POST ['kindOfObject']== "concert") :
-		 	echo $_POST ['Nom'];
+		 	echo "rien";
+		 elseif ($_POST['kindOfObject']=="salle"):
+		 	echo "le département: ".$_POST['dep'];
 		 else :
 			echo "aucun paramï¿½tre filtrï¿½";
 		endif;
@@ -62,7 +64,7 @@ if ($_POST ['kindOfObject'] == "membre") :
 	<h2><?php echo $infos['Nom'];?></h2>
 
 	<div>
-		<span> <span> <span> <?php echo "ID du groupe en BdD: ".$infos['Id']; ?> </span>
+		<span> <span>
              <?php if( $infos['Popularite']!=null):?>
             	<span> <?php echo "Popularite: ".$infos['Popularite'];
             	else :echo "Popularite: cet(te) artiste n'est pas encore ï¿½valuï¿½(e)";  ?></span>
@@ -88,6 +90,19 @@ if ($_POST ['kindOfObject'] == "membre") :
 
 <?php endforeach; ?></div>
 
+<?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="salle")): ?>
+    
+             <?php foreach ($resultats as $infos): ?>
+<div>
+	<h2><?php echo "La salle se trouve dans le département: ".$infos['Departement'];?></h2>
+	 <div>
+		<span> <span> <?php echo "L'adresse de la salle est: ".$infos['Adresse']." - "; ?>
+		<span> <?php echo "Il y a ".$infos['NbPlaces']." places - "; ?>
+		<span> <?php echo "Le proprietaire est: ".$infos['Proprietaire']; ?>
+	</div>
+</div>
+
+<?php endforeach; ?></div>
 <!-- fin de la boucle -->
 
 									 <?php
