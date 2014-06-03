@@ -29,8 +29,9 @@ if(isset($_SESSION['user']))
 <li class="search">
 
 <form  class="search" method="post" action="../Controller/traitementSearch.php">
-	
-<input class="search_data" name="motcleSearch" type="search" placeholder="Mot clé" required />
+	<input type="radio"
+		name="kindOfObject" value="menuSearchBarre" CHECKED hidden>
+<input class="search_data" name="motcleSearch" type="search" placeholder="Mot(s) clé(s)" required />
 <input class="btn-right-loupe" name="go" type="submit" />
 </form></li>
 
