@@ -8,30 +8,46 @@ class Salle {
 
 	//attributs classe User
 
-	var $nom;
+	var $Nom;
 	
 	//constructeur à x champs
 
-	function __construct($nom)
+	function __construct($Nom)
 	{
-		$this->nom = $nom; 
+		$this->Nom = $Nom; 
 	}
 
 
 	//inscrire une salle
-	public static function registerSalle(Salle $s,$Adresse)
+	public static function registerSalle(Salle $s,$Departement,$Adresse)
 	{
-		//conection BDD
+			//conection BDD
 		$connexion = connect();
 
-		//construction requete
-		$requete= $connexion->prepare("INSERT INTO salle(Nom) VALUES(\"$s->nom\")"); //preparation requete
-		echo  "INSERT INTO salle(Nom) VALUES(\"$s->nom\")";
+		//verification groupe identique n'existe pas
+		$requete= $connexion->prepare("SELECT * FROM salle WHERE Nom =\"$s->Nom\" "); //preparation requete
+	
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
-			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Nom, Adresse_Salle,Role,Valide,Creator) VALUES(\"$s->nom\",\"$Adresse_Salle\",\"$role\",1,1)"); //preparation requete
-
-			echo $Nom;
+		$i = 0;
+			while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+			$i++;
+		
+			//echo "i == ";
+			//echo  $i;
+			if ($i!= 0)
+				return false;
+		}
+		
+		//construction requete
+		$requete= $connexion->prepare("INSERT INTO salle(Nom) VALUES(\"$s->Nom\")"); //preparation requete
+		
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+		
+			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Nom_Salle,Proprietaire_Salle,Adresse_Salle,Role,Valide,Creator) VALUES(\"$s->Nom\",\"$login\",\"Adresse_Salle\",\"$role\",1,1)"); //preparation requete
+		
+			//echo $login;
 			if($requete->execute())
 				return true;
 			else
@@ -39,7 +55,7 @@ class Salle {
 		}
 		else
 			return false;
-	}
+	}	
 
 
 	//recupere toutes les salles par ordre alphabetique

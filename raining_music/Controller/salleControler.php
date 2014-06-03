@@ -5,11 +5,11 @@ function c_CreerSalle()
 	
 	
 	//elements mandatory present ?
-	if( isset($_POST['nomSalle']) && isset($_POST['Departement']) && isset($_POST['Adresse']))
+	if( isset($_POST['Nom']) && isset($_POST['Departement']) && isset($_POST['Adresse']))
 	{
 		
 		//construction de l'objet salle
-		$newsalle= new Salle($_POST['nom']);
+		$newsalle= new Salle($_POST['Nom']);
 	
 		//appel du model
 		if(Salle::registerSalle($newsalle,$_POST['Departement'],$_POST['Adresse']))
