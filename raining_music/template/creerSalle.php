@@ -35,8 +35,8 @@ if(isset($_SESSION['user']))
     		$i=0;
     		while(isset($liste[$i])) 
     		{
-    			echo $liste[$i]->nom;
-    			echo"<a href=\"./../index.php?action='rejoindre_salle'&salle=".$liste[$i]->nom."\"style=\"float:right;\">rejoindre</a>";
+    			echo $liste[$i]->Nom;
+    			echo"<a href=\"./../index.php?action='rejoindre_salle'&salle=".$liste[$i]->Nom."\"style=\"float:right;\">rejoindre</a>";
     			echo"<hr />";
     			$i++;
 			}
@@ -73,8 +73,8 @@ if(isset($_SESSION['user']))
             }?>
         
             
-		    <label for="nomSalle">Nom de la salle*:</label>
-		    <input type="text" name="nomSalle" required/><br/><br/>
+		    <label for="Nom">Nom de la salle*:</label>
+		    <input type="text" name="Nom" required/><br/><br/>
 		 
         	<label for="Departement">Departement*:</label>
 		    <input type="text" name="Departement" required/><br/><br/>

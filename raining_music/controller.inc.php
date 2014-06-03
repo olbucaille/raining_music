@@ -9,6 +9,7 @@ include_once 'model/user.php';
 include_once 'model/group.php';
 include_once 'model/salle2.php';
 include_once 'model/alert.php';
+include_once 'model/song.php';
 $r = "action";
 global $action;
 $action = "unknown";

@@ -7,7 +7,7 @@
 //--------------------------------------
 
 $target     = "./media/";  // Repertoire cible          
-$max_size   = 100000000000000000000000;     // Taille max en octets du fichier
+$max_size   = 10000000*1024;     // Taille max en octets du fichier
 
 
 $extensions_ok = array("mp3");                    
@@ -66,23 +66,19 @@ if($_POST['posted'])
   				echo $_FILES["fichier"]["name"] . " already exists. ";
   			}
   			elseif(move_uploaded_file($tmp,$chemin))
-  			{
-  	
-  				// Si upload OK alors on affiche le message de réussite
+  			{  				// Si upload OK alors on affiche le message de réussite
   				echo '<p>Fichier uploadé avec succès !</p>';
   				echo '<ul><li>Fichier : '.$_FILES['fichier']['name'].'</li>';
   				echo '<li>Taille : '.$_FILES['fichier']['size'].' Octets</li>';
-  				echo '<li>Sauvegaré dans: '. $chemin.'</li>';			
+  				echo '<li>Sauvegardé dans: '. $chemin.'</li>';			
   				
-  				$chemin = gererAjoutMedia($_FILES['profilePic']);
+
   				$nom_fichier=explode(".",$nom_file);
-  				$req="INSERT piste SET Nom=\"$nom_fichier[1]\" ;";
+  				$req="INSERT piste SET Nom=\"$nom_fichier[0]\" ;";
   				//.. et dans lobjet user pour que ce soit pris en compte quand on le reserialisera
-  				$user->picture = $chemin;
-  				$user->update($req);
-  				
-  				
-  				header("location:./template/myProfile.php");
+  				$connexion = connect();
+  				$requete= $connexion->prepare($req); //preparation requete
+  				$requete->execute();//execution(pas de verification securité a faire => automatique)
   				
   			}
   			else
