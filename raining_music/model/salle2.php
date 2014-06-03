@@ -1,55 +1,37 @@
+
 <?php
 
 
 
-class Salle implements serializable{
+class Salle {
 
 
 	//attributs classe User
 
 	var $nom;
-	//constructeur ï¿½ x champs
+	
+	//constructeur à x champs
 
 	function __construct($nom)
 	{
-		$this->nom = $nom;
+		$this->nom = $nom; 
 	}
 
-	//permet de serialiser un objet user et le passer en SESSION
-	public function serialize() {
-
-		return serialize(
-				array(
-
-						'nom' => $this->nom,
-
-				)
-		);
-	}
-
-	//appel de cette fonction dans une vue (par exemple) afin de deserialiser et exploiter l'objet!
-	public function unserialize($data) {
-			
-		$data = unserialize($data);
-		$this->nom =$data['nom'];
-	}
 
 	//inscrire une salle
-	public static function registerSalle(Salle $g,$login,$role)
+	public static function registerSalle(Salle $s,$Adresse)
 	{
 		//conection BDD
 		$connexion = connect();
 
 		//construction requete
-		$requete= $connexion->prepare("INSERT INTO salle(Nom) VALUES(\"$g->nom\")"); //preparation requete
-
-		if($requete->execute())//execution(pas de verification securitï¿½ a faire => automatique)
+		$requete= $connexion->prepare("INSERT INTO salle(Nom) VALUES(\"$s->nom\")"); //preparation requete
+		echo  "INSERT INTO salle(Nom) VALUES(\"$s->nom\")";
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
-				
-				
-			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Proprietaire_Salle,Adresse_Salle,Role,Valide) VALUES(\"$g->nom\",\"$login\",\"$role\",1)"); //preparation requete
+			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Nom, Adresse_Salle,Role,Valide,Creator) VALUES(\"$s->nom\",\"$Adresse_Salle\",\"$role\",1,1)"); //preparation requete
 
-			echo $login;
+			echo $Nom;
 			if($requete->execute())
 				return true;
 			else
@@ -60,43 +42,61 @@ class Salle implements serializable{
 	}
 
 
+	//recupere toutes les salles par ordre alphabetique
 	
-	//recuperer toutes les salles par ordre alphabetique
 	public static function getsalle()
 	{
 
 		$connexion = connect();
 
-
 		$requete = $connexion->prepare("SELECT Nom FROM salle ORDER BY Nom ASC");
 
-		if($requete->execute())//execution(pas de verification securitï¿½ a faire => automatique)
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
 			$listeSalle = array();
-				
-				
+
+
 			while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
-			{					
+			{
 				$salle = new Salle($lignes->Nom);
 					
 				$listeSalle[] = $salle; // ajout dans la liste
 
 			}
-				
+
 		}
 		return $listeSalle;
 	}
-
-	//cette fonction est ici car la requete se fait sur la table salle_memebre_possede
+	
+	//permet de renvoyer le createur de la salle
 	public static function getUserFromSalle($salle)
 	{
+		$listeSalle='';
 		$connexion = connect();
-		$requete = $connexion->prepare("SELECT Login_membre FROM salle_memebre_possede WHERE ID = ".$salle);
+		$requete = $connexion->prepare("SELECT Proprietaire_Salle FROM salle_memebre_possede WHERE Nom_Salle = \"".$salle."\" AND Creator = 1");
+
+		$requete->execute();//execution(pas de verification securité a faire => automatique)
+
+		echo "SELECT Proprietaire_Salle FROM salle_memebre_possede WHERE Nom_Salle = \"".$salle."\" AND Creator = 1";
 		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
-				$listeSalle[] = $lignes->Login_membre; // ajout dans la liste
+		{
+			$listeSalle[] = $lignes->Proprietaire_Salle; // ajout dans la liste
+				
+		}
 		return $listeSalle;
-		
+
 	}
 
+	public static function Removesalle_membre_possede($user,$salle)
+	{
+		$connexion = connect();
+		$requete = $connexion->prepare("DELETE FROM salle_memebre_possede WHERE Proprietaire_Salle = \"".$user."\" AND Nom_Salle = \"".$salle."\" ");
+
+		if($requete->execute())
+			return true;
+		return false;
+
+	}
+	
 }
 ?>

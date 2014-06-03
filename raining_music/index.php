@@ -38,12 +38,6 @@ switch ((string)$action) {
 	case '\'accepter_adhesion_membre_groupe\'':
 		c_AccepterAdhesionGroupe();
 		break;
-	case '\'refuser_adhesion_salle\'':
-		c_RefuserAdhsionSalle();
-		break;
-	case '\'accepter_adhesion_salle\'':
-		c_AccepterAdhesionSalle();
-		break;
 	default :
 		header("location:./template/accueil.php");
 }

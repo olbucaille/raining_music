@@ -1,6 +1,4 @@
-
-
-<?php 
+<?php
 include("./../layout/basic_header.php");
 ?>
 
@@ -42,7 +40,7 @@ include("./../layout/basic_header.php");
 				
 				<form  class="search" method="post" action="Redirection.php">
 			
-				<input class="search_data" name="saisie" type="search" placeholder="Tapez le nom du groupe" required />
+				<input class="search_data" name="saisie" type="submit" placeholder="Le nom du groupe" required />
 				<input class="btn-right-loupe" name="go" type="submit" />
 				</form></div>
 				

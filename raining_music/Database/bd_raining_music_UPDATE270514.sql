@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Sam 24 Mai 2014 à 19:58
--- Version du serveur: 5.5.24-log
--- Version de PHP: 5.3.13
+-- Client :  127.0.0.1
+-- Généré le :  Mar 27 Mai 2014 à 18:18
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `bd_raining_music`
+-- Base de données :  `bd_raining_music`
 --
 
 -- --------------------------------------------------------
@@ -340,8 +340,24 @@ CREATE TABLE IF NOT EXISTS `membre` (
   `DoB` date NOT NULL,
   `Localisation` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Login`),
-  UNIQUE KEY `Mail` (`Mail`)
+  UNIQUE KEY `Mail` (`Mail`),
+  KEY `Login` (`Login`,`Password`),
+  FULLTEXT KEY `searchProfil` (`Login`,`Mail`,`Localisation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `membre`
+--
+
+INSERT INTO `membre` (`Login`, `Password`, `Mail`, `Nom`, `Sexe`, `DoB`, `Localisation`) VALUES
+('Alison', '9c0f0b59a4cb6d6c59f6002bf3892a28', 'alison.jorre@isep.com', NULL, 1, '1993-05-05', 'Groslay'),
+('Membre1', 'ae7be26cdaa742ca148068d5ac90eaca', 'm1@g.com', NULL, 0, '1111-01-01', 'Paris'),
+('Membre2', 'aaf2f89992379705dac844c0a2a1d45f', 'm2@g.com', NULL, 1, '2222-02-02', 'Lyon'),
+('Membre3', '9678f7a7939f457fa0d9353761e189c7', 'm3@g.com', NULL, 0, '1993-03-03', 'Paris'),
+('Membre4', 'fd6b6fc9220b72d21683ae8e4f50a210', 'm4@g.com', NULL, 1, '1993-04-04', 'Marseille'),
+('Membre5', '7b1f6dff14d8c2dfeb7da9487be0612d', 'm5@g.com', NULL, 1, '1995-05-05', 'Paris'),
+('membrealpha', '594f803b380a41396ed63dca39503542', 'aa@hh.fr', NULL, 1, '2014-04-10', 'Deuil-la-Barre'),
+('test', '098f6bcd4621d373cade4e832627b4f6', 'buca@gmail.com', NULL, NULL, '0000-00-00', 'null');
 
 -- --------------------------------------------------------
 
@@ -352,7 +368,9 @@ CREATE TABLE IF NOT EXISTS `membre` (
 CREATE TABLE IF NOT EXISTS `membre_genre_musical` (
   `Login_membre` varchar(50) NOT NULL,
   `Nom_genre_musical` varchar(50) NOT NULL,
-  PRIMARY KEY (`Login_membre`,`Nom_genre_musical`)
+  PRIMARY KEY (`Login_membre`,`Nom_genre_musical`),
+  KEY `Login_membre` (`Login_membre`,`Nom_genre_musical`),
+  KEY `nomgenremusical_dans_relation_a_genremusical` (`Nom_genre_musical`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -367,8 +385,19 @@ CREATE TABLE IF NOT EXISTS `membre_groupe` (
   `Role` varchar(50) DEFAULT NULL,
   `Valide` tinyint(1) NOT NULL,
   `Creator` tinyint(1) NOT NULL,
-  PRIMARY KEY (`Login_membre`,`Nom_groupe`)
+  PRIMARY KEY (`Login_membre`,`Nom_groupe`),
+  KEY `Login_membre` (`Login_membre`,`Nom_groupe`),
+  KEY `IdGroupe_dans_relation_a_groupe1` (`Nom_groupe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `membre_groupe`
+--
+
+INSERT INTO `membre_groupe` (`Login_membre`, `Nom_groupe`, `Role`, `Valide`, `Creator`) VALUES
+('Membre1', 'coreanBand', '', 1, 0),
+('Membre3', 'coreanBand', 'chef supreme', 1, 1),
+('Membre4', 'coreanBand', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -392,13 +421,14 @@ CREATE TABLE IF NOT EXISTS `piste` (
 --
 
 CREATE TABLE IF NOT EXISTS `salle` (
-  `Nom` varchar(50) NOT NULL,
-  `Adresse` varchar(100) NOT NULL,
+  `Adresse` varchar(25) NOT NULL,
   `NbPlaces` int(20) DEFAULT NULL,
-  `Proprietaire` varchar(30) DEFAULT NULL,
+  `Proprietaire` varchar(25) DEFAULT NULL,
   `Photo` varchar(25) NOT NULL,
   `Horaire` datetime NOT NULL,
-  PRIMARY KEY (`Nom`)
+  `Nom` varchar(40) NOT NULL,
+  PRIMARY KEY (`Nom`),
+  KEY `Adresse` (`Adresse`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -408,25 +438,62 @@ CREATE TABLE IF NOT EXISTS `salle` (
 --
 
 CREATE TABLE IF NOT EXISTS `salle_membre_note` (
-  `Login_Membre` varchar(25) NOT NULL,
-  `Adresse_Salle` varchar(50) NOT NULL,
+  `Login_Membre` varchar(50) NOT NULL,
+  `Adresse_Salle` varchar(25) NOT NULL,
   PRIMARY KEY (`Login_Membre`,`Adresse_Salle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `salle_membre_possede`
+-- Structure de la table `salle_memebre_possede`
 --
 
-CREATE TABLE IF NOT EXISTS `salle_membre_possede` (
+CREATE TABLE IF NOT EXISTS `salle_memebre_possede` (
   `Proprietaire_Salle` varchar(25) NOT NULL,
-  `Nom_Salle` varchar(30) NOT NULL,
-  `Role` varchar(20) NOT NULL,
+  `Role` varchar(25) NOT NULL,
+  `Nom_Salle` varchar(50) NOT NULL,
   `Valide` tinyint(1) NOT NULL,
   `Create` tinyint(1) NOT NULL,
   PRIMARY KEY (`Proprietaire_Salle`,`Nom_Salle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `alerte`
+--
+ALTER TABLE `alerte`
+  ADD CONSTRAINT `loginmembre_dans_relation_a_Alerte` FOREIGN KEY (`Login_membre`) REFERENCES `membre` (`Login`);
+
+--
+-- Contraintes pour la table `concert`
+--
+ALTER TABLE `concert`
+  ADD CONSTRAINT `Adresse_Salle_Concert` FOREIGN KEY (`Adresse`) REFERENCES `salle` (`Adresse`);
+
+--
+-- Contraintes pour la table `concert_genre_musical`
+--
+ALTER TABLE `concert_genre_musical`
+  ADD CONSTRAINT `IdConcert_dans_relation_a_ConcertGenreMusical` FOREIGN KEY (`Id_concert`) REFERENCES `concert` (`Id`),
+  ADD CONSTRAINT `NomGenreMusical_dans_relation_a_ConcertGenre` FOREIGN KEY (`Nom_genre`) REFERENCES `genre_musical` (`Nom`);
+
+--
+-- Contraintes pour la table `concert_membre_participe`
+--
+ALTER TABLE `concert_membre_participe`
+  ADD CONSTRAINT `concertid_dans_relation_a_Concert` FOREIGN KEY (`Id_concert`) REFERENCES `concert` (`Id`),
+  ADD CONSTRAINT `loginmembre_dans_relation_a_Membre` FOREIGN KEY (`Login_membre`) REFERENCES `membre` (`Login`);
+
+--
+-- Contraintes pour la table `membre_genre_musical`
+--
+ALTER TABLE `membre_genre_musical`
+  ADD CONSTRAINT `loginmembre_dans_relation_a_genremusical` FOREIGN KEY (`Login_membre`) REFERENCES `membre` (`Login`),
+  ADD CONSTRAINT `nomgenremusical_dans_relation_a_genremusical` FOREIGN KEY (`Nom_genre_musical`) REFERENCES `genre_musical` (`Nom`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

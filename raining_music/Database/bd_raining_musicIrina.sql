@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 24 Mai 2014 à 19:58
+-- Généré le: Sam 24 Mai 2014 à 17:30
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.3.13
 
@@ -346,48 +346,6 @@ CREATE TABLE IF NOT EXISTS `membre` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `membre_genre_musical`
---
-
-CREATE TABLE IF NOT EXISTS `membre_genre_musical` (
-  `Login_membre` varchar(50) NOT NULL,
-  `Nom_genre_musical` varchar(50) NOT NULL,
-  PRIMARY KEY (`Login_membre`,`Nom_genre_musical`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `membre_groupe`
---
-
-CREATE TABLE IF NOT EXISTS `membre_groupe` (
-  `Login_membre` varchar(50) NOT NULL,
-  `Nom_groupe` varchar(50) NOT NULL,
-  `Role` varchar(50) DEFAULT NULL,
-  `Valide` tinyint(1) NOT NULL,
-  `Creator` tinyint(1) NOT NULL,
-  PRIMARY KEY (`Login_membre`,`Nom_groupe`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `piste`
---
-
-CREATE TABLE IF NOT EXISTS `piste` (
-  `ID` int(20) NOT NULL AUTO_INCREMENT,
-  `Nom` varchar(25) NOT NULL,
-  `Duree` time DEFAULT NULL,
-  `Groupe` varchar(25) NOT NULL,
-  `Album` varchar(25) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `salle`
 --
 
@@ -399,18 +357,6 @@ CREATE TABLE IF NOT EXISTS `salle` (
   `Photo` varchar(25) NOT NULL,
   `Horaire` datetime NOT NULL,
   PRIMARY KEY (`Nom`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `salle_membre_note`
---
-
-CREATE TABLE IF NOT EXISTS `salle_membre_note` (
-  `Login_Membre` varchar(25) NOT NULL,
-  `Adresse_Salle` varchar(50) NOT NULL,
-  PRIMARY KEY (`Login_Membre`,`Adresse_Salle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
