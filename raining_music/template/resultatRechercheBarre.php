@@ -4,7 +4,7 @@ include ("./../layout/basic_header.php");
 ?>
 
 <div>
-	<h1>Résultats de la recherche</H1>
+	<h1>Résultats de la recherche </H1>
 </div>
 
 
