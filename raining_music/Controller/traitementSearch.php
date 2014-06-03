@@ -122,40 +122,99 @@ function remplirCondition($Motcle, $Checkbox) {
 			}	
 		}
 	}
-	
-	// /////////////////////////////////////////////////////////////////////////////////////////////////
-	// //////////////////////////CHOIX SUR OU FAIRE LA RECHERCHE POUR UN MEMBRE/////////////////////////
-	// /////////////////////////////////////////////////////////////////////////////////////////////////
-	
+		
+		// /////////////////////////////////////////////////////////////////////////////////////////////////
+		// //////////////////////////CHOIX SUR OU FAIRE LA RECHERCHE POUR UN MEMBRE/////////////////////////
+		// /////////////////////////////////////////////////////////////////////////////////////////////////
 	if ($_POST ['kindOfObject'] == "membre") {
 		$userParam = $_POST ['userParam'];
 		
-		if ($userParam != "NonSpecifie") {
-			if ($RMotClef != "") {
-				$Recherche .= " AND Login IN (SELECT Login From membre where ";
-				foreach ( $RMotClef as $V ) {
-					$V = str_replace ( "'", "''", $V );
-					$Recherche .= $userParam . " LIKE '%$V%'";
+		if ($_POST ['motcleSearch'] != "") {
+			if ($userParam != "NonSpecifie") {
+				
+				$Recherche .= "AND Login IN (SELECT Login From membre)";
+			}
+		} else {
+			if ($userParam != "NonSpecifie") {
+				if ($RMotClef != "") {
+					$Recherche .= " AND Login IN (SELECT Login From membre where ";
+					foreach ( $RMotClef as $V ) {
+						$V = str_replace ( "'", "''", $V );
+						$Recherche .= $userParam . " LIKE '%$V%'";
+					}
+				}
+				$Recherche .= ")";
+			}
+		}
+	}
+	
+	
+	// /////////////////////////////////////////////////////////////////////////////////////////////////
+	// //////////////////////////CHOIX SUR OU FAIRE LA RECHERCHE POUR UN CONCERT////////////////////////
+	// /////////////////////////////////////////////////////////////////////////////////////////////////
+
+	if ($_POST ['kindOfObject'] == "concert") {
+		$musicStyle = $_POST ['styleMusiqueConcert'];
+	
+		if ($_POST ['motcleSearch'] != "") {
+			if ($musicStyle != "NonSpecifie") {
+	
+				$Recherche .= "AND Login IN (SELECT Login From membre)";// a faire pour le concert !!!
+			}
+		} else {
+			if ($musicStyle!= "NonSpecifie") {
+				if ($RMotClef != "") {
+					$Recherche .= " AND Login IN (SELECT Login From membre where ";
+					foreach ( $RMotClef as $V ) {
+						$V = str_replace ( "'", "''", $V );
+						$Recherche .= $musicStyle . " LIKE '%$V%'";
+					}
 				}
 				$Recherche .= ")";
 			}
 		}
 	}
 	// /////////////////////////////////////////////////////////////////////////////////////////////////
-	// //////////////////////////CHOIX SUR OU FAIRE LA RECHERCHE POUR UN CONCERT////////////////////////
+	// //////////////////////////CHOIX SUR OU FAIRE LA RECHERCHE POUR UNE SALLE	////////////////////////
 	// /////////////////////////////////////////////////////////////////////////////////////////////////
-	if ($_POST ['kindOfObject'] == "concert") {
-		$musicStyle = $_POST ['styleMusiqueConcert'];
-		
-		if ($musicStyle != "NonSpecifie") {
-			$Recherche .= " AND Login IN (SELECT Login From membre where ";
-			foreach ( $RMotClef as $V ) {
-				$V = str_replace ( "'", "''", $V );
-				$Recherche .= $musicStyle . " LIKE '%$V%'";
+// 	if ($_POST ['kindOfObject'] == "salle") {
+// 		$selectedDep= $_POST ['dep'];
+	
+// 		if ($selectedDep!= "00") {
+// 			$Recherche .= " AND Departement IN (SELECT Departement From salle where ";
+// 			foreach ( $RMotClef as $V ) {
+// 				$V = str_replace ( "'", "''", $V );
+// 				$Recherche .= "Departement=".$selectedDep;
+// 			}
+// 			$Recherche .= ")";
+// 		}
+// 	}
+	
+	if ($_POST ['kindOfObject'] == "salle") {
+		$selectedDep= $_POST ['dep'];
+	
+		if ($_POST ['motcleSearch'] != "") {
+			if ($selectedDep!= "0") {
+	
+				$Recherche .= "AND Departement IN (SELECT Departement From salle where Departement=".$selectedDep.")";
 			}
-			$Recherche .= ")";
+			
+			
+		} else {
+			if ($selectedDep != "NonSpecifie") {
+				if ($RMotClef != "") {
+					$Recherche .= " AND EXISTS (SELECT * From salle where ";
+					foreach ( $RMotClef as $V ) {
+						$V = str_replace ( "'", "''", $V );
+						$Recherche .= $userParam . " LIKE '%$V%'";
+					}
+				}
+				$Recherche .= ")";
+			}
 		}
 	}
+	
+	
 	
 	// echo "La condition de recherche est la suivante : ".$Recherche;
 	return $Recherche;

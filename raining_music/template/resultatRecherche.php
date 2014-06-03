@@ -24,6 +24,8 @@ if ($_POST ['kindOfObject'] == "membre") :
 			echo "le style de musique => " . $_POST ['styleMusique'];
 		 elseif ($_POST ['kindOfObject']== "concert") :
 		 	echo $_POST ['Nom'];
+		 elseif ($_POST['kindOfObject']=="salle"):
+		 	echo "le département: ".$_POST['dep'];
 		 else :
 			echo "aucun paramï¿½tre filtrï¿½";
 		endif;
