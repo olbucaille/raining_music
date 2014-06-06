@@ -43,6 +43,18 @@ class checkDataBase {
     	//return $allDataFromMusicStyle;
     }
 
+    function getMusicStyle($nomGroupe) {
+    	//SELECT Nom_genre_musical FROM `groupe_genre_musical` WHERE Id_groupe=(SELECT Id FROM groupe WHERE Nom='CoreanBand')
+    	$requestStyle=new requestSQL();
+    	//$param1=$requestID ->select('groupe', 'Id',"Nom='".$nomGroupe."'" );
+    	$param1=$requestStyle->select('groupe_genre_musical','Nom_genre_musical', "Id_groupe=(SELECT Id FROM groupe WHERE Nom='".$nomGroupe."')" );
+    	$temp=$param1->fetchAll();
+    	$requestStyle=null;
+
+    	
+
+    	return ($temp);
+    }
 
 }
 ?>

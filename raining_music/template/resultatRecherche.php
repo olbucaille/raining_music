@@ -4,9 +4,16 @@ include ("./../layout/basic_header.php");
 ?>
 
 <div>
-	<H1>Rï¿½sultats de la recherche</H1>
+	<H1 class="SearchResults">Résultats de la recherche avancée</H1>
 </div>
-<p>
+
+
+<div class="containerSearchResults">		
+<!-- ------------------------------------------- -->
+<!-- TEXTE QUI RECAPITULE LA RECHERCHE EFFECTUEE -->
+<!-- ------------------------------------------- -->
+
+<p class="quasiHiddenText">
 		Recherche sur un<?php
 		
 if ($_POST ['kindOfObject'] == "salle") :
@@ -30,7 +37,15 @@ if ($_POST ['kindOfObject'] == "membre") :
 			echo "aucun paramï¿½tre filtrï¿½";
 		endif;
 		?></p>
-
+<!-- ------------------------------------------- -->
+<!-- ------------------------------------------- -->
+		
+		
+		
+		
+<!-- ------------------------------------------- -->
+<!-- 	AFFICHAGE DES RESULTATS SUR LES MEMBRES	 -->
+<!-- ------------------------------------------- -->
 
 
 <div>
@@ -56,12 +71,34 @@ if ($_POST ['kindOfObject'] == "membre") :
 <?php endforeach; ?></div>
 <!-- fin de la boucle -->
 
-<?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="groupe")): ?>
-    
-             <?php foreach ($resultats as $infos): ?>
+<!-- ------------------------------------------- -->
+<!-- ------------------------------------------- -->
 
-<div>
-	<h2><?php echo $infos['Nom'];?></h2>
+		
+<!-- ------------------------------------------- -->
+<!-- 	AFFICHAGE DES RESULTATS SUR LES GROUPES	 -->
+<!-- ------------------------------------------- -->
+
+<?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="groupe")): ?>
+    <h2 class="SubtitlesForSearchResults">Groupes de musique correspondants à votre recherche</h2>
+    
+    
+    <div>
+    <?php 
+    $alphabet=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+    
+        for ($i = 0; $i < 26; $i++) {?>
+
+    <h3><?php echo $alphabet[$i]?></h3><hr/>
+             <?php foreach ($resultats as $infos): ?>
+<?php $check = new checkDataBase ();
+$resultatGroupe = $check->checkRecherche ( "groupe", "Nom LIKE '".$alphabet[$i]."%' AND Nom='".$infos['Nom']."'");
+$nb_resultatsGroup = count ( $resultatGroupe );?>
+
+<?php if ($nb_resultatsGroup!=0):
+	?>
+	
+	<h4 class="resultNames"><?php echo $infos['Nom'];?></h4>
 
 	<div>
 		<span> <span>
@@ -69,14 +106,43 @@ if ($_POST ['kindOfObject'] == "membre") :
             	<span> <?php echo "Popularite: ".$infos['Popularite'];
             	else :echo "Popularite: cet(te) artiste n'est pas encore ï¿½valuï¿½(e)";  ?></span>
             <?php endif;?>
+            
+            <?php $checkStyle = new checkDataBase ();
+			$resultatStyle = $checkStyle->getMusicStyle($infos['Nom']);
+			//$temp=$resultatStyle->fetchAll();
+			$nb_resultatStyle = count ( $resultatStyle );?>
+
+
             <span> <?php if($_POST['styleMusique']!="NonSpecifie")echo "Genre musical: ".$_POST['styleMusique'];  ?></span>
 		</span>
 		</span>
+		<?php endif;?>
+
+
+
+
+
+<?php endforeach;
+?> <?php   }
+    
+    ?>
+</div>
+
+
+<div>
+	
 
 	</div>
 
 
-<?php endforeach; ?></div>
+</div>
+<!-- ------------------------------------------- -->
+<!-- ------------------------------------------- -->
+
+		
+<!-- ------------------------------------------- -->
+<!-- 	AFFICHAGE DES RESULTATS SUR LES CONCERTS -->
+<!-- ------------------------------------------- -->
 
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="concert")): ?>
     
@@ -88,13 +154,20 @@ if ($_POST ['kindOfObject'] == "membre") :
 	</div>
 </div>
 
-<?php endforeach; ?></div>
+<?php endforeach; ?>
+<!-- ------------------------------------------- -->
+<!-- ------------------------------------------- -->
+
+		
+<!-- ------------------------------------------- -->
+<!-- 	AFFICHAGE DES RESULTATS SUR LES SALLES	 -->
+<!-- ------------------------------------------- -->
 
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="salle")): ?>
     
              <?php foreach ($resultats as $infos): ?>
 <div>
-	<h2><?php echo "La salle se trouve dans le département: ".$infos['Departement'];?></h2>
+	<h2><?php echo "La salle ".$infos['Nom']." se trouve dans le département: ".$infos['Departement'];?></h2>
 	 <div>
 		<span> <span> <?php echo "L'adresse de la salle est: ".$infos['Adresse']." - "; ?>
 		<span> <?php echo "Il y a ".$infos['NbPlaces']." places - "; ?>
@@ -102,9 +175,16 @@ if ($_POST ['kindOfObject'] == "membre") :
 	</div>
 </div>
 
-<?php endforeach; ?></div>
+<?php endforeach; ?>
 <!-- fin de la boucle -->
 
+<!-- ------------------------------------------- -->
+<!-- ------------------------------------------- -->
+
+		
+<!-- ------------------------------------------- -->
+<!-- 		AFFICHAGE QUAND AUCUN RESULTAT		 -->
+<!-- ------------------------------------------- -->
 									 <?php
 else :
 										echo "<h2>Aucun rï¿½sultat ne correspond ï¿½ votre recherche</h2>";
@@ -112,7 +192,9 @@ else :
            
         <?php endif;?>
 
-
+<!-- ------------------------------------------- -->
+<!-- ------------------------------------------- -->
+</div> <!-- class="containerSearchResults" -->
 
 <!-- PIED DE PAGE -->
 <?php
