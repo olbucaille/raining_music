@@ -12,10 +12,7 @@ if($dn1['nb1']>0)
 ?>    <div class="content">
 <?php
 if(isset($_SESSION['username']))
-{
-$nb_new_pm = mysql_fetch_array(mysql_query('select count(*) as nb_new_pm from pm where ((user1="'.$_SESSION['userid'].'" and user1read="no") or (user2="'.$_SESSION['userid'].'" and user2read="no")) and id2="1"'));
-$nb_new_pm = $nb_new_pm['nb_new_pm'];
-?>
+{?>
 <div class="box">
 	<div class="box_left">
     	<a href="<?php echo $url_home; ?>">Forum Index</a> &gt; <a href="list_topics.php?parent=<?php echo $dn1['parent']; ?>"><?php echo htmlentities($dn1['name'], ENT_QUOTES, 'UTF-8'); ?></a> &gt; <a href="read_topic.php?id=<?php echo $id; ?>"><?php echo htmlentities($dn1['title'], ENT_QUOTES, 'UTF-8'); ?></a> &gt; Read the topic
@@ -50,7 +47,7 @@ if(isset($_SESSION['username']))
 	<a href="new_reply.php?id=<?php echo $id; ?>" class="button">Reply</a>
 <?php
 }
-$dn2 = mysql_query('select t.id2, t.authorid, t.message, t.timestamp, u.username as author, u.avatar from topics as t, users as u where t.id="'.$id.'" and u.id=t.authorid order by t.timestamp asc');
+$dn2 = mysql_query('select t.id2, t.authorid, t.message, t.timestamp, u.login as author u.image from topics as t, membre as u where t.id="'.$id.'" and u.id=t.authorid order by t.timestamp asc');
 ?>
 <table class="messages_table">
 	<tr>

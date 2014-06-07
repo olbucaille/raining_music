@@ -1,10 +1,7 @@
 <?php 
 include_once './../layout/forum_header.php';
-
 if(isset($_SESSION['username']))
 {
-	$nb_new_pm = mysql_fetch_array(mysql_query('select count(*) as nb_new_pm from pm where ((user1="'.$_SESSION['userid'].'" and user1read="no") or (user2="'.$_SESSION['userid'].'" and user2read="no")) and id2="1"'));
-	$nb_new_pm = $nb_new_pm['nb_new_pm'];
 	?>
 <div class="box">
 	<div class="box_left">

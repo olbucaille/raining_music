@@ -1,13 +1,11 @@
 <?php
 //This page let create a new category
-
+$_SESSION['username'] ='chazinou';
 include('./../layout/forum_header.php');
 if(isset($_SESSION['username']) and $_SESSION['username']==$admin)
 {
 ?>    <div class="content">
 <?php
-$nb_new_pm = mysql_fetch_array(mysql_query('select count(*) as nb_new_pm from pm where ((user1="'.$_SESSION['userid'].'" and user1read="no") or (user2="'.$_SESSION['userid'].'" and user2read="no")) and id2="1"'));
-$nb_new_pm = $nb_new_pm['nb_new_pm'];
 ?>
 <div class="box">
 	<div class="box_left">

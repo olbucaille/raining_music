@@ -7,10 +7,10 @@ work correctly.
 
 //We log to the DataBase
 mysql_connect('localhost', 'root', '');
-mysql_select_db('forum');
+mysql_select_db('bd_raining_music');
 
 //Username of the Administrator
-$admin='admin';
+$admin='chazinou';
 
 /******************************************************
 -----------------Optional Configuration----------------
@@ -21,7 +21,6 @@ $url_home = 'index.php';
 
 //Design Name
 $design = 'default';
-
 
 /******************************************************
 ----------------------Initialization-------------------
