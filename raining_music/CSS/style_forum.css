@@ -58,7 +58,7 @@ label
 	vertical-align:middle;
 	border:1px solid #aaaaaa;
 	font-weight:bold;
-	background:url('images/button.png') repeat-x;
+	background:url('./../pictures/button.png') repeat-x;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
@@ -93,7 +93,7 @@ td, th
 /****Blocks****/
 .content
 {
-	background:url('images/bluec_30p.png');
+	background:url('./../pictures/bluec_30p.png');
 	width:85%;
 	-moz-border-radius:20px;
 	-webkit-border-radius:20px;
@@ -112,7 +112,7 @@ td, th
 }
 .box
 {
-	background:url('images/bluec_30p.png');
+	background:url('./../pictures/bluec_30p.png');
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	border-radius:10px;
@@ -128,7 +128,7 @@ td, th
 }
 .box_login
 {
-	background:url('images/black_40p.png');
+	background:url('./../pictures/black_40p.png');
 	width:360px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
@@ -156,7 +156,7 @@ td, th
 	padding:20px;
 	margin:auto;
 	width:500px;
-	background:url('images/black_40p.png');
+	background:url('./../pictures/black_40p.png');
 	color:#ffffff;
 	text-align:center;
 	font-weight:bold;

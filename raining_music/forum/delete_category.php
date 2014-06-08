@@ -11,16 +11,13 @@ if(isset($_SESSION['username']) and $_SESSION['username']==$admin)
 {
 ?>
         <div class="content">
-<?php
-$nb_new_pm = mysql_fetch_array(mysql_query('select count(*) as nb_new_pm from pm where ((user1="'.$_SESSION['userid'].'" and user1read="no") or (user2="'.$_SESSION['userid'].'" and user2read="no")) and id2="1"'));
-$nb_new_pm = $nb_new_pm['nb_new_pm'];
-?>
+
 <div class="box">
 	<div class="box_left">
     	<a href="<?php echo $url_home; ?>">Forum Index</a> &gt; <?php echo htmlentities($dn1['name'], ENT_QUOTES, 'UTF-8'); ?> &gt; Delete the category
     </div>
 	<div class="box_right">
-    	 </a> -<?php echo htmlentities($_SESSION['username'], ENT_QUOTES, 'UTF-8'); ?></a> (<a href="login.php">Logout</a>)
+    	 </a> -<?php echo htmlentities($_SESSION['username'], ENT_QUOTES, 'UTF-8'); ?></a>  
     </div>
     <div class="clean"></div>
 </div>
@@ -49,12 +46,7 @@ else
 </form>
 <?php
 }
-?>
-		</div>
-		<div class="foot"><a href="http://www.webestools.com/scripts_tutorials-code-source-26-simple-php-forum-script-php-forum-easy-simple-script-code-download-free-php-forum-mysql.html">Simple PHP Forum Script</a> - <a href="http://www.webestools.com/">Webestools</a></div>
-	</body>
-</html>
-<?php
+include './../layout/basic_footer.php';
 }
 else
 {

@@ -8,7 +8,7 @@ include('config.php');
 
 <head>
 	<meta charset="iso-8859-1">
-	<link href="<?php echo $design; ?>/style.css" rel="stylesheet"	title="Style" />
+	<link href="./../CSS/style_forum.css" rel="stylesheet"	title="Style" />
 	
 	<link rel="stylesheet" type="text/css" href="../CSS/style.css" />
 	<link rel="icon" type="image/gif" href="../pictures/favicon.ico" />
@@ -25,7 +25,6 @@ include('config.php');
 
 		<?php 
 		// permet de charger la session courante : avec par exemple les données relative à la connexion de l'utilisateur
-		session_start();
 		require_once '../model/user.php';
 		?>
 		<!-- body : "racine" de la page !-->

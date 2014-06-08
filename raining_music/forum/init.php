@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './../model/user.php';
 //This page let initialize the forum by checking for example if the user is logged
 if(!isset($_SESSION['username']) and isset($_COOKIE['username'], $_COOKIE['password']))
@@ -11,8 +12,11 @@ if(!isset($_SESSION['username']) and isset($_COOKIE['username'], $_COOKIE['passw
 		$_SESSION['userid'] = $dn_cnn['id'];
 	}
 }
+echo "test init";
 if(isset($_SESSION['user']))
 {
+	
+	echo "session";
 		$user = unserialize($_SESSION['user']);
 		
 				$req = 'select password,id from membre where Login="'.$user->login.'"';

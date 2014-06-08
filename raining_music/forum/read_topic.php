@@ -18,7 +18,7 @@ if(isset($_SESSION['username']))
     	<a href="<?php echo $url_home; ?>">Forum Index</a> &gt; <a href="list_topics.php?parent=<?php echo $dn1['parent']; ?>"><?php echo htmlentities($dn1['name'], ENT_QUOTES, 'UTF-8'); ?></a> &gt; <a href="read_topic.php?id=<?php echo $id; ?>"><?php echo htmlentities($dn1['title'], ENT_QUOTES, 'UTF-8'); ?></a> &gt; Read the topic
     </div>
 	<div class="box_right">
-    	 </a> - <?php echo htmlentities($_SESSION['username'], ENT_QUOTES, 'UTF-8'); ?></a> (<a href="login.php">Logout</a>)
+    	 </a> - <?php echo htmlentities($_SESSION['username'], ENT_QUOTES, 'UTF-8'); ?></a>  
     </div>
     <div class="clean"></div>
 </div>
@@ -41,13 +41,8 @@ else
 ?>
 <h1><?php echo $dn1['title']; ?></h1>
 <?php
-if(isset($_SESSION['username']))
-{
-?>
-	<a href="new_reply.php?id=<?php echo $id; ?>" class="button">Reply</a>
-<?php
-}
-$dn2 = mysql_query('select t.id2, t.authorid, t.message, t.timestamp, u.login as author u.image from topics as t, membre as u where t.id="'.$id.'" and u.id=t.authorid order by t.timestamp asc');
+
+$dn2 = mysql_query('select t.id2, t.authorid, t.message, t.timestamp, u.login as author, u.image as avatar from topics as t, membre as u where t.id="'.$id.'" and u.id=t.authorid order by t.timestamp asc');
 ?>
 <table class="messages_table">
 	<tr>
@@ -64,7 +59,7 @@ if($dnn2['avatar']!='')
 {
 	echo '<img src="'.htmlentities($dnn2['avatar']).'" alt="Image Perso" style="max-width:100px;max-height:100px;" />';
 }
-?><br /><a href="profile.php?id=<?php echo $dnn2['authorid']; ?>"><?php echo $dnn2['author']; ?></a></td>
+?><br /><a href="#"><?php echo $dnn2['author']; ?></a></td>
     	<td class="left"><?php if(isset($_SESSION['username']) and ($_SESSION['username']==$dnn2['author'] or $_SESSION['username']==$admin)){ ?><div class="edit"><a href="edit_message.php?id=<?php echo $id; ?>&id2=<?php echo $dnn2['id2']; ?>"><img src="<?php echo $design; ?>/images/edit.png" alt="Edit" /></a></div><?php } ?><div class="date">Date sent: <?php echo date('Y/m/d H:i:s' ,$dnn2['timestamp']); ?></div>
         <div class="clean"></div>
     	<?php echo $dnn2['message']; ?></td>

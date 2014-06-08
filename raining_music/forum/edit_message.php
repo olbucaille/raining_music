@@ -17,10 +17,7 @@ include('bbcode_function.php');
   		<script type="text/javascript" src="functions.js"></script>
     </head>
         <div class="content">
-<?php
-$nb_new_pm = mysql_fetch_array(mysql_query('select count(*) as nb_new_pm from pm where ((user1="'.$_SESSION['userid'].'" and user1read="no") or (user2="'.$_SESSION['userid'].'" and user2read="no")) and id2="1"'));
-$nb_new_pm = $nb_new_pm['nb_new_pm'];
-?>
+
 <div class="box">
 	<div class="box_left">
     	<a href="<?php echo $url_home; ?>">Forum Index</a> &gt; <a href="list_topics.php?parent=<?php echo $dn1['parent']; ?>"><?php echo htmlentities($dn1['name'], ENT_QUOTES, 'UTF-8'); ?></a> &gt; <a href="read_topic.php?id=<?php echo $id; ?>"><?php echo htmlentities($dn1['title'], ENT_QUOTES, 'UTF-8'); ?></a> &gt; Edit a reply
@@ -82,7 +79,7 @@ if($_SESSION['username']==$admin and $id2==1)
 	<label for="title">Title</label><input type="text" name="title" id="title" value="<?php echo htmlentities($dn1['title'], ENT_QUOTES, 'UTF-8'); ?>" />
 <?php
 }
-?>
+?><br />
     <label for="message">Message</label><br />
     <div class="message_buttons">
         <input type="button" value="Bold" onclick="javascript:insert('[b]', '[/b]', 'message');" /><!--

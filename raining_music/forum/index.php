@@ -3,6 +3,7 @@ include_once './../layout/forum_header.php';
 if(isset($_SESSION['username']))
 {
 	?>
+	<div class="content">
 <div class="box">
 	<div class="box_left">
 		<a href="<?php echo $url_home; ?>">Forum Index</a>
@@ -10,33 +11,12 @@ if(isset($_SESSION['username']))
 	<div class="box_right">
 		 
 		</a> - <?php echo htmlentities($_SESSION['username'], ENT_QUOTES, 'UTF-8'); ?>
-		</a> (<a href="login.php">Logout</a>)
+		</a>  
 	</div>
 	<div class="clean"></div>
-</div>
+</div> 
 <?php
-}
-else
-{
-	?>
-<div class="box">
-	<div class="box_left">
-		<a href="<?php echo $url_home; ?>">Forum Index</a>
-	</div>
-	<div class="box_right">
-		<a href="signup.php">Sign Up</a> - <a href="login.php">Login</a>
-	</div>
-	<div class="clean"></div>
-</div>
-<?php
-}
-if(isset($_SESSION['username']) and $_SESSION['username']==$admin)
-{
-	?>
-<a href="new_category.php" class="button">New Category</a>
-<?php
-}
-?>
+}	?>
 <table class="categories_table">
 	<tr>
 		<th class="forum_cat">Category</th>

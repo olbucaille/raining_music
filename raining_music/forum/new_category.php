@@ -12,7 +12,7 @@ if(isset($_SESSION['username']) and $_SESSION['username']==$admin)
     	<a href="<?php echo $url_home; ?>">Forum Index</a> &gt; New Category
     </div>
 	<div class="box_right">
-    	 </a> -<?php echo htmlentities($_SESSION['username'], ENT_QUOTES, 'UTF-8'); ?></a> (<a href="login.php">Logout</a>)
+    	 </a> -<?php echo htmlentities($_SESSION['username'], ENT_QUOTES, 'UTF-8'); ?></a>  
     </div>
     <div class="clean"></div>
 </div>
