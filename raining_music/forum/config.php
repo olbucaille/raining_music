@@ -3,7 +3,7 @@
 include './../db_connect.inc.php';
 connectMS();
 //Username of the Administrator
-$admin='chazinou';
+$admin='Membre1';
 
 //Forum Home Page
 $url_home = 'index.php';

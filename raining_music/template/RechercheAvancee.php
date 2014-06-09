@@ -1,6 +1,7 @@
 <?php
 // on inclut le header
 include ("./../layout/basic_header.php");
+include '../model/checkDataBase.php';
 ?>
           <?php
 										// affichage d'un message d'erreur si besoin
@@ -174,24 +175,59 @@ class="containerSearchResults";>
 	<br /> <input type="radio" name="kindOfObject" value="concert"
 		id="radio_02"> <label for="radio_02" class="filter_1">un concert </label><br /> <select
 		class="selectStyle" id="styleMusiqueConcert"
-		name="styleMusiqueConcert"> Style de musique:
+		name="styleMusiqueConcert">
 		<option value="NonSpecifie">Non spécifié</option>
-		<option value="Hip-Hop">Hip-Hop</option>
-		<option value="Rock">Rock</option>
-		<option value="J-Pop">J-Pop</option>
-		<option value="Blues">Blues</option>
-		<option value="Dancehall">Dancehall</option>
+		
+		<!-- --------------------------------------------------------------------- -->
+		<!-- SCRIPT QUI PERMET DE VISUALISER UNIQUEMENT LES STYLES PRESENTS EN BDD -->
+		<!-- --------------------------------------------------------------------- -->
+		<?php 
+		$check = new checkDataBase ();
+		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
+		
+		$check = new checkDataBase (); // Instance d'un objet checkDataBase (Voir le fichier checkDataBase.php pour plus d'informations
+		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
+		print_r($resultatGenre);
+			$nb_resultatsGenre = count ( $resultatGenre );
+
+		?>
+		<?php 
+		if ($nb_resultatsGenre!=0) {
+			foreach ($resultatGenre as $Row):
+				echo "<option value='".$Row['Nom']."'>".$Row['Nom']."</option>";
+			endforeach;
+		}
+		?>
+		<!-- --------------------------------------------------------------------- -->
+		<!-- --------------------------------------------------------------------- -->
 	</select><br /> <input type="radio" name="kindOfObject" value="groupe"
 		id="radio_01" onClick="GereControle('radio_01', 'styleMusique', '1');"
 		CHECKED> <label for="radio_01" class="filter_1"> un groupe </label><br /> <select
-		class="selectStyle" id="styleMusique" name="styleMusique"> Style de
-		musique:
+		class="selectStyle" id="styleMusique" name="styleMusique">
 		<option value="NonSpecifie">Non spécifié</option>
-		<option value="Hip-Hop">Hip-Hop</option>
-		<option value="Rock">Rock</option>
-		<option value="J-Pop">J-Pop</option>
-		<option value="Blues">Blues</option>
-		<option value="Dancehall">Dancehall</option>
+		
+		<!-- --------------------------------------------------------------------- -->
+		<!-- SCRIPT QUI PERMET DE VISUALISER UNIQUEMENT LES STYLES PRESENTS EN BDD -->
+		<!-- --------------------------------------------------------------------- -->
+		<?php 
+		$check = new checkDataBase ();
+		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
+		
+		$check = new checkDataBase (); // Instance d'un objet checkDataBase (Voir le fichier checkDataBase.php pour plus d'informations
+		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
+		print_r($resultatGenre);
+			$nb_resultatsGenre = count ( $resultatGenre );
+
+		?>
+		<?php 
+		if ($nb_resultatsGenre!=0) {
+			foreach ($resultatGenre as $Row):
+				echo "<option value='".$Row['Nom']."'>".$Row['Nom']."</option>";
+			endforeach;
+		}
+		?>
+		<!-- --------------------------------------------------------------------- -->
+		<!-- --------------------------------------------------------------------- -->
 
 	</select><br /><input type="radio" name="kindOfObject"
 		value="membre"><label class="filter_1">un utilisateur </label> <br /> Dont <select class="selectUserParam"

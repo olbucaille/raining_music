@@ -22,7 +22,7 @@ include ("./../layout/basic_header.php");
 			echo " " . $_POST ['kindOfObject'];
 		endif;
 		?> 
-		avec comme mot(s) clï¿½(s) : "<i><?php echo $_POST['motcleSearch']?></i>" et un filtre sur : 
+		avec comme mot(s) clé(s) : "<i><?php echo $_POST['motcleSearch']?></i>" et un filtre sur : 
 		<?php
 		
 		if ($_POST ['kindOfObject'] == "membre") :
@@ -34,7 +34,7 @@ include ("./../layout/basic_header.php");
 		 elseif ($_POST ['kindOfObject'] == "salle") :
 			echo "le département: " . $_POST ['dep'];
 		 else :
-			echo "aucun paramï¿½tre filtrï¿½";
+			echo "aucun paramétre filtré";
 		endif;
 		?></p>
 	<!-- ------------------------------------------- -->
@@ -75,13 +75,14 @@ if ($nb_resultatMembre) :
 				?>
 	
 	<h4 class="resultNames"><?php echo $infos['Login'];?></h4>
-		<div>
-			<span> <span> <span> <?php echo $infos['Nom']; ?> </span> <span> <?php echo $infos['Mail'];  ?></span>
-			</span>
-			</span>
-			<div>
-				<span><?php echo $infos['DoB'];  ?> </span> <span> <?php echo $infos['Localisation'];  ?>  </span>
-			</div>
+		<div class="resultInfos">
+			 <span> <span> <?php echo"<b>Vrai nom: </b>"; 
+			if (isset($infos['Nom'])) echo $infos['Nom'];
+			else echo "non renseigné"?> </span> <br/>
+			<span> <?php echo "<b>Adresse e-mail:</b> ". $infos['Mail']." adresse à cacher si besoin !!";  ?></span><br/>
+			<span><?php if ($infos['DoB']!="0000-00-00") echo "<b>Date de naissance: </b>". $infos['DoB']; else echo " <b>Date de naissaince</b> non renseignée" ; ?> </span><br/> 
+			<span> <?php if ($infos['Localisation']!="null") echo "<b>Localisation: </b>".$infos['Localisation']; else echo "<b>Localisation</b> non renseignée" ?>  </span>
+		</span>
 		</div>
 
 
@@ -142,7 +143,7 @@ if ($nb_resultatsGroup != 0) :
 					
 echo "Popularite: " . $infos ['Popularite'];
 				 else :
-					echo "Popularite: cet(te) artiste n'est pas encore ï¿½valuï¿½(e)";
+					echo "Popularite: cet(te) artiste n'est pas encore évalué(e)";
 					?></span>
             <?php endif;?>
             
