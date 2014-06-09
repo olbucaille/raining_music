@@ -76,11 +76,10 @@ class User implements serializable{
 			
 			if( $lignes->Password ==md5($mdp))	//si ok
 			{
-				if($lignes->image == '')
-					$lignes->image = './../pictures/inconnu.bmp';
-				$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Sexe,$lignes->Nom,$lignes->image,$lignes->commentaire);
+				if($lignes->Image == '')
+					$lignes->Image = './../pictures/inconnu.bmp';
+				$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Sexe,$lignes->Nom,$lignes->Image,$lignes->Commentaire);
 				$_SESSION['user'] = serialize($userIdentified); //chargement de variable de session
-				
 				return true;
 			}
 			else
