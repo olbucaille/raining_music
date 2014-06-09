@@ -38,6 +38,9 @@ switch ((string)$action) {
 	case '\'accepter_adhesion_membre_groupe\'':
 		c_AccepterAdhesionGroupe();
 		break;
+	case '\'visualiser_User\'':
+		c_visualiserUser($_GET['Nom']);
+		break;
 	default :
 		header("location:./template/accueil.php");
 }

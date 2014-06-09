@@ -2,7 +2,7 @@
 
 class User implements serializable{
 
-	
+
 	//attributs classe User
 	var $login;
 	var $password;
@@ -14,7 +14,7 @@ class User implements serializable{
 	var $picture;
 	var $commentaire;
 	//constructeur à x champs
-	
+
 	function __construct($pseudo,$mail,$pass,$DoB,$localisation,$gender,$nom,$picture,$commentaire)
 	{
 		$this->login = $pseudo;
@@ -32,38 +32,38 @@ class User implements serializable{
 	}
 
 	//permet de serialiser un objet user et le passer en SESSION
- public function serialize() {
-        
-        return serialize(
-            array(
-                'login' => $this->login,
-                'mail' => $this->mail,
-                'nom' => $this->nom,
-                'sexe' => $this->sexe,
-                'DoB' => $this->DoB,
-            	'localisation' => $this->localisation,
-                'picture' => $this->picture,
-            	'commentaire' => $this->commentaire,
-            		
-            )
-        );
-    }
+	public function serialize() {
 
-    //appel de cette fonction dans une vue (par exemple) afin de deserialiser et exploiter l'objet!
-    public function unserialize($data) {
-    	
-    	$data = unserialize($data);
-       	$this->login = $data['login'];
-    	$this->mail = $data['mail'];
-    	$this->nom =$data['nom'];
-    	$this->sexe= $data['sexe'];
-    	$this->DoB = $data['DoB'];
-    	$this->localisation =$data['localisation'];
-    	$this->picture = $data['picture'];
-    	$this->commentaire = $data['commentaire'];
-    	
-    }
-	
+		return serialize(
+				array(
+						'login' => $this->login,
+						'mail' => $this->mail,
+						'nom' => $this->nom,
+						'sexe' => $this->sexe,
+						'DoB' => $this->DoB,
+						'localisation' => $this->localisation,
+						'picture' => $this->picture,
+						'commentaire' => $this->commentaire,
+
+				)
+		);
+	}
+
+	//appel de cette fonction dans une vue (par exemple) afin de deserialiser et exploiter l'objet!
+	public function unserialize($data) {
+		 
+		$data = unserialize($data);
+		$this->login = $data['login'];
+		$this->mail = $data['mail'];
+		$this->nom =$data['nom'];
+		$this->sexe= $data['sexe'];
+		$this->DoB = $data['DoB'];
+		$this->localisation =$data['localisation'];
+		$this->picture = $data['picture'];
+		$this->commentaire = $data['commentaire'];
+		 
+	}
+
 	public static function identify($login, $mdp) {
 		//normalement, $connexion est connue partout(variable globale) et est initialisé avant mais si on ne fait pas ça, ça ne marche pas TT
 
@@ -73,7 +73,7 @@ class User implements serializable{
 
 		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
 		{
-			
+				
 			if( $lignes->Password ==md5($mdp))	//si ok
 			{
 				if($lignes->Image == '')
@@ -89,7 +89,7 @@ class User implements serializable{
 		$requete->closeCursor(); // on ferme le curseur
 	}
 
-	
+
 	//inscrire un utilisateur
 	public static function registerUser(User $u)
 	{
@@ -99,11 +99,11 @@ class User implements serializable{
 		if ($u->sexe =='')
 			$u->sexe = "null";
 		if ($u->localisation =='')
-			$u->localisation = "null";
-		
+			$u->localisation = "inconnue";
+
 		//construction requete
 		$requete= $connexion->prepare("INSERT INTO membre(Login,Password,Mail,Sexe,DOB,Localisation) VALUES(\"$u->login\",\"$u->password\",\"$u->mail\",$u->sexe,\"$u->DoB\",\"$u->localisation\")"); //preparation requete
-		
+
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 			return true;
 		else
@@ -116,16 +116,16 @@ class User implements serializable{
 		$connexion = connect();
 		if($requeteImage != '')
 		{
-		$requete= $connexion->prepare($requeteImage); //preparation requete
-		$requete->execute();//execution(pas de verification securité a faire => automatique)
+			$requete= $connexion->prepare($requeteImage); //preparation requete
+			$requete->execute();//execution(pas de verification securité a faire => automatique)
 		}
-		
+
 		$requete = $connexion->prepare("UPDATE membre SET Mail=\"$this->mail\",Nom=\"$this->nom\",Sexe=\"$this->sexe\",DoB=\"$this->DoB\",Localisation=\"$this->localisation\",Commentaire=\"$this->commentaire\" WHERE Login=\"$this->login\";");
 		$requete->execute();
-		
-		
+
+
 		$_SESSION['user'] = serialize($this); //chargement de variable de session
-				
+
 	}
 	public function update_music($requeteMusic)
 	{
@@ -135,13 +135,39 @@ class User implements serializable{
 			$requete= $connexion->prepare($requeteMusic); //preparation requete
 			$requete->execute();//execution(pas de verification securité a faire => automatique)
 		}
-	
-	
-	
-	}
-	
 
-	
+
+
+	}
+
+	public function getUser($Nom)
+	{
+		$connexion = connect();
+		if($Nom != '')
+		{
+			$requete= $connexion->prepare("SELECT * FROM membre WHERE Login =\"$Nom\""); 
+			$requete->execute();
+
+			while($lignes=$requete->fetch(PDO::FETCH_OBJ))
+			{
+				$this->login = $lignes->Login;
+				$this->mail =  $lignes->Mail;
+				$this->sexe = $lignes->Sexe;
+				$this->localisation = $lignes->Localisation;
+				$this->DoB = $lignes->DoB;
+				$this->nom = $lignes->Nom;
+				$this->picture = $lignes->Image;
+				$this->commentaire = $lignes->Commentaire;
+				
+			}
+
+		}
+
+
+	}
+
+
+
 }
 
 ?>

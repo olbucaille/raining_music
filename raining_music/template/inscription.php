@@ -43,7 +43,7 @@ $( "#datepicker" ).datepicker( "option", "minDate", new Date(1907, 1 - 1, 1) );
   	 <span style="font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
     		font-size:20px;" >&nbsp;Des questions particulières ? </span><br/><br/> 
     		Nous savons que vous accordez une grande importance à la sécurité et à la confidentialité, et c'est également notre cas. C'est la raison pour laquelle Raining Music fait de la protection de vos données et de leur disponibilité une priorité.
-Nous veillons en permanence à assurer une sécurité maximale, à protéger votre vie privée, et à rendre les produits et services Raining Music encore plus pratiques et plus utiles pour vous. À cette fin, nous consacrons chaque année une part importante de notre budget à la sécurité, et nous faisons appel à des spécialistes de la sécurité des données mondialement reconnus. Nous avons par ailleurs développé des outils de sécurité et de confidentialité simples à utiliser. Vous conservez ainsi la maîtrise des informations que vous partagez avec Google.
+Nous veillons en permanence à assurer une sécurité maximale, à protéger votre vie privée, et à rendre les produits et services Raining Music encore plus pratiques et plus utiles pour vous. À cette fin, nous consacrons chaque année une part importante de notre budget à la sécurité, et nous faisons appel à des spécialistes de la sécurité des données mondialement reconnus. Nous avons par ailleurs développé des outils de sécurité et de confidentialité simples à utiliser. Vous conservez ainsi la maîtrise des informations que vous partagez avec nous .
 Pour en savoir plus sur la sécurité en ligne, y compris sur la manière de vous protéger, vous et votre famille, lorsque vous utilisez Internet, veuillez nous contacter<br/><br/>L'équipe.
 	</p>
     
@@ -89,7 +89,7 @@ Pour en savoir plus sur la sécurité en ligne, y compris sur la manière de vous p
 		    <input type="password" name="password2" required/><br/><br/>
 		    
 		    <label for="DoB">Date de naissance *</label>
-		    <input type="date" name="DoB" required><br/><br/>
+		    <input type="date" name="DoB"  placeholder="YYYY-MM-DD" required><br/><br/>
 		    
 		    <label for="DoB">Localisation</label>
 		    <input type="text" name="localisation" placeholder="chazinouLand"><br/><br/>			

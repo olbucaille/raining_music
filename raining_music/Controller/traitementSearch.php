@@ -269,7 +269,7 @@ function remplirCondition($Motcle, $Checkbox) {
 	if ($_POST ['kindOfObject'] == "membre") {
 		$userParam = $_POST ['userParam'];
 		
-		if ($_POST ['motcleSearch'] != "") {
+		if (trim($_POST ['motcleSearch'], "") != "") {
 			if ($userParam != "NonSpecifie") {
 				
 				$Recherche .= "AND Login IN (SELECT Login From membre)"; // A REPRENDRE

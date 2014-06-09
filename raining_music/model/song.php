@@ -5,6 +5,7 @@ class Song {
 	//attributs classe User
 
 	var $nom;
+	var $nom_groupe;
 	//constructeur à x champs
 
 	function __construct($nom)
@@ -12,13 +13,13 @@ class Song {
 		$this->nom = $nom;
 	}
 
-public static function getSongName()
+public static function getSongName($nom_groupe)
 {
 
 	$connexion = connect();
 
 
-	$requete = $connexion->prepare("SELECT Nom FROM piste ORDER BY ID ASC");
+	$requete = $connexion->prepare("SELECT Nom FROM piste WHERE Groupe='$nom_groupe' ORDER BY ID ASC");
 
 	if($requete->execute())//execution(pas de verification securité a faire => automatique)
 	{
