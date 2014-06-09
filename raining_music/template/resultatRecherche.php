@@ -55,12 +55,15 @@ if ($_POST ['kindOfObject'] == "membre") :
              <?php foreach ($resultats as $infos): ?>
              
     <div>
-		<h1><?php echo $infos['Login'];?></h1>
+    <?php $link =  "./../index.php?action='visualiser_User'&Nom=".$infos['Login'];?>
+    
+		<h1><?php echo $infos['Login'];?>  </h1> <span><a href=<?php echo $link?>> voir profil  </a></span>
 
 		<div>
 			<span> <span> <span> <?php echo $infos['Nom']; ?> </span> <span> <?php echo $infos['Mail'];  ?></span>
 			</span>
 			</span>
+			
 			<div>
 				<span><?php echo $infos['DoB'];  ?> </span> <span> <?php echo $infos['Localisation'];  ?>  </span>
 			</div>
