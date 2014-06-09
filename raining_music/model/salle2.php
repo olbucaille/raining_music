@@ -40,12 +40,12 @@ class Salle {
 		}
 		
 		//construction requete
-		$requete= $connexion->prepare("INSERT INTO salle(Nom) VALUES(\"$s->Nom\")"); //preparation requete
+		$requete= $connexion->prepare("INSERT INTO salle(Nom, Adresse, Departement) VALUES(\"$s->Nom\",\"$Adresse\",\"$Departement\")"); //preparation requete
 		
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
 		
-			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Nom_Salle,Proprietaire_Salle,Adresse_Salle,Role,Valide,Creator) VALUES(\"$s->Nom\",\"$login\",\"Adresse_Salle\",\"$role\",1,1)"); //preparation requete
+			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Nom_Salle,Proprietaire_Salle,Adresse_Salle,Role,Valide,Creator) VALUES(\"$s->Nom\",\"$login\",\"$Adresse\",\"$role\",1,1)"); //preparation requete
 		
 			//echo $login;
 			if($requete->execute())

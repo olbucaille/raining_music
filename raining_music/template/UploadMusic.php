@@ -10,5 +10,6 @@ include("./../layout/basic_header.php");
 <input type="hidden" name="posted" value="1">
 <input name="fichier" type="file"> <br />
 <input type="submit" value="Ajouter">
+<input TYPE="button" VALUE="Retour" OnClick='document.location.href="accueil.php";'>
 </form>
 
