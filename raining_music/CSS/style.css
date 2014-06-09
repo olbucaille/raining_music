@@ -1559,8 +1559,6 @@ a:focus {
    .MusicList .Author  {
         font: 9px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;
         background-color: #212121;
-        background-image:url(../pictures/maroon5.jpg);
-    
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
         border-radius: 3px;
@@ -1601,7 +1599,12 @@ a:focus {
        width:90%;
        float:left;
      }
-
+label
+{	
+	display: block;
+	width: 200px;
+	float: left;
+}
 
 span.profile
 {
@@ -1621,3 +1624,23 @@ img.profile
 	border-radius: 7px 7px 7px 0px;
 	margin-bottom:17px;
 }
+
+p.quasiHiddenText{
+	font-size: 10px;
+	font-style: italic;
+	
+}
+
+h2.SubtitlesForSearchResults{
+	font-size: 32px;
+	font-style: italic;
+	font-family: serif;
+}
+h1.SearchResults{
+	font-size: 38px;
+	font-family: serif;
+	margin:5%;
+	font-variant: small-caps;
+}
+div.containerSearchResults{	margin-left:10%;	}
+h4.resultNames{color: #39414c;}

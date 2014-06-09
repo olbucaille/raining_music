@@ -41,6 +41,7 @@ $liste = Song::getSongName();
     
     <div class="MusicList">  
     <div class="Author">
+    
     </div> 
     <div class="List"> 
 	<input TYPE="button" VALUE="Ajouter une chanson" OnClick='document.location.href="UploadMusic.php";'>

@@ -8,7 +8,7 @@
 <?php 
 if(isset($_SESSION['user']))
 {?>
-<li><a class="menu" href="./myProfile.php" title="Profil">Mon profil</a>
+<li><a class="menu" href="./../template/myProfile.php" title="Profil">Mon profil</a>
 <ul><li><a class="menu" href="#" title="myGroup">Mon groupe</a></li>
 <li><a class="menu" href="#" title="myConcertHall">Ma salle de concert</a></li>
 </ul></li>
@@ -26,11 +26,18 @@ if(isset($_SESSION['user']))
 
 <li><a class="menu" href="./../template/RechercheAvancee.php" title="Recherche avancee">Recherche avancée</a></li>
 <li><a  class="menu" href="./../template/ContactPage.php" title="Nous contacter">Nous contacter</a></li>
+<?php 
+if(isset($_SESSION['user']))
+{?>
+<li><a  class="menu" href="./../forum" title="forum">Forum</a></li>
+<?php }?>
+
 <li class="search">
 
-<form  class="search" method="post">
-	
-<input class="search_data" name="saisie" type="search" placeholder="Mot clé" required />
+<form  class="search" method="post" action="../Controller/traitementSearch.php">
+	<input type="radio"
+		name="kindOfObject" value="menuSearchBarre" CHECKED hidden>
+<input class="search_data" name="motcleSearch" type="search" placeholder="Mot(s) clé(s)" required />
 <input class="btn-right-loupe" name="go" type="submit" />
 </form></li>
 

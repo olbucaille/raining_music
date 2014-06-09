@@ -22,8 +22,8 @@ $nom_file   = $_FILES['fichier']['name'];
 $taille     = $_FILES['fichier']['size'];
 $tmp        = $_FILES['fichier']['tmp_name'];
 $chemin     = $target.$_FILES['fichier']['name'];
-
 $extension  = substr($nom_file,-3); // Récupération de l'extension
+
 
 //---------------------------
 //  SCRIPT D'UPLOAD
@@ -74,7 +74,10 @@ if($_POST['posted'])
   				
 
   				$nom_fichier=explode(".",$nom_file);
-  				$req="INSERT piste SET Nom=\"$nom_fichier[0]\" ;";
+  				$nom_groupe = $_POST['groupe'];
+  				$nom_album  = $_POST['album'];
+  				$req="INSERT INTO piste(Nom,Album,Groupe) VALUES(\"$nom_fichier[0]\", \"$nom_album\",\"$nom_groupe\")";
+  				
   				//.. et dans lobjet user pour que ce soit pris en compte quand on le reserialisera
   				$connexion = connect();
   				$requete= $connexion->prepare($req); //preparation requete
