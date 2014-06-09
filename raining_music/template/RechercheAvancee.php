@@ -39,22 +39,73 @@ var objControle = document.getElementById(Controle);
 }
 </script>
 <div class="conteneur" style="margin-left:5%; width:90%; min-width:800px; height:100%;  ">
+	<br/><br/><br/><br/>
+	<div class="right" style="width: 45% ;min-height: 400px; min-width: 45%">  
+   	  
+   	
+   	  <span style=" background-color:#236586;font-weight:bold;border-radius: 7px 7px 0px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif; font-size:20px; position:relative;top:-8px; " >&nbsp;Utilisation de la Recherche Avancée&nbsp;</span> 
+     <br/>
+     <div style="border:11px solid #236586;margin-top:15px; border-radius: 0px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width=100%">
+    <p > La <b>recherche avancée</b> vous permet de choisir ce sur quoi votre recherche doit porter et le degré d'affinage de la recherche. <br/>Pour :
+    <ol><li>Un groupe de musique</li>
+    	<ul><li>Choisir le style de musique du groupe</li></ul>
+    	<li>Une salle de concert</li>
+    	<ul><li>Définir la zone de recherche</li></ul>
+    	<li>Un membre</li>
+    	<ul><li>La recherche est effectuée sur le <i>login</i> du membre</li></ul>
+    	<li>Un concert</li>
+    	<ul><!-- <li>Définir la zone de recherche</li>-->
+    	<li>Choisir le style de musique du concert </li></ul>
+    </ol>
+    </p></div>
+    
+   	 </div>
 	
    	<div class="main">
 
-    	<table style="border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;   padding-left:10px;">
+    	<table style="border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  min-width:45%; padding-left:10px;">
     <tr><td style="text-align: justify; padding-right: 20px;">
 <?php if(isset($_SESSION['user'])){?>
-
+   
 <div>
 <H1 class="SearchResults">Vous recherchez :</H1>
 </div>
 
 <form method="post" action="../Controller/traitementSearch.php" style="margin-left: 10%;" 
 class="containerSearchResults";>
+	<ul>
+	<li><input type="radio" name="kindOfObject" value="groupe"
+		id="radio_01" onClick="GereControle('radio_01', 'styleMusique', '1');"
+		CHECKED> <label for="radio_01" class="filter_1"> un groupe </label><br /> <select
+		class="selectStyle" id="styleMusique" name="styleMusique">
+		<option value="NonSpecifie">Non spécifié</option>
+		
+		<!-- --------------------------------------------------------------------- -->
+		<!-- SCRIPT QUI PERMET DE VISUALISER UNIQUEMENT LES STYLES PRESENTS EN BDD -->
+		<!-- --------------------------------------------------------------------- -->
+		<?php 
+		$check = new checkDataBase ();
+		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
+		
+		$check = new checkDataBase (); // Instance d'un objet checkDataBase (Voir le fichier checkDataBase.php pour plus d'informations
+		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
+		print_r($resultatGenre);
+			$nb_resultatsGenre = count ( $resultatGenre );
+
+		?>
+		<?php 
+		if ($nb_resultatsGenre!=0) {
+			foreach ($resultatGenre as $Row):
+				echo "<option value='".$Row['Nom']."'>".$Row['Nom']."</option>";
+			endforeach;
+		}
+		?>
+		<!-- --------------------------------------------------------------------- -->
+		<!-- --------------------------------------------------------------------- -->
+
+	</select></li><br />
 	
-	
-	<input type="radio"
+	<li><input type="radio"
 		name="kindOfObject" value="salle"> <label class="filter_1">une salle </label><br />
 	<?php
 	function departements() {
@@ -165,8 +216,12 @@ class="containerSearchResults";>
 		echo '</select>';
 	}
 	departements ();
-	?>
-	<br /> <input type="radio" name="kindOfObject" value="concert"
+	?></li>
+	<br /><input type="radio" name="kindOfObject"
+		value="membre"><label class="filter_1">un utilisateur </label> <br /><br />
+		
+		
+		<li> <input type="radio" name="kindOfObject" value="concert"
 		id="radio_02"> <label for="radio_02" class="filter_1">un concert </label><br /> <select
 		class="selectStyle" id="styleMusiqueConcert"
 		name="styleMusiqueConcert">
@@ -194,43 +249,13 @@ class="containerSearchResults";>
 		?>
 		<!-- --------------------------------------------------------------------- -->
 		<!-- --------------------------------------------------------------------- -->
-	</select><br /> <input type="radio" name="kindOfObject" value="groupe"
-		id="radio_01" onClick="GereControle('radio_01', 'styleMusique', '1');"
-		CHECKED> <label for="radio_01" class="filter_1"> un groupe </label><br /> <select
-		class="selectStyle" id="styleMusique" name="styleMusique">
-		<option value="NonSpecifie">Non spécifié</option>
-		
-		<!-- --------------------------------------------------------------------- -->
-		<!-- SCRIPT QUI PERMET DE VISUALISER UNIQUEMENT LES STYLES PRESENTS EN BDD -->
-		<!-- --------------------------------------------------------------------- -->
-		<?php 
-		$check = new checkDataBase ();
-		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
-		
-		$check = new checkDataBase (); // Instance d'un objet checkDataBase (Voir le fichier checkDataBase.php pour plus d'informations
-		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
-		print_r($resultatGenre);
-			$nb_resultatsGenre = count ( $resultatGenre );
-
-		?>
-		<?php 
-		if ($nb_resultatsGenre!=0) {
-			foreach ($resultatGenre as $Row):
-				echo "<option value='".$Row['Nom']."'>".$Row['Nom']."</option>";
-			endforeach;
-		}
-		?>
-		<!-- --------------------------------------------------------------------- -->
-		<!-- --------------------------------------------------------------------- -->
-
-	</select><br /><input type="radio" name="kindOfObject"
-		value="membre"><label class="filter_1">un utilisateur </label> <br /><br /> Entrez un mot
+	</select></li><br />  Entrez un mot
 	clé:
 	<!--<span style=" font-size: small; color: red; font-weight:bold;"> /!\ Attention, pour le moment, il est impératif de remplir le champ de mot clé pour ne pas générer d'erreur. /!\</span>-->
 	<br> <input type="text" name="motcleSearch" size="15"> <input
 		type="submit" value="Rechercher" alt="Lancer la recherche!"><br />
 
-
+</ul>
 </form>
 <?php }else{
 ?>
