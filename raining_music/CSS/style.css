@@ -1606,6 +1606,21 @@ label
 	float: left;
 }
 
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button {
+align-items: flex-start;
+text-align: center;
+cursor: default;
+color: buttontext;
+padding: 2px 6px 3px;
+border: 2px outset buttonface;
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+background-color: buttonface;
+box-sizing: border-box;
+}
 span.profile
 {
 	background-color:#236586;

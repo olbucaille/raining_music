@@ -3,7 +3,7 @@ include("./../layout/basic_header.php");
 include("./../db_connect.inc.php");
 include("./../model/song.php");
 $liste= array();
-$liste = Song::getSongName();
+$liste = Song::getSongName('abc');
 
 ?>
 <script src="./../js/Music_box.js"></script>
