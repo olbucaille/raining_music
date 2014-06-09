@@ -267,26 +267,16 @@ function remplirCondition($Motcle, $Checkbox) {
 	// //////////////////////////CHOIX SUR OU FAIRE LA RECHERCHE POUR UN MEMBRE/////////////////////////
 	// /////////////////////////////////////////////////////////////////////////////////////////////////
 	if ($_POST ['kindOfObject'] == "membre") {
-		$userParam = $_POST ['userParam'];
+		
 		
 		if (trim($_POST ['motcleSearch'], "") != "") {
-			if ($userParam != "NonSpecifie") {
-				
-				$Recherche .= "AND Login IN (SELECT Login From membre)"; // A REPRENDRE
-			}
-		} else {
-			if ($userParam != "NonSpecifie") {
-				if ($RMotClef != "") {
-					$Recherche .= " AND Login IN (SELECT Login From membre where ";
-					foreach ( $RMotClef as $V ) {
-						$V = str_replace ( "'", "''", $V );
-						$Recherche .= $userParam . " LIKE '%$V%'";
-					}
-				}
-				$Recherche .= ")";
+			
+				echo "Recherche avant ajout requete Membre: ".$Recherche."<br/>";
+				$Recherche .= "AND Login IN (SELECT Login From membre WHERE Login LIKE '%".$_POST ['motcleSearch']."%')"; 
+				echo "Recherche après ajout requete Membre: ".$Recherche."<br/>";
 			}
 		}
-	}
+	
 	
 	// /////////////////////////////////////////////////////////////////////////////////////////////////
 	// //////////////////////////CHOIX SUR OU FAIRE LA RECHERCHE POUR UN CONCERT////////////////////////

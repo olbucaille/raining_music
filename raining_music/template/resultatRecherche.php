@@ -22,19 +22,20 @@ include ("./../layout/basic_header.php");
 			echo " " . $_POST ['kindOfObject'];
 		endif;
 		?> 
-		avec comme mot(s) clé(s) : "<i><?php echo $_POST['motcleSearch']?></i>" et un filtre sur : 
+		<?php if ( $_POST ['motcleSearch']!=null&& $_POST ['motcleSearch']!="") echo "avec comme mot(s) clé(s) :'<i>". $_POST['motcleSearch']."' et"; ?> 
 		<?php
 		
-		if ($_POST ['kindOfObject'] == "membre") :
-			echo $_POST ['userParam'];
-		 elseif ($_POST ['kindOfObject'] == "groupe") :
+		if ($_POST ['kindOfObject'] != "membre") :
+			echo " avec un filtre sur </i>: ";
+		endif;
+		 if ($_POST ['kindOfObject'] == "groupe") :
 			echo "le style de musique => " . $_POST ['styleMusique'];
 		 elseif ($_POST ['kindOfObject'] == "concert") :
 			echo "rien";
 		 elseif ($_POST ['kindOfObject'] == "salle") :
 			echo "le département: " . $_POST ['dep'];
 		 else :
-			echo "aucun paramétre filtré";
+			echo "aucun paramètre filtré";
 		endif;
 		?></p>
 	<!-- ------------------------------------------- -->

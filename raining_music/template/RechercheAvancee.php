@@ -59,7 +59,7 @@ class="containerSearchResults";>
 	<?php
 	function departements() {
 		$departements = array (
-				'(00) Non Specifie',
+				'(00) Non Specifié',
 				'(01) Ain',
 				'(02) Aisne',
 				'(03) Allier',
@@ -154,13 +154,7 @@ class="containerSearchResults";>
 				'(92) Hauts de Seine',
 				'(93) Seine Saint Denis',
 				'(94) Val de Marne',
-				'(95) Val d\'Oise',
-				'(971) Guadeloupe',
-				'(972) Martinique',
-				'(973) Guyane',
-				'(974) Réunion',
-				'(975) Saint Pierre et Miquelon',
-				'(976) Mayotte' 
+				'(95) Val d\'Oise'
 		);
 		
 		$departements_length = count ( $departements );
@@ -230,14 +224,7 @@ class="containerSearchResults";>
 		<!-- --------------------------------------------------------------------- -->
 
 	</select><br /><input type="radio" name="kindOfObject"
-		value="membre"><label class="filter_1">un utilisateur </label> <br /> Dont <select class="selectUserParam"
-		id="userParam" name="userParam">
-		<option value="NonSpecifie">N'importe quel champ</option>
-		<option value="Login">le pseudo</option>
-		<option value="Nom">le (vrai) nom</option>
-		<option value="Mail">l'adresse mail</option>
-		<option value="Localisation">la ville</option>
-	</select>contient le(s) mot(s) clé(s) suivant(s)<br /> Entrez un mot
+		value="membre"><label class="filter_1">un utilisateur </label> <br /><br /> Entrez un mot
 	clé:
 	<!--<span style=" font-size: small; color: red; font-weight:bold;"> /!\ Attention, pour le moment, il est impératif de remplir le champ de mot clé pour ne pas générer d'erreur. /!\</span>-->
 	<br> <input type="text" name="motcleSearch" size="15"> <input
