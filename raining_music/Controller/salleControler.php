@@ -14,7 +14,7 @@ function c_CreerSalle()
 		//appel du model
 		if(Salle::registerSalle($newsalle,$_POST['Departement'],$_POST['Adresse']))
 		{
-			$_SESSION['message'] = "merci, vous avez ajouté une salle avec succès ! ";
+			$_SESSION['message'] = "merci, vous avez ajouté une salle avec succès !";
 			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussi \o/
 		}
 		else
