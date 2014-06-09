@@ -1,2 +1,4 @@
 /.project
 /db_connect.inc.php
+/index.php
+/controller.inc.php

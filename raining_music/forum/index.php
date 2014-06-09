@@ -4,6 +4,7 @@ if(isset($_SESSION['username']))
 {
 	?>
 	<div class="content">
+	En tant que membre de Raining Music, vous avez accès au Forum. Celui-ci vous permet de communiquer avec les autres membres de notre communauté. Cependant, les catégories ne sont gérable que par les admins de notre site. Si vous souhaitez qu'une nouvelle catégorie apparaisse car elle vous semble manquante, veuillez nous contacter via l'onglet "Nous contacter" et nous faire part de cette requête.<br /> L'équipe <br/><br/>
 <div class="box">
 	<div class="box_left">
 		<a href="<?php echo $url_home; ?>">Forum Index</a>
@@ -52,15 +53,15 @@ if(isset($_SESSION['username']))
 		{
 			?>
 		<td><a href="delete_category.php?id=<?php echo $dnn1['id']; ?>"><img
-				src="<?php echo $design; ?>/images/delete.png" alt="Delete" /> </a>
+				src="./../pictures/delete.png" alt="Delete" /> </a>
 			<?php if($dnn1['position']>1){ ?><a
 			href="move_category.php?action=up&id=<?php echo $dnn1['id']; ?>"><img
-				src="<?php echo $design; ?>/images/up.png" alt="Move Up" /> </a> <?php } ?>
+				src="./../pictures/up.png" alt="Move Up" /> </a> <?php } ?>
 			<?php if($dnn1['position']<$nb_cats){ ?><a
 			href="move_category.php?action=down&id=<?php echo $dnn1['id']; ?>"><img
-				src="<?php echo $design; ?>/images/down.png" alt="Move Down" /> </a>
+				src="./../pictures/down.png" alt="Move Down" /> </a>
 			<?php } ?> <a href="edit_category.php?id=<?php echo $dnn1['id']; ?>"><img
-				src="<?php echo $design; ?>/images/edit.png" alt="Edit" /> </a>
+				src="./../pictures/edit.png" alt="Edit" /> </a>
 		</td>
 		<?php
 		}
@@ -77,24 +78,7 @@ if(isset($_SESSION['username']) and $_SESSION['username']==$admin)
 <a href="new_category.php" class="button">New Category</a>
 <?php
 }
-if(!isset($_SESSION['username']))
-{
-	?>
-<div class="box_login">
-	<form action="login.php" method="post">
-		<label for="username">Username</label><input type="text"
-			name="username" id="username" /><br /> <label for="password">Password</label><input
-			type="password" name="password" id="password" /><br /> <label
-			for="memorize">Remember</label><input type="checkbox" name="memorize"
-			id="memorize" value="yes" />
-		<div class="center">
-			<input type="submit" value="Login" /> <input type="button"
-				onclick="javascript:document.location='signup.php';" value="Sign Up" />
-		</div>
-	</form>
-</div>
-<?php
-}
+
  
 include_once './../layout/basic_footer.php';
 ?>

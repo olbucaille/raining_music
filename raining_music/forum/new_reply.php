@@ -72,22 +72,6 @@ else
 	echo '<h2>The topic you want to reply doesn\'t exist.</h2>';
 }
 }
-else
-{
-?>
-<h2>You must be logged to access this page.</h2>
-<div class="box_login">
-	<form action="login.php" method="post">
-		<label for="username">Username</label><input type="text" name="username" id="username" /><br />
-		<label for="password">Password</label><input type="password" name="password" id="password" /><br />
-        <label for="memorize">Remember</label><input type="checkbox" name="memorize" id="memorize" value="yes" />
-        <div class="center">
-	        <input type="submit" value="Login" /> <input type="button" onclick="javascript:document.location='signup.php';" value="Sign Up" />
-        </div>
-    </form>
-</div>
-<?php
-}
 }
 else
 {

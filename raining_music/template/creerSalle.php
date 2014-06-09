@@ -78,7 +78,7 @@ if(isset($_SESSION['user']))
 		 
         	<label for="Departement">Departement*:</label>
 		    <input type="text" name="Departement" required/><br/><br/>
-		    
+		  										
 		    <label for="Adresse">Adresse*:</label>
 		    <input type="text" name="Adresse" required/><br/><br/>
 			<br /> <br />

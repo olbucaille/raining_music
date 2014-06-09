@@ -2,7 +2,7 @@
 //This function let convert BBcode to HTML
 function bbcode_to_html($text)
 {
-	$text = nl2br(htmlentities($text, ENT_QUOTES, 'UTF-8'));
+	$text = nl2br(htmlentities($text, ENT_QUOTES, 'iso-8859-1'));
 	$in = array(
 			'#\[b\](.*)\[/b\]#Usi',
 			'#\[i\](.*)\[/i\]#Usi',

@@ -1,8 +1,9 @@
 <?php 
 include("./../layout/basic_header.php");
+include("./../db_connect.inc.php");
 ?>
 
-
+   
 <div class="conteneur" style="margin-left:5%; width:90%; min-height:500px; height:100%; background-color:#c0c0c0; ">
 	
 
@@ -15,6 +16,8 @@ include("./../layout/basic_header.php");
         <blockquote><li><font size =5><font color = "black">42 rue du Montparnasse, 75014 Paris</font></blockquote></font>
         <blockquote><li><font size =5><font color = "black">Telephone : 01 43 35 38 29</font></blockquote></font>
         <blockquote><li><font size =5><font color = "black"> Horaires : 8h30 - 5h00</font></blockquote></font></div><br/>
+        
+        <img src="./../pictures/<?php echo $salle['photo'];?>">
         
 <blockquote><img src="./../pictures/Falstaff.jpg" alt="Le Falstaff" border=":#0b8dca thick solid" height="200" width="300" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p></blockquote></blockquote><br/>
 <blockquote><img src="./../pictures/falstaff2.jpg" alt="Le Falstaff" border=":#0b8dca thick solid" height="200" width="300" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p></blockquote></blockquote><br/>
