@@ -37,12 +37,24 @@ var objControle = document.getElementById(Controle);
 	return true;
 }
 </script>
+<div class="conteneur" style="margin-left:5%; width:90%; min-width:800px; height:100%;  ">
+	
+   	<div class="main">
 
+    	<table style="border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;   padding-left:10px;">
+    <tr><td style="text-align: justify; padding-right: 20px;">
+<?php if(isset($_SESSION['user'])){?>
 
-<form method="post" action="../Controller/traitementSearch.php"
-	style="margin-left: 90px;">
-	<label>Vous recherchez :</label><br /> <br /> <input type="radio"
-		name="kindOfObject" value="salle"> <label>une salle </label><br />
+<div>
+<H1 class="SearchResults">Vous recherchez :</H1>
+</div>
+
+<form method="post" action="../Controller/traitementSearch.php" style="margin-left: 10%;" 
+class="containerSearchResults";>
+	
+	
+	<input type="radio"
+		name="kindOfObject" value="salle"> <label class="filter_1">une salle </label><br />
 	<?php
 	function departements() {
 		$departements = array (
@@ -160,7 +172,7 @@ var objControle = document.getElementById(Controle);
 	departements ();
 	?>
 	<br /> <input type="radio" name="kindOfObject" value="concert"
-		id="radio_02"> <label for="radio_02">un concert </label><br /> <select
+		id="radio_02"> <label for="radio_02" class="filter_1">un concert </label><br /> <select
 		class="selectStyle" id="styleMusiqueConcert"
 		name="styleMusiqueConcert"> Style de musique:
 		<option value="NonSpecifie">Non spécifié</option>
@@ -171,7 +183,7 @@ var objControle = document.getElementById(Controle);
 		<option value="Dancehall">Dancehall</option>
 	</select><br /> <input type="radio" name="kindOfObject" value="groupe"
 		id="radio_01" onClick="GereControle('radio_01', 'styleMusique', '1');"
-		CHECKED> <label for="radio_01"> un groupe </label><br /> <select
+		CHECKED> <label for="radio_01" class="filter_1"> un groupe </label><br /> <select
 		class="selectStyle" id="styleMusique" name="styleMusique"> Style de
 		musique:
 		<option value="NonSpecifie">Non spécifié</option>
@@ -181,8 +193,8 @@ var objControle = document.getElementById(Controle);
 		<option value="Blues">Blues</option>
 		<option value="Dancehall">Dancehall</option>
 
-	</select><br /> un utilisateur <input type="radio" name="kindOfObject"
-		value="membre"> <br /> Dont <select class="selectUserParam"
+	</select><br /><input type="radio" name="kindOfObject"
+		value="membre"><label class="filter_1">un utilisateur </label> <br /> Dont <select class="selectUserParam"
 		id="userParam" name="userParam">
 		<option value="NonSpecifie">N'importe quel champ</option>
 		<option value="Login">le pseudo</option>
@@ -197,11 +209,33 @@ var objControle = document.getElementById(Controle);
 
 
 </form>
+<?php }else{
+?>
+
+      <p>Pour accéder à la Recherche Avancée, veuillez vous identifier via l'onglet <b>connexion</b> situé en haut à droite de votre écran.<br/>
+      Si vous n'êtes pas encore inscrit, cliquez sur l'onglet <b>connexion</b> puis sur <b>S'inscrire</b>.<br/><br/>
+      Actuellement, vous pouvez uniquement effectuer des recherches "simples" via la barre de Recherche située dans la barre de menu. Les recherches effectuées 
+      concernent uniquement les groupes et les salles.<br/>
+      La Recherche Avancée vous permettra donc de faire d'autres recherches concernant les concerts organisés via notre site et les utilisateurs existants.
+      <br/><br/>
+      Pour toute question, n'hésitez pas à nous contacter via l'onglet <b>Nous contacter</b> située dans la barre de menu.
+      <br/><b>L'équipe Raining Music</b>
+      
+      
 
 
-<?php
+<?php }?>
+</td>
 
-/*
+</p></td>
+</tr>
+</table>
+<br /><br />
+</div>
+
+
+
+<?php /*
  * if (! isset ( $_SESSION ['user'] )) SELECT * FROM faq WHERE MATCH(permalien, titre) AGAINST ('+tutoriel +mysql -wordpress' IN BOOLEAN MODE) ;
  */
 ?>
