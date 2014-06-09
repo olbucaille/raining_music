@@ -41,7 +41,7 @@ else :
              <?php foreach ($resultatsSalles as $infosSalles): ?>
              
     <div>
-		<h1><?php echo "La salle appartient à: ". $infosSalles['Proprietaire'];?></h1>
+		<h1><?php echo "La salle '".$infosSalles['Nom']."' appartient à: ". $infosSalles['Proprietaire'];?></h1>
 
 		<div>
 			<span> <span> <span> <?php echo "Elle se situe au: ". $infosSalles['Adresse']; ?> </span> 
