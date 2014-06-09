@@ -1663,5 +1663,5 @@ h4.resultNames{color: #39414c;}
 input.filter_1{
 	display: none;
 }
-div.resultInfos{font-size: 12px;
+div.resultInfos, a.resultInfos{font-size: 12px;
 }
