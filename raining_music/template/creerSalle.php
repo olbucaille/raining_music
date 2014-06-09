@@ -30,13 +30,13 @@ if(isset($_SESSION['user']))
  <div style="text-align:justify; border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  padding:10px;">
     
   	 <span style="font-weight:bold;border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding-top:11px; font-family:Arial, Helvetica, sans-serif;
-    		font-size:20px;" >&nbsp;Liste des salles </span><br/><br/>
+    		font-size:20px;" >&nbsp;Liste des salles existantes</span><br/><br/>
     		<?php 
     		$i=0;
     		while(isset($liste[$i])) 
     		{
     			echo $liste[$i]->Nom;
-    			echo"<a href=\"./../index.php?action='rejoindre_salle'&salle=".$liste[$i]->Nom."\"style=\"float:right;\">rejoindre</a>";
+    		//	echo"<a href=\"./../index.php?action='rejoindre_salle'&salle=".$liste[$i]->Nom."\"style=\"float:right;\">rejoindre</a>";
     			echo"<hr />";
     			$i++;
 			}

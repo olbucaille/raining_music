@@ -17,9 +17,12 @@ include("./../db_connect.inc.php");
         <blockquote><li><font size =5><font color = "black">Telephone : 01 43 35 38 29</font></blockquote></font>
         <blockquote><li><font size =5><font color = "black"> Horaires : 8h30 - 5h00</font></blockquote></font></div><br/>
         
+       <?php while($salle=mysql_fetch_array($resultat)){ ?>
        
 <blockquote><img src="./../pictures/<?php echo $salle['Photo'];?>" alt="Le Falstaff" border=":#0b8dca thick solid" height="200" width="300" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p></blockquote></blockquote><br/>
 <blockquote><img src="./../pictures/<?php echo $salle['Photo'];?>" alt="Le Falstaff" border=":#0b8dca thick solid" height="200" width="300" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p></blockquote></blockquote><br/>
+
+<?php }?>
 
 <div class="Concert a venir" style="border:9px dotted #236586; margin-top:15px; border-radius: 7px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width:50%;">
 
