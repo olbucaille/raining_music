@@ -89,6 +89,9 @@ function c_RegisterUser()
 
 			$req="UPDATE membre SET image=\"$chemin\" WHERE Login=\"$user->login\";";
 			//.. et dans lobjet user pour que ce soit pris en compte quand on le reserialisera
+			if($chemin == '')
+				$chemin = $user->picture;
+			
 		$user->picture = $chemin;
 
 
@@ -122,6 +125,20 @@ function c_RegisterUser()
 
 	}
 
+	//sert à visualiser un user autre que soit même
+	function c_visualiserUser($Nom)
+	{
+		$user = new user('','','','','','','','','');
+		$user->getUser($Nom);
+		if($user->picture == '')
+			$user->picture	= './../pictures/inconnu.bmp';
+				
+		$_SESSION['userToShow'] = serialize($user);
+
+		
+		header('location:./template/Profil.php');
+
+	}
 
 	function gererAjoutMedia($file)
 	{

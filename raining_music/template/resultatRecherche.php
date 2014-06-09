@@ -61,8 +61,12 @@ include ("./../layout/basic_header.php");
     <h3><?php echo $alphabet[$i]?></h3>
 		<hr />
              <?php foreach ($resultats as $infos): ?>
-<?php
-
+             
+    <div>
+    <?php $link =  "./../index.php?action='visualiser_User'&Nom=".$infos['Login'];?>
+    
+		<h1><?php echo $infos['Login'];?>  </h1> <span><a href=<?php echo $link?>> voir profil  </a></span>
+<?php 
 			
 $check = new checkDataBase ();
 			$resultatMembre = $check->checkRecherche ( "membre", "Login LIKE '" . $alphabet [$i] . "%' AND Login='" . $infos ['Login'] . "'" );
@@ -83,6 +87,16 @@ if ($nb_resultatMembre) :
 			<span><?php if ($infos['DoB']!="0000-00-00") echo "<b>Date de naissance: </b>". $infos['DoB']; else echo " <b>Date de naissaince</b> non renseignée" ; ?> </span><br/> 
 			<span> <?php if ($infos['Localisation']!="null") echo "<b>Localisation: </b>".$infos['Localisation']; else echo "<b>Localisation</b> non renseignée" ?>  </span>
 		</span>
+
+		<div>
+			<span> <span> <span> <?php echo $infos['Nom']; ?> </span> <span> <?php echo $infos['Mail'];  ?></span>
+			</span>
+			</span>
+			
+			<div>
+				<span><?php echo $infos['DoB'];  ?> </span> <span> <?php echo $infos['Localisation'];  ?>  </span>
+			</div>
+
 		</div>
 
 

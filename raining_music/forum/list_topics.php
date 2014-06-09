@@ -67,7 +67,7 @@ while($dnn2 = mysql_fetch_array($dn2))
 if(isset($_SESSION['username']) and $_SESSION['username']==$admin)
 {
 ?>
-    	<td><a href="delete_topic.php?id=<?php echo $dnn2['id']; ?>"><img src="<?php echo $design; ?>/images/delete.png" alt="Delete" /></a></td>
+    	<td><a href="delete_topic.php?id=<?php echo $dnn2['id']; ?>"><img src="./../pictures/delete.png" alt="Delete" /></a></td>
 <?php
 }
 ?>
@@ -90,21 +90,7 @@ if(isset($_SESSION['username']))
 	<a href="new_topic.php?parent=<?php echo $id; ?>" class="button">New Topic</a>
 <?php
 }
-else
-{
-?>
-<div class="box_login">
-	<form action="login.php" method="post">
-		<label for="username">Username</label><input type="text" name="username" id="username" /><br />
-		<label for="password">Password</label><input type="password" name="password" id="password" /><br />
-        <label for="memorize">Remember</label><input type="checkbox" name="memorize" id="memorize" value="yes" />
-        <div class="center">
-	        <input type="submit" value="Login" /> <input type="button" onclick="javascript:document.location='signup.php';" value="Sign Up" />
-        </div>
-    </form>
-</div>
-<?php
-}
+
  include'./../layout/basic_footer.php';
 }
 else
