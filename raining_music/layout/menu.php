@@ -21,7 +21,7 @@ if(isset($_SESSION['user']))
 </ul>
 </li>
 <li><a class="menu" href="#" title="Artistes">Les artistes</a></li>
-<li><a  class="menu" href="./../template/Salle.php" title="SallesConcert">Les salles de concert</a></li>
+<li><a  class="menu" href="./../template/RedirectionSalle.php" title="SallesConcert">Les salles de concert</a></li>
 
 
 <li><a class="menu" href="./../template/RechercheAvancee.php" title="Recherche avancee">Recherche avancée</a></li>
