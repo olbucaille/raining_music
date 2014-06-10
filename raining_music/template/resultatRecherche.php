@@ -115,7 +115,7 @@ endforeach
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="groupe")): ?>
     <h2 class="SubtitlesForSearchResults">Groupes de musique
 			correspondant à votre recherche</h2>
-
+<!-- SELECT `Nom_genre_musical` FROM groupe_genre_musical WHERE `Id_groupe`=(SELECT `Id` FROM `groupe` WHERE `Nom`='Hey Dude !') -->	
 
 		<div>
     <?php
@@ -138,10 +138,33 @@ $check = new checkDataBase ();
 			
 if ($nb_resultatsGroup != 0) :
 				?>
+	<!--LIGNES DE CODE POUR RECUPERER L'ID DU GROUPE EN BASE POUR FAIRE LE LIEN VERS LA PAGE PROFIL-->
+	<?php 
+	$requestID = new requestSQL();        // 	Création d'un objet Request SQL permettant de faire une requete SQL pré-construite 
+    $dataID = $requestID->select('groupe', 'Id', "Nom='".$infos['Nom']."'");
+	?>
 	
-	<h4 class="resultNames"><?php echo $infos['Nom'];?></h4>
+	
+	
+	<h4 class="resultNames"><?php echo "<a href='../template/AffichageGroupeAdmin.php?id_groupe=".$infos['Id']."'>".$infos['Nom'];?></a></h4>
 
-			<div>
+			<div class="resultInfos">
+				<?php	
+			$checkMusicStyle = new checkDataBase ();
+			$resultMusicStyle = $checkMusicStyle->getMusicStyle ( $infos['Nom'] );
+			$nb_resultMusicStyle = count ( $resultMusicStyle );
+			
+			//print_r($resultMusicStyle);
+	?>	
+			
+			
+	<?php 
+		if ($nb_resultMusicStyle!=0) {
+			foreach ($resultMusicStyle as $Row):
+				echo "Genre musical : ".$Row['Nom_genre_musical']."<br/>";
+			endforeach;
+		}
+	?>
 				<span> <span>
              <?php if( $infos['Popularite']!=null):?>
             	<span> <?php
@@ -161,9 +184,7 @@ $checkStyle = new checkDataBase ();
 				?>
 
 
-            <span> <?php if($_POST['styleMusique']!="NonSpecifie")echo "Genre musical: ".$_POST['styleMusique'];  ?></span>
-				</span>
-				</span>
+				</span></div>
 		<?php endif;?>
 
 
