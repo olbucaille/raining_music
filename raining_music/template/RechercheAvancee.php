@@ -40,6 +40,7 @@ var objControle = document.getElementById(Controle);
 </script>
 <div class="conteneur" style="margin-left:5%; width:90%; min-width:800px; height:100%;  ">
 	<br/><br/><br/><br/>
+	<?php if(isset($_SESSION['user'])){?>
 	<div class="right" style="width: 45% ;min-height: 400px; min-width: 45%">  
    	  
    	
@@ -59,7 +60,7 @@ var objControle = document.getElementById(Controle);
     </ol>
     </p></div>
     
-   	 </div>
+   	 </div><?php }?>
 	
    	<div class="main">
 

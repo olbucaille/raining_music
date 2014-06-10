@@ -11,12 +11,13 @@ $liste = Song::getSongName('abc');
 <div class="main">
 <br/>
 
-	<p class="text">Depuis plusieurs semaines maintenant, Raining Music facilite la mise en relation des artistes, groupes de musique, 
+	<p class="text"><b>Bonjour et bienvenu sur Raining Music, site communautaire dédié à la musique.</b>
+	<br/><br/>Depuis plusieurs semaines maintenant,<b> Raining Music </b>facilite la mise en relation des artistes, groupes de musique, 
 	organisateurs de concerts et amateurs de musique.
-<br/>
-La création d'un profil est gratuite. Avec votre profil, vous pouvez contacter les abonnés, 
-voter pour vos artistes préférés, échanger via notre forum. 
-Pour créer votre profil, cliquer sur le menu déroulant <b>connexion</b> en haut à droite puis sur <b>S'inscrire</b>.
+<br/><br/>
+Avec votre profil, vous pouvez contacter les abonnés, 
+voter pour vos artistes préférés, échanger via notre forum, effectuer des recherches avancées, écouter des extraits de musique postés par les artistes et groupes. 
+<br/><br/>Pour créer votre profil, cliquez dès maintenant sur le menu déroulant <b>connexion</b> en haut à droite puis sur <b>S'inscrire</b>.
 	</p>
 
 	<span id="sl_play" class="sl_command">&nbsp;</span>
