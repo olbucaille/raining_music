@@ -22,7 +22,6 @@ else echo 'nok';
 	<p> 
 <center><font size = 18> <?php echo $liste[0]->nom; ?> </font></center>
 
-
 <!-- boite de musique-->
 
 <audio id="myMusic" > </audio> 
@@ -56,7 +55,9 @@ else echo 'nok';
     
     </div> 
     <div class="List"> 
-	<input TYPE="button" VALUE="Ajouter une chanson" OnClick='document.location.href="UploadMusic.php";'>
+    <?php $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";?>
+	<input TYPE="button" VALUE="Ajouter une chanson" OnClick='<?php echo $link;?>'";'>
+
 	</br>
 	</br>
 <?php 
