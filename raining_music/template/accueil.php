@@ -1,7 +1,7 @@
 <?php 
 include("./../layout/basic_header.php");
 include("./../db_connect.inc.php");
-//include("./../model/song.php");
+include("./../model/song.php");
 $liste= array();
 $liste = Song::getSongName('abc');
 

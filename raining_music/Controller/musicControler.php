@@ -76,7 +76,7 @@ if($_POST['posted'])
   				$nom_fichier=explode(".",$nom_file);
   				$nom_groupe = $_POST['groupe'];
   				$nom_album  = $_POST['album'];
-  				$req="INSERT INTO piste(Nom,Album,Groupe) VALUES(\"$nom_fichier[0]\", \"$nom_album\",\"$nom_groupe\")";
+  				$req="INSERT INTO piste(Nom,Album,Groupe) VALUES(\"$nom_fichier[0]\", \"$nom_album\", \"$nom_groupe\")";
   				
   				//.. et dans lobjet user pour que ce soit pris en compte quand on le reserialisera
   				$connexion = connect();

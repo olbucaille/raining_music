@@ -1,12 +1,84 @@
 <?php 
 include("./../layout/basic_header.php");
+include("./../db_connect.inc.php");
+include("./../model/group.php");
+include("./../model/song.php");
+if(isset($_GET['id_groupe'])){
+$liste= array();
+$liste = Group::getgroupname($_GET['id_groupe']);}
+
+$liste_song= array();
+$liste_song = Song::getSongName($liste[0]->nom);
+if(isset($liste_song[0]->nom)){
+	echo 'ok';
+}
+else echo 'nok';
+
 ?>
+<script src="./../js/Music_box.js"></script>
 <!-- debut de la page en elle meme-->
 </header>
 <div class="conteneur" style="margin-left:5%; width:90%; min-height:500px; height:100%; background-color:#c0c0c0; ">
 	<p> 
-<center><font size = 18> DAFT PUNK </font></center>
+<center><font size = 18> <?php echo $liste[0]->nom; ?> </font></center>
+
+<!-- boite de musique-->
+
+<audio id="myMusic" > </audio> 
+
+<input id="PauseTime"  type="hidden" />
+
+
+    <div class="MusicBox" >
+
+    <div class="LeftControl" ></div> <!-- icone morceau precedent -->
+    <div id="MainControl" class="MainControl" ></div> <!-- icone jouer et arreter -->
+    <div class="RightControl" ></div> <!-- icone morceau suivant -->
+    
+    <div class="ProcessControl"><!-- barre d'avancement -->
+    <div class="SongName">Music Box!</div> <!-- titre du morceau-->
+    <div class="SongTime">00:00&nbsp;|&nbsp;00:00</div> <!-- duration -->
+    <div class="Process" ></div> <!-- barre de duree du morceau -->
+    <div class="ProcessYet"></div> <!-- temps jou¨¦-->
+    </div>
+    
+    <div class="VoiceEmp"></div> <!-- icone muet -->
+    <div class="VoidProcess" ></div><!-- barre de son --> 
+    <div class="VoidProcessYet" ></div> <!-- son choisi -->
+    <div class="VoiceFull" ></div><!-- son max -->
+    <div class="ShowMusicList" ></div> <!-- montrer ou masquer la liste de musique -->
+    </div>
+    
+    
+    <div class="MusicList">  
+    <div class="Author">
+    
+    </div> 
+    <div class="List"> 
+    <?php $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";?>
+	<input TYPE="button" VALUE="Ajouter une chanson" OnClick='<?php echo $link;?>'";'>
+
+	</br>
+	</br>
+<?php 
+    $i=0;
+    while (isset($liste_song[$i]->nom)){
+	?>
+	<div class="Single" >
+	<span class="SongName" KV="<?php echo $liste_song[$i]->nom; ?>" > <?php echo $liste_song[$i]->nom; ?></span>
+	</div>
+   <?php  
+  	$i++;
+ 	 }
+ 	 ?> 	
+    </div>
+    </div>
+    	</br>
+    		</br>
+    			</br>
 <?php
+
+
 if(isset($_GET['id_groupe']))
 {
   $name=$_GET['id_groupe']."_groupe.JPG";
