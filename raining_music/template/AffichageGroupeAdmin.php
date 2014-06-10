@@ -142,7 +142,20 @@ echo"<img src='./upload_pictures/$name' alt='DP' border=':#0b8dca thick solid' h
     <input type='submit' name="ajouter concert" value="ajouter concert" />
 	
 </form>
+</div>
+<div>
+<!-- Côte de popularité pour les groupes (vote possible uniquement pour les Membres inscrits) Le parametre de popularité existe déjà en BDD-->
 
+<?php if(isset($_SESSION['user'])){?>
+<div style="text-align:center;" id="votes_29731">
+<noscript>Javascript is disable - <a href="http://www.supportduweb.com/">Support du Web</a> - 
+<a href="http://www.supportduweb.com/service-vote-notation-voter-module-vote-script-javascript-gratuit.html">
+Service de votes (Module de notation)</a></noscript><script type="text/javascript" src="http://services.supportduweb.com/votes/29731-1.js">
+</script></div>
+
+<?php }?>
+
+</div>
    		
 	<?php 
 	include("./../layout/basic_footer.php");
