@@ -34,15 +34,23 @@ require_once '../model/user.php';
 </div>
 <!-- DEBUT - Boutons Facebbok et Twitter -->
 
+<div class="conteneurBanniereMenu">
 
-<!-- div conteneur : premiere div, elle permet de placer tous les autres composants!--> 
-<div class="conteneur">
-<!-- haut de page : photo + connexion !-->
 <header class="banniere">      
-		<a href="../index.php"><img src="../pictures/NewBanner04.bmp" alt="RainingMusic" title="RainingMusic" height="100%" width="100%" style="max-height:300px;" /></a>
+		<a href="../index.php"><img src="../pictures/NewBanner04.bmp" alt="RainingMusic"  title="RainingMusic" height="100%" width="100%" style="max-width:1200px; max-height:300px;min-height:230px; margin-left:10%; width: 80%" /></a>
         <div style="position:absolute;top:0px;margin-left:70%;">
             <div id="loginFormContainer">
 
 <?php 
 include("./../layout/connectForm.php");
 include("./../layout/menu.php");?>
+</div>
+
+
+
+
+
+<!-- div conteneur : premiere div, elle permet de placer tous les autres composants!--> 
+<div class="conteneur">
+<!-- haut de page : photo + connexion !-->
+
