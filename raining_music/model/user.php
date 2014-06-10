@@ -102,12 +102,11 @@ class User implements serializable{
 			$u->localisation = "inconnue";
 
 		//construction requete
-		$requete= $connexion->prepare("INSERT INTO membre(Login,Password,Mail,Sexe,DOB,Localisation,DateInsription) VALUES(\"$u->login\",\"$u->password\",\"$u->mail\",$u->sexe,\"$u->DoB\",\"$u->localisation\",date(\"Y-m-d\"))"); //preparation requete
-
+		$req = "INSERT INTO membre(Login,Password,Mail,Sexe,DOB,Localisation,DateInscription) VALUES(\"$u->login\",\"$u->password\",\"$u->mail\",$u->sexe,\"$u->DoB\",\"$u->localisation\",".date("Y-m-d").")";
+		$requete= $connexion->prepare($req); //preparation requete
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 			return true;
-		else
-			return false;
+		return false;
 	}
 
 
