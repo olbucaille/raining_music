@@ -135,6 +135,11 @@ function c_RegisterUser()
 				
 		$_SESSION['userToShow'] = serialize($user);
 
+		//liste des groupes auquels ont est createur
+		
+		
+		//ajout en session des groupe auquels on est createur
+		//dans le fichier cible  -> appel à index pour ajout dans groupe + alerte groupe/membre cible 
 		
 		header('location:./template/Profil.php');
 

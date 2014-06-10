@@ -193,5 +193,23 @@ class Group {
 			return true;
 		return false;
 	}
+	
+	public static function GetAllGroupIAmCreator($user)
+	{
+		$listeGroupe='';
+		$connexion = connect();
+		$requete = $connexion->prepare("SELECT  FROM membre_groupe WHERE Nom_groupe = \"".$group."\" AND Creator = 1");
+		
+		$requete->execute();//execution(pas de verification securité a faire => automatique)
+		
+		echo "SELECT Login_membre FROM membre_groupe WHERE Nom_groupe = \"".$group."\" AND Creator = 1";
+		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+		{
+			$listeGroupe[] = $lignes->Login_membre; // ajout dans la liste
+				
+		}
+		return $listeGroupe;
+		
+	}
 }
 ?>

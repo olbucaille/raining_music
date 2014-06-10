@@ -13,9 +13,40 @@ if(isset($_SESSION['userToShow']))
 <div class="conteneur"
 	style="margin-left: 5%; width: 90%; min-width: 800px; height: 100%; background-color: #c8c8c8;">
 
+<div class="conteneur"
+	style="margin-left: 5%; width: 90%; min-width: 800px; height: 100%; background-color: #c8c8c8;">
+
 	<div class="right" style="margin-top: 217px;">
+		<div
+			style="border: 11px solid #236586; border-radius: 0px 7px 7px 7px; position: relative; bottom: 25px; padding: 20px;">
+			<span style="font-weight: bold;">Actions</span> <br />
+
+			<fieldset>
+				<ul>
+					<?php 
+					$i=1;
+					while(isset($alerts[$i]) )
+					{
+						$a = unserialize($alerts[$i]);
+						$i++;
+						if(!$a->Flag_lecture)
+						{
+						echo "<li>";
+						echo $a->Description;
+						echo "<a href=\"./../index.php?action='accepter_adhesion_membre_groupe'&amp;type=".$a->Type."\"> accepter</a> &nbsp 
+									<a href=\"./../index.php?action='refuser_adhesion_membre_groupe'&amp;type=".$a->Type."\">refuser</a> ";
+						echo "</li>";
+						}
+					}?>
+				</ul>
+				
+			
+				<br />
+			</fieldset>
+		</div>
 
 	</div>
+	
 
 	<div class="left">
 
