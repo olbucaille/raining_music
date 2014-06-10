@@ -8,6 +8,7 @@ class Group {
 	//attributs classe User
 
 	var $nom;
+	var $id_group;
 	
 	//constructeur à x champs
 
@@ -126,6 +127,31 @@ class Group {
 				
 		}
 		return $listeGroupe;
+	}
+
+	public static function getgroupname($id_group)
+	{
+	
+		$connexion = connect();
+	
+	
+		$requete = $connexion->prepare("SELECT Nom FROM groupe WHERE Id='$id_group'");
+	
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+			$Groupename = array();
+
+			while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+			{
+				$groupe = new Group($lignes->Nom);
+					
+				$Groupename[] = $groupe; // ajout dans la liste
+			
+			}
+			
+	
+		}
+		return $Groupename;
 	}
 
 	//cette fonction est ici car la requete se fait sur la table membre groupe, généraleemnt géré par le modele group
