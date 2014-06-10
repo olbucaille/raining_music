@@ -81,6 +81,9 @@ if(isset($_SESSION['user']))
 		  										
 		    <label for="Adresse">Adresse*:</label>
 		    <input type="text" name="Adresse" required/><br/><br/>
+		    
+		    <label for="Propriétaire">Proprietaire*:</label>
+		    <input type="text" name="Proprietaire" required/><br/><br/>
 			<br /> <br />
 			
             <input id="sendButton" type="submit" value="Valider"/>

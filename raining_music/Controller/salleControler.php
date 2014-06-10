@@ -12,7 +12,7 @@ function c_CreerSalle()
 		$newsalle= new Salle($_POST['Nom']);
 	
 		//appel du model
-		if(Salle::registerSalle($newsalle,$_POST['Departement'],$_POST['Adresse']))
+		if(Salle::registerSalle($newsalle,$_POST['Departement'],$_POST['Adresse'],$_POST['Proprietaire']))
 		{
 			$_SESSION['message'] = "merci, vous avez ajouté une salle avec succès !";
 			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussi \o/
@@ -22,8 +22,7 @@ function c_CreerSalle()
 			$_SESSION['messageErreur'] = "Oups, cette salle existe déjà";
 			header("location:./template/creerSalle.php");
 		}
-	
-	
+		
 	}
 	else {
 		$_SESSION['messageErreur'] = "oups, tous les champs ne sont pas remplis ;)";
@@ -32,5 +31,5 @@ function c_CreerSalle()
 	
 	}
 	
-	
+
 ?>

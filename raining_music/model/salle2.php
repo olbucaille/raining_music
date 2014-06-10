@@ -5,9 +5,6 @@
 
 class Salle {
 
-
-	//attributs classe User
-
 	var $Nom;
 	
 	//constructeur à x champs
@@ -15,11 +12,12 @@ class Salle {
 	function __construct($Nom)
 	{
 		$this->Nom = $Nom; 
+
 	}
 
 
 	//inscrire une salle
-	public static function registerSalle(Salle $s,$Departement,$Adresse)
+	public static function registerSalle(Salle $s,$Departement,$Adresse,$Proprietaire)
 	{
 			//conection BDD
 		$connexion = connect();
@@ -40,12 +38,12 @@ class Salle {
 		}
 		
 		//construction requete
-		$requete= $connexion->prepare("INSERT INTO salle(Nom, Adresse, Departement) VALUES(\"$s->Nom\",\"$Adresse\",\"$Departement\")"); //preparation requete
+		$requete= $connexion->prepare("INSERT INTO salle(Nom, Adresse, Departement, Proprietaire) VALUES(\"$s->Nom\",\"$Adresse\",\"$Departement\",\"$Proprietaire\")"); //preparation requete
 		
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
 		
-			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Nom_Salle,Proprietaire_Salle,Adresse_Salle,Role,Valide,Creator) VALUES(\"$s->Nom\",\"$login\",\"$Adresse\",\"$role\",1,1)"); //preparation requete
+			$requete= $connexion->prepare("INSERT INTO salle_memebre_possede(Nom_Salle,Proprietaire_Salle,Adresse_Salle,Valide,Creator) VALUES(\"$s->Nom\",\"$Proprietaire\",\"$Adresse\",1,1)"); //preparation requete
 		
 			//echo $login;
 			if($requete->execute())
@@ -57,7 +55,30 @@ class Salle {
 			return false;
 	}	
 
-
+	//verifie si un user est validé dans la salle
+	public static function verifyProprietaireValidate($user,$salle)
+	{
+		//conection BDD
+		$connexion = connect();
+	
+		//construction requete
+		$requete= $connexion->prepare("SELECT * FROM salle_memebre_possede WHERE Proprietaire_Salle =\"$Proprietaire\" AND Nom_Salle =\"$salle\" AND Valide = 1"); //preparation requete
+		echo "SELECT * FROM salle_memebre_possede WHERE Proprietaire_Salle =\"$user\" AND Nom_Salle =\"$salle\" AND Valide = 1" ;//preparation requete
+			
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+		$i = 0;
+		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+		$i++;
+	
+		//echo "i == ";
+		//echo  $i;
+		if ($i!= 0)
+		return true;
+		return false;
+		}
+	
+		}
 	//recupere toutes les salles par ordre alphabetique
 	
 	public static function getsalle()
