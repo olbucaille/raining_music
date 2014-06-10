@@ -93,7 +93,7 @@ bottom: 0px;
 	border-color:#000;
 	border-width:2px;
 	border-style:solid;
-	margin-left:4px;
+	margin-left:5%	;
 	overflow:hidden;
 	border: 1px solid #696;
 	padding: 60px 0;
@@ -101,6 +101,8 @@ bottom: 0px;
 	padding:15px;
 	border-radius: 10px;
 	box-shadow: #666 0px 0px 6px;
+	width: 90%;
+	
 	
 
 }
@@ -773,11 +775,13 @@ a:focus {
 }
 
 #slideshow {  
+	
+	
     position: relative;  
     width: 640px;  
     height: 310px;  
     padding: 15px;  
-    margin: 0 auto 2em;  
+    margin:0 auto 2em;  
     border: 1px solid #ddd;  
     background: #FFF;  
     /* CSS3 effects */  
