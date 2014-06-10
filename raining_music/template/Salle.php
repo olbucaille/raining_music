@@ -19,20 +19,9 @@ include("./../db_connect.inc.php");
         
         $_GET['Nom'];
                
-		$connexion = connect();
-		$requete= $connexion->prepare("SELECT Photo FROM salle WHERE Nom =\"$s->Nom\" "); //preparation requete
-	
-		if($requete->execute())
-		{
-		$i = 0;
-			while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
-			$i++;
-		
-			if ($i!= 0)
-				return false;
-		
+		<?php $resultat = mysql_query("SELECT Photo FROM salle");
 				
-       <?php while($salle=mysql_fetch_array($resultat)){ ?>
+               while($salle=mysql_fetch_array($resultat)){ ?>
        
 <blockquote><img src="./../pictures/<?php echo $salle['Photo'];?>" alt="Le Falstaff" border=":#0b8dca thick solid" height="200" width="300" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p></blockquote></blockquote><br/>
 <blockquote><img src="./../pictures/<?php echo $salle['Photo2'];?>" alt="Le Falstaff" border=":#0b8dca thick solid" height="200" width="300" style="position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;"  /></p></blockquote></blockquote><br/>
