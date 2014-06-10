@@ -17,9 +17,22 @@ else echo 'nok';
 ?>
 <script src="./../js/Music_box.js"></script>
 <!-- debut de la page en elle meme-->
+
+<script type="text/javascript">
+   afficherFormulaire = function () {
+    var form = document.getElementById("formModification");
+    var etat=form.style.visibility; 
+    if(etat=="hidden")
+        form.style.visibility="visible";
+    else
+        form.style.visibility="hidden";
+  };
+
+
+</script>
 </header>
 <div class="conteneur" style="margin-left:5%; width:90%; min-height:500px; height:100%; background-color:#c0c0c0; ">
-	<p> 
+<p> 
 <center><font size = 18> <?php echo $liste[0]->nom; ?> </font></center>
 
 <!-- boite de musique-->
@@ -76,82 +89,110 @@ else echo 'nok';
     	</br>
     		</br>
     			</br>
+
 <?php
+    $groupe = null ;
+    $autorise = false;
 
+    if(isset($_GET['id_groupe']) && isset($_SESSION['user']))
+    {
+      $id_groupe = $_GET["id_groupe"];
+      $user = unserialize($_SESSION['user']);
+      $liste = Group::getgroupById($id_groupe);
+      if(count($liste)>0)
+      {
+          $groupe = $liste[0];        
+          // verifier que le membre a le droit de visulaiser
+          $autorise = Group::verifyMemberValidate($user->login,$groupe->nom);
+      }
 
-if(isset($_GET['id_groupe']))
-{
-  $name=$_GET['id_groupe']."_groupe.JPG";
+      /* debut de la partie autorisée */
+      if($groupe != null)
+      {
+            echo '<center><font size = 18>'.$groupe->nom.'</font></center>';
 
-	if (file_exists('./upload_pictures/'.$name))
-	{
-	 echo"<img src='img/photos/$name' width='90' height='90' border='2'/>";
-	}
-	else 
-	{ echo"<img src='img/no_photo.png' width='90' height='90' border='2'/>";
-	}
-	
-	}
-echo"<img src='./upload_pictures/$name' alt='DP' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
-?>
-</p>
+             $name=$_GET['id_groupe']."_groupe.JPG";
 
+          	if (file_exists('./upload_pictures/'.$name))
+          	{
+          	 echo"<img src='img/photos/$name' width='90' height='90' border='2'/>";
+          	}
+          	else 
+          	 echo"<img src='img/no_photo.png' width='90' height='90' border='2'/>";
+          	
+          echo"<img src='./upload_pictures/$name' alt=' ' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
+          
+          echo '</p>';
+          // changer la photo du groupe si on est autorisé
+          if($autorise)
+          {
+            echo  
+            '<form action="imageUpload.php" method="post" enctype="multipart/form-data"  target="hiddeniframe" >
+              <input type="hidden" name="id_groupe" value="'.$_GET['id_groupe'].'"> 
+              <input type="file" name="imgfile" /> 
+              <input type="submit" name="uploadButton" value="Changer la photo" />
+            </form>';
+          }
+            echo '
+              <div class="left" style="padding-left:10px;"/>
+              	<p>
+              	<img src="./../pictures/playlist1.jpeg" alt=" " border=":#0b8dca thick solid" height="50" width="200" style="position:relative;top:15px; margin-right:5px ; margin-bottom:15px;"  /></p>
+            
+              	</div>
+                  <div class="right">
+                  <p>
+                  </div>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <font color = "black">';
+                  if(null != $groupe )
+                      echo $groupe->description;
+                  // modifier la description si on est autorisé
+                  if($autorise)
+                    {
+                      // mettre un bouton pour modifier la description
+                      echo '<button type="button" onclick="afficherFormulaire();">Modifier la description</button> ';
+                      echo 
+                        '<form style="visibility:hidden;" id="formModification" action="modifierDescriptionGroupe.php" method="post"  >
+                          <input  type="hidden" name="nom_groupe" value="'.$groupe->nom.'" />
+                          <input  type="text" name="description_groupe" value="'.$groupe->description.'" />
+                          <input type="submit" name="ajouter concert" value="Modifier" />
+                        </form>';
+                    }
+                    
+                    
 
-<!-- tÃ©lÃ©charger une nouvelle photo pour le groupe -->
+                  echo 
+                  '
+                  </font>
+                  <br />
+                  <br />
+                  <br />
+                  <font color="blue"><font size = 6> Dates de concert</font></font>
+                  <br />
+      
+          ';
+          // ajouter un concert si on est autorisé
+          if($autorise)
+          {
+          echo 
+            '<form action="formconcert.php" method="post"  >
+              <input type="submit" name="ajouter concert" value="ajouter concert" />
+            </form>';
+          }
+       }
 
-<form action="imageUpload.php" method="post" enctype="multipart/form-data"  target="hiddeniframe" >
-
-   <input type="hidden" name="id_groupe" value="<?php echo $_GET['id_groupe']; ?>"> 
-    <input type="file" name="imgfile" /> 
-    <input type='submit' name="uploadButton" value="Changer la photo" />
-	
-</form>
-
-    <div class="left" style="  padding-left:10px;">
-    	
-    	<p>
-    	<img src="./../pictures/playlist1.jpeg" alt=" " border=":#0b8dca thick solid" height="50" width="200" style="position:relative;top:15px; margin-right:5px ; margin-bottom:15px;"  /></p>
-   		<font size = 5><font color="black">Give life back to music</font></font> <audio src = "Give life back to music.mp3" controls width=10></audio>
-   		<br />
-   	
-   		<font size = 5><font color="black">Instant Crush</font></font> <audio src ="instant crush.mp3" controls width=10></audio>
-    	</div>
-        <div class="right>
-        <p>
-        /div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <font color = "black">Daft Punk est un groupe français de musique électronique, originaire du premier arrondissement de Paris. Actifs depuis 1993, Thomas Bangalter et Guy-Manuel de Homem-Christo, les deux membres, ont allié à leurs sons electro, house et techno des tonalités rock, groove et disco, baptisé French Touch</font>
-        <br />
-        <br />
-        <br />
-        <font color="blue"><font size = 6> Dates de concert</font></font>
-        <br />
-   		<br />
-   		<br />
-   		<font size =5><font color="black">Mai 2014</font></font>
-   		<br />
-  		<font size = 5><font color="black"><a href ="PageEvent.php">6 et 7 Mai à Paris-Bercy</a></font></font>
-   		<br />
-   		<font size = 5><font color="black"><a href ="PageEvent.php">15 et 16 Mai au Bataclan</a></font></font>
-<form action="formconcert.html" method="post"  >
-
-    
-    <input type='submit' name="ajouter concert" value="ajouter concert" />
-	
-</form>
+     }
+ ?>
 </div>
 <div>
 <!-- Côte de popularité pour les groupes (vote possible uniquement pour les Membres inscrits) Le parametre de popularité existe déjà en BDD-->
 
 <?php if(isset($_SESSION['user'])){?>
-<div style="text-align:center;" id="votes_29731">
-<noscript>Javascript is disable - <a href="http://www.supportduweb.com/">Support du Web</a> - 
-<a href="http://www.supportduweb.com/service-vote-notation-voter-module-vote-script-javascript-gratuit.html">
-Service de votes (Module de notation)</a></noscript><script type="text/javascript" src="http://services.supportduweb.com/votes/29731-1.js">
-</script></div>
+<div style="text-align:center;" id="votesGroupe">
+</div>
 
 <?php }?>
 

@@ -52,40 +52,59 @@ include("./../db_connect.inc.php");
 
 	<?php
 	$requete_faite = 0; 
+	$requete = null;
 	/* se connecter à la base de données */
 	mysql_connect("localhost","root","");
 	mysql_select_db("bd_raining_music");
 	
+	$saisie = null;
 	/*  */
-	if (isset($_POST["saisie"]) && !empty($_POST["saisie"])) {  
+	if (isset($_POST["saisie"]) && !empty($_POST["saisie"])) 
+	{  
 		$saisie=$_POST["saisie"];
 	}else{  
-	$saisie=null;
+		$saisie=null;
 	}
-	
+
 		if($saisie==null && isset($_GET['lettre']))
 		{
 		/* récuperer tous les groupes dont la premiere lettre commence par la lettre selectionnée */
-			
+			$lettre = $_GET['lettre'];
 			$sql = 'SELECT * FROM groupe WHERE LEFT(Nom,1) = "'.$_GET['lettre'].'"';
-			$req = mysql_query($sql);
-			$requete_faite= 1;
+  			//$req = mysql_query($sql);		
+			$connexion = connect();		
+			$requete = $connexion->prepare($sql);
+			
+			if($requete->execute())
+			{
+				$requete_faite= 1;
+ 			}
 		}
-		else if($saisie!=null) {
-		/* récuperer tous les groupes dont le nom contient le texte saisi */
-		$sql = "SELECT * FROM groupe WHERE Nom LIKE CONCAT('%','".$saisie."','%')";
-		$req = mysql_query($sql);
-		$requete_faite = 1;
+ 		
+		if($saisie!=null) 
+		{
+			/* récuperer tous les groupes dont le nom contient le texte saisi */
+			$sql = "SELECT * FROM groupe WHERE Nom LIKE CONCAT('%','".$saisie."','%')";
+			$connexion = connect();		
+			$requete = $connexion->prepare($sql);
+			
+			if($requete->execute())
+			{
+				$requete_faite= 1;
+ 			}
 		}
+		 
 		
 		if($requete_faite)
 		{
+			 
 			echo"<div class='Liste-groupes' >
 			<ul>";
-			while($ligne = mysql_fetch_assoc($req)) {
-			echo"<li><a href='AffichageGroupeAdmin.php?id_groupe=".$ligne['Id']."'>"; echo $ligne['Nom'].'<br />' ; echo"</a></li>";
+			while($ligne = $requete->fetch(PDO::FETCH_OBJ)) {
+ 			echo"<li><a href='AffichageGroupeAdmin.php?id_groupe=".$ligne->Id."'>"; echo $ligne->Nom.'<br />' ; echo"</a></li>";
 			}
 		}
+		 
 		mysql_close();
 	
 	echo"</ul>   

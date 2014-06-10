@@ -128,7 +128,7 @@ class Group {
 		}
 		return $listeGroupe;
 	}
-
+//function LI
 	public static function getgroupname($id_group)
 	{
 	
@@ -153,7 +153,33 @@ class Group {
 		}
 		return $Groupename;
 	}
-
+	// chercher un groupe en connaissant son id
+	public static function getgroupById($id)
+	{
+	
+		$connexion = connect();
+	
+	
+		$requete = $connexion->prepare("SELECT * FROM groupe where Id = '".$id."'");
+	
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+			$listeGroupe = array();
+	
+			while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+			{
+				$groupe = new Group($lignes->Nom);
+				$groupe->Id = $lignes->Id;
+				$groupe->description = $lignes->description;
+				$groupe->Popularite = $lignes->Popularite;
+				$listeGroupe[] = $groupe; // ajout dans la liste
+	
+			}
+	
+		}
+		return $listeGroupe;
+	}
+	
 	//cette fonction est ici car la requete se fait sur la table membre groupe, généraleemnt géré par le modele group
 	//permet de renvoyer le createur du groupe
 	public static function getUserFromGroup($group)
@@ -189,6 +215,16 @@ class Group {
 		$connexion = connect();
 		$requete = $connexion->prepare("UPDATE membre_groupe SET valide = 1 WHERE login_membre = \"".$user."\" AND Nom_groupe = \"".$group."\" ");
 		
+		if($requete->execute())
+			return true;
+		return false;
+	}
+	public static function updateGroupDescription($nom_groupe,$description)
+	{
+	
+		$connexion = connect();
+		$requete = $connexion->prepare("UPDATE groupe SET description = '".$description."' WHERE Nom = \"".$nom_groupe."\"");
+	
 		if($requete->execute())
 			return true;
 		return false;
