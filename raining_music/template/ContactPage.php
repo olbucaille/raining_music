@@ -28,7 +28,7 @@ Cependant, avant de poser votre question, veuillez consulter les sujets déjà pré
 <td>
  
 
-<a href="#"> <img src="../pictures/FAQresize.bmp" alt="Vers la F.A.Q" border=":#0b8dca thick solid" height="100" width="200" style="position:relative;top:10px; margin-right:10px;"  /></a>
+<a href="../TEST/buildingInProgress.php" > <img src="../pictures/FAQresize.bmp" alt="Vers la F.A.Q" border=":#0b8dca thick solid" height="100" width="200" style="position:relative;top:10px; margin-right:10px;"  /></a>
 </p></td>
 </tr>
   </table>
