@@ -24,18 +24,30 @@ if(isset($_SESSION['userToShow']))
 			<fieldset>
 				<ul>
 					<?php 
-					$i=1;
+					$i=0;
+					if(isset($_SESSION['listeGroup']))
+					{
+						$listeGroup = $_SESSION['listeGroup'];
+						while(isset($listeGroup[0][$i]))
+						{
+								
+							echo "<li>";
+							echo "<a href=\"./../index.php?action='proposer_adhesion_membre_groupe'&amp;groupe=".$listeGroup[0][$i]."&amp;user=".$user->login."\"> inviter cette personne dans le groupe ".$listeGroup[0][$i]."</a> &nbsp";
+							echo "</li><br />";
+							
+								
+							
+							$i++;
+						}
+						
+					}
+					
 					while(isset($alerts[$i]) )
 					{
 						$a = unserialize($alerts[$i]);
 						$i++;
 						if(!$a->Flag_lecture)
 						{
-						echo "<li>";
-						echo $a->Description;
-						echo "<a href=\"./../index.php?action='accepter_adhesion_membre_groupe'&amp;type=".$a->Type."\"> accepter</a> &nbsp 
-									<a href=\"./../index.php?action='refuser_adhesion_membre_groupe'&amp;type=".$a->Type."\">refuser</a> ";
-						echo "</li>";
 						}
 					}?>
 				</ul>

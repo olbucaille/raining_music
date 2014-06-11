@@ -41,6 +41,9 @@ switch ((string)$action) {
 	case '\'visualiser_User\'':
 		c_visualiserUser($_GET['Nom']);
 		break;
+	case '\'proposer_adhesion_membre_groupe\'':
+		c_proposer_adhesion_membre_groupe($_GET['user'],$_GET['groupe']);
+		break;		
 	default :
 		header("location:./template/accueil.php");
 }

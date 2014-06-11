@@ -128,6 +128,7 @@ function c_RegisterUser()
 	//sert à visualiser un user autre que soit même
 	function c_visualiserUser($Nom)
 	{
+		$me = unserialize($_SESSION['user']);
 		$user = new user('','','','','','','','','');
 		$user->getUser($Nom);
 		if($user->picture == '')
@@ -136,14 +137,18 @@ function c_RegisterUser()
 		$_SESSION['userToShow'] = serialize($user);
 
 		//liste des groupes auquels ont est createur
+		$listeGroup[] = Group::GetAllGroupIAmCreator($me->login);
 		
 		
 		//ajout en session des groupe auquels on est createur
+		$_SESSION['listeGroup'] = $listeGroup;
 		//dans le fichier cible  -> appel à index pour ajout dans groupe + alerte groupe/membre cible 
 		
 		header('location:./template/Profil.php');
 
 	}
+	
+	
 
 	function gererAjoutMedia($file)
 	{
