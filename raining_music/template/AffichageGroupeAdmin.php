@@ -211,12 +211,11 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 			$Nvotes = $Row ['NbVotes'];
 			$ScoreTot = $Row ['ScoreTotal'];
 			// ligne de débug a disable quand opérationnel
-			//echo "Nombre de votes pour cet artiste: " . $Row ['NbVotes'] . "<br/>";
-			//echo "Score total : " . $Row ['ScoreTotal'] . "<br/>";
+			// echo "Nombre de votes pour cet artiste: " . $Row ['NbVotes'] . "<br/>";
+			// echo "Score total : " . $Row ['ScoreTotal'] . "<br/>";
 			
-
 			// récupération de l'adresse URL
-			$adresse =  $_SERVER ['REQUEST_URI'];
+			$adresse = $_SERVER ['REQUEST_URI'];
 			// echo '' .$adresse."<br />";
 			
 			// calcul de la popularite actuelle du groupe
@@ -225,13 +224,21 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 				$popGrp = ceil ( $temp * 2 ) / 2;
 			} else
 				$popGrp = 0;
-			
-			echo "La popularité actuelle du groupe est " . $popGrp . "<br/>"; // PASSER A NULL ET AFICHAGE EN FUNC
-			
-			// function alreadyVoted ($idGroupe)
+			if ($popGrp != 0) {
+				echo "La popularité actuelle de l'artiste est " . $popGrp . "<br/>";
+				
+				for($note = 1; $note <= 5; $note += 0.5) {
+					if ($popGrp == $note) {
+						$chemin="./../pictures/".$note."tr100px.png";
+						echo "<img alt='.$note.' src='$chemin'/> <br/>";
+					}
+				}
+			} else
+				echo "L'artiste n'a pas encore été noté. Soyez le premier !<br/>";
+				// function alreadyVoted ($idGroupe)
 			$alreadyVoted = Group::alreadyVoted ( $id_groupe );
-			//print_r ( $alreadyVoted );
-			//echo "<br/>";
+			// print_r ( $alreadyVoted );
+			// echo "<br/>";
 			$nb_alreadyVoted = count ( $alreadyVoted );
 			echo "Nombre de votes pour cet artiste: " . $nb_alreadyVoted . "<br/><br/>";
 			
@@ -244,7 +251,7 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 					
 					if ($LoginInDB != $user->login) {
 						// ligne de débug a disable quand opérationnel
-						//echo "" . $LoginInDB . " a déjà voté pour cet artiste<br/>";
+						// echo "" . $LoginInDB . " a déjà voté pour cet artiste<br/>";
 						$compteur += 1;
 					} 
 
@@ -253,7 +260,7 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 					}
 				endforeach
 				;
-				//echo "le compteur est à : " . $compteur . "<br/>";
+				// echo "le compteur est à : " . $compteur . "<br/>";
 				if ($compteur != $nb_alreadyVoted) {
 					echo "<b>ERREUR : Vous ne pouvez pas re-voter pour cet artiste!</b>";
 				} else {
@@ -267,11 +274,12 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 			<?php echo"<input type='text' name='NombreVotes' value=$Nvotes hidden >"?>
 			<?php echo"<input type='text' name='ScoreTotal' value=$ScoreTot hidden >"?>
 			<?php echo"<input type='text' name='iDGroup' value=$id_groupe hidden >"?>
-			<input type="submit" name="btnVote" value="1" id="submit1"> <input
-			type="submit" name="btnVote" value="2" id="submit2"> <input
-			type="submit" name="btnVote" value="3" id="submit3"> <input
-			type="submit" name="btnVote" value="4" id="submit4"> <input
-			type="submit" name="btnVote" value="5" id="submit5">
+			<input type="image" name="btnVote" value="1" class="submitbtn"
+			id="submit1"> <input type="image" name="btnVote" value="2"
+			class="submitbtn" id="submit2"> <input type="image" name="btnVote"
+			value="3" class="submitbtn" id="submit3"> <input type="image"
+			name="btnVote" value="4" class="submitbtn" id="submit4"> <input
+			type="image" name="btnVote" value="5" class="submitbtn" id="submit5">
 	</form><?php
 				}
 			} else {
@@ -284,11 +292,12 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 			<?php echo"<input type='text' name='NombreVotes' value=$Nvotes hidden >"?>
 			<?php echo"<input type='text' name='ScoreTotal' value=$ScoreTot hidden >"?>
 			<?php echo"<input type='text' name='iDGroup' value=$id_groupe hidden >"?>
-			<input type="image" name="btnVote" value="1" id="submit1"> <input
-			type="image" name="btnVote" value="2" id="submit2"> <input
-			type="submit" name="btnVote" value="3" id="submit3"> <input
-			type="submit" name="btnVote" value="4" id="submit4"> <input
-			type="submit" name="btnVote" value="5" id="submit5">
+			<input type="image" name="btnVote" value="1" class="submitbtn"
+			id="submit1"> <input type="image" name="btnVote" value="2"
+			class="submitbtn" id="submit2"> <input type="image" name="btnVote"
+			value="3" class="submitbtn" id="submit3"> <input type="image"
+			name="btnVote" value="4" class="submitbtn" id="submit4"> <input
+			type="image" name="btnVote" value="5" class="submitbtn" id="submit5">
 	</form>
 
 	
@@ -297,8 +306,7 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 </div>
 
 <?php
-		
-}
+		}
 	}
 }
 ?>
