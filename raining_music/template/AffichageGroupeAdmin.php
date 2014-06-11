@@ -194,7 +194,7 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 <!-- Côte de popularité pour les groupes (vote possible uniquement pour les Membres inscrits) Le parametre de popularité existe déjà en BDD-->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<?php if(isset($_SESSION['user'])){?>
+
 <div style="text-align: left;" id="votesGroupe">
 	<!-- Script permettant de récupérer les résultats des votes et le nombre de votes en BDD pour calculer la popularité d'un groupe-->
 
@@ -236,6 +236,10 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 			} else
 				echo "L'artiste n'a pas encore été noté. Soyez le premier !<br/>";
 				// function alreadyVoted ($idGroupe)
+
+			 //CHECK IF USER CONNECTE
+			 if(isset($_SESSION['user'])){
+			
 			$alreadyVoted = Group::alreadyVoted ( $id_groupe );
 			// print_r ( $alreadyVoted );
 			// echo "<br/>";
@@ -306,8 +310,21 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 </div>
 
 <?php
-		}
-	}
+	}//SI USER NON CONNECTE
+	else{
+?>
+
+<p>Pour pouvoir noter cet artiste, veuillez vous connecter à l'aide du menu déroulant <b>connexion</b> situé <a href="#hautpage">en haut à droite</a> du site ! :)</p>
+<?php
+}
+	
+	
+	
+	
+	}?>
+	
+
+<?php
 }
 ?>
 
