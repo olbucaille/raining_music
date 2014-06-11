@@ -1670,4 +1670,22 @@ input.filter_1{
 }
 div.resultInfos, a.resultInfos{font-size: 12px;
 }
+div#votesGroupe{
+	width:500px;
+}
+input#submit1{
+	/*background:url('../pictures/1tr.png');*/
+	opacity:0.8;
+width: 50px;
+  height: 29px;
+  padding: 0 0 0;
+  margin: 0;
+  border: 0;
+  background: transparent url('../pictures/1tr50px.png') no-repeat center top;
+  overflow: hidden;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */
+	
+}
 
+ input#submit1:hover {opacity:1;}

@@ -20,7 +20,7 @@ include('config.php');
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-<title>RainingMusic - Soyez arrosé d'informations !</title>
+<title>Raining Music - La musique à votre portée</title>
 </head>
 <!-- body : "racine" de la page !-->
 <body>

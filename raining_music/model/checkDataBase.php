@@ -56,6 +56,15 @@ class checkDataBase {
 
     	return ($temp);
     }
+    function getPopulariteGroup($idGroup) {
+    	
+    	$request=new requestSQL();    	
+    	$param1=$request->select('groupe','ScoreTotal, NbVotes', "Id='".$idGroup."'" );
+    	$temp=$param1->fetchAll();
+    	$request=null;
 
+    	return ($temp);
+    }
+    
 }
 ?>

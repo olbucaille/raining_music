@@ -1,5 +1,6 @@
 <?php
 // on inclut le header
+
 include ("./../layout/basic_header.php");
 include '../model/checkDataBase.php';
 ?>

@@ -247,5 +247,51 @@ class Group {
 		return $listeGroupe;
 		
 	}
+	
+	
+	public static function getPopulariteGroup($idGroup) {
+		 
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT ScoreTotal, NbVotes FROM groupe WHERE Id='".$idGroup."'" );
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
+	
+	
+	
+	public static function updateGroupPopularite($idGroupe,$newPop, $newScore, $newNbVotes)
+	{
+	
+		$connexion = connect();
+		$requete = $connexion->prepare("UPDATE groupe SET Popularite = '".$newPop."',ScoreTotal='".$newScore."', NbVotes='".$newNbVotes."'  WHERE Id = \"".$idGroupe."\"");
+	
+		if($requete->execute())
+			return true;
+		return false;
+	}
+	
+	public static  function alreadyVoted ($idGroupe){
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT LoginMembre FROM vote WHERE IdGroupe='".$idGroupe."'" );
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+		
+		return ($temp);
+	}
+	
+	public static function insertVote($idGroupe,$Login)
+	{
+	
+		$connexion = connect();
+		$requete = $connexion->prepare("INSERT vote SET IdGroupe = '".$idGroupe."',LoginMembre='".$Login."'");
+	
+		if($requete->execute())
+			return true;
+		return false;
+	}
 }
 ?>
