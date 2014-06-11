@@ -11,7 +11,7 @@ if(!isset($_SESSION['user']))
                         <input name="username" type="text" />
                         <label id="connexion" for="password" style="color:#FFF">Mot de passe</label>
                         <input name="password" type="password" /><br /> <br />
-                        <input id="ok" name="ok" style="background-color: #379BC6" value="Se connecter" onClick="closeForm()" type="submit" />&nbsp; <a href="./../template/inscription.php" style="background-color: #174156; width: 150px; height: 150px; color: white; padding:4px;border-radius: 5px; ">&nbsp;S'inscrire&nbsp;</a>
+                        <input id="ok" name="ok"  value="Se connecter" onClick="closeForm()" type="submit" />&nbsp; <a href="./../template/inscription.php" style="background-color: #174156; width: 150px; height: 150px; color: white; padding:4px;border-radius: 5px; ">&nbsp;S'inscrire&nbsp;</a>
                     </form>
                    </fieldset>
                 </div>
@@ -23,14 +23,14 @@ if(!isset($_SESSION['user']))
               	<?php		
 					$user = unserialize($_SESSION['user']);
 	
-					echo"<li style='background-color: #174156; width: 150px; height: 150px; color: white; padding:4px;border-radius: 5px; ' id=\"idconnect\">
+					echo"<li id=\"idconnect\">
 					&nbspHello";
 					echo"&nbsp$user->login";?>
                <ul>
-               <li><a  class="menuDeroulant" href="./myProfile.php">Voir mon profil</a></li>
-               <li><a  class="menuDeroulant" href="#">Mes artistes preferes</a></li>
-               <li><a  class="menuDeroulant" href="#">Mes concerts suivis</a></li>
-               <li><a class="menuDeroulant" href="./../index.php?action='deco'" >Deconnexion</a></li>
+               <li class="menuDeroulant"><a   href="./myProfile.php">Voir mon profil</a></li>
+               <li class="menuDeroulant"><a  href="#">Mes artistes preferes</a></li>
+               <li class="menuDeroulant"><a href="#">Mes concerts suivis</a></li>
+               <li class="menuDeroulant"><a  href="./../index.php?action='deco'" >Deconnexion</a></li>
 				</ul>
                </div>
                <div id="profilLink"></div><?php }?>
