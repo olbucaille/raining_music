@@ -7,7 +7,7 @@ if(isset($_SESSION['userToShow']))
 	$user = unserialize($_SESSION['userToShow']);
 }
 ?>
-
+<?php if(isset($_SESSION['user'])){?>
 
 <!-- debut de la page en elle meme-->
 <div class="conteneur"
@@ -93,6 +93,12 @@ if(isset($_SESSION['userToShow']))
 	</div>
 	
 </div>
+<?php }else{?><h1 class="SearchResults">Oops !</h1>
+<p class="OhOhMessage">Vous devez être connecté en tant que membre de Raining Music pour pouvoir visualiser les profils des autres membres.<br/>
+Pour vous connecter, cliquez sur le menu déroulant <b>connexion </b>situé en haut à droite de votre écran ! ;)
+<br/><br/>
+L'équipe.</p>
+<?php }?>
 <?php 
 include("./../layout/basic_footer.php");
 ?>
