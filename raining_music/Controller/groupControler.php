@@ -74,7 +74,7 @@ function c_CreerGroupe()
 		{
 			$type =  explode("_",$_GET['type'], 3);
 			
-			if($type[0]=="ASK")
+			if($type[0]=="ASK" || $type[0]=="PRP")
 			{
 				Alert::PutFlag1($_GET['type']);
 				Group::RemoveMembre_Group($type[1],$type[2]);
@@ -91,13 +91,44 @@ function c_CreerGroupe()
 		{
 			$type =  explode("_",$_GET['type'], 3);
 				
-			if($type[0]=="ASK")
+			if($type[0]=="ASK" || $type[0]=="PRP")
 			{
 				Alert::PutFlag1($_GET['type']);
 				Group::AcceptMembre_Group($type[1],$type[2]);
 			}
 		}
-		header("location:./template/myProfile.php");
+				$_SESSION['message'] = "demande accepté !!";
+				
+			header("location:./template/MessageEtape.php");
+				
+		
+	}
+	
+	//proposer un membre dans un groupe
+	
+	function c_proposer_adhesion_membre_groupe($user,$groupe)
+	{
+		
+		$_SESSION['message'] = "demande envoyé !!";
+		
+		
+		//inscrire le user dans la table membre_groupe
+		
+		if(!Group::AddUserToGroup($groupe,$user))
+		{	
+			$_SESSION['message'] = "le membre fait déjà partit du groupe !!";
+
+			
+			header("location:./template/MessageEtape.php");
+			return;
+		}
+		//creer alerte pour $user, accepter/refuser rejoindre groupe
+		
+		Alert::sendRequestProposeUserJoinGroup($groupe,$user);
+		
+		$_SESSION['message'] = "demande envoyé !!";
+		
+		header("location:./template/MessageEtape.php");
 		
 		
 	}

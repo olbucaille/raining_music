@@ -234,19 +234,20 @@ class Group {
 	{
 		$listeGroupe='';
 		$connexion = connect();
-		$requete = $connexion->prepare("SELECT  FROM membre_groupe WHERE Nom_groupe = \"".$group."\" AND Creator = 1");
+		$requete = $connexion->prepare("SELECT Nom_groupe FROM membre_groupe WHERE Login_membre = \"".$user."\" AND Creator = 1");
 		
 		$requete->execute();//execution(pas de verification securité a faire => automatique)
 		
-		echo "SELECT Login_membre FROM membre_groupe WHERE Nom_groupe = \"".$group."\" AND Creator = 1";
 		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
 		{
-			$listeGroupe[] = $lignes->Login_membre; // ajout dans la liste
+			$listeGroupe[] = $lignes->Nom_groupe; // ajout dans la liste
 				
 		}
 		return $listeGroupe;
 		
 	}
+	
+	
 	
 	
 	public static function getPopulariteGroup($idGroup) {

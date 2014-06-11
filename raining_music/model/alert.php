@@ -71,6 +71,25 @@ class Alert implements serializable{
 		
 	}
 	
+	
+	public static function sendRequestProposeUserJoinGroup($groupe,$user)
+	{
+	
+	
+		//objet de base
+		$alert = new Alert('','Proposition',"le groupe : ".$groupe." voudrais que vous les rejoigniiez ",'',"PRP_".$user."_".$groupe,'');
+		$connexion = connect();
+		//construit requete
+		$requete = $connexion->prepare("INSERT INTO Alerte(Titre,Description,Flag_lecture,Type,Login_membre)
+				VALUES(\"".$alert->Titre."\",\"".$alert->Description."\",0,\"".$alert->Type."\",\"".$user."\")");
+	
+		if($requete->execute())
+			return true;
+		else
+			echo false;
+	
+	}
+	
 	public static function sendRequestJoinSalle($salle,$user)
 	{
 	//objet de base

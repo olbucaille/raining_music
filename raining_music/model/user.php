@@ -106,10 +106,9 @@ class User implements serializable{
 		$requete= $connexion->prepare($req); //preparation requete
 		echo $req;
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
-			exit;
-		//	return true;
-		//return false;
-		exit;
+				return true;
+		return false;
+		
 	}
 
 
