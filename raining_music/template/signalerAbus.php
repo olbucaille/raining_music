@@ -95,7 +95,7 @@ Pour signaler un abus, renseignez le formulaire ci-dessous. N'oubliez pas de lir
          else $loginUserActif="Visiteur";?>
             <fieldset> 
             <label for="login" >Votre login</label>
-   			<?php echo "<input type='text' name='login' value='".$loginUserActif."' disabled='disabled'/><span class='requiredStar'>"?>*</span><br/><br/>
+   			<?php echo "<input type='text' name='login' value='".$loginUserActif."'readonly=\"readonly\" /><span class='requiredStar'>"?>*</span><br/><br/>
             
              
             <label for="nomSignale">Nom de l'entité à signaler</label> 

@@ -17,8 +17,8 @@ $personneSignalee=$_POST['nomSignale'];				//Nom de la personne/groupe/salle sig
 $messageComment=$_POST['messageContact'];			//Message
 $destinataire="rainingmusic.isep@gmail.com";		//Adresse email de RAINING MUSIC
 
-session_start();
 $messageEtCoordonnees="Login l'emetteur du message: ".$emetteur.".\nEntite signalee: ".$personneSignalee."\nContenu du message:\n\n".$messageComment;
+
 //$headers  = 'From: <' . $adresseEmail .'>' ;
 //$headers .= 'Content-Type: text/html; charset=iso-8859-15' ;
 if(mail ($destinataire, $objetContact, $messageEtCoordonnees, 'From: <'.$emetteur.'>')){
