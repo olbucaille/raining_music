@@ -69,12 +69,12 @@ Pour signaler un abus, renseignez le formulaire ci-dessous. N'oubliez pas de lir
     		<li>Précisez la raison pour laquelle vous le signalez (grossier, insultant, propos incitants à la haine, etc.)</li>
     		<li>Si cela se situe sur le forum, merci de préciser la catégorie, le topic et la date (si possible) relatifs à la signalisation</li>
     		</ul>
-    		</div>
+   </div>
   
     
   
  		
-    	</div>
+   </div>
     	
     	
     

@@ -294,5 +294,35 @@ class Group {
 			return true;
 		return false;
 	}
+	
+	
+	public static function getBestGroupByPop($limite) {
+		//SELECT `Id`,`Nom`,`Popularite` FROM `groupe`  GROUP BY `Id` ORDER BY `Popularite`  DESC LIMIT 3 
+				
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT `Id`,`Nom`,`Popularite` FROM `groupe`  GROUP BY `Id` ORDER BY `Popularite`  DESC LIMIT ".$limite);
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
+	
+	
+	public static function getGenreMusicalGroupe($nomGroupe) {
+		//select du genre musical en fonction du nom de groupe
+		//ex:
+		//SELECT `Nom_genre_musical` FROM `groupe_genre_musical` as ggm JOIN `groupe` as g ON ggm.`Id_groupe`=g.`Id` WHERE g.`Nom`='coreanBand'
+	
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT `Nom_genre_musical` FROM `groupe_genre_musical` as ggm JOIN `groupe` as g ON ggm.`Id_groupe`=g.`Id` WHERE g.`Nom`='".$nomGroupe."'");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
+
+	
 }
 ?>
