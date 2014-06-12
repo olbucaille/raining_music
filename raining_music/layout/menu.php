@@ -32,14 +32,7 @@ if(isset($_SESSION['user']))
 <li><a  class="menu" href="./../forum" title="forum">Forum</a></li>
 <?php }?>
 
-<li class="search">
 
-<form  class="search" method="post" action="../Controller/traitementSearch.php">
-	<input type="radio"
-		name="kindOfObject" value="menuSearchBarre" CHECKED hidden>
-<input class="search_data" name="motcleSearch" type="search" placeholder="Mot(s) clé(s)" required />
-<input class="btn-right-loupe" name="go" type="submit" />
-</form></li>
 
 		
 	 </ul>       

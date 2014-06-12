@@ -32,7 +32,37 @@ require_once '../model/user.php';
 <li><a target=blank class="facebookbutton" href="http://www.facebook.com/rainingmusic.isepgroup">Facebook</a></li>
 </ul>
 </div>
-<!-- DEBUT - Boutons Facebbok et Twitter -->
+
+
+<!-- DEBUT - SearchBarre + SignalerAbus -->
+
+<div style="position:fixed;top:300px;z-index:0;margin-left:90%;" class="PetitBlocPourLeSignalementEtLaRecherche">
+<ul style="background-color: transparent;border:1px; border-color:#fff; width: 150px; border-radius:5px; padding: 1px; margin: 1px;">
+<li >
+
+<form  method="post" action="../Controller/traitementSearch.php">
+<img alt="caution" src="../pictures/caution30px.png"/><a  href="../template/signalerAbus.php" style="color: red ;font-size:12px">Signaler un abus</a><br/><br/>
+	<input type="radio"
+		name="kindOfObject" value="menuSearchBarre" CHECKED hidden>
+		<p style="margin: 0px; color: #fff">Recherche:</p> 
+<input name="motcleSearch" type="search" placeholder="Search" style="margin-top:0px;width:100%;height:24px;" required /><br/><br/>
+<input name="go" type="submit" value="Envoyer"/>
+</form></li>
+</ul>
+</div>
+<!-- <div class="searchAndSignal">
+<ul>
+<li >
+<form  class="search" method="post" action="../Controller/traitementSearch.php">
+<img alt="caution" src="../pictures/caution30px.png"/><a class="signalerAbus" href="../template/signalerAbus.php">Signaler un abus</a><br/><br/>
+	<input type="radio"
+		name="kindOfObject" value="menuSearchBarre" CHECKED hidden>
+<input class="search_data" name="motcleSearch" type="search" placeholder="Mot(s) clé(s)" required /><br/><br/>
+<input class="btn-right-loupe" name="go" type="submit" value="Envoyer"/>
+</form></li>
+</ul>
+</div>-->
+
 
 <div class="conteneurBanniereMenu">
 

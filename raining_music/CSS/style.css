@@ -1716,3 +1716,26 @@ li.menuDeroulant a:hover {color: #000;}
 p.OhOhMessage{	font-size: 20px;
 	font-style: italic;
 	font-family: serif;margin-left: 5%;}
+	
+a.signalerAbus{ font-size: 10px;}
+
+
+
+
+/*SIGNALER ABUS + SEARCH BARRE */
+
+ .searchAndSignal {
+width: 293px;
+margin: 0 auto;
+padding:0;
+height: 52px;
+margin-top: 300px;
+float:right;
+
+position:fixed;top:0px;margin-left:78%;
+-webkit-font-smoothing: subpixel-antialiased;
+
+}
+form.search{
+	float: right;
+}
