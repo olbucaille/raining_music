@@ -7,11 +7,11 @@ if(!isset($_SESSION['user']))
                 <div id="loginForm">
                     <fieldset>
                     <form method="post" action="./../index.php?action='identifiation'">
-                        <label id="connexion" for="username">Pseudonyme</label>
+                        <label id="connexion" for="username" style="color:#FFF">Pseudonyme</label>
                         <input name="username" type="text" />
-                        <label id="connexion" for="password">Mot de passe</label>
+                        <label id="connexion" for="password" style="color:#FFF">Mot de passe</label>
                         <input name="password" type="password" /><br /> <br />
-                        <input id="ok" name="ok" value="valider" onClick="closeForm()" type="submit" />&nbsp; <a href="./../template/inscription.php">S'inscrire</a>
+                        <input id="ok" name="ok"  value="Se connecter" onClick="closeForm()" type="submit" />&nbsp; <a href="./../template/inscription.php" style="background-color: #174156; width: 150px; height: 150px; color: white; padding:4px;border-radius: 5px; ">&nbsp;S'inscrire&nbsp;</a>
                     </form>
                    </fieldset>
                 </div>
@@ -27,10 +27,10 @@ if(!isset($_SESSION['user']))
 					&nbspHello";
 					echo"&nbsp$user->login";?>
                <ul>
-               <li><a  class="menu" href="./myProfile.php">Voir mon profil</a></li>
-               <li><a  class="menu" href="#">Mes artistes preferes</a></li>
-               <li><a  class="menu" href="#">Mes concerts suivis</a></li>
-               <li><a class="menu" href="./../index.php?action='deco'" >Deconnexion</a></li>
+               <li class="menuDeroulant"><a   href="./myProfile.php">Voir mon profil</a></li>
+               <li class="menuDeroulant"><a  href="#">Mes artistes preferes</a></li>
+               <li class="menuDeroulant"><a href="#">Mes concerts suivis</a></li>
+               <li class="menuDeroulant"><a  href="./../index.php?action='deco'" >Deconnexion</a></li>
 				</ul>
                </div>
                <div id="profilLink"></div><?php }?>

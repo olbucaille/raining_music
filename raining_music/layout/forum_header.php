@@ -20,7 +20,7 @@ include('config.php');
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-<title>RainingMusic - Soyez arrosé d'informations !</title>
+<title>Raining Music - La musique à votre portée</title>
 </head>
 <!-- body : "racine" de la page !-->
 <body>
@@ -44,7 +44,7 @@ include('config.php');
 <div class="conteneurBanniereMenu">
 
 <header class="banniere">      
-		<a href="../index.php"><img src="../pictures/NewBanner04.bmp" alt="RainingMusic"  title="RainingMusic" height="100%" width="100%" style="max-width:1200px; max-height:230px;min-height:230px; margin-left:10%; width: 80%" /></a>
+		<a href="../index.php"><img src="../pictures/NewBanner04.bmp" alt="RainingMusic"  title="RainingMusic"  width="100%" style="max-width:1200px; max-height:230px;min-height:230px; margin-left:10%; width: 80%" /></a>
         <div style="position:absolute;top:0px;margin-left:70%;">
             <div id="loginFormContainer">
 

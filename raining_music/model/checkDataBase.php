@@ -26,11 +26,11 @@ class checkDataBase {
     }
     
         // FONCTION INUTILE....
-    function checkMusicStyle($musicStyle){
-    	//SELECT Id_groupe From groupe_genre_musical where Nom_genre_musical = 'Rock'
+    function checkMusicStyle($nomGroupe){
+    	//SELECT `Nom_genre_musical` FROM groupe_genre_musical WHERE `Id_groupe`=(SELECT `Id` FROM `groupe` WHERE `Nom`='Hey Dude !')
     	$requestMusicStyle=new requestSQL();
-    	$allDataFromMusicStyle=$requestMusicStyle ->select('groupe_genre_musical', 'Id_groupe',"Nom_genre_musical='".$musicStyle."'" );
-    	$temp=$allDataFromMusicStyle->fetchAll();
+    	$allDataFromMusicStyle=$requestMusicStyle ->select('groupe_genre_musical', 'Id_groupe',"`Id_groupe`=(SELECT `Id` FROM `groupe` WHERE `Nom`='".$nomGroupe.")" );
+    	$temp=$allDataFromMusicStyle/*->fetchAll()*/;
     	$requestMusicStyle=null;
     	
     	
@@ -56,6 +56,15 @@ class checkDataBase {
 
     	return ($temp);
     }
+    function getPopulariteGroup($idGroup) {
+    	
+    	$request=new requestSQL();    	
+    	$param1=$request->select('groupe','ScoreTotal, NbVotes', "Id='".$idGroup."'" );
+    	$temp=$param1->fetchAll();
+    	$request=null;
 
+    	return ($temp);
+    }
+    
 }
 ?>

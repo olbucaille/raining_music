@@ -13,7 +13,7 @@ require_once '../model/user.php';
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-<title>RainingMusic - Soyez arrosé d'informations !</title>
+<title>Raining Music - La musique à votre portée</title>
 </head>
 <!-- body : "racine" de la page !-->
 <body>
@@ -32,12 +32,30 @@ require_once '../model/user.php';
 <li><a target=blank class="facebookbutton" href="http://www.facebook.com/rainingmusic.isepgroup">Facebook</a></li>
 </ul>
 </div>
-<!-- DEBUT - Boutons Facebbok et Twitter -->
+
+
+<!-- DEBUT - SearchBarre + SignalerAbus -->
+
+<div style="position:fixed;top:300px;z-index:0;margin-left:87%;" class="PetitBlocPourLeSignalementEtLaRecherche">
+<ul style="background-color: transparent;border:1px; border-color:#fff; width: 150px; border-radius:5px; padding: 1px; margin: 1px;">
+<li >
+
+<form  method="post" action="../Controller/traitementSearch.php">
+<img alt="caution" src="../pictures/Caution30px.png"/><a  href="../template/signalerAbus.php" style="color: red ;font-size:12px">Signaler un abus</a><br/><br/>
+	<input type="radio"
+		name="kindOfObject" value="menuSearchBarre" CHECKED hidden>
+		<p style="margin: 0px; color: #fff">Recherche:</p> 
+<input name="motcleSearch" type="search" placeholder="Search" style="margin-top:0px;width:100%;height:24px;" required /><br/><br/>
+<input name="go" type="submit" value="Envoyer"/>
+</form></li>
+</ul>
+</div>
+
 
 <div class="conteneurBanniereMenu">
 
 <header class="banniere">      
-		<a href="../index.php"><img src="../pictures/NewBanner04.bmp" alt="RainingMusic"  title="RainingMusic" height="100%" width="100%" style="max-width:1200px; max-height:300px;min-height:230px; margin-left:10%; width: 80%" /></a>
+		<a href="../index.php"><img src="../pictures/NewBanner04.bmp" alt="RainingMusic"  title="RainingMusic"  width="100%" style="max-width:1200px; max-height:300px;min-height:230px; margin-left:10%; width: 80%" /></a>
         <div style="position:absolute;top:0px;margin-left:70%;">
             <div id="loginFormContainer">
 

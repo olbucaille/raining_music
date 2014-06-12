@@ -9,63 +9,15 @@ $liste = Song::getSongName('abc');
 <script src="./../js/Music_box.js"></script>
 <!-- debut de la page en elle meme-->
 <div class="main">
+<br/>
 
-
-<!-- boite de musique-->
-
-<audio id="myMusic" > </audio> 
-
-<input id="PauseTime"  type="hidden" />
-
-
-    <div class="MusicBox" >
-
-    <div class="LeftControl" ></div> <!-- icone morceau precedent -->
-    <div id="MainControl" class="MainControl" ></div> <!-- icone jouer et arreter -->
-    <div class="RightControl" ></div> <!-- icone morceau suivant -->
-    
-    <div class="ProcessControl"><!-- barre d'avancement -->
-    <div class="SongName">Music Box!</div> <!-- titre du morceau-->
-    <div class="SongTime">00:00&nbsp;|&nbsp;00:00</div> <!-- duration -->
-    <div class="Process" ></div> <!-- barre de duree du morceau -->
-    <div class="ProcessYet"></div> <!-- temps jou¨¦-->
-    </div>
-    
-    <div class="VoiceEmp"></div> <!-- icone muet -->
-    <div class="VoidProcess" ></div><!-- barre de son --> 
-    <div class="VoidProcessYet" ></div> <!-- son choisi -->
-    <div class="VoiceFull" ></div><!-- son max -->
-    <div class="ShowMusicList" ></div> <!-- montrer ou masquer la liste de musique -->
-    </div>
-    
-    
-    <div class="MusicList">  
-    <div class="Author">
-    
-    </div> 
-    <div class="List"> 
-	<input TYPE="button" VALUE="Ajouter une chanson" OnClick='document.location.href="UploadMusic.php";'>
-	</br>
-	</br>
-<?php 
-    $i=0;
-    while (isset($liste[$i])){
-	?>
-	<div class="Single" >
-	<span class="SongName" KV="<?php echo $liste[$i]->nom; ?>" > <?php echo $liste[$i]->nom; ?></span>
-	</div>
-   <?php  
-  	$i++;
- 	 }
- 	 ?> 	
-    </div>
-    </div>
-    </div>
-	<br />
-	<br /> 
-	<br />
-	<p class="text">
-		<big><big><strong>Revivez les moments emotionnels</strong> </big> </big>
+	<p class="text"><b>Bonjour et bienvenu sur Raining Music, site communautaire dédié à la musique.</b>
+	<br/><br/>Depuis plusieurs semaines maintenant,<b> Raining Music </b>facilite la mise en relation des artistes, groupes de musique, 
+	organisateurs de concerts et amateurs de musique.
+<br/><br/>
+Avec votre profil, vous pouvez contacter les abonnés, 
+voter pour vos artistes préférés, échanger via notre forum, effectuer des recherches avancées, écouter des extraits de musique postés par les artistes et groupes. 
+<br/><br/>Pour créer votre profil, cliquez dès maintenant sur le menu déroulant <b>connexion</b> en haut à droite puis sur <b>S'inscrire</b>.
 	</p>
 
 	<span id="sl_play" class="sl_command">&nbsp;</span>
@@ -75,7 +27,7 @@ $liste = Song::getSongName('abc');
 	<span id="sl_i3" class="sl_command sl_i">&nbsp;</span>
 	<span id="sl_i4" class="sl_command sl_i">&nbsp;</span>
 	
-<section id="slideshow">
+<div id="slideshow">
 	
 		<a class="play_commands pause" href="#sl_pause" title="pause">Pause</a>
 		<a class="play_commands play" href="#sl_play" title="play">Play</a>
@@ -117,7 +69,7 @@ $liste = Song::getSongName('abc');
 		</ul>
 			
 
-		</section>
+		</div>
 
 <div class="conteneur"
 	style="margin-left: 5%; width: 90%; min-width: 800px; height: 100%; background-color: #c8c8c8;">
