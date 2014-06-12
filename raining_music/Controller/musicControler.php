@@ -70,8 +70,9 @@ if($_POST['posted'])
   				echo '<p>Fichier uploadé avec succès !</p>';
   				echo '<ul><li>Fichier : '.$_FILES['fichier']['name'].'</li>';
   				echo '<li>Taille : '.$_FILES['fichier']['size'].' Octets</li>';
-  				echo '<li>Sauvegardé dans: '. $chemin.'</li>';			
+  				echo '<li>Sauvegardé dans: '. $chemin.'</li>';	
   				
+  				echo '<p align=center><b> Redirection dans 3 secondes </b> </p>';
 
   				$nom_fichier=explode(".",$nom_file);
   				$nom_groupe = $_POST['groupe'];
@@ -82,7 +83,8 @@ if($_POST['posted'])
   				$connexion = connect();
   				$requete= $connexion->prepare($req); //preparation requete
   				$requete->execute();//execution(pas de verification securité a faire => automatique)
-  				
+  				header("Refresh: 3; URL=./template/Redirection.php");
+
   			}
   			else
   			{
@@ -112,5 +114,35 @@ if($_POST['posted'])
   	}
   	}
  }
+  function c_DeleteMusic(){
+  	$chemin= "./media/";
+  	if(isset($_POST['posted'])) {
+  		$nomfichier = $_POST['chansons']. ".mp3";
+  		$fichier = $chemin. $nomfichier;
+  		
+  		if(file_exists($fichier))
+  		{
+  			
+  			if(unlink($fichier)){
+  				echo "Le fichier $fichier a été supprimé avec succès";
+  				$req="DELETE FROM piste WHERE Nom = \"".$_POST['chansons']."\"";
+  			  				
+  			//.. et dans lobjet user pour que ce soit pris en compte quand on le reserialisera
+  			$connexion = connect();
+  			$requete= $connexion->prepare($req); //preparation requete
+  			$requete->execute();//execution(pas de verification securité a faire => automatique)
+  			echo '<p align=center><b> Redirection dans 3 secondes </b> </p>';
+  			header("Refresh: 3; URL=./template/Redirection.php");
+  			}	
+  			else
+  			echo "Erreur lors de la suppression du fichier $fichier";
+  		}
+  		else
+  		echo "Le fichier $fichier n'existe pas";
+  	}
+  }
+  	
   	?>
+  	
+
  

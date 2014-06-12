@@ -9,11 +9,6 @@ $liste = Group::getgroupname($_GET['id_groupe']);}
 
 $liste_song= array();
 $liste_song = Song::getSongName($liste[0]->nom);
-if(isset($liste_song[0]->nom)){
-	echo 'ok';
-}
-else echo 'nok';
-
 ?>
 <script src="./../js/Music_box.js"></script>
 <!-- debut de la page en elle meme-->
@@ -51,13 +46,17 @@ else echo 'nok';
     
     
     <div class="MusicList">  
-    <div class="Author">
-    
+    <div class="Author" >
+    <img src="../pictures/musique.jpg" alt="" width="158" height="200"/>
     </div> 
     <div class="List"> 
-    <?php $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";?>
+    <?php $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";
+    $link_sup = "document.location.href=\"DeleteMusic.php?groupename=".$liste[0]->nom."\" ";
+    ?>
 	<input TYPE="button" VALUE="Ajouter une chanson" OnClick='<?php echo $link;?>'";'>
+	<input TYPE="button" VALUE="Supprimer une chanson" OnClick='<?php echo $link_sup;?>'";'>
 
+	
 	</br>
 	</br>
 <?php 
