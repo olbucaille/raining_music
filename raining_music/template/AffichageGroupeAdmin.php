@@ -10,10 +10,7 @@ if (isset ( $_GET ['id_groupe'] )) {
 
 $liste_song = array ();
 $liste_song = Song::getSongName ( $liste [0]->nom );
-if (isset ( $liste_song [0]->nom )) {
-	echo 'ok';
-} else
-	echo 'nok';
+
 
 ?>
 <script src="./../js/Music_box.js"></script>
@@ -117,11 +114,7 @@ if (isset ( $liste_song [0]->nom )) {
 	
 	</br>
 	</br>
-<?php 
-    $i=0;
-    while (isset($liste_song[$i]->nom)){
-	<input TYPE="button" VALUE="Ajouter une chanson"
-				OnClick='<?php echo $link;?>'";'> </br> </br>
+
 <?php
 $i = 0;
 while ( isset ( $liste_song [$i]->nom ) ) {
