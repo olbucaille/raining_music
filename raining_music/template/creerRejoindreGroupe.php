@@ -4,7 +4,7 @@
 include("./../layout/basic_header.php");
 include("./../db_connect.inc.php");
 include("./../model/group.php");
-$liste = Group::getgroup();
+$liste = Group::getgroupAndId();
 
 
 if(isset($_SESSION['user']))
@@ -36,7 +36,7 @@ if(isset($_SESSION['user']))
     		$i=0;
     		while(isset($liste[$i])) 
     		{
-    			echo '<a href="affichageGroupeAdmin.php?id_groupe='.$liste[$i]->Id.'">'.$liste[$i]->nom.'</a>';
+    			echo '<a href="affichageGroupeAdmin.php?id_groupe='.$liste[$i]->id_group.'">'.$liste[$i]->nom.'</a>';
     			echo"<a href=\"./../index.php?action='rejoindre_groupe'&groupe=".$liste[$i]->nom."\"style=\"float:right;\">rejoindre</a>";
     			echo"<hr />";
     			$i++;
