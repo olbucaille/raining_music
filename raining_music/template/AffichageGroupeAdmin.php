@@ -23,14 +23,12 @@ $liste_song = Song::getSongName ( $liste [0]->nom );
         form.style.visibility="visible";
     else
         form.style.visibility="hidden";
-  };
-
+  }
 
 </script>
-</header>
-<div class="conteneur"
-	style="margin-left: 5%; width: 90%; min-height: 500px; height: 100%; background-color: #c0c0c0;">
-	<p>
+<div class="main">
+	<div class="conteneur" style="margin-left:5%; width:90%; min-width:800px; height:100%; background-color:#c8c8c8; ">
+
 	
 
 
@@ -51,70 +49,91 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 	/* debut de la partie autorisée */
 	if ($groupe != null) {
 		echo "<center><font size = 18>" . $groupe->nom . "</font></center>";
-		
 		$name = $_GET ['id_groupe'] . "_groupe.JPG";
 		
-		if (file_exists ( './upload_pictures/' . $name )) {
-	//		echo "<img src='img/photos/$name' width='90' height='90' border='2'/>";
 		
-		
-		echo "<img src='./upload_pictures/$name' alt=' ' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
-		
-		echo '</p>';
-		}
-		// changer la photo du groupe si on est autorisé
-		if ($autorise) {
-			echo '<form action="imageUpload.php" method="post" enctype="multipart/form-data"  target="hiddeniframe" >
-              <input type="hidden" name="id_groupe" value="' . $_GET ['id_groupe'] . '"> 
-              <input type="file" name="imgfile" /> 
-              <input type="submit" name="uploadButton" value="Changer la photo" />
-            </form>';
-		}
-		echo '
-              <div class="left" style="padding-left:10px;"/>
-              	<p>
-              	<img src="./../pictures/playlist1.jpeg" alt=" " border=":#0b8dca thick solid" height="50" width="200" style="position:relative;top:15px; margin-right:5px ; margin-bottom:15px;"  /></p>
-            
-              	</div>
-                  <div class="right">
-                  <p>
-                  </div>
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <font color = "black">';
-		if (null != $groupe)
-			echo $groupe->description;
-			// modifier la description si on est autorisé
-		if ($autorise) {
-			// mettre un bouton pour modifier la description
-			echo '<button type="button" onclick="afficherFormulaire();">Modifier la description</button> ';
-			echo '<form style="visibility:hidden;" id="formModification" action="modifierDescriptionGroupe.php" method="post"  >
-                          <input  type="hidden" name="nom_groupe" value="' . $groupe->nom . '" />
-                          <input  type="text" name="description_groupe" value="' . $groupe->description . '" />
-                          <input type="submit" name="ajouter concert" value="Modifier" />
-                        </form>';
-		}
-		
-		echo '
-                  </font>
-                  <br />
-                  <br />
-                  <br />
-                  <font color="blue"><font size = 6> Dates de concert</font></font>
-                  <br />
-      
-          ';
-		// ajouter un concert si on est autorisé
-		if ($autorise) {
-			echo '<form action="formconcert.php" method="post"  >
-              <input type="submit" name="ajouter concert" value="ajouter concert" />
-            </form>';
-		}
-	}
 }
 ?>
+
+        <div class="left" style="padding-left:10px;"/>
+ 			<?php   
+   				if (file_exists ( './upload_pictures/' . $name )) {
+				echo "<img src='./upload_pictures/$name' alt=' ' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
+			// changer la photo du groupe si on est autorisé
+			}
+			?>
+		<?php if ($autorise) {
+?>
+				<form action="imageUpload.php" method="post" enctype="multipart/form-data"  target="hiddeniframe" >
+             		<input type="hidden" name="id_groupe" value=" <?php echo $_GET ['id_groupe']?>">
+              		<input type="file" name="imgfile" /> 
+              		<input type="submit" name="uploadButton" value="Changer la photo" />
+           		</form>
+   <?php }?>        	 
+           	
+ 			</div>
+		            
+ 		      
+
+		<div class="right">
+        <?php 
+        if (null != $groupe)
+				
+			echo $groupe->description;
+			// modifier la description si on est autorisé
+		
+		if ($autorise) {
+			// mettre un bouton pour modifier la description
+		?>
+			<button type="button" onclick="afficherFormulaire();">Modifier la description</button>
+			<form style="visibility:hidden;" id="formModification" action="modifierDescriptionGroupe.php" method="post"  >
+            	<input  type="hidden" name="nom_groupe" value="<?php echo $groupe->nom?>"/>
+          		<input  type="text" name="description_groupe" value="<?php echo $groupe->description ?>" />
+            	<input type="submit" name="ajouter concert" value="Modifier" />
+            </form>
+<?php }?>		
+
+          </font>
+          <br />
+          <br />
+          <br />
+          <font color="blue"><font size = 6> Dates de concert</font></font>
+          <br />
+<?php          
+      	// ajouter un concert si on est autorisé
+
+
+		if ($autorise) {
+?>
+			<form action="formconcert.php" method="post"  >
+            <input type="submit" name="ajouter concert" value="ajouter concert" />
+            </form>
+<?php }?>	
+
+            </div>
+                  
+                  <br />
+                  <font color = "black">
+		
+<?php }?>	
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 	<!-- boite de musique-->
 
 	<audio id="myMusic">
@@ -315,6 +334,7 @@ while ( isset ( $liste_song [$i]->nom ) ) {
 
 <?php
 }
+
 ?>
 
 
