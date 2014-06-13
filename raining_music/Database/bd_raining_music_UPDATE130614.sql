@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 13 Juin 2014 à 10:31
+-- Généré le :  Ven 13 Juin 2014 à 11:39
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -55,14 +55,14 @@ INSERT INTO `alerte` (`Id`, `Titre`, `Description`, `Flag_lecture`, `Type`, `Log
 --
 
 CREATE TABLE IF NOT EXISTS `alerte2` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Id` int(11) NOT NULL,
   `Titre` varchar(100) NOT NULL,
   `Description` varchar(500) NOT NULL,
   `Flag_lecture` tinyint(1) NOT NULL,
   `Type` varchar(50) NOT NULL,
   `Login_membre` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -113,9 +113,9 @@ CREATE TABLE IF NOT EXISTS `concert` (
   `Heure` time NOT NULL,
   `Cout` float DEFAULT NULL,
   `Adresse` varchar(50) DEFAULT NULL,
+  `Description` mediumtext NOT NULL,
+  `salle` varchar(11) NOT NULL,
   `salle_acceptee` int(11) NOT NULL,
-  `salle` varchar(45) NOT NULL,
-  `description` mediumtext NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `Adresse` (`Adresse`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -233,7 +233,11 @@ INSERT INTO `genre_musical` (`Nom`, `Epoque`) VALUES
 CREATE TABLE IF NOT EXISTS `groupe` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(50) NOT NULL,
-  `Popularite` int(11) DEFAULT NULL,
+  `Popularite` float DEFAULT NULL,
+  `ScoreTotal` int(11) NOT NULL,
+  `NbVotes` int(11) NOT NULL,
+  `DateInscription` date NOT NULL,
+  `description` longtext,
   PRIMARY KEY (`Id`),
   KEY `Nom` (`Nom`),
   KEY `Nom_2` (`Nom`)
@@ -243,16 +247,16 @@ CREATE TABLE IF NOT EXISTS `groupe` (
 -- Contenu de la table `groupe`
 --
 
-INSERT INTO `groupe` (`Id`, `Nom`, `Popularite`) VALUES
-(1, 'coreanBand', 5),
-(2, 'lkjngfslk', NULL),
-(3, 'groupe1', 4),
-(5, 'Obiwan', NULL),
-(6, 'PetitGroupe0', 1),
-(8, 'Arboratum', 2),
-(9, 'Aaron', NULL),
-(10, 'Hey Dude !', 5),
-(11, 'ChaisPasKoi', 1);
+INSERT INTO `groupe` (`Id`, `Nom`, `Popularite`, `ScoreTotal`, `NbVotes`, `DateInscription`, `description`) VALUES
+(1, 'coreanBand', 4, 11, 3, '0000-00-00', NULL),
+(2, 'lkjngfslk', NULL, 0, 0, '0000-00-00', NULL),
+(3, 'groupe1', NULL, 0, 0, '0000-00-00', NULL),
+(5, 'Obiwan', NULL, 0, 0, '0000-00-00', NULL),
+(6, 'PetitGroupe0', NULL, 0, 0, '0000-00-00', NULL),
+(8, 'Arboratum', NULL, 0, 0, '0000-00-00', NULL),
+(9, 'Aaron', NULL, 0, 0, '0000-00-00', NULL),
+(10, 'Hey Dude !', NULL, 0, 0, '0000-00-00', NULL),
+(11, 'ChaisPasKoi', 3, 8, 3, '0000-00-00', NULL);
 
 -- --------------------------------------------------------
 
@@ -398,26 +402,29 @@ CREATE TABLE IF NOT EXISTS `membre` (
   `Image` varchar(70) NOT NULL,
   `Commentaire` varchar(100) NOT NULL,
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `DateInscription` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Mail` (`Mail`),
   UNIQUE KEY `Login_2` (`Login`),
   KEY `Login` (`Login`,`Password`),
   FULLTEXT KEY `searchProfil` (`Login`,`Mail`,`Localisation`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `membre`
 --
 
-INSERT INTO `membre` (`Login`, `Password`, `Mail`, `Nom`, `Sexe`, `DoB`, `Localisation`, `Image`, `Commentaire`, `id`) VALUES
-('chazinou', 'd6138a9db90fc41e5a5df76922f831f6', 'buca@gmail.com', NULL, NULL, '0000-00-00', 'paris', './../upload/pht1.png', '', 1),
-('Membre1', 'ae7be26cdaa742ca148068d5ac90eaca', 'm1@m1.com', 'MembreOne', 1, '1993-05-01', 'Deuil-la-Barre', './../upload/20140503_181918.jpg', '', 2),
-('Membre2', 'aaf2f89992379705dac844c0a2a1d45f', 'Membre2@m2.com', NULL, NULL, '0000-00-00', 'null', '', '', 3),
-('Membre3', '9678f7a7939f457fa0d9353761e189c7', 'm3@m3.Com', NULL, NULL, '0000-00-00', 'null', '', '', 4),
-('Membre4', 'fd6b6fc9220b72d21683ae8e4f50a210', 'm4@m4.com', NULL, NULL, '0000-00-00', 'null', '', '', 6),
-('CaptainMurloc', 'ab334feeb31c05124cb73fa12571c2f6', 'captain@gmail.com', NULL, 1, '1989-06-05', 'Plessis', '', '', 7),
-('Bullsheet', 'ab4f63f9ac65152575886860dde480a1', 'bs@bs.com', NULL, 0, '1985-08-05', 'Paris', '', '', 8),
-('Aaaaargo', '4124bc0a9335c27f086f24ba207a4912', 'aa@hh.fr', NULL, 0, '1956-09-07', 'Parlà', '', '', 9);
+INSERT INTO `membre` (`Login`, `Password`, `Mail`, `Nom`, `Sexe`, `DoB`, `Localisation`, `Image`, `Commentaire`, `id`, `DateInscription`) VALUES
+('chazinou', 'd6138a9db90fc41e5a5df76922f831f6', 'buca@gmail.com', NULL, NULL, '0000-00-00', 'paris', './../upload/pht1.png', '', 1, '0000-00-00'),
+('Membre1', 'ae7be26cdaa742ca148068d5ac90eaca', 'm1@m1.com', 'MembreOne', 1, '1993-05-01', 'Deuil-la-Barre', './../upload/20140503_181918.jpg', '', 2, '0000-00-00'),
+('Membre2', 'aaf2f89992379705dac844c0a2a1d45f', 'Membre2@m2.com', NULL, NULL, '0000-00-00', 'null', '', '', 3, '0000-00-00'),
+('Membre3', '9678f7a7939f457fa0d9353761e189c7', 'm3@m3.Com', NULL, NULL, '0000-00-00', 'null', '', '', 4, '0000-00-00'),
+('Membre4', 'fd6b6fc9220b72d21683ae8e4f50a210', 'm4@m4.com', NULL, NULL, '0000-00-00', 'null', '', '', 6, '0000-00-00'),
+('CaptainMurloc', 'ab334feeb31c05124cb73fa12571c2f6', 'captain@gmail.com', NULL, 1, '1989-06-05', 'Plessis', '', '', 7, '0000-00-00'),
+('Bullsheet', 'ab4f63f9ac65152575886860dde480a1', 'bs@bs.com', NULL, 0, '1985-08-05', 'Paris', '', '', 8, '0000-00-00'),
+('Aaaaargo', '4124bc0a9335c27f086f24ba207a4912', 'aa@hh.fr', NULL, 0, '1956-09-07', 'Parlà', '', '', 9, '0000-00-00'),
+('TestDate', '626726e60bd1215f36719a308a25b798', 'td@td.com', NULL, 0, '1993-05-05', 'Ici', '', '', 10, '0000-00-00'),
+('TestDate2', 'a8c4091f34b6fd82aac6e08d77fdcad9', 'td2@td2.com', NULL, 0, '1993-05-05', 'Iciaussi', '', '', 11, '2014-06-10');
 
 -- --------------------------------------------------------
 
@@ -476,7 +483,14 @@ CREATE TABLE IF NOT EXISTS `piste` (
   `Groupe` varchar(25) NOT NULL,
   `Album` varchar(25) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `piste`
+--
+
+INSERT INTO `piste` (`ID`, `Nom`, `Duree`, `Groupe`, `Album`) VALUES
+(1, 'Open my Eyes', NULL, 'Hey Dude !', 'Oooh');
 
 -- --------------------------------------------------------
 
@@ -490,10 +504,10 @@ CREATE TABLE IF NOT EXISTS `salle` (
   `Proprietaire` varchar(25) DEFAULT NULL,
   `Photo` varchar(50) NOT NULL DEFAULT 'PhotoDefaut.png',
   `Photo2` varchar(50) NOT NULL DEFAULT 'PhotoDefaut.png',
-  `Telephone` int(20) NOT NULL,
-  `Horaires` varchar(25) NOT NULL,
+  `Horaires` varchar(100) NOT NULL,
   `Nom` varchar(30) NOT NULL,
   `Departement` varchar(50) NOT NULL,
+  `Telephone` int(20) NOT NULL,
   PRIMARY KEY (`Nom`),
   KEY `Adresse` (`Adresse`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -502,15 +516,13 @@ CREATE TABLE IF NOT EXISTS `salle` (
 -- Contenu de la table `salle`
 --
 
-INSERT INTO `salle` (`Adresse`, `NbPlaces`, `Proprietaire`, `Photo`, `Photo2`, `Telephone`, `Horaires`, `Nom`, `Departement`) VALUES
-('PieuCroix', 60, 'Membre1', '', 'PhotoDefaut.png', 0, '2014-07-17 11:00:00', 'Alabasta', '74'),
-('48, rue des chameaux', 40, 'Membre1', '', 'PhotoDefaut.png', 0, '2014-06-06 00:00:00', 'La Salle Des Vaches', '1'),
-('66, avenue des bidons', NULL, 'Membre2', '', 'PhotoDefaut.png', 0, '2014-06-27 00:00:00', 'POP-UP', '77'),
-('Adresse salle test BDD', NULL, NULL, '', 'PhotoDefaut.png', 0, '0000-00-00 00:00:00', 'Salle test BDD', '78'),
-('6, rue de la bibine', 55, 'Membre3', '', 'PhotoDefaut.png', 0, '2014-06-12 08:21:12', 'Salle1 - Bière qui roule amass', '75'),
-('Impasse boiscarre', 10, 'Membre1', '', 'PhotoDefaut.png', 0, '2014-06-26 07:00:00', 'Schtroumpfs', '60'),
-('78, rue de la Pompe', 89, 'Irina', 'PhotoDefaut.png', 'PhotoDefaut.png', 278980210, 'Lundi - Samedi / 20h - 2h', 'Sky', 'Aix'),
-('14, rue du Moulin', 97, 'Irina', 'PhotoDefaut.png', 'PhotoDefaut.png', 345730907, '', 'Techno', 'Ain');
+INSERT INTO `salle` (`Adresse`, `NbPlaces`, `Proprietaire`, `Photo`, `Photo2`, `Horaires`, `Nom`, `Departement`, `Telephone`) VALUES
+('PieuCroix', 60, 'Membre1', '', 'PhotoDefaut.png', '2014-07-17 11:00:00', 'Alabasta', '74', 0),
+('48, rue des chameaux', 40, 'Membre1', '', 'PhotoDefaut.png', '2014-06-06 00:00:00', 'La Salle Des Vaches', '1', 0),
+('66, avenue des bidons', NULL, 'Membre2', '', 'PhotoDefaut.png', '2014-06-27 00:00:00', 'POP-UP', '77', 0),
+('Adresse salle test BDD', NULL, NULL, '', 'PhotoDefaut.png', '0000-00-00 00:00:00', 'Salle test BDD', '78', 0),
+('6, rue de la bibine', 55, 'Membre3', '', 'PhotoDefaut.png', '2014-06-12 08:21:12', 'Salle1 - Bière qui roule amass', '75', 0),
+('Impasse boiscarre', 10, 'Membre1', '', 'PhotoDefaut.png', '2014-06-26 07:00:00', 'Schtroumpfs', '60', 0);
 
 -- --------------------------------------------------------
 
@@ -549,9 +561,7 @@ INSERT INTO `salle_memebre_possede` (`Proprietaire_Salle`, `Adresse_Salle`, `Nom
 ('', 'Adresse_Salle', 'e', 1, 1),
 ('', '', 'rf', 1, 1),
 ('', 'Adresse salle test BDD', 'Salle test BDD', 1, 1),
-('', 'Adresse_Salle', 'Salle1 - Bière qui roule amasse la mousse', 1, 1),
-('Irina', '78, rue de la Pompe', 'Sky', 1, 1),
-('Irina', '14, rue du Moulin', 'Techno', 1, 1);
+('', 'Adresse_Salle', 'Salle1 - Bière qui roule amasse la mousse', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -577,7 +587,7 @@ CREATE TABLE IF NOT EXISTS `topics` (
 
 INSERT INTO `topics` (`parent`, `id`, `id2`, `title`, `message`, `authorid`, `timestamp`, `timestamp2`) VALUES
 (2, 4, 1, 'TestCreateWithM2', 'MEssage Test', 3, 1402311957, 1402311977),
-(1, 2, 1, 'Topic1', '', 2, 1402311538, 1402312396),
+(1, 2, 1, 'Topic1', '', 2, 1402311538, 1402421738),
 (2, 3, 1, 'Topic0Cat1', 'Test de TEXT de TOPIC.', 2, 1402311750, 1402311997),
 (2, 3, 2, '', '<strong>Puis-je reply ?</strong>', 2, 1402311770, 1402311770),
 (2, 3, 3, '', '<span style="text-decoration:underline;">Visiblement</span> oui ! :)', 2, 1402311785, 1402311785),
@@ -585,7 +595,35 @@ INSERT INTO `topics` (`parent`, `id`, `id2`, `title`, `message`, `authorid`, `ti
 (2, 3, 4, '', 'Que disais-tu ? :)', 3, 1402311997, 1402311997),
 (1, 2, 2, '', 'reponse 1', 2, 1402312396, 1402312396),
 (3, 5, 1, 'Topic1Cat03', 'Message In', 2, 1402318479, 1402318597),
-(3, 5, 2, '', 'Message avec des accents sur certains mot ins&eacute;r&eacute;s expr&egrave;s ! :)', 2, 1402318597, 1402318597);
+(3, 5, 2, '', 'Message avec des accents sur certains mot ins&eacute;r&eacute;s expr&egrave;s ! :)', 2, 1402318597, 1402318597),
+(1, 2, 3, '', 'L&agrave; je peux r&eacute;pondre &agrave; un message laiss&eacute; sur <strong>le Forum</strong>. Tu vois Ricou ?!', 2, 1402421738, 1402421738);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vote`
+--
+
+CREATE TABLE IF NOT EXISTS `vote` (
+  `IdRelation` int(11) NOT NULL AUTO_INCREMENT,
+  `IdGroupe` int(11) NOT NULL,
+  `LoginMembre` varchar(50) NOT NULL,
+  UNIQUE KEY `IdRelation` (`IdRelation`),
+  KEY `IdGroupe` (`IdGroupe`),
+  KEY `LoginMembre` (`LoginMembre`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+
+--
+-- Contenu de la table `vote`
+--
+
+INSERT INTO `vote` (`IdRelation`, `IdGroupe`, `LoginMembre`) VALUES
+(17, 1, 'Membre1'),
+(18, 11, 'Membre1'),
+(19, 11, 'Membre2'),
+(20, 1, 'Membre2'),
+(21, 1, 'Membre3'),
+(22, 11, 'Membre3');
 
 --
 -- Contraintes pour les tables exportées
@@ -622,6 +660,13 @@ ALTER TABLE `groupe_genre_musical`
 --
 ALTER TABLE `membre_genre_musical`
   ADD CONSTRAINT `nomgenremusical_dans_relation_a_genremusical` FOREIGN KEY (`Nom_genre_musical`) REFERENCES `genre_musical` (`Nom`);
+
+--
+-- Contraintes pour la table `vote`
+--
+ALTER TABLE `vote`
+  ADD CONSTRAINT `Relation_entre_vote_et_groupe_lien_IdGroupe` FOREIGN KEY (`IdGroupe`) REFERENCES `groupe` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `Relation_entre_vote_et_membre_lien_LoginMembre` FOREIGN KEY (`LoginMembre`) REFERENCES `membre` (`Login`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

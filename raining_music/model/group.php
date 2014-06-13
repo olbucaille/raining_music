@@ -106,10 +106,7 @@ class Group {
 	//recuperer tous les groupes par ordre alphabetique
 	public static function getgroup()
 	{
-
 		$connexion = connect();
-
-
 		$requete = $connexion->prepare("SELECT Nom FROM groupe ORDER BY Nom ASC");
 		
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
@@ -122,12 +119,35 @@ class Group {
 				$groupe = new Group($lignes->Nom);
 					
 				$listeGroupe[] = $groupe; // ajout dans la liste
-
 			}
 				
 		}
 		return $listeGroupe;
 	}
+	
+	//recuperer tous les groupes par ordre alphabetique
+	public static function getgroupAndId()
+	{
+		$connexion = connect();
+		$requete = $connexion->prepare("SELECT Nom,Id FROM groupe ORDER BY Nom ASC");
+	
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+			$listeGroupe = array();
+	
+	
+			while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+			{
+				$groupe = new Group($lignes->Nom);
+				$groupe->id_group = $lignes->Id;
+					
+				$listeGroupe[] = $groupe; // ajout dans la liste
+			}
+	
+		}
+		return $listeGroupe;
+	}
+	
 //function LI
 	public static function getgroupname($id_group)
 	{

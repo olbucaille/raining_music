@@ -134,5 +134,15 @@ class Salle {
 
 	}
 	
+	
+	
+	
+	// accepter la demande de la réservation d'une salle
+	
+	public static function AcceptDemandeSalle($user,$salle)
+	{
+		// a faire
+	}
+	
 }
 ?>

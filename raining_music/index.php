@@ -1,6 +1,6 @@
 <?php
 session_start();
- 
+
 global $connexion;
 $connexion='';
 include("controller.inc.php");
@@ -25,8 +25,8 @@ switch ((string)$action) {
 		break;
 	case '\'creerSalle\'':
 		c_CreerSalle();
-		break;	
-	case '\'rejoindre_groupe\'':	
+		break;
+	case '\'rejoindre_groupe\'':
 		c_RejoindreGroupe();
 		break;
 	case '\'upload_music\'':
@@ -46,7 +46,17 @@ switch ((string)$action) {
 		break;
 	case '\'proposer_adhesion_membre_groupe\'':
 		c_proposer_adhesion_membre_groupe($_GET['user'],$_GET['groupe']);
-		break;		
+		break;
+	case '\'accepter_demande_salle\'':
+		c_AccepterDemandeSalle();
+		break;
+	case '\'refuser_demande_salle\'':
+		c_RefuserDemandeSalle();
+		break;
+	case '\'lire_notification\'':
+		c_lire_notification();
+		break;
+
 	default :
 		header("location:./template/accueil.php");
 }
