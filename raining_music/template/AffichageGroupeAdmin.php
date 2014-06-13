@@ -79,6 +79,14 @@ $liste_song = Song::getSongName ( $liste [0]->nom );
 	</div>
 
 
+
+	<div class="MusicList">
+		<div class="Author"></div>
+		<div class="List"> 
+    <?php $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";?>
+	<input TYPE="button" VALUE="Ajouter une chanson"
+				OnClick='<?php echo $link;?>'";'> </br> </br>
+
     <div class="LeftControl" ></div> <!-- icone morceau precedent -->
     <div id="MainControl" class="MainControl" ></div> <!-- icone jouer et arreter -->
     <div class="RightControl" ></div> <!-- icone morceau suivant -->
@@ -113,6 +121,7 @@ $liste_song = Song::getSongName ( $liste [0]->nom );
 	</br>
 	</br>
 
+
 <?php
 $i = 0;
 while ( isset ( $liste_song [$i]->nom ) ) {
@@ -144,7 +153,7 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 	
 	/* debut de la partie autorisée */
 	if ($groupe != null) {
-		echo '<center><font size = 18>' . $groupe->nom . '</font></center>';
+		echo "<center><font size = 18>" . $groupe->nom . "</font></center>";
 		
 		$name = $_GET ['id_groupe'] . "_groupe.JPG";
 		
