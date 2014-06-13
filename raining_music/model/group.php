@@ -69,7 +69,7 @@ class Group {
 		
 		//construction requete
 		$requete= $connexion->prepare("SELECT * FROM membre_groupe WHERE Login_membre =\"$user\" AND Nom_groupe =\"$group\" AND Valide = 1"); //preparation requete
-		echo "SELECT * FROM membre_groupe WHERE Login_membre =\"$user\" AND Nom_groupe =\"$group\" AND Valide = 1" ;//preparation requete
+	//	echo "SELECT * FROM membre_groupe WHERE Login_membre =\"$user\" AND Nom_groupe =\"$group\" AND Valide = 1" ;//preparation requete
 		 
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{

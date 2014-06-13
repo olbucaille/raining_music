@@ -32,110 +32,7 @@ $liste_song = Song::getSongName ( $liste [0]->nom );
 	style="margin-left: 5%; width: 90%; min-height: 500px; height: 100%; background-color: #c0c0c0;">
 	<p>
 	
-	
-	<center>
-		<font size=18> <?php echo $liste[0]->nom; ?> </font>
-	</center>
 
-	<!-- boite de musique-->
-
-	<audio id="myMusic">
-	</audio>
-
-	<input id="PauseTime" type="hidden" />
-
-
-	<div class="MusicBox">
-
-		<div class="LeftControl"></div>
-		<!-- icone morceau precedent -->
-		<div id="MainControl" class="MainControl"></div>
-		<!-- icone jouer et arreter -->
-		<div class="RightControl"></div>
-		<!-- icone morceau suivant -->
-
-		<div class="ProcessControl">
-			<!-- barre d'avancement -->
-			<div class="SongName">Music Box!</div>
-			<!-- titre du morceau-->
-			<div class="SongTime">00:00&nbsp;|&nbsp;00:00</div>
-			<!-- duration -->
-			<div class="Process"></div>
-			<!-- barre de duree du morceau -->
-			<div class="ProcessYet"></div>
-			<!-- temps jou¨¦-->
-		</div>
-
-		<div class="VoiceEmp"></div>
-		<!-- icone muet -->
-		<div class="VoidProcess"></div>
-		<!-- barre de son -->
-		<div class="VoidProcessYet"></div>
-		<!-- son choisi -->
-		<div class="VoiceFull"></div>
-		<!-- son max -->
-		<div class="ShowMusicList"></div>
-		<!-- montrer ou masquer la liste de musique -->
-	</div>
-
-
-
-	<div class="MusicList">
-		<div class="Author"></div>
-		<div class="List"> 
-    <?php $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";?>
-	<input TYPE="button" VALUE="Ajouter une chanson"
-				OnClick='<?php echo $link;?>'";'> </br> </br>
-
-    <div class="LeftControl" ></div> <!-- icone morceau precedent -->
-    <div id="MainControl" class="MainControl" ></div> <!-- icone jouer et arreter -->
-    <div class="RightControl" ></div> <!-- icone morceau suivant -->
-    
-    <div class="ProcessControl"><!-- barre d'avancement -->
-    <div class="SongName">Music Box!</div> <!-- titre du morceau-->
-    <div class="SongTime">00:00&nbsp;|&nbsp;00:00</div> <!-- duration -->
-    <div class="Process" ></div> <!-- barre de duree du morceau -->
-    <div class="ProcessYet"></div> <!-- temps jou¨¦-->
-    </div>
-    
-    <div class="VoiceEmp"></div> <!-- icone muet -->
-    <div class="VoidProcess" ></div><!-- barre de son --> 
-    <div class="VoidProcessYet" ></div> <!-- son choisi -->
-    <div class="VoiceFull" ></div><!-- son max -->
-    <div class="ShowMusicList" ></div> <!-- montrer ou masquer la liste de musique -->
-    </div>
-    
-    
-    <div class="MusicList">  
-    <div class="Author" >
-    <img src="../pictures/musique.jpg" alt="" width="158" height="200"/>
-    </div> 
-    <div class="List"> 
-    <?php $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";
-    	$link_sup = "document.location.href=\"DeleteMusic.php?groupename=".$liste[0]->nom."\" ";
-    ?>
-	<input TYPE="button" VALUE="Ajouter une chanson" OnClick='<?php echo $link;?>'";'>
-	<input TYPE="button" VALUE="Supprimer une chanson" OnClick='<?php echo $link_sup;?>'";'>
-
-	
-	</br>
-	</br>
-
-
-<?php
-$i = 0;
-while ( isset ( $liste_song [$i]->nom ) ) {
-	?>
-	<div class="Single">
-				<span class="SongName" KV="<?php echo $liste_song[$i]->nom; ?>"> <?php echo $liste_song[$i]->nom; ?></span>
-			</div>
-   <?php
-	$i ++;
-}
-?> 	
-    </div>
-	</div>
-	</br> </br> </br>
 
 <?php
 $groupe = null;
@@ -158,13 +55,13 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 		$name = $_GET ['id_groupe'] . "_groupe.JPG";
 		
 		if (file_exists ( './upload_pictures/' . $name )) {
-			echo "<img src='img/photos/$name' width='90' height='90' border='2'/>";
-		} else
-			echo "<img src='img/no_photo.png' width='90' height='90' border='2'/>";
+	//		echo "<img src='img/photos/$name' width='90' height='90' border='2'/>";
+		
 		
 		echo "<img src='./upload_pictures/$name' alt=' ' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
 		
 		echo '</p>';
+		}
 		// changer la photo du groupe si on est autorisé
 		if ($autorise) {
 			echo '<form action="imageUpload.php" method="post" enctype="multipart/form-data"  target="hiddeniframe" >
@@ -218,6 +115,65 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 	}
 }
 ?>
+	<!-- boite de musique-->
+
+	<audio id="myMusic">
+	</audio>
+
+	<input id="PauseTime" type="hidden" />
+
+
+	<div class="MusicBox">
+    <div class="LeftControl" ></div> <!-- icone morceau precedent -->
+    <div id="MainControl" class="MainControl" ></div> <!-- icone jouer et arreter -->
+    <div class="RightControl" ></div> <!-- icone morceau suivant -->
+    
+    <div class="ProcessControl"><!-- barre d'avancement -->
+    <div class="SongName">Music Box!</div> <!-- titre du morceau-->
+    <div class="SongTime">00:00&nbsp;|&nbsp;00:00</div> <!-- duration -->
+    <div class="Process" ></div> <!-- barre de duree du morceau -->
+    <div class="ProcessYet"></div> <!-- temps jou¨¦-->
+    </div>
+    
+    <div class="VoiceEmp"></div> <!-- icone muet -->
+    <div class="VoidProcess" ></div><!-- barre de son --> 
+    <div class="VoidProcessYet" ></div> <!-- son choisi -->
+    <div class="VoiceFull" ></div><!-- son max -->
+    <div class="ShowMusicList" ></div> <!-- montrer ou masquer la liste de musique -->
+    </div>
+    
+    
+    <div class="MusicList">  
+    <div class="Author" >
+    <img src="../pictures/musique.jpg" alt="" width="158" height="200"/>
+    </div> 
+    <div class="List"> 
+    <?php $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";
+    	$link_sup = "document.location.href=\"DeleteMusic.php?groupename=".$liste[0]->nom."\" ";
+if ($autorise) {
+echo'	<input TYPE="button" VALUE="Ajouter une chanson" OnClick="'.$link.'">
+	<input TYPE="button" VALUE="Supprimer une chanson" OnClick="'.$link_sup.'">';
+		}
+?>   
+	</br>
+	</br>
+
+
+<?php
+$i = 0;
+while ( isset ( $liste_song [$i]->nom ) ) {
+	?>
+	<div class="Single">
+				<span class="SongName" KV="<?php echo $liste_song[$i]->nom; ?>"> <?php echo $liste_song[$i]->nom; ?></span>
+			</div>
+   <?php
+	$i ++;
+}
+?> 	
+    </div>
+	</div>
+	</br> </br> </br>
+
 </div>
 
 
