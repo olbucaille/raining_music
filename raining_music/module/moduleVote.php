@@ -60,7 +60,7 @@
 			// print_r ( $alreadyVoted );
 			// echo "<br/>";
 			$nb_alreadyVoted = count ( $alreadyVoted );
-			echo "Nombre de votes pour cet artiste: " . $nb_alreadyVoted . "<br/><br/>";
+			echo "Cet artiste a été évalué " . $nb_alreadyVoted . " fois.<br/><br/>";
 			
 			if ($nb_alreadyVoted != 0) {
 				$compteur = 0;
@@ -84,9 +84,9 @@
 				if ($compteur != $nb_alreadyVoted) {
 					echo "<b>ERREUR : Vous ne pouvez pas re-voter pour cet artiste!</b>";
 				} else {
-					echo "Vous pouvez voter<br/>";
+					//echo "Vous pouvez voter<br/>";
 					
-					echo "Si vous souhaitez voter, cliquez sur une note ci-dessous";
+					echo "Si vous souhaitez évaluer cet artiste, cliquez sur une note ci-dessous";
 					
 					?>
 			<form action="../Controller/vote.php" method="post">
@@ -103,8 +103,8 @@
 	</form><?php
 				}
 			} else {
-				echo "Vous pouvez voter<br />";
-				echo "Si vous souhaitez voter,
+				//echo "Vous pouvez voter<br />";
+				echo "Si vous souhaitez évaluer cet artiste,
 	cliquez sur une note ci-dessous";
 				?>
 	<form action="../Controller/vote.php" method="post">
@@ -130,7 +130,7 @@
 	else{
 ?>
 
-<p>Pour pouvoir noter cet artiste, veuillez vous connecter à l'aide du menu déroulant <b>connexion</b> situé <a href="#hautpage">en haut à droite</a> du site ! :)</p>
+<p>Pour pouvoir évaluer cet artiste, veuillez vous connecter à l'aide du menu déroulant <b>connexion</b> situé <a href="#hautpage">en haut à droite</a> du site ! :)</p>
 <?php
 }
 	
