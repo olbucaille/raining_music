@@ -11,18 +11,20 @@ class User implements serializable{
 	var $sexe;
 	var $DoB;
 	var $localisation;
+	var $departement;
 	var $picture;
 	var $commentaire;
 	//constructeur à x champs
 
-	function __construct($pseudo,$mail,$pass,$DoB,$localisation,$gender,$nom,$picture,$commentaire)
+	function __construct($pseudo,$mail,$pass,$DoB,$localisation,$departement,$gender,$nom,$picture,$commentaire)
 	{
 		$this->login = $pseudo;
 		$this->password = $pass;
 		$this->mail = $mail;
 		$this->sexe = $gender;
-		$this->localisation = $localisation;
 		$this->DoB = $DoB;
+		$this->localisation = $localisation;
+		$this->departement= $departement;
 		$this->nom = $nom;
 		$this->picture = $picture;
 		$this->password = $pass;
@@ -42,6 +44,7 @@ class User implements serializable{
 						'sexe' => $this->sexe,
 						'DoB' => $this->DoB,
 						'localisation' => $this->localisation,
+						'departement'=>$this->departement,
 						'picture' => $this->picture,
 						'commentaire' => $this->commentaire,
 
@@ -59,6 +62,7 @@ class User implements serializable{
 		$this->sexe= $data['sexe'];
 		$this->DoB = $data['DoB'];
 		$this->localisation =$data['localisation'];
+		$this->departement=$data['departement'];
 		$this->picture = $data['picture'];
 		$this->commentaire = $data['commentaire'];
 		 
@@ -78,7 +82,7 @@ class User implements serializable{
 			{
 				if($lignes->Image == '')
 					$lignes->Image = './../pictures/inconnu.bmp';
-				$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Sexe,$lignes->Nom,$lignes->Image,$lignes->Commentaire);
+				$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Departement,$lignes->Sexe,$lignes->Nom,$lignes->Image,$lignes->Commentaire);
 				$_SESSION['user'] = serialize($userIdentified); //chargement de variable de session
 				return true;
 			}
@@ -102,7 +106,7 @@ class User implements serializable{
 			$u->localisation = "inconnue";
 
 		//construction requete
-		$req = "INSERT INTO membre(Login,Password,Mail,Sexe,DOB,Localisation,DateInscription) VALUES(\"$u->login\",\"$u->password\",\"$u->mail\",$u->sexe,\"$u->DoB\",\"$u->localisation\",\"".date("Y-m-d")."\")";
+		$req = "INSERT INTO membre (Login,Password,Mail,Sexe,DoB,Localisation,Departement,DateInscription) VALUES(\"$u->login\",\"$u->password\",\"$u->mail\",$u->sexe,\"$u->DoB\",\"$u->localisation\",$u->departement,\"".date("Y-m-d")."\")";
 		$requete= $connexion->prepare($req); //preparation requete
 		echo $req;
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
@@ -121,7 +125,7 @@ class User implements serializable{
 			$requete->execute();//execution(pas de verification securité a faire => automatique)
 		}
 
-		$requete = $connexion->prepare("UPDATE membre SET Mail=\"$this->mail\",Nom=\"$this->nom\",Sexe=\"$this->sexe\",DoB=\"$this->DoB\",Localisation=\"$this->localisation\",Commentaire=\"$this->commentaire\" WHERE Login=\"$this->login\";");
+		$requete = $connexion->prepare("UPDATE membre SET Mail=\"$this->mail\",Nom=\"$this->nom\",Sexe=\"$this->sexe\",DoB=\"$this->DoB\",Localisation=\"$this->localisation\",Departement=\"$this->departement\",Commentaire=\"$this->commentaire\" WHERE Login=\"$this->login\";");
 		$requete->execute();
 
 
@@ -155,6 +159,7 @@ class User implements serializable{
 				$this->mail =  $lignes->Mail;
 				$this->sexe = $lignes->Sexe;
 				$this->localisation = $lignes->Localisation;
+				$this->departement=$lignes->Departement;
 				$this->DoB = $lignes->DoB;
 				$this->nom = $lignes->Nom;
 				$this->picture = $lignes->Image;
@@ -167,7 +172,17 @@ class User implements serializable{
 
 	}
 
-
+	public static function getLastRegisteredUsers($limite) {
+		//SELECT `Id`,`Nom`,`Popularite` FROM `groupe`  GROUP BY `Id` ORDER BY `Popularite`  DESC LIMIT 3
+	
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT `Id`,`Login`,`Sexe`,`Localisation`,`Departement`,`DoB`,`DateInscription` FROM `membre`  GROUP BY `Login` ORDER BY `DateInscription`  DESC LIMIT ".$limite);
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
 
 }
 
