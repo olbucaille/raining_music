@@ -4,7 +4,7 @@ include("./../db_connect.inc.php");
 ?>
 
    
-<div class="conteneur" style="margin-left:5%; width:90%; min-height:500px; height:100%; background-color:#c0c0c0; ">
+<div style="margin-left: 5%">
 	
 
    
