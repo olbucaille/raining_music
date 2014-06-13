@@ -21,7 +21,7 @@ $liste_song = Song::getSongName($_GET['groupename']);
     while (isset($liste_song[$i]->nom)){
 	?>
 
-<option value=<?php echo $liste_song[$i]->nom; ?>> <?php echo $liste_song[$i]->nom; ?> </option>
+<option value="<?php echo $liste_song[$i]->nom; ?>"> <?php echo $liste_song[$i]->nom; ?> </option>
 
 
    <?php  
