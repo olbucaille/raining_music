@@ -36,7 +36,7 @@ if(isset($_SESSION['user']))
     		$i=0;
     		while(isset($liste[$i])) 
     		{
-    			echo $liste[$i]->nom;
+    			echo '<a href="affichageGroupeAdmin.php?id_groupe='.$liste[$i]->Id.'">'.$liste[$i]->nom.'</a>';
     			echo"<a href=\"./../index.php?action='rejoindre_groupe'&groupe=".$liste[$i]->nom."\"style=\"float:right;\">rejoindre</a>";
     			echo"<hr />";
     			$i++;

@@ -44,6 +44,33 @@ class requestSQL{
 		return $resultat ;	
 	}
 
+	
+	
+	public static function getAllConcerts()
+	{
+	
+		//conection BDD
+		$connexion = connect();
+	
+		//verification groupe identique n'existe pas
+		$requete= $connexion->prepare("select * from concert"); //preparation requete
+		//		echo "SELECT * FROM groupe WHERE Nom =\"$g->nom\" ";
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+			$i = 0;
+			while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+				$i++;
+	
+			return $i;
+		}
+		else
+			echo " erreur lors de selection des concerts";
+		return 0;
+	}
+	
+	
+	
+	
 }
 
 ?>
