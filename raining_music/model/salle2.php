@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -17,7 +16,7 @@ class Salle {
 
 
 	//inscrire une salle
-	public static function registerSalle(Salle $s,$Departement,$Adresse,$Proprietaire)
+	public static function registerSalle(Salle $s,$Departement,$Adresse,$Proprietaire,$NbPlaces,$Telephone,$Horaires)
 	{
 			//conection BDD
 		$connexion = connect();
@@ -38,7 +37,7 @@ class Salle {
 		}
 		
 		//construction requete
-		$requete= $connexion->prepare("INSERT INTO salle(Nom, Adresse, Departement, Proprietaire) VALUES(\"$s->Nom\",\"$Adresse\",\"$Departement\",\"$Proprietaire\")"); //preparation requete
+		$requete= $connexion->prepare("INSERT INTO salle(Nom, Adresse, Departement, Proprietaire, NbPlaces, Telephone,Horaires) VALUES(\"$s->Nom\",\"$Adresse\",\"$Departement\",\"$Proprietaire\",\"$NbPlaces\",\"$Telephone\",\"$Horaires\")"); //preparation requete
 		
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{

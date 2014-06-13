@@ -75,15 +75,25 @@ if(isset($_SESSION['user']))
             
 		    <label for="Nom">Nom de la salle*:</label>
 		    <input type="text" name="Nom" required/><br/><br/>
-		 
-        	<label for="Departement">Departement*:</label>
-		    <input type="text" name="Departement" required/><br/><br/>
-		  										
-		    <label for="Adresse">Adresse*:</label>
-		    <input type="text" name="Adresse" required/><br/><br/>
 		    
 		    <label for="Propriétaire">Proprietaire*:</label>
 		    <input type="text" name="Proprietaire" required/><br/><br/>
+						
+        	<label for="Departement">Departement*:</label>
+		    <input type="text" name="Departement" required/><br/><br/>
+		  										
+		    <label for="Adresse">Adresse postale*:</label>
+		    <input type="text" name="Adresse" required/><br/><br/>
+		    
+			<label for="NbPlaces">Nombre de places*:</label>
+		    <input type="int" name="NbPlaces" required/><br/><br/>
+		    
+		    <label for="Telephone">Telephone*:</label>
+		    <input type="int" name="Telephone" required/><br/><br/>
+		    
+		    <label for="Horaires">Horaires d'ouverture*:</label>
+		    <input type="text" name="Horaires" required/><br/><br/>
+	    
 			<br /> <br />
 			
             <input id="sendButton" type="submit" value="Valider"/>
