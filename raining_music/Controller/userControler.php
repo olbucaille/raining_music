@@ -28,7 +28,7 @@ function c_RegisterUser()
 
 
 	//elements mandatory present ?
-	if(isset($_POST['pseudo']) && isset($_POST['password']) && isset($_POST['password2'])&&isset($_POST['DoB'])&&isset($_POST['emailAddress']))
+	if(isset($_POST['pseudo']) && isset($_POST['password']) && isset($_POST['password2'])&&isset($_POST['DoB'])&&isset($_POST['emailAddress'])&&isset($_POST['departement'])&&isset($_POST['localisation'])&&isset($_POST['gender']))
 	{
 	//password match ?
 	if($_POST['password']==$_POST['password2'])
@@ -49,25 +49,25 @@ function c_RegisterUser()
 	$_POST['gender'] = null;
 
 	//construction de l'objet user
-	$newuser= new User($_POST['pseudo'],$_POST['emailAddress'],$pass,$_POST['DoB'],$_POST['localisation'],$_POST['gender'],'','','');
+	$newuser= new User($_POST['pseudo'],$_POST['emailAddress'],$pass,$_POST['DoB'],$_POST['localisation'],$_POST['gender'],$_POST['departement'],'','','');
 
 
 	//appel du model
 	if(User::registerUser($newuser))
 		{
-		$_SESSION['message'] = "merci, vous etes bien inscrit ! ";
+		$_SESSION['message'] = "Merci, vous etes bien inscrit ! ";
 		header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
 	}
 	else
 	{
-	$_SESSION['messageErreur'] = "oups, an error occured";
+	$_SESSION['messageErreur'] = "Oops! An error occured...";
 	header("location:./template/inscription.php");
 	}
 
 
 	}
 	else {
-	$_SESSION['messageErreur'] = "oups, tous les champs ne sont pas remplis ;)";
+	$_SESSION['messageErreur'] = "Oops! Tous les champs ne sont pas remplis ;)";
 	header("location:./template/inscription.php");
 	}
 

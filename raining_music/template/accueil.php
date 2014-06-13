@@ -106,7 +106,7 @@ voter pour vos artistes préférés, échanger via notre forum, effectuer des recher
 			
 	
 	<div
-				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px;">
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width:40%; float: left;">
 
 				<span
 					style="background-color:#174156; font-weight: bold; color: #fff;
@@ -143,44 +143,47 @@ voter pour vos artistes préférés, échanger via notre forum, effectuer des recher
 				//}
 			}?>
 			
+			</div>
+				<div
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width:40%; float: right;">
+
+				<span
+					style="background-color:#174156; font-weight: bold; color: #fff;
+					border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; 
+					padding: 11px; font-family: Arial, Helvetica, sans-serif; 
+					font-size: 20px;">&nbsp;Nos nouveaux inscrits !
+				
+				</span>
+			<br/>
+			<br/>
 			
-			
-			
-			
-			
-			<!-- 
-						<h3>Artiste1</h3>
-			<p><i>Artiste1</i> est un groupe de <i>"style_de_musique"</i> dont les membres sont les suivants : <i>Membre1Artiste1 (rôle_dans_le_groupe)</i>, 
-			[<i>Membre2Artiste1 (rôle_dans_le_groupe)</i>, [<i>Membre3Artiste1 (rôle_dans_le_groupe)</i>, [...]] ]<br/>
-			Leur dernier concert remonte au <i>"date_du_last_concert"</i> et s'est déroulé dans la salle <i>"nom_de_la_salle"</i></p>
-			
-			
-			<hr />
-						<h3>Artiste2</h3>
-			<p><i>Artiste2</i> est un groupe de <i>"style_de_musique"</i> dont les membres sont les suivants : <i>Membre1Artiste2 (rôle_dans_le_groupe)</i>, 
-			[<i>Membre2Artiste2 (rôle_dans_le_groupe)</i>, [<i>Membre3Artiste2 (rôle_dans_le_groupe)</i>, [...]] ]<br/>
-			Leur dernier concert remonte au <i>"date_du_last_concert"</i> et s'est déroulé dans la salle <i>"nom_de_la_salle"</i></p>
-			<hr />
-						<h3>Artiste3</h3>
-			<p><i>Artiste3</i> est un groupe de <i>"style_de_musique"</i> dont les membres sont les suivants : <i>Membre1Artiste3 (rôle_dans_le_groupe)</i>, 
-			[<i>Membre2Artiste3 (rôle_dans_le_groupe)</i>, [<i>Membre3Artiste3 (rôle_dans_le_groupe)</i>, [...]] ]<br/>
-			Leur dernier concert remonte au <i>"date_du_last_concert"</i> et s'est déroulé dans la salle <i>"nom_de_la_salle"</i></p>-->
-			
-			
+			<?php $les3PlusRecents=User::getLastRegisteredUsers(3)?>
+			<?php //echo "TEST AVANT foreach";
+			//print_r($les3PlusRecents)?>
+			<?php foreach ($les3PlusRecents as $Row){
+				
+				$idMembre=$Row['Id'];
+				$loginMembre=$Row['Login'];
+				$sexeMembre=$Row['Sexe'];
+				$LocalisationMembre=$Row['Localisation'];
+				$doBMembre=$Row['DoB'];
+				$dateInscriptionMembre=$Row['DateInscription'];
+
+				$link =  "../index.php?action='visualiser_User'&Nom=".$loginMembre;
+		
+					echo "<h4 class=resultNames><a href=".$link.">".$loginMembre."</a></h4>";
+					if ($sexeMembre!=1)
+						echo "nouvel inscrit";
+   					else 
+   						echo "nouvelle inscrite";
+   					echo" du ".$dateInscriptionMembre." qui habite près de ".$LocalisationMembre.". <br/>On lui souhaite la bienvenue !</p><hr />";
+					}
+				//}
+			?>
 			
 			</div>
-			
 	<br />
-	<span style="background-color: #236586; font-weight: bold; border-radius: 7px 7px 0px 0px; padding-top: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px; position: relative; top: -8px;">&nbsp;Concerts&nbsp;</span>
-			<p
-				style="border: 11px solid #236586; border-radius: 0px 7px 7px 7px; position: relative; bottom: 25px; padding: 10px;" />
-			<iframe
-				src="https://mapsengine.google.com/map/embed?mid=zcDbx-dwquYs.kZPouQMZ2Ma0"
-				width=100% height=150px></iframe>
-			<br />
-			</p>
-			</p>
-			
+	
 		</div>
 		
 
