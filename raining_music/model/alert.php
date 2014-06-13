@@ -96,10 +96,13 @@ class Alert implements serializable{
 	$alert = new Alert('','demande',"".$user." demande à rejoindre ".$salle."",'',"ASK_".$user."_".$salle,'');
 	//cherche liste des membres de la salle
 	$listedest = Salle::getUserFromSalle($salle);
+	echo "DEBUG ";
+	
+	echo $listedest;
+	exit;
 	$connexion = connect();
 	//construit requete
-	$requete = $connexion->prepare("INSERT INTO Alerte(Titre,Description,Flag_lecture,Type,Login_membre)
-			VALUES(\"".$alert->Titre."\",\"".$alert->Description."\",0,\"".$alert->Type."\",\"".$listedest[0]."\")");
+	$requete = $connexion->prepare("INSERT INTO Alerte(Titre,Description,Flag_lecture,Type,Login_membre) VALUES(\"".$alert->Titre."\",\"".$alert->Description."\",0,\"".$alert->Type."\",\"".$listedest."\")");
 	
 	if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		return true;

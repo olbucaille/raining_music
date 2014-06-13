@@ -16,12 +16,12 @@
 	$salle=isset($_POST['salle'])?$_POST['salle']:"";
 	echo "=====> ".$salle;
 	$id = $_POST['id'];
- 	$id= $id*1+1;
+ 	$id= $id*1+2;
  	
 	if(isset($_SESSION['user']))
 	{	
  		$user = unserialize($_SESSION['user']);
- 		$sql = "INSERT INTO `concert`(`Id`, `Nom`, `Date`, `Heure`, `Cout`, `Adresse`, `description`,`salle_acceptee`,`salle`)
+ 		$sql = "INSERT INTO concert(Id, Nom, Date, Heure, Cout, Adresse, description,salle_acceptee,salle)
 		VALUES ('$id','$nom','$date','$heure',null,null,'$description',0,'$salle')";
  	 	// si l'insertion dans la table concert est bien passé
  	 	echo $sql."</br>";
@@ -30,7 +30,7 @@
 	 		// alors on insert dans la table concert_membre_organisateur
  	 			// inserer le nom de l'organisateur dans la table concert_membre_organisateur
 	 			$login = $user->login;
-	 		  	$sql2 = "INSERT INTO `concert_membre_organise`(`Organisateur`, `Id_concert`, `Role`) VALUES('$login','$id','')";
+	 		  	$sql2 = "INSERT INTO concert_membre_organise(Organisateur, Id_concert, Role) VALUES('$login','$id','')";
 	 		  	echo $sql2;
  	 		  	$connexion = connect();
 				$requete = $connexion->prepare($sql2);
