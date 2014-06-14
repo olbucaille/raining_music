@@ -5,14 +5,23 @@ include("./../model/salle2.php");
 include("./../model/requestSQL.php");
 $listeSalles = Salle::getsalle();
 $concerts = RequestSQL::getAllConcerts();
-   echo '
+   ?>
+   
+   
+
+ <div class="left" style="min-height: 400px;" padding-left:10px; " >
+  <div style="text-align:justify; border-top:#236586 thick solid; border-radius: 0px 7px 7px 7px;	box-shadow: 0 2px 4px 5px #424346;  padding:10px; margin:10px;">
+ 
+ 
+   
+   <?php echo '
 <form  style="margin-left : 2%;" method="post" action="traitement.php">
 	<p class="search">Ajout d\'un concert</p>
 	<fieldset id="coordonnees"> 
 	<label>Nom : </label>
 	<input type="text" name="nom"/><br />
 	<label>Date  : </label>
-	<input type="date" name="date" /><br />
+	<input placeholder="YYYY-MM-DD" type="date" name="date" /><br />
 	<label>Heure  : </label>
 	<input type="heure" name="heure" /><br />
 	<input type="hidden" name="id" value="'.$concerts.'" />
@@ -36,5 +45,9 @@ $concerts = RequestSQL::getAllConcerts();
 	</p>
 </form> ';
 
+	?>
+</div>
+	</div>
+	<?php 
 	include("./../layout/basic_footer.php");
 ?>

@@ -6,9 +6,7 @@
 	require_once("/../db_connect.inc.php");
  
 
-	mysql_connect("localhost","root","");
-	mysql_select_db("bd_raining_music"); // il faut mettre la bonne base ici
-		
+	connectMS();	
 	$nom=isset($_POST['nom'])?$_POST['nom']:"";
 	$date=isset($_POST['date'])?$_POST['date']:"";
 	$heure=isset($_POST['heure'])?$_POST['heure']:"";
@@ -40,18 +38,30 @@
 					// envoyer une alerte au proprietaire 
 					
 			 		if(Alert::sendRequestJoinSalle($salle,$user->login,$id))
-						header('Location: formconcert.php');      	 		  	
+			 		{
+			 			$_SESSION['message']="demande envoyé ! nous vous tiendrons au courant des que votre concert aura été accepté !"; 
+			 			header('Location: ./../template/MessageEtape.php');      	 		  	
+			 		}
 			 		else
-			 			echo " erreur lors de l'envoi de l'alerte";
-
+			 		{
+			 			$_SESSION['message']="désolé, la requete n'as pu etre transmise, merci de concter nos services !";
+			 			header('Location: ./../template/MessageEtape.php');
+			 			
+			 		}
 				}
 				else
-					echo "erreur lors de l'insertiond dans concert_membre_organisateur";
-					echo $sql2;
+				{
+					$_SESSION['message']="désolé, la requete n'as pu etre transmise, merci de concter nos services ! (insertion concert membre organise)";
+					header('Location: ./../template/MessageEtape.php');
+					
+				}
 	 	}	
 	 	else
-	 		echo "erreur lors de l'insertion du concert dans la base";
-		
+	 	{
+	 		$_SESSION['message']="désolé, la requete n'as pu etre transmise, merci de concter nos services(insertion concert dans la base) !";
+	 		header('Location: ./../template/MessageEtape.php');
+	 		
+	 	}
 		mysql_close();
 	}
 	else
