@@ -358,6 +358,19 @@ class Group {
 		return ($temp);
 	}
 
+	//get followed groups:
+	//SELECT `Nom`,`Id` FROM `membre_groupe_pref` as MAP JOIN `groupe` as g ON MAP.Id_groupe=g.Id WHERE MAP.Id_membre='32'
+	
+	
+	
+	public static function followThisGroup($idGroupe, $idMembre){
+		$connexion = connect();
+		$requete = $connexion->prepare("INSERT membre_groupe_pref SET Id_membre = '".$idMembre."',Id_groupe='".$idGroupe."'");
+
+		if($requete->execute())
+			return true;
+		return false;
+	} 
 
 }
 ?>
