@@ -50,33 +50,45 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 	if ($groupe != null) {
 		echo "<center><font size = 18>" . $groupe->nom . "</font></center>";
 		$name = $_GET ['id_groupe'] . "_groupe.JPG";
-		
-		
 }
 ?>
 
-        <div class="left" style="padding-left:10px;"/>
- 			<?php   
-   				if (file_exists ( './upload_pictures/' . $name )) {
-				echo "<img src='./upload_pictures/$name' alt=' ' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
+<div class="center">
+<font color="blue"><font size = 6> Galerie de photos </font></font>
+<br/>
+
+<?php   
+   	if (file_exists ( './upload_pictures/' . $name )) {
+	echo "<img src='./upload_pictures/$name' alt=' ' border=':#0b8dca thick solid' height='200' width='250' style='position:relative;top:5px; margin-right:10px ; margin-bottom: 15px;'  />";
 			// changer la photo du groupe si on est autorisé
 			}
-			?>
-		<?php if ($autorise) {
 ?>
-				<form action="imageUpload.php" method="post" enctype="multipart/form-data"  target="hiddeniframe" >
-             		<input type="hidden" name="id_groupe" value=" <?php echo $_GET ['id_groupe']?>">
-              		<input type="file" name="imgfile" /> 
-              		<input type="submit" name="uploadButton" value="Changer la photo" />
-           		</form>
-   <?php }?>        	 
-           	
- 			</div>
-		            
- 		      
+<?php if ($autorise) {
+?>
+	<form action="imageUpload.php" method="post" enctype="multipart/form-data"  target="hiddeniframe" >
+		<input type="hidden" name="id_groupe" value=" <?php echo $_GET ['id_groupe']?>">
+		<input type="file" name="imgfile" /> 
+		<input type="submit" name="uploadButton" value="Changer la photo" />
+	</form>
+<?php }
+?> 
+	</div>       
+	
+	<br/>
 
-		<div class="right">
-        <?php 
+	<div
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width:40%; float: left;">
+
+				<span
+					style="background-color:#174156; font-weight: bold; color: #fff;
+					border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; 
+					padding: 11px; font-family: Arial, Helvetica, sans-serif; 
+					font-size: 20px;">&nbsp;Notre histoire !
+				
+				</span>
+			<br/>
+			<br/>
+			<?php 
         if (null != $groupe)
 				
 			echo $groupe->description;
@@ -93,13 +105,22 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
             </form>
 <?php }?>		
 
-          </font>
-          <br />
-          <br />
-          <br />
-          <font color="blue"><font size = 6> Dates de concert</font></font>
-          <br />
-<?php          
+			
+			</div>	
+
+<div
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width:40%; float: right;">
+
+				<span
+					style="background-color:#174156; font-weight: bold; color: #fff;
+					border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; 
+					padding: 11px; font-family: Arial, Helvetica, sans-serif; 
+					font-size: 20px;">&nbsp;Nos dates de concert !
+				
+				</span>
+			<br/>
+			<br/>
+			<?php          
       	// ajouter un concert si on est autorisé
 
 
@@ -112,10 +133,6 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 
             </div>
                   
-                  <br />
-                  <font color = "black">
-		
-<?php }?>	
 <br />
 <br />
 <br />
@@ -125,14 +142,7 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
 
 	<!-- boite de musique-->
 
@@ -193,9 +203,25 @@ while ( isset ( $liste_song [$i]->nom ) ) {
 	</div>
 	</br> </br> </br>
 
+
+<?php }
+else{
+	$id_groupe = $_GET ["id_groupe"];	
+	$liste = Group::getgroupById ( $id_groupe );
+	if (count ( $liste ) > 0) {
+		$groupe = $liste [0];
+	}
+
+	/* debut de la partie autorisée */
+	if ($groupe != null) {
+		echo "<p align = center > <font size = 18>" . $groupe->nom . "</font></p>" ;
+		echo "<p> Bienvenu sur notre page de groupe ! Pour visualiser notre page, à l'aide du menu déroulant <b>connexion</b> situé en haut à droite du site ! :) </p>" ;
+		
+}		
+}
+
+?>	
 </div>
-
-
 
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->

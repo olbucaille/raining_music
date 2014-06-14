@@ -65,6 +65,11 @@ div.left
 
 }
 
+div.center
+{
+	text-align: center;
+}
+
 div.main
 {
 	height:100%;
