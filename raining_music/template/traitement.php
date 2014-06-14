@@ -47,6 +47,7 @@
 				}
 				else
 					echo "erreur lors de l'insertiond dans concert_membre_organisateur";
+					echo $sql2;
 	 	}	
 	 	else
 	 		echo "erreur lors de l'insertion du concert dans la base";

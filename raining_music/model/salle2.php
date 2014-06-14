@@ -119,6 +119,7 @@ class Salle {
 			return  $lignes->Proprietaire_Salle; // ajout dans la liste
 				
 		}
+		
 		return $listeSalle;
 
 	}
