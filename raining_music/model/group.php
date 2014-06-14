@@ -19,7 +19,7 @@ class Group {
 
 
 	//inscrire un groupe
-	public static function registerGroup(Group $g,$login,$role)
+	public static function registerGroup(Group $g,$login,$role, $genre)
 	{
 		//conection BDD
 		$connexion = connect();
@@ -47,12 +47,27 @@ class Group {
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
 			
-			
-				
 			$requete= $connexion->prepare("INSERT INTO membre_groupe(Nom_groupe,Login_membre,Role,Valide,Creator) VALUES(\"$g->nom\",\"$login\",\"$role\",1,1)"); //preparation requete
-
+			
+			
+			$requeteInter=$connexion->prepare("SELECT Id FROM groupe WHERE Nom=\"$g->nom\" ");
+			$requeteInter->execute();
+			$temp=$requeteInter->fetchAll();
+			//print_r($temp);
+			$nb_resultats = count ( $temp );
+			
+			if($nb_resultats!=0){
+				foreach ( $temp as $Row ) {
+					// parsing des valeurs récupérées
+					$idGroupe = $Row ['Id'];
+			
+			
+					$requete2=$connexion->prepare("INSERT INTO groupe_genre_musical(Id_groupe, Nom_genre_musical) VALUES (\"$idGroupe\",\"$genre\")");
+				}
+			}
+			
 			//echo $login;
-			if($requete->execute())
+			if($requete->execute()&&$requete2->execute())
 				return true;
 			else
 				return false;
