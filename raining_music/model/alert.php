@@ -89,23 +89,27 @@ class Alert implements serializable{
 			echo false;
 	
 	}
-	
 	public static function sendRequestJoinSalle($salle,$user)
 	{
-	//objet de base
-	$alert = new Alert('','demande',"".$user." demande à rejoindre ".$salle."",'',"ASK_".$user."_".$salle,'');
-	//cherche liste des membres de la salle
-	$listedest = Salle::getUserFromSalle($salle);
-	$connexion = connect();
-	//construit requete
-	$requete = $connexion->prepare("INSERT INTO Alerte(Titre,Description,Flag_lecture,Type,Login_membre)
-			VALUES(\"".$alert->Titre."\",\"".$alert->Description."\",0,\"".$alert->Type."\",\"".$listedest[0]."\")");
-	
-	if($requete->execute())//execution(pas de verification securité a faire => automatique)
-		return true;
-	else
-		return false;
+		//objet de base
+		$alert = new Alert('','demande',"".$user." demande à rejoindre ".$salle."",'',"ASKSALLE_".$user."_".$salle,'');
+		//cherche liste des membres de la salle
+		$listedest = Salle::getUserFromSalle($salle);
+		var_dump($listedest);
+		$connexion = connect();
+		//construit requete
+		echo "toto";
+		
+		$sql = "INSERT INTO alerte2(Titre,Description,Flag_lecture,Type,Login_membre)
+		VALUES(\"".$alert->Titre."\",\"".$alert->Description."\",0,\"".$alert->Type."\",\"".$listedest."\")";
+		echo "<br>".$sql;
+		$requete = $connexion->prepare($sql);
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+			return true;
+		else
+			return false;
 	}
+	
 	
 	public static function getAlert($user)
 	{
@@ -123,6 +127,18 @@ class Alert implements serializable{
 			 
 			
 		}
+		
+		$requete = $connexion->prepare("SELECT * FROM Alerte2 WHERE Login_membre = \"".$user."\"");
+		$requete->execute();//execution(pas de verification securité a faire => automatique)
+		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
+		{
+			$a =  new Alert('',$lignes->Titre,$lignes->Description,$lignes->Flag_lecture,$lignes->Type,$lignes->Login_membre); // ajout dans la liste
+			$listeAlert[] = serialize($a);
+		
+				
+		}
+		
+		
 		return $listeAlert;
 	}
 
@@ -132,7 +148,20 @@ class Alert implements serializable{
 		$connexion = connect();
 		$requete = $connexion->prepare("UPDATE Alerte SET Flag_lecture = 1 WHERE Type = \"".$type."\"; ");
 		if($requete->execute())
+		{
+			$requete = $connexion->prepare("UPDATE Alerte2 SET Flag_lecture = 1 WHERE Type = \"".$type."\"; ");
+			if($requete->execute())
 			return true;
+			else
+			{
+				
+				
+					$requete = $connexion->prepare("DELETE FROM Alerte2 WHERE Flag_lecture = 0 AND Type = \"".$type."\"; ");
+					$requete->execute();
+				
+						
+			}
+		}
 		else 
 		{
 			$requete = $connexion->prepare("DELETE FROM Alerte WHERE Flag_lecture = 0 AND Type = \"".$type."\"; ");

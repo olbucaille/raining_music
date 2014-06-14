@@ -19,9 +19,10 @@ $concerts = RequestSQL::getAllConcerts();
 	<label>Salle  : </label><br/>
 	';	
 	echo'<select name="salle">';
+	
 	for($i=0;$i<count($listeSalles);$i++)
 	{
-		echo '<option value="'.$listeSalles[$i]->nom.'" >'.$listeSalles[$i]->nom.'</option>';
+		echo '<option value="'.$listeSalles[$i]->Nom.'" >'.$listeSalles[$i]->Nom.'</option>';
 	}
 	echo 
 	'</select>

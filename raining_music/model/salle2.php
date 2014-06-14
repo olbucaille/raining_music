@@ -116,9 +116,10 @@ class Salle {
 		echo "SELECT Proprietaire_Salle FROM salle_memebre_possede WHERE Nom_Salle = \"".$salle."\" AND Creator = 1";
 		while($lignes=$requete->fetch(PDO::FETCH_OBJ))//recup de la premiere requete
 		{
-			$listeSalle[] = $lignes->Proprietaire_Salle; // ajout dans la liste
+			return  $lignes->Proprietaire_Salle; // ajout dans la liste
 				
 		}
+		
 		return $listeSalle;
 
 	}

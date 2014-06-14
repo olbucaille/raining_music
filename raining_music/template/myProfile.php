@@ -59,7 +59,7 @@ et PAF ça fait des chocapics \o/
 							{
 								echo "<li>";
 								echo $a->Description;
-								echo "<a href=\"./../index.php?action='lire_notification'&amp;type=".$a->Id."\"> Ok</a> &nbsp";
+								echo "<a href=\"./../index.php?action='lire_notification'&amp;type=".$a->Type."\"> Ok</a> &nbsp";
 								echo "</li>";
 							}
 
@@ -79,14 +79,7 @@ et PAF ça fait des chocapics \o/
 }?>
 				</ul>
 
-				mes derniers concerts :
-				<ul>
-					<li>tata</li>
-					<li>tata</li>
-					<li>tata</li>
-					<li>tata</li>
-				</ul>
-
+			
 				<br />
 			</fieldset>
 		</div>
