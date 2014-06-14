@@ -92,13 +92,12 @@ class Alert implements serializable{
 	public static function sendRequestJoinSalle($salle,$user,$idConcert)
 	{
 		//objet de base
-		$alert = new Alert('','demande',"".$user." demande à rejoindre ".$salle."",'',"ASKSALLE_".$user."_".$salle."_".$idConcert,'');
+		$alert = new Alert('','demande',"".$user." demande faire un concert dans  ".$salle."",'',"ASKSALLE_".$user."_".$salle."_".$idConcert,'');
 		//cherche liste des membres de la salle
 		$listedest = Salle::getUserFromSalle($salle);
 		var_dump($listedest);
 		$connexion = connect();
 		//construit requete
-		echo "toto";
 		
 		$sql = "INSERT INTO alerte2(Titre,Description,Flag_lecture,Type,Login_membre)
 		VALUES(\"".$alert->Titre."\",\"".$alert->Description."\",0,\"".$alert->Type."\",\"".$listedest."\")";
@@ -109,7 +108,26 @@ class Alert implements serializable{
 		else
 			return false;
 	}
-	
+	public static function sendRequestJoinGroup($salle,$user,$groupe,$idConcert)
+	{
+		//objet de base
+		$alert = new Alert('','demande',"".$salle." demande à faire un concert avec ".$groupe."",'',"ASKGROUPE_".$user."_".$groupe."_".$idConcert,'');
+		//cherche liste des membres de la salle
+		$listedest[] = Group::getUserFromGroup($groupe);
+		var_dump($listedest);
+		$connexion = connect();
+		//construit requete
+		
+		$sql = "INSERT INTO alerte2(Titre,Description,Flag_lecture,Type,Login_membre)
+		VALUES(\"".$alert->Titre."\",\"".$alert->Description."\",0,\"".$alert->Type."\",\"".$listedest[0][0]."\")";
+		echo "<br>".$sql;
+		$requete = $connexion->prepare($sql);
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+			return true;
+		else
+			return false;
+		
+	}
 	
 	public static function getAlert($user)
 	{

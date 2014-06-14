@@ -126,7 +126,7 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 
 		if ($autorise) {
 ?>
-			<form action="formconcert.php" method="post"  >
+			<form action="formconcert.php?Groupe=<?php echo $groupe->nom ; ?>" method="post"  >
             <input type="submit" name="ajouter concert" value="ajouter concert" />
             </form>
 <?php }?>	
