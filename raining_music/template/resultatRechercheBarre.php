@@ -4,7 +4,7 @@ include ("./../layout/basic_header.php");
 ?>
 
 <div>
-	<h1>Résultats de la recherche </H1>
+	<h1>RÃ©sultats de la recherche </H1>
 </div>
 
 
@@ -19,7 +19,7 @@ include ("./../layout/basic_header.php");
 		<h1><?php echo"<a href='../template/AffichageGroupeAdmin.php?id_groupe=".$infosGroupes['Id']."'>".$infosGroupes['Nom']."</a>";?></h1>
 
 		<div>
-			<span> <span> <span> <?php echo "Dont la popularité est:".$infosGroupes['Popularite']; ?> </span> 
+			<span> <span> <span> <?php echo "Dont la popularitÃ© est:".$infosGroupes['Popularite']; ?> </span> 
 			</span>
 			</span>
 		</div>
@@ -30,7 +30,7 @@ include ("./../layout/basic_header.php");
 <!-- fin de la boucle -->
 <?php
 else :
-										echo "<h2>Aucun résultat ne correspond à votre recherche pour les artistes enregistrés sur notre site</h2>";
+										echo "<h2>Aucun rÃ©sultat ne correspond Ã  votre recherche pour les artistes enregistrÃ©s sur notre site</h2>";
 										?>
            
         <?php endif;?>
@@ -41,7 +41,7 @@ else :
              <?php foreach ($resultatsSalles as $infosSalles): ?>
              
     <div>
-		<h1><?php echo "La salle '".$infosSalles['Nom']."' appartient à: ". $infosSalles['Proprietaire'];?></h1>
+		<h1><?php echo "La salle '".$infosSalles['Nom']."' appartient ï¿½: ". $infosSalles['Proprietaire'];?></h1>
 
 		<div>
 			<span> <span> <span> <?php echo "Elle se situe au: ". $infosSalles['Adresse']; ?> </span> 
@@ -61,7 +61,7 @@ else :
 
 									 <?php
 else :
-										echo "<h2>Aucun résultat ne correspond à votre recherche pour les salles de concert enregistrées sur notre site</h2>";
+										echo "<h2>Aucun rÃ©sultat ne correspond Ã  votre recherche pour les salles de concert enregistrÃ©es sur notre site</h2>";
 										?>
            
         <?php endif;?>

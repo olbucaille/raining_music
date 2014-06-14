@@ -133,5 +133,22 @@ function c_CreerGroupe()
 		
 		
 	}
+	
+	
+	
+	
+	//action à faire pour follow un groupe $_GET['idmembre'],$_GET['idgroupe'],$_GET['todo']
+	function c_followThisGroup($idMembre, $idGroupe, $todo)
+	{
+	
+				Group::followThisGroup($idGroupe, $idMembre, $todo);
+				header("location:./template/AffichageGroupeAdmin.php?id_groupe=".$idGroupe);
+					
+	
+	
+	}
+
+
+	
 
 ?>

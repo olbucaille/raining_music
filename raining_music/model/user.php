@@ -169,6 +169,7 @@ class User implements serializable{
 
 		}
 
+		
 
 	}
 
@@ -177,6 +178,18 @@ class User implements serializable{
 	
 		$connexion = connect();
 		$requete=$connexion->prepare("SELECT `Id`,`Login`,`Sexe`,`Localisation`,`Departement`,`DoB`,`DateInscription` FROM `membre`  GROUP BY `Login` ORDER BY `DateInscription`  DESC LIMIT ".$limite);
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
+	
+	public static function getUserId($login) {
+		//SELECT `Id`,`Nom`,`Popularite` FROM `groupe`  GROUP BY `Id` ORDER BY `Popularite`  DESC LIMIT 3
+	
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT `Id` FROM `membre` WHERE `Login`='".$login."'");
 		$requete->execute();
 		$temp=$requete->fetchAll();
 		$connexion=null;

@@ -363,14 +363,38 @@ class Group {
 	
 	
 	
-	public static function followThisGroup($idGroupe, $idMembre){
+	public static function followThisGroup($idGroupe, $idMembre, $todo){
 		$connexion = connect();
-		$requete = $connexion->prepare("INSERT membre_groupe_pref SET Id_membre = '".$idMembre."',Id_groupe='".$idGroupe."'");
+		if ($todo=="followThem") {
+			$requete = $connexion->prepare("INSERT membre_groupe_pref SET Id_membre = '".$idMembre."',Id_groupe='".$idGroupe."'");
+		}
+		else {
+			
+			$requete = $connexion->prepare("DELETE FROM `membre_groupe_pref` WHERE `Id_membre` = '".$idMembre."' AND `Id_groupe`='".$idGroupe."'");
+		}
+		
 
 		if($requete->execute())
 			return true;
 		return false;
 	} 
+	
+	
+	
+	
+	public static function getAllFollowers($idGroupe) {
+		//select du genre musical en fonction du nom de groupe
+		//ex:
+		//SELECT `Nom_genre_musical` FROM `groupe_genre_musical` as ggm JOIN `groupe` as g ON ggm.`Id_groupe`=g.`Id` WHERE g.`Nom`='coreanBand'
+	
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT `Id_membre` FROM `membre_groupe_pref` WHERE `Id_groupe`='".$idGroupe."'");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
 
 }
 ?>
