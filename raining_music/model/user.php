@@ -106,7 +106,7 @@ class User implements serializable{
 			$u->localisation = "inconnue";
 
 		//construction requete
-		$req = "INSERT INTO membre (Login,Password,Mail,Sexe,DoB,Localisation,Departement,DateInscription) VALUES(\"$u->login\",\"$u->password\",\"$u->mail\",$u->sexe,\"$u->DoB\",\"$u->localisation\",$u->departement,\"".date("Y-m-d")."\")";
+		$req = "INSERT INTO membre (Login,Password,Mail,Sexe,DoB,Localisation,Departement,DateInscription) VALUES(\"$u->login\",\"$u->password\",\"$u->mail\",$u->sexe,\"$u->DoB\",\"$u->localisation\",$u->departement,\"".date("Y-m-d H:i:s")."\")";
 		$requete= $connexion->prepare($req); //preparation requete
 		echo $req;
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)

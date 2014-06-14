@@ -77,28 +77,28 @@ En cas de questions à ce sujet, veuillez nous contacter<br/><br/>L'équipe.
             }?>
             
             <label for="pseudo" >Pseudo*:</label>
-   			<input type="text" name="pseudo" placeholder="chazinou" required/><br/><br/>
+   			<input type="text" name="pseudo" placeholder="chazinou" onkeydown="if(event.keyCode==32) return false;" pattern=".{3,20}" required title="de 3 à 20 caractères" maxlength="20" required/><br/><br/>
              
             <label for="emailAddress">Adresse e-mail*:</label> 
-   			<input type="email" name="emailAddress" placeholder="Exemple@mail.com" required/>  <br/><br/>
+   			<input type="email" name="emailAddress" placeholder="Exemple@mail.com" onkeydown="if(event.keyCode==32) return false;" required/>  <br/><br/>
              
             <label for="password">Mot de passe*:</label>
-		    <input type="password" name="password" required/><br/><br/>
+		    <input type="password" name="password" onkeydown="if(event.keyCode==32) return false;" pattern=".{8,16}" required title="de 8 à 16 caractères" maxlength="16" required/><br/><br/>
 		    
 		    <label for="password2">Verification Mdp*:</label>
-		    <input type="password" name="password2" required/><br/><br/>
+		    <input type="password" name="password2" onkeydown="if(event.keyCode==32) return false;" pattern=".{8,16}" required title="de 8 à 16 caractères" maxlength="16" required/><br/><br/>
 		    
 		    <label for="DoB">Date de naissance *</label>
-		    <input type="date" name="DoB"  placeholder="YYYY-MM-DD" required><br/><br/>
+		    <input type="date" name="DoB"  placeholder="YYYY-MM-DD" required/><br/><br/>
 		    
 		    <label for="departement">Departement*</label>
-		    <input type="number" name="departement" min="1" max="95" required"><br/><br/>
+		    <input type="number" name="departement" min="1" max="95" required/><br/><br/>
 		    
 		    <label for="localisation">Ville*</label>
-		    <input type="text" name="localisation" placeholder="Paris" required><br/><br/>			
+		    <input type="text" name="localisation" placeholder="Paris" required/><br/><br/>			
 			
-		    Homme* <input type= "radio" name="gender" value="0" required > <br />
-			Femme* <input type= "radio" name="gender" value="1">  <br/><br/>
+		    Homme* <input type= "radio" name="gender" value="0" required /> <br />
+			Femme* <input type= "radio" name="gender" value="1"/>  <br/><br/>
 			
 			<br /> <br />
 			
