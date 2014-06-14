@@ -49,7 +49,7 @@ function c_RegisterUser()
 	$_POST['gender'] = null;
 
 	//construction de l'objet user
-	$newuser= new User($_POST['pseudo'],$_POST['emailAddress'],$pass,$_POST['DoB'],$_POST['localisation'],$_POST['gender'],$_POST['departement'],'','','');
+	$newuser= new User($_POST['pseudo'],$_POST['emailAddress'],$pass,$_POST['DoB'],$_POST['localisation'],$_POST['departement'],$_POST['gender'],'','','');
 
 
 	//appel du model

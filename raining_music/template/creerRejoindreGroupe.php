@@ -73,17 +73,46 @@ if(isset($_SESSION['user']))
             $_SESSION['messageErreur']='';
             }?>
             
-            <label for="pseudo" >Pseudo*:</label>
+            <label for="pseudo" >Pseudo* :</label>
    			<input type="text" disabled="disabled" name="pseudo" value="<?php echo $user->login?>" required/><br/><br/>
             <label for="role">Votre Role *</label>
-		    <input type="text" name="role" required><br/><br/>
+		    <input type="text" name="role" pattern=".{3,20}" required title="de 3 à 20 caractères" maxlength="20" required><br/><br/>
 		    
             
-		    <label for="nomGroupe">Nom du Groupe*:</label>
-		    <input type="text" name="nomGroupe" required/><br/><br/>
+		    <label for="nomGroupe">Nom de votre groupe* :</label>
+		    <input type="text" name="nomGroupe" pattern=".{1,25}" required title="de 1 à 25 caractères" maxlength="25" required/><br/><br/>
 		    <input type="hidden"  name="pseudo" value="<?php echo $user->login?>" required/><br/> 
         
 			<br /> <br />
+			
+			<!-- Proposition du choix du genre => cherche en BDD tous les genres existants et les propose -->
+			
+			<label for="genreMusicalGroupe">Genre musical de votre groupe* :</label>
+			<select required>			
+			<!-- --------------------------------------------------------------------- -->
+		<!-- SCRIPT QUI PERMET DE VISUALISER UNIQUEMENT LES STYLES PRESENTS EN BDD -->
+		<!-- --------------------------------------------------------------------- -->
+		<?php 
+		$check = new checkDataBase ();
+		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
+		
+		$check = new checkDataBase (); // Instance d'un objet checkDataBase (Voir le fichier checkDataBase.php pour plus d'informations
+		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
+		print_r($resultatGenre);
+			$nb_resultatsGenre = count ( $resultatGenre );
+
+			print_r($resultatGenre);
+		?>
+		<?php 
+		if ($nb_resultatsGenre!=0) {
+			foreach ($resultatGenre as $Row):
+				echo "<option value='".$Row['Nom']."'>".$Row['Nom']."</option>";
+			endforeach;
+		}
+		?>
+		<!-- --------------------------------------------------------------------- -->
+		<!-- --------------------------------------------------------------------- -->
+			</select>
 			
             <input id="sendButton" type="submit" value="Valider"/>
              
