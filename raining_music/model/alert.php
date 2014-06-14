@@ -89,10 +89,10 @@ class Alert implements serializable{
 			echo false;
 	
 	}
-	public static function sendRequestJoinSalle($salle,$user)
+	public static function sendRequestJoinSalle($salle,$user,$idConcert)
 	{
 		//objet de base
-		$alert = new Alert('','demande',"".$user." demande à rejoindre ".$salle."",'',"ASKSALLE_".$user."_".$salle,'');
+		$alert = new Alert('','demande',"".$user." demande à rejoindre ".$salle."",'',"ASKSALLE_".$user."_".$salle."_".$idConcert,'');
 		//cherche liste des membres de la salle
 		$listedest = Salle::getUserFromSalle($salle);
 		var_dump($listedest);

@@ -53,6 +53,7 @@ function c_CreerSalle()
 			$type =  explode("_",$_GET['type'], 3);
 			$demandeur = $type[1];
 			$salle = $type[2];
+			$res = explode("_",$type[2]);
 
 			if($type[0]=="ASKSALLE")
 			{
@@ -68,7 +69,7 @@ function c_CreerSalle()
 						$lignes=$requete->fetch(PDO::FETCH_OBJ);
 						$Id_concert = $lignes->Id_concert;
 						// requette pour mettre l'attribut salle_acceptee à 1
-						$sql2 = "update concert set salle_acceptee = 1 where Id = '".$Id_concert."'"; // ajouter le nom de la salle dans la requette
+						$sql2 = "update concert set salle_acceptee = 1 where Id = '".$res[1]."'"; // ajouter le nom de la salle dans la requette
 						echo "<br>".$sql2;
 						
 						$requete= $connexion->prepare($sql2);

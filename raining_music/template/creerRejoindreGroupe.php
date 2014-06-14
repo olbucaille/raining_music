@@ -4,6 +4,7 @@
 include("./../layout/basic_header.php");
 include("./../db_connect.inc.php");
 include("./../model/group.php");
+include("./../model/checkDataBase.php");
 $liste = Group::getgroupAndId();
 
 
@@ -81,27 +82,25 @@ if(isset($_SESSION['user']))
             
 		    <label for="nomGroupe">Nom de votre groupe* :</label>
 		    <input type="text" name="nomGroupe" pattern=".{1,25}" required title="de 1 à 25 caractères" maxlength="25" required/><br/><br/>
-		    <input type="hidden"  name="pseudo" value="<?php echo $user->login?>" required/><br/> 
+		    <input type="hidden"  name="pseudo" value="<?php echo $user->login?>" required/>
         
-			<br /> <br />
+			
 			
 			<!-- Proposition du choix du genre => cherche en BDD tous les genres existants et les propose -->
 			
-			<label for="genreMusicalGroupe">Genre musical de votre groupe* :</label>
-			<select required>			
+			<label for="genreMusicalGroupe">Genre musical de votre groupe* :</label><br/>
+			<select name="genreGroupe" required >			
 			<!-- --------------------------------------------------------------------- -->
 		<!-- SCRIPT QUI PERMET DE VISUALISER UNIQUEMENT LES STYLES PRESENTS EN BDD -->
 		<!-- --------------------------------------------------------------------- -->
 		<?php 
-		$check = new checkDataBase ();
-		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
 		
 		$check = new checkDataBase (); // Instance d'un objet checkDataBase (Voir le fichier checkDataBase.php pour plus d'informations
 		$resultatGenre = $check->checkRecherche ( 'genre_musical', "" );
-		print_r($resultatGenre);
+		
 			$nb_resultatsGenre = count ( $resultatGenre );
 
-			print_r($resultatGenre);
+			
 		?>
 		<?php 
 		if ($nb_resultatsGenre!=0) {
