@@ -16,7 +16,7 @@ include ("./../layout/basic_header.php");
              <?php foreach ($resultatsGroupes as $infosGroupes): ?>
              
     <div>
-		<h1><?php echo"<a href='AffichageGroupeAdmin.php?id_groupe=".$infosGroupes['Id']."'>".$infosGroupes['Nom']."ooooo</a>";?></h1>
+		<h1><?php echo"<a href='../template/AffichageGroupeAdmin.php?id_groupe=".$infosGroupes['Id']."'>".$infosGroupes['Nom']."</a>";?></h1>
 
 		<div>
 			<span> <span> <span> <?php echo "Dont la popularité est:".$infosGroupes['Popularite']; ?> </span> 
@@ -46,7 +46,7 @@ else :
 		<div>
 			<span> <span> <span> <?php echo "Elle se situe au: ". $infosSalles['Adresse']; ?> </span> 
 			<span> <?php echo "\nDispose de ". $infosSalles['NbPlaces']." places maximum";  ?></span>
-			<span> <?php echo "\nL'ouverture de la salle s'effectue le: ". $infosSalles['Horaire'];  ?></span>
+			<span> <?php echo "\nL'ouverture de la salle s'effectue le: ". $infosSalles['Horaires'];  ?></span>
 			</span>
 			</span>
 			
