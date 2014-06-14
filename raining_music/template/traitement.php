@@ -19,8 +19,8 @@
 	if(isset($_SESSION['user']))
 	{	
  		$user = unserialize($_SESSION['user']);
- 		$sql = "INSERT INTO concert(Id, Nom, Date, Heure, Cout, Adresse, description,salle_acceptee,salle)
-		VALUES ('$id','$nom','$date','$heure',null,null,'$description',0,'$salle')";
+ 		$sql = "INSERT INTO concert(Id, Nom, Date, Heure, Cout, Adresse, description,salle_acceptee,salle,Concert_accepte)
+		VALUES ('$id','$nom','$date','$heure',null,null,'$description',0,'$salle',1)";
  	 	// si l'insertion dans la table concert est bien passé
  	 	echo $sql."</br>";
  	 	if(mysql_query ($sql))
