@@ -61,8 +61,8 @@ class Salle {
 		$connexion = connect();
 	
 		//construction requete
-		$requete= $connexion->prepare("SELECT * FROM salle_memebre_possede WHERE Proprietaire_Salle =\"$Proprietaire\" AND Nom_Salle =\"$salle\" AND Valide = 1"); //preparation requete
-		echo "SELECT * FROM salle_memebre_possede WHERE Proprietaire_Salle =\"$user\" AND Nom_Salle =\"$salle\" AND Valide = 1" ;//preparation requete
+		$requete= $connexion->prepare("SELECT * FROM salle_memebre_possede WHERE Proprietaire_Salle =\"$user\" AND Nom_Salle =\"$salle\" AND Valide = 1"); //preparation requete
+		//echo "SELECT * FROM salle_memebre_possede WHERE Proprietaire_Salle =\"$user\" AND Nom_Salle =\"$salle\" AND Valide = 1" ;//preparation requete
 			
 		if($requete->execute())//execution(pas de verification securité a faire => automatique)
 		{
@@ -119,7 +119,6 @@ class Salle {
 			return  $lignes->Proprietaire_Salle; // ajout dans la liste
 				
 		}
-		
 		return $listeSalle;
 
 	}

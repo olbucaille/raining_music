@@ -85,6 +85,48 @@ function c_CreerSalle() {
 
 
 			}
+
+			if($type[0]=="ASKGROUPE")
+			{
+				Alert::PutFlag1($_GET['type']);
+				// mettre l'attribut salle_acceptee à 1
+				// dans la table concert
+				//on recupere l'id du concet en utilisant la table concert_membre_organisateur
+				$sql = "select Id_concert from concert_membre_organise where Organisateur = '".$demandeur."'";
+				$connexion = connect();
+				$requete= $connexion->prepare($sql);
+				if($requete->execute())
+				{
+					$lignes=$requete->fetch(PDO::FETCH_OBJ);
+					$Id_concert = $lignes->Id_concert;
+					// requette pour mettre l'attribut salle_acceptee à 1
+					$sql2 = "update concert set Concert_accepte = 1 where Id = '".$res[1]."'"; // ajouter le nom de la salle dans la requette
+					echo "<br>".$sql2;
+			
+					$requete= $connexion->prepare($sql2);
+					if($requete->execute())
+					{
+						// envoyer une alerte au demandeur pour l'informer que
+						// la salle est bien acceptée
+						// je n'ai pas utilisé la classe Alert mais directement
+						// du SQL ( le code peut etre deplacer dans la classe Alert)
+						$sql3 = "INSERT INTO `alerte`(`Id`, `Titre`, `Description`, `Flag_lecture`, `Type`, `Login_membre`)
+						VALUES('','Demande acceptee','votre demande de salle est acceptee',0,'demandeAccepte_salle','$demandeur')";
+						$requete= $connexion->prepare($sql3);
+						if($requete->execute())
+						{
+							header("location:./template/myProfile.php");
+						}
+			
+					}
+			
+				}
+			
+			
+			
+			
+			}
+				
 		}
  		header("location:./template/myProfile.php");
 	}
@@ -138,6 +180,44 @@ function c_CreerSalle() {
 					}
 
 			}
+			if($type[0]=="ASKGROUPE")
+			{
+				Alert::PutFlag1($_GET['type']);
+				// mettre l'attribut salle_acceptee à 1
+				// dans la table concert
+				//on recupere l'id du concet en utilisant la table concert_membre_organisateur
+				$sql = "select Id_concert from concert_membre_organise where Organisateur = '".$demandeur."'";
+				echo $sql;
+				$connexion = connect();
+				$requete= $connexion->prepare($sql);
+				if($requete->execute())
+				{
+					$lignes=$requete->fetch(PDO::FETCH_OBJ);
+					$Id_concert = $lignes->Id_concert;
+					// requette pour mettre l'attribut salle_acceptee à 1
+					$sql2 = "update concert set Concert_accepte = 0 where Id = '".$Id_concert."'";
+					echo "<br>".$sql2;
+					$requete= $connexion->prepare($sql2);
+					if($requete->execute())
+					{
+						// envoyer une alerte au demandeur pour l'informer que
+						// la salle est bien acceptée
+						// je n'ai pas utilisé la classe Alert mais directement
+						// du SQL ( le code peut etre deplacer dans la classe Alert)
+						$sql3 = "INSERT INTO `alerte`(`Id`, `Titre`, `Description`, `Flag_lecture`, `Type`, `Login_membre`)
+						VALUES('','Demande acceptee','votre demande de salle est refusee',0,'demandeAccepte_salle','$demandeur')";
+						$requete= $connexion->prepare($sql3);
+						if($requete->execute())
+						{
+							header("location:./template/myProfile.php");
+						}
+			
+					}
+			
+				}
+			
+			}
+				
 		}
  		header("location:./template/myProfile.php");
 	}

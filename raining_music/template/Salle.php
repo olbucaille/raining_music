@@ -1,6 +1,17 @@
 <?php 
 include("./../layout/basic_header.php");
 include("./../db_connect.inc.php");
+include './../model/salle2.php';
+
+$autorise= false;
+if(isset($_SESSION['user']))
+{
+	$user = unserialize ( $_SESSION ['user'] );
+	
+	$autorise = $autorise = Salle::verifyProprietaireValidate( $user->login, $_GET['Nom'] );
+	
+}
+
 ?>
 
    
@@ -52,7 +63,18 @@ include("./../db_connect.inc.php");
 		<blockquote><li><font size =5><font color = "black"><?php echo $salle['Nom'];?> le <?php echo $salle['Date'];?></font></blockquote></font>
 
         <blockquote><li><font size = 5><font color= "black"><?php echo $salle['Nom2'];?> le <?php echo $salle['Date2'];?></font></font></blockquote></font>
-        <?php } ?>
+
+        
+        <?php }
+
+        if($autorise)
+        {
+        	echo "
+        	<form action=\"formconcert.php?Nom=".$_GET['Nom']."\" method=\"post\"  >
+        	<input type=\"submit\" name=\"ajouter concert\" value=\"ajouter concert\" />
+        	</form>";
+        	
+        }?>
 
         </div><br/><br/><br/>
 <div id="Recherche concert" style="border:11px solid #236586; margin-top:15px; border-radius: 7px 7px 7px 7px; position:relative; bottom:25px; padding:10px; width:30%;">

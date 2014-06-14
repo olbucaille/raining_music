@@ -45,7 +45,7 @@ et PAF ça fait des chocapics \o/
 						{
 							// ici je traite seuelement les alert de demande de salle
 							$type =  explode("_",$a->Type);
-							if($type[0]=="ASKSALLE")
+							if($type[0]=="ASKSALLE"||$type[0]=="ASKGROUPE")
 							{
 								echo "<li>";
 								echo $a->Description;
