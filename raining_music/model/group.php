@@ -383,9 +383,6 @@ class Group {
 	
 	
 	public static function getAllFollowers($idGroupe) {
-		//select du genre musical en fonction du nom de groupe
-		//ex:
-		//SELECT `Nom_genre_musical` FROM `groupe_genre_musical` as ggm JOIN `groupe` as g ON ggm.`Id_groupe`=g.`Id` WHERE g.`Nom`='coreanBand'
 	
 		$connexion = connect();
 		$requete=$connexion->prepare("SELECT `Id_membre` FROM `membre_groupe_pref` WHERE `Id_groupe`='".$idGroupe."'");
@@ -396,5 +393,15 @@ class Group {
 		return ($temp);
 	}
 
+	
+	public static function getConcert() {
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT * FROM `concert`");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
 }
 ?>

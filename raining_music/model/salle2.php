@@ -144,5 +144,17 @@ class Salle {
 		// a faire
 	}
 	
+	
+	public static function getLastRegisteredSalles($limite) {
+		//SELECT `Id`,`Nom`,`Popularite` FROM `groupe`  GROUP BY `Id` ORDER BY `Popularite`  DESC LIMIT 3
+	
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT * FROM `salle`  GROUP BY `Adresse`,`Nom` ORDER BY `DateCreation`  DESC LIMIT ".$limite);
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
 }
 ?>

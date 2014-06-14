@@ -251,7 +251,7 @@ $resultatSalle = $check->checkRecherche ( "salle", "Nom LIKE '" . $alphabet [$i]
 if ($nb_resultatsSalle!= 0) :
 				?>
 	
-	<h4 class="resultNames"><?php echo $infos['Nom'];?></h4>
+	<h4 class="resultNames"><?php echo"<a href='../template/Salle.php?Nom=".$infos['Nom']."'> ". $infos['Nom'];?></a></h4>
 
 		<div>
 		<p> <?php echo "L'adresse de la salle est: ".$infos['Adresse']."."; ?>
