@@ -39,7 +39,7 @@
 					// si l'insertion dans la table concert_membre_organisateur s'est bien passée
 					// envoyer une alerte au proprietaire 
 					
-			 		if(Alert::sendRequestJoinSalle($salle,$user->login))
+			 		if(Alert::sendRequestJoinSalle($salle,$user->login,$id))
 						header('Location: formconcert.php');      	 		  	
 			 		else
 			 			echo " erreur lors de l'envoi de l'alerte";
