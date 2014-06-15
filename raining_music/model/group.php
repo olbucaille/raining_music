@@ -400,7 +400,7 @@ class Group {
 	
 	public static function getConcert() {
 		$connexion = connect();
-		$requete=$connexion->prepare("SELECT * FROM `concert`");
+		$requete=$connexion->prepare("SELECT * FROM `concert` ORDER BY `Date` ASC");
 		$requete->execute();
 		$temp=$requete->fetchAll();
 		$connexion=null;
@@ -411,7 +411,18 @@ class Group {
 	public static function getConcertAroundMe($userDep) {
 		$connexion = connect();
 		//SELECT * FROM `concert` AS c JOIN `salle` AS s ON c.salle=s.Nom WHERE `Departement`='1'
-		$requete=$connexion->prepare("SELECT * FROM `concert` AS c JOIN `salle` AS s ON c.salle=s.Nom WHERE `Departement`='".$userDep."'");
+		$requete=$connexion->prepare("SELECT * FROM `concert` AS c JOIN `salle` AS s ON c.salle=s.Nom WHERE `Departement`='".$userDep."' ORDER BY `Date` ASC");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
+	
+	public static function getDepConcert($concertId) {
+		$connexion = connect();
+		//SELECT * FROM `concert` AS c JOIN `salle` AS s ON c.salle=s.Nom WHERE `Departement`='1'
+		$requete=$connexion->prepare("SELECT * FROM `concert` AS c JOIN `salle` AS s ON c.salle=s.Nom WHERE c.Id='".$concertId."'");
 		$requete->execute();
 		$temp=$requete->fetchAll();
 		$connexion=null;

@@ -202,4 +202,21 @@ function c_RegisterUser()
 			
 	}
 	
+	function c_unreset_user($user)
+	{
+		if(User::unresetUser($user))
+		{
+			$_SESSION['message'] = "Vous avez réactivé le user avec succès, les informations serons actualisé la prochaine fois que vous vous connecterez le mot de passe est maintenant identique à son login";
+			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
+				
+		}
+		else
+		{
+			$_SESSION['message'] = "Une erreure s'est produite, recommencez plus tard ";
+			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
+				
+		}
+			
+	}
+	
 	?>

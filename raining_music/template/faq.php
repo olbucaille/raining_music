@@ -13,20 +13,50 @@ Tous les artistes souhaitant partager leur musique le peuvent grâce à la mise en
 
 Attention: les autres utilisateurs du site pourront toujours signaler si le contenu du média uploadé est déplacé.
 
+	
+  puis-je proposer un concert ? 
+Oui, via la page de groupe, un bouton apparait :" ajouter un concert" si vous en être le créateur  
+	
+
 Je suis Propriétaire d'une salle de concert
   Pourquoi m'inscrire sur Raining Music? 
 Si vous êtes passionnés de musique, l'inscription sur le site Raining Music va vous permettre de prendre part au développement des artistes de demain. En tant que propriétaire d'une salle et membre de Raining Music, vous allez pouvoir :
 Découvrir de nouveau talents ;
+
+  puis-je proposer un concert ? 
+Oui, via la page de salle, un bouton apparait :" ajouter un concert" si vous en être le créateur  
+
 Exprimer vos préférences ;
 Aider vos artistes préférés en leur proposant de monter sur scène dans vos locaux ;
 Participer à l'avancement de leur projet en les mettant en avant.
 
 
 Je suis Membre lambda
-  Comment puis-je voter pour un artiste ? 
+	Comment m'inscrire ou me connecter?
+via le menu en haut à droite
+
+	Puis-je creer ou rejoindre un groupe ?
+Oui, via le menu, puis mon profil, en bas il y a un bouton creer groupe, à partir de la on peut soit creer un groupe soit en rejoindre un existant ( demande à besoin d'être accepté par l'admin du groupe)
+
+	Puis-je creer une salle de concert ? 
+Oui, via le menu, puis mon profil, en bas il y a un bouton creer concert.
+
+	Comment modifier mes informations
+Vous pouvez le faire via votre page mon profil, il y a un bouton modifier en bas à gauche
+	
+	Comment puis-je voter pour un artiste ? 
 Vous pouvez, en vous rendant sur la page d'un artiste, voter pour celui-ci grâce à notre système de notation. Cela nous permettra de mettre en avant les artistes les mieux noté et les faire connaître au plus grand nombre.
-  Puis-je voter plusieurs fois pour un membre artiste ?
+  	Puis-je voter plusieurs fois pour un membre artiste ?
 Non, le système reconnait chaque utilisateur et sait si tel ou tel membre a déjà voté pour un artiste donné.
+
+	Comment acceder au forum ?
+Une fois connecté, cliquer sur Forum(dans le menu)
+à partir de la soit vous ête admin et vous pouvez creer/supprimer/editer des categories soit vous ne faite qu'y acceder
+vous pouvez au sein de ces catégories créer et répondre à des topics.
 
 Puis-je demander à être désinscrit ? 
 Oui, pour vous désinscrire, il vous faudra passer par le formulaire de contact disponible dans l'onglet "Nous contacter". Cela nous permet de nous entretenir avec vous sur la raison de votre désinscription avant que celle-ci ne soit effective. Ceci, dans le but de pouvoir améliorer les services que nous proposons à nos membres.
+
+Note : si l'administrateur le juge nécessaire, il peut desactiver votre compte !
+
+
