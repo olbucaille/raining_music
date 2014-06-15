@@ -39,7 +39,22 @@ include('config.php');
 <li><a target=blank class="facebookbutton" href="http://www.facebook.com/rainingmusic.isepgroup">Facebook</a></li>
 </ul>
 </div>
-<!-- DEBUT - Boutons Facebbok et Twitter -->
+<!-- DEBUT - SearchBarre + SignalerAbus -->
+
+<div style="position:fixed;top:300px;z-index:0;margin-left:87%;" class="PetitBlocPourLeSignalementEtLaRecherche">
+<ul style="background-color: transparent;border:1px; border-color:#fff; width: 150px; border-radius:5px; padding: 1px; margin: 1px;">
+<li >
+
+<form  method="post" action="../Controller/traitementSearch.php">
+<img alt="caution" src="../pictures/Caution30px.png"/><a  href="../template/signalerAbus.php" style="color: red ;font-size:12px">Signaler un abus</a><br/><br/>
+	<input type="radio"
+		name="kindOfObject" value="menuSearchBarre" CHECKED hidden>
+		<p style="margin: 0px; color: #fff">Recherche:</p> 
+<input name="motcleSearch" type="search" placeholder="Search" style="margin-top:0px;width:100%;height:24px;" required /><br/><br/>
+<input name="go" type="submit" value="Envoyer"/>
+</form></li>
+</ul>
+</div>
 
 <div class="conteneurBanniereMenu">
 

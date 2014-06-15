@@ -26,6 +26,8 @@ if(isset($_SESSION['user']))
 
 <li><a class="menu" href="./../template/RechercheAvancee.php" title="Recherche avancee">Recherche avancée</a></li>
 <li><a  class="menu" href="./../template/ContactPage.php" title="Nous contacter">Nous contacter</a></li>
+<li><a class="menu" href="./../template/faq.php" title="F.A.Q">F.A.Q</a></li>
+
 <?php 
 if(isset($_SESSION['user']))
 {?>

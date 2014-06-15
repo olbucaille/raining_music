@@ -250,7 +250,7 @@ class="containerSearchResults";>
       concernent uniquement les groupes et les salles.<br/>
       La Recherche Avancée vous permettra donc de faire d'autres recherches concernant les concerts organisés via notre site et les utilisateurs existants.
       <br/><br/>
-      Pour toute question, n'hésitez pas à nous contacter via l'onglet <b>Nous contacter</b> située à droite du site.
+      Pour toute question, n'hésitez pas à nous contacter via l'onglet <b>Nous contacter</b> située à droite de l'écran.
       <br/><b>L'équipe Raining Music</b>
       
       
