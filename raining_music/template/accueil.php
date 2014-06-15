@@ -35,17 +35,17 @@ $liste = Song::getSongName ( 'abc' );
 							<b style="font-family:; font-size: 22px;">Bonjour et bienvenue
 								sur <b style="color: #174156">Raining Music</b>, site
 								communautaire dédié à la musique.
-							</b> <br />
-							<br />Depuis plusieurs semaines maintenant,<b> Raining Music </b>facilite
-							la mise en relation des artistes, groupes de musique,
-							organisateurs de concerts et amateurs de musique. <br />
-							<br /> Avec votre profil, vous pouvez contacter les autres
-							abonnés, créer un espace personnel pour votre propre groupe ou
-							salle de concert, voter pour vos artistes préférés, échanger via
-							notre forum, effectuer des recherches avancées, écouter des
-							extraits de musique postés par les artistes et groupes. <br />
-							<br />Pour créer votre profil, cliquez dès maintenant sur le menu
-							déroulant <b>connexion</b> en haut à droite puis sur <b
+							</b> <br /> <br />Depuis plusieurs semaines maintenant,<b>
+								Raining Music </b>facilite la mise en relation des artistes,
+							groupes de musique, organisateurs de concerts et amateurs de
+							musique. <br /> <br /> Avec votre profil, vous pouvez contacter
+							les autres abonnés, créer un espace personnel pour votre propre
+							groupe ou salle de concert, voter pour vos artistes préférés,
+							échanger via notre forum, effectuer des recherches avancées,
+							écouter des extraits de musique postés par les artistes et
+							groupes. <br /> <br />Pour créer votre profil, cliquez dès
+							maintenant sur le menu déroulant <b>connexion</b> en haut à
+							droite puis sur <b
 								style="background-color: #174156; width: 150px; height: 150px; color: white; padding: 4px; border-radius: 5px;">&nbsp;S'inscrire&nbsp;</b>
 						</p></td>
 					<td>
@@ -122,7 +122,7 @@ $liste = Song::getSongName ( 'abc' );
 
 			</span> <br />
 
-
+			<!-- LES ARTISTES LES MIEUX NOTES -->
 			<div
 				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width: 40%; float: left;">
 
@@ -131,12 +131,12 @@ $liste = Song::getSongName ( 'abc' );
 					artistes les mieux notés ! </span> <br /> <br />
 			
 			<?php $les3PlusPopulaires=Group::getBestGroupByPop(3)?>
-			<?php 
-// echo "TEST AVANT foreach";
-			      // print_r($les3PlusPopulaires)			?>
+			<?php
+			// echo "TEST AVANT foreach";
+			// print_r($les3PlusPopulaires)			?>
 			<?php
 			
-foreach ( $les3PlusPopulaires as $Row ) {
+			foreach ( $les3PlusPopulaires as $Row ) {
 				
 				$idGroupe = $Row ['Id'];
 				$nomGroupe = $Row ['Nom'];
@@ -150,16 +150,19 @@ foreach ( $les3PlusPopulaires as $Row ) {
 				
 				foreach ( $genreMusicalGroupe as $Row2 ) {
 					$genreMusicalGrp = $Row2 ['Nom_genre_musical'];
-					
-					echo "<h4 class=resultNames><a href='../template/AffichageGroupeAdmin.php?id_groupe=" . $Row ['Id'] . "'>" . $nomGroupe . "</a></h4>";
-					
-					echo "Dans la catégorie <b>" . $genreMusicalGrp . "</b> dont la popularité est de : <b>" . $populariteGroupe . "</b></p><hr />";
+					if ($populariteGroupe != "") {
+						echo "<h4 class=resultNames><a href='../template/AffichageGroupeAdmin.php?id_groupe=" . $Row ['Id'] . "'>" . $nomGroupe . "</a></h4>";
+						
+						echo "Dans la catégorie <b>" . $genreMusicalGrp . "</b> dont la popularité est de : <b>" . $populariteGroupe . "</b></p><hr />";
+					}
 				}
 				// }
 			}
 			?>
 			
 			</div>
+
+			<!-- LES DERNIERS USERS INSCRITS -->
 			<div
 				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width: 40%; float: right;">
 
@@ -168,12 +171,12 @@ foreach ( $les3PlusPopulaires as $Row ) {
 					nouveaux inscrits ! </span> <br /> <br />
 			
 			<?php $les3PlusRecents=User::getLastRegisteredUsers(3)?>
-			<?php 
-// echo "TEST AVANT foreach";
-			      // print_r($les3PlusRecents)			?>
+			<?php
+			// echo "TEST AVANT foreach";
+			// print_r($les3PlusRecents)			?>
 			<?php
 			
-foreach ( $les3PlusRecents as $Row ) {
+			foreach ( $les3PlusRecents as $Row ) {
 				
 				$idMembre = $Row ['Id'];
 				$loginMembre = $Row ['Login'];
@@ -197,21 +200,21 @@ foreach ( $les3PlusRecents as $Row ) {
 			</div>
 
 
-<!-- AFFICHAGE DES CONCERTS A VENIR -->
+			<!-- AFFICHAGE DES CONCERTS A VENIR -->
 			<div
-				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px;  margin-bottom: 30px; width: 40%; float: left;">
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width: 40%; float: left;">
 
 				<span
 					style="background-color: #174156; font-weight: bold; color: #fff; border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">&nbsp;Les
 					concerts à venir ! </span> <br /> <br />
 			
 			<?php $allDataFromConcert=Group::getConcert()?>
-			<?php 
-// echo "TEST AVANT foreach";
-			      // print_r($les3PlusRecents)			?>
+			<?php
+			// echo "TEST AVANT foreach";
+			// print_r($les3PlusRecents)			?>
 			<?php
 			
-foreach ( $allDataFromConcert as $Row ) {
+			foreach ( $allDataFromConcert as $Row ) {
 				
 				$idConcert = $Row ['Id'];
 				$nomConcert = $Row ['Nom'];
@@ -221,6 +224,8 @@ foreach ( $allDataFromConcert as $Row ) {
 				$descriptionConcert = $Row ['Description'];
 				$salleConcert = $Row ['salle'];
 				$groupeConcert = $Row ['Groupe'];
+				$concertAccepte = $Row ['Concert_accepte'];
+				$salleAccepte = $Row ['salle_acceptee'];
 				
 				// $link = "../index.php?action='visualiser_User'&Nom=".$loginMembre;
 				
@@ -233,51 +238,53 @@ foreach ( $allDataFromConcert as $Row ) {
 				$now = $now->format ( 'Ymd' );
 				$next = new DateTime ( $next );
 				$next = $next->format ( 'Ymd' );
-				
-				if ($now < $next) {
-					//echo "next est dans le futur";
-					
-					echo "<h4 class=resultNames><a>" . $nomConcert . "</a></h4>";
-					
-					echo "Le groupe " . $nomGroupe . " se produira sur la scène de " . $salleConcert . " le " . $dateConcert . "</p><hr />";
+				if ($concertAccepte = $Row ['Concert_accepte'] == 1 && $salleAccepte = $Row ['salle_acceptee'] == 1) {
+					if ($now < $next) {
+						// echo "next est dans le futur";
+						
+						echo "<h4 class=resultNames><a>" . $nomConcert . "</a></h4>";
+						
+						echo "Le groupe " . $nomGroupe . " se produira sur la scène de " . $salleConcert . " le " . $dateConcert . "</p><hr />";
+					}
 				}
 			}
 			?>
 			
 			</div>
-			
-			
-			
-			
-			
-<!-- AFFICHAGE DES Nouvelles salles -->
+
+
+
+
+
+			<!-- AFFICHAGE DES Nouvelles salles -->
 			<div
-				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px;  margin-bottom: 30px; width: 40%; float: right;">
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width: 40%; float: right;">
 
 				<span
-					style="background-color: #174156; font-weight: bold; color: #fff; border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">&nbsp;Les nouvelles salles en ligne ! </span> <br /> <br />
+					style="background-color: #174156; font-weight: bold; color: #fff; border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">&nbsp;Les
+					nouvelles salles en ligne ! </span> <br /> <br />
 			
 			<?php $les3PlusRecentes=Salle::getLastRegisteredSalles(3)?>
-			<?php 
-// echo "TEST AVANT foreach";
-			      // print_r($les3PlusRecents)			?>
+			<?php
+			// echo "TEST AVANT foreach";
+			// print_r($les3PlusRecents)			?>
 			<?php
 			
-foreach ( $les3PlusRecentes as $Row ) {
+			foreach ( $les3PlusRecentes as $Row ) {
 				
 				$adresseSalle = $Row ['Adresse'];
 				$nbPlaces = $Row ['NbPlaces'];
 				$proprietaireSalle = $Row ['Proprietaire'];
 				$horairesSalle = $Row ['Horaires'];
 				$nomSalle = $Row ['Nom'];
-				$departementSalle=$Row['Departement'];
+				$departementSalle = $Row ['Departement'];
 				$dateCreationSalle = $Row ['DateCreation'];
 				
-				//$link = "../index.php?action='visualiser_User'&Nom=" . $loginMembre;
+				// $link = "../index.php?action='visualiser_User'&Nom=" . $loginMembre;
 				
-				echo "<h4 class=resultNames><a href='#'>" . $nomSalle. "</a></h4>";
+				echo "<h4 class=resultNames><a href='#'>" . $nomSalle . "</a></h4>";
 				
-				echo " Nouvelle salle dans le département " . $departementSalle. " qui appartient à " . $proprietaireSalle. " et dispose d'environ ".$nbPlaces." places.</p><hr />";
+				echo " Nouvelle salle dans le département " . $departementSalle . " qui appartient à " . $proprietaireSalle . " et dispose d'environ " . $nbPlaces . " places.</p><hr />";
 			}
 			// }
 			?>
@@ -292,6 +299,6 @@ foreach ( $les3PlusRecentes as $Row ) {
 
 	</div>
 
-	<?php 
-	include("./../layout/basic_footer.php");
+	<?php
+	include ("./../layout/basic_footer.php");
 	?>
