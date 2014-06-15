@@ -211,6 +211,7 @@ endforeach
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="concert")): ?>
     
              <?php foreach ($resultats as $infos): ?>
+             
 <div>
 			<h2><?php echo $infos['Date'];?></h2>
 			<div>
