@@ -453,5 +453,23 @@ public static function getCreatorGroupe($groupe) {
 
 	return ($temp);
 }
+public static function getmonGroupe($user) {
+	$connexion = connect();
+	$requete=$connexion->prepare("SELECT Nom_groupe FROM membre_groupe WHERE Login_membre='".$user."'");
+	$requete->execute();
+	$temp=$requete->fetchAll();
+	$connexion=null;
+	
+	return ($temp);
+}
+public static function getidGroupe($nomgroupe) {
+	$connexion = connect();
+	$requete=$connexion->prepare("SELECT Id FROM groupe WHERE Nom='".$nomgroupe."'");
+	$requete->execute();
+	$temp=$requete->fetchAll();
+	$connexion=null;
+
+	return ($temp);
+}
 }
 ?>

@@ -9,7 +9,7 @@
 if(isset($_SESSION['user']))
 {?>
 <li><a class="menu" href="./../template/myProfile.php" title="Profil">Mon profil</a>
-<ul><li><a class="menu" href="../TEST/buildingInProgress.php"  title="myGroup">Mon groupe</a></li>
+<ul><li><a class="menu" href="./../template/MonGroupe.php"  title="myGroup">Mon groupe</a></li>
 <li><a class="menu" href="../TEST/buildingInProgress.php"  title="myConcertHall">Ma salle de concert</a></li>
 </ul></li>
 <?php }?>
