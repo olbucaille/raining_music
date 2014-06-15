@@ -93,8 +93,8 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 				
 			echo $groupe->description;
 			// modifier la description si on est autorisé
-		
-		if ($autorise) {
+	?>	
+<?php 	if ($autorise) {
 			// mettre un bouton pour modifier la description
 		?>
 			<button type="button" onclick="afficherFormulaire();">Modifier la description</button>
@@ -177,13 +177,19 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
     <img src="../pictures/musique.jpg" alt="" width="158" height="200"/>
     </div> 
     <div class="List"> 
-    <?php $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";
-    	$link_sup = "document.location.href=\"DeleteMusic.php?groupename=".$liste[0]->nom."\" ";
+    <?php 
+   $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";
+    $link_sup = "document.location.href=\"DeleteMusic.php?groupename=".$liste[0]->nom."\" ";
 if ($autorise) {
-echo'	<input TYPE="button" VALUE="Ajouter une chanson" OnClick="'.$link.'">
-	<input TYPE="button" VALUE="Supprimer une chanson" OnClick="'.$link_sup.'">';
-		}
-?>   
+
+?>
+
+ 	<input TYPE="button" VALUE="Ajouter une chanson" OnClick='<?php echo $link;?>'";'>
+	<input TYPE="button" VALUE="Supprimer une chanson" OnClick='<?php echo $link_sup;?>'";'>
+	
+<?php 
+}
+?>	 
 	</br>
 	</br>
 
