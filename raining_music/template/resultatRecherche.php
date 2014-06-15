@@ -35,7 +35,7 @@ include ("./../layout/basic_header.php");
 		 elseif ($_POST ['kindOfObject'] == "salle") :
 			echo "le département: " . $_POST ['dep'];
 		 else :
-			echo "aucun paramÃ¨tre filtré";
+			echo "aucun paramètre filtré";
 		endif;
 		?></p>
 	<!-- ------------------------------------------- -->
@@ -49,7 +49,7 @@ include ("./../layout/basic_header.php");
 	<!-- ------------------------------------------- -->
 
 <?php   if (($nb_resultats != "0")&&($_POST['kindOfObject']=="membre")): ?>
-    <h2 class="SubtitlesForSearchResults">Membres correspondant Ã  votre
+    <h2 class="SubtitlesForSearchResults">Membres correspondant à  votre
 		recherche</h2>
 
 
@@ -78,13 +78,13 @@ if ($nb_resultatMembre) :
 	
 	    <?php $link =  "./../index.php?action='visualiser_User'&Nom=".$infos['Login'];?>
     
-		<h4 class="resultNames"><?php echo $infos['Login'];?></h4>
+		<h4 class="resultNames"><?php echo htmlentities($infos['Login']);?></h4>
 		<div class="resultInfos">
 		<a class="resultInfos" href=<?php echo $link?>> voir profil  </a><br/>
 			 <span> <span> <?php echo"<b>Vrai nom: </b>"; 
-			if (isset($infos['Nom'])) echo $infos['Nom'];
+			if (isset($infos['Nom'])) echo htmlentities($infos['Nom']);
 			else echo "non renseigné"?> </span> <br/>
-			<span> <?php echo "<b>Adresse e-mail:</b> ". $infos['Mail']." adresse Ã  cacher si besoin !!";  ?></span><br/>
+			<span> <?php echo "<b>Adresse e-mail:</b> ". $infos['Mail']." adresse à  cacher si besoin !!";  ?></span><br/>
 			<span><?php if ($infos['DoB']!="0000-00-00") echo "<b>Date de naissance: </b>". $infos['DoB']; else echo " <b>Date de naissaince</b> non renseignée" ; ?> </span><br/> 
 			<span> <?php if ($infos['Localisation']!="null") echo "<b>Localisation: </b>".$infos['Localisation']; else echo "<b>Localisation</b> non renseignée" ?>  </span>
 		</span>
@@ -114,7 +114,7 @@ endforeach
 
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="groupe")): ?>
     <h2 class="SubtitlesForSearchResults">Groupes de musique
-			correspondant Ã  votre recherche</h2>
+			correspondant à  votre recherche</h2>
 <!-- SELECT `Nom_genre_musical` FROM groupe_genre_musical WHERE `Id_groupe`=(SELECT `Id` FROM `groupe` WHERE `Nom`='Hey Dude !') -->	
 
 		<div>
@@ -146,7 +146,7 @@ if ($nb_resultatsGroup != 0) :
 	
 	
 	
-	<h4 class="resultNames"><?php echo "<a href='../template/AffichageGroupeAdmin.php?id_groupe=".$infos['Id']."'>".$infos['Nom'];?></a></h4>
+	<h4 class="resultNames"><?php echo "<a href='../template/AffichageGroupeAdmin.php?id_groupe=".$infos['Id']."'>".htmlentities($infos['Nom']);?></a></h4>
 
 			<div class="resultInfos">
 				<?php	
@@ -222,6 +222,7 @@ endforeach
              $salleAcceptation=$infos['salle_acceptee'];
              $groupeAcceptation=$infos['Concert_accepte'];             
              
+
              $now = date ( 'Y-m-d' );
              $next = $dateConcert;
              
@@ -249,6 +250,16 @@ endforeach
              ?>
 
 
+<div>
+			<h2><?php echo $infos['Date'];?></h2>
+			<div>
+				<span> <span> <?php echo htmlentities($infos['Nom']); ?>
+	
+			
+			</div>
+		</div>
+
+
 <?php endforeach; ?>
 <!-- ------------------------------------------- -->
 		<!-- ------------------------------------------- -->
@@ -259,7 +270,7 @@ endforeach
 		<!-- ------------------------------------------- -->
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="salle")): ?>
     <h2 class="SubtitlesForSearchResults">Salles de concert
-			correspondant Ã  votre recherche</h2>
+			correspondant à  votre recherche</h2>
 		<div>
     <?php
 	for($i = 0; $i < 26; $i ++) {
@@ -278,7 +289,11 @@ $resultatSalle = $check->checkRecherche ( "salle", "Nom LIKE '" . $alphabet [$i]
 <?php
 			
 if ($nb_resultatsSalle!= 0) :
-				?>
+$infos['Nom'] =htmlentities($infos['Nom']);
+
+$infos['Adresse'] =htmlentities($infos['Adresse']);
+$infos['Proprietaire'] =htmlentities($infos['Proprietaire']);
+?>
 	
 	<h4 class="resultNames"><?php echo"<a href='../template/Salle.php?Nom=".$infos['Nom']."'> ". $infos['Nom'];?></a></h4>
 
@@ -304,7 +319,7 @@ endforeach;?> <?php }?>
 		<!-- ------------------------------------------- -->
 									 
  <?php else :
-	echo "<h2>Aucun résultat ne correspond Ã  votre recherche</h2>";
+	echo "<h2>Aucun résultat ne correspond à  votre recherche</h2>";
 	?>
            
         <?php endif;?>
