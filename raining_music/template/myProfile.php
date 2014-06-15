@@ -2,6 +2,7 @@
 include("./../layout/basic_header.php");
 include_once("../db_connect.inc.php");
 include("./../model/alert.php");
+include ("./../model/group.php");
 if(isset($_SESSION['user']))
 {
 	$user = unserialize($_SESSION['user']);
@@ -133,7 +134,52 @@ et PAF ça fait des chocapics \o/
 				value="Creer salle" />
 		</form>
 	</div>
+	
+	
+	
+<!-- AFFICHAGE DES ARTISTES SUIVIS -->
+			<div
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width: 40%; float: right;">
 
+				<span
+					style="background-color: #174156; font-weight: bold; color: #fff; border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">&nbsp;Les
+					artistes que je suis ! </span> <br /> <br />
+
+			<?php $resultUserId = User::getUserId ( $user->login );
+			foreach ( $resultUserId as $Row ) {
+				$userId = $Row ['Id'];
+			}?>
+			<?php $groupsIfollow=User::getAllGroupsIFollow($userId)?>
+			<?php $nb_groupsIfollow= count($groupsIfollow);?>
+			<?php
+			 //echo "TEST AVANT foreach";
+			 //print_r($allDataFromConcertAroundMe)			?>
+			<?php
+			if ($nb_groupsIfollow!=0){
+			foreach ( $groupsIfollow as $Row ) {
+				
+				$idGroupe = $Row ['Id'];
+				$nomGroupe = $Row ['Nom'];
+				$popGroupe = $Row ['Popularite'];
+
+				$link = "../template/AffichageGroupeAdmin.php?id_groupe=".$idGroupe;
+				
+
+
+						echo "<h4 class=resultNames><a href=".$link.">" . $nomGroupe . "</a></h4>";
+						
+						echo "<p>Dont la popularité est de " .$popGroupe."</p><hr />";
+					
+				
+			}
+			}else{
+				echo"Vous ne suivez actuellement aucun artiste. <br/><br/>Pour en suivre un, rendez-vous sur sa page d'artiste et cliquez sur le bouton \"Suivre cet artiste\"";
+			}
+			// }
+			?>
+			
+			
+			</div>
 </div>
 <?php 
 include("./../layout/basic_footer.php");

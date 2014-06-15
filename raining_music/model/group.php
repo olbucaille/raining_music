@@ -365,11 +365,13 @@ class Group {
 	
 	public static function followThisGroup($idGroupe, $idMembre, $todo){
 		$connexion = connect();
-		if ($todo=="followThem") {
-			$requete = $connexion->prepare("INSERT membre_groupe_pref SET Id_membre = '".$idMembre."',Id_groupe='".$idGroupe."'");
+		//$todo="followThem";
+		if ($todo=="follow") {
+			$requete = $connexion->prepare("INSERT `membre_groupe_pref`  SET `Id_membre`= '".$idMembre."',`Id_groupe`='".$idGroupe."'");
 		}
 		else {
-			
+			// DEBUG
+			//$requete = $connexion->prepare("INSERT `membre_groupe_pref`  SET `Id_membre`= '".'42'."',`Id_groupe`='".'42'."'");
 			$requete = $connexion->prepare("DELETE FROM `membre_groupe_pref` WHERE `Id_membre` = '".$idMembre."' AND `Id_groupe`='".$idGroupe."'");
 		}
 		
@@ -392,7 +394,6 @@ class Group {
 	
 		return ($temp);
 	}
-
 
 
 //fonctions relatives aux concerts (flemme de recréer un model, on n'a plus le temps ^^)

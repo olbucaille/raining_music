@@ -196,6 +196,19 @@ class User implements serializable{
 	
 		return ($temp);
 	}
+	
+
+
+	public static function getAllGroupsIFollow($userId) {
+	
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT * FROM `membre_groupe_pref` AS MAP JOIN  `groupe` AS g ON MAP.ID_groupe=g.Id WHERE MAP.Id_membre='".$userId."'");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
 
 }
 

@@ -31,7 +31,7 @@
 			
 			if (empty ( $resultat )) {
 $tempIdGrp=$_GET ["id_groupe"];
-				echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo='followThem'\"
+				echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo=follow\"
 style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspSuivre cet artiste&nbsp</a> ";
 	
 
@@ -56,7 +56,7 @@ style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; ma
 					}
 					if ($counter != $nb_resultats) {
 						$tempIdGrp=$_GET["id_groupe"];
-			  echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo='stopfollow'\"
+			  echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo=stopfollow\"
 			  style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspNe plus suivre cet artiste&nbsp</a> ";
 				
 					} else {
@@ -64,7 +64,7 @@ style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; ma
 			<?php  //affichage du bouton pour follow l'artiste ?>
 			 
 			 <?php 
-			  echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo='followThem'\"
+			  echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo=follow\"
 			  style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspSuivre cet artiste&nbsp</a> ";
 			 ?>
 			 
@@ -83,8 +83,7 @@ style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; ma
 		déroulant <b>connexion</b> situé <a href="#hautpage">en haut à droite</a>
 		du site ! :)
 	</p>
-}
-		?>
+
 	
 
 <?php
