@@ -40,6 +40,9 @@ function modifInfoMyProfile()
 	span  = document.getElementById('InfoCommentaire');	
 	span.innerHTML= "<input type=\"textarea\" name=\"commentaire\" value=\""+ span.innerHTML+"\" >  </input>";
 	
+	//on rend InfoDep éditable
+	span  = document.getElementById('InfoDep');	
+	span.innerHTML= "<input type=\"number\" name=\"departement\" min =\"1\" max=\"95\"  >  </input>";
 	
 	
 	}

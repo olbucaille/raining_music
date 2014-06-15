@@ -16,7 +16,7 @@ if(isset($_SESSION['username']))
     	<a href="<?php echo $url_home; ?>">Forum Index</a> &gt; <a href="list_topics.php?parent=<?php echo $id; ?>"><?php echo htmlentities($dn1['name'], ENT_QUOTES, 'UTF-8'); ?></a>
     </div>
 	<div class="box_right">
-    	 </a> - <?php echo htmlentities($_SESSION['username'], ENT_QUOTES, 'UTF-8'); ?></a>  
+    	 </a> - <?php echo$_SESSION['username'] ?></a>  
     </div>
 	<div class="clean"></div>
 </div>
@@ -60,8 +60,8 @@ while($dnn2 = mysql_fetch_array($dn2))
 {
 ?>
 	<tr>
-    	<td class="forum_tops"><a href="read_topic.php?id=<?php echo $dnn2['id']; ?>"><?php echo htmlentities($dnn2['title'], ENT_QUOTES, 'UTF-8'); ?></a></td>
-    	<td><a href="#"><?php echo htmlentities($dnn2['author'], ENT_QUOTES, 'UTF-8'); ?></a></td>
+    	<td class="forum_tops"><a href="read_topic.php?id=<?php echo $dnn2['id']; ?>"><?php echo $dnn2['title']; ?></a></td>
+    	<td><a href="#"><?php echo$dnn2['author'] ?></a></td>
     	<td><?php echo $dnn2['replies']; ?></td>
 <?php
 if(isset($_SESSION['username']) and $_SESSION['username']==$admin)

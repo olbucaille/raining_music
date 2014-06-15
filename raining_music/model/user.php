@@ -136,7 +136,8 @@ class User implements serializable{
 			$requete->execute();//execution(pas de verification securité a faire => automatique)
 		}
 
-		$requete = $connexion->prepare("UPDATE membre SET Mail=\"$this->mail\",Nom=\"$this->nom\",Sexe=\"$this->sexe\",DoB=\"$this->DoB\",Localisation=\"$this->localisation\",Departement=\"$this->departement\",Commentaire=\"$this->commentaire\" WHERE Login=\"$this->login\";");
+		$requete = $connexion->prepare("UPDATE membre SET  Mail=\"$this->mail\",Nom=\"$this->nom\",Sexe=\"$this->sexe\",DoB=\"$this->DoB\",Localisation=\"$this->localisation\",Departement=\"$this->departement\",Commentaire=\"$this->commentaire\" WHERE Login=\"$this->login\";");
+		
 		$requete->execute();
 
 

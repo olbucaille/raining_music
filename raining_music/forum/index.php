@@ -41,7 +41,7 @@ if(isset($_SESSION['username']))
 	<tr>
 		<td class="forum_cat"><a
 			href="list_topics.php?parent=<?php echo $dnn1['id']; ?>"
-			class="title"><?php echo htmlentities($dnn1['name'], ENT_QUOTES, 'UTF-8'); ?>
+			class="title"><?php echo $dnn1['name'] ?>
 		</a>
 			<div class="description">
 				<?php echo $dnn1['description']; ?>

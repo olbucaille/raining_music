@@ -30,11 +30,8 @@ if(isset($_POST['message'], $_POST['title']) and $_POST['message']!='' and $_POS
 	include('bbcode_function.php');
 	$title = $_POST['title'];
 	$message = $_POST['message'];
-	if(get_magic_quotes_gpc())
-	{
-		$title = stripslashes($title);
-		$message = stripslashes($message);
-	}
+	get_magic_quotes_gpc();
+	
 	$title = mysql_real_escape_string($title);
 	$message = mysql_real_escape_string(bbcode_to_html($message));
 	if(mysql_query('insert into topics (parent, id, id2, title, message, authorid, timestamp, timestamp2) select "'.$id.'", ifnull(max(id), 0)+1, "1", "'.$title.'", "'.$message.'", "'.$_SESSION['userid'].'", "'.time().'", "'.time().'" from topics'))
