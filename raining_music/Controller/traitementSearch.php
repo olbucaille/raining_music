@@ -281,20 +281,25 @@ function remplirCondition($Motcle, $Checkbox) {
 	// /////////////////////////////////////////////////////////////////////////////////////////////////
 	// //////////////////////////CHOIX SUR OU FAIRE LA RECHERCHE POUR UN CONCERT////////////////////////
 	// /////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	//SELECT * FROM `concert` WHERE `salle` IN (SELECT `Nom` FROM `salle` WHERE `Departement`='75')
 	if ($_POST ['kindOfObject'] == "concert") {
-		$musicStyle = $_POST ['styleMusiqueConcert'];
+		$selectedDep = $_POST ['dep'];
 		
-		if ($_POST ['motcleSearch'] != "") {
-			if ($musicStyle != "NonSpecifie") {
+			
+		if ($_POST ['motcleSearch'] == "") {
+			if ($selectedDep != "0") {
 				
-				$Recherche .= "AND Nom IN (SELECT Nom From concert Where Id IN(Select Id_concert From concert_genre_musical Where Nom_genre='" . $musicStyle . "')ORDER BY `Date`)";
-			}
-		} else {
-			if ($musicStyle != "NonSpecifie") {
-				$Recherche .= "Nom IN (SELECT Nom From concert Where Id IN(Select Id_concert From concert_genre_musical Where Nom_genre='" . $musicStyle . "')ORDER BY `Date`)";
+				$Recherche .= "salle IN (SELECT Nom From salle where Departement='" . $selectedDep . "') AND salle_acceptee='1' AND Concert_accepte='1' ";
 			} else {
 				$Recherche .= "";
+			}
+		} else {
+			if ($selectedDep == "0") {
+				if ($RMotClef != "") {
+				}
+			} else {
+				
+				$Recherche .= "AND salle IN (SELECT Nom From salle where Departement='" . $selectedDep . "') AND salle_acceptee='1' AND Concert_accepte='1'";
 			}
 		}
 	}

@@ -212,7 +212,8 @@ echo "<b>Vrai nom: </b>";
 			<!-- ------------------------------------------- -->
 
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="concert")): ?>
-
+<?php //DEBUG
+	//print_r($nb_resultats)?>
  <h2 class="SubtitlesForSearchResults">Concerts correspondant ра votre
 				recherche</h2>
     
