@@ -113,7 +113,12 @@ function c_RegisterUser()
 
 				if (isset($_POST['commentaire']))
 				$user->commentaire = $_POST['commentaire'];
-
+				
+				if(isset($_POST['departement']))
+					$user->departement = $_POST['departement'];
+				else 
+					$user->departement = 1;
+				 
 				//envois de tout ça au model pour enregistrement
 			$user->update($req);
 
@@ -179,5 +184,22 @@ function c_RegisterUser()
 
 	}
 
+	
+	function c_reset_user($user)
+	{
+		if(User::resetUser($user))
+		{
+			$_SESSION['message'] = "Vous avez reset le user avec succès, les informations serons actualisé la prochaine fois que vous vous connecterez(seul l'admin peut à présent se connecter!)";
+			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
+			
+		}		
+		else
+		{
+			$_SESSION['message'] = "Une erreure s'est produite, recommencez plus tard ";
+			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
+					
+		}
+			
+	}
 	
 	?>

@@ -110,6 +110,8 @@ et PAF ça fait des chocapics \o/
 						naissance </span>: <span Id="InfoDoB"><?php echo $user->DoB; ?> </span>
 					<br /> <br /> <span style="font-weight: bold;">Habite à </span>: <span
 						Id="InfoLocalisation"><?php echo $user->localisation?> </span><br />
+					<br /> <span style="font-weight: bold;"> Departement</span> : <span
+						Id="InfoDep"><?php echo $user->departement?> </span><br /> 
 					<br /> <span style="font-weight: bold;">commentaire </span>: <span
 						Id="InfoCommentaire"><?php echo $user->commentaire?> </span> <br />
 					<br /> <input class="btn-right-loupe" Id="modif" name="go"
@@ -133,7 +135,26 @@ et PAF ça fait des chocapics \o/
 			<input class="btn-right-loupe" name="go" type="submit"
 				value="Creer salle" />
 		</form>
+			<?php 
+	
+		if(isset($_SESSION['admin']))
+			if($_SESSION['admin'])
+		{
+			?>
+			<br/>
+			<form action="./../index.php?action='reset_user'&user=<?php echo $user->login;?>" method="post">
+			<input class="btn-right-loupe"  type="submit"
+			value="desactiver le compte" />
+			</form>
+			
+			
+		<?php }?>
+	
+	
+		
 	</div>
+	
+
 	
 	
 	

