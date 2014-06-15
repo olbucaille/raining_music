@@ -21,13 +21,8 @@ if(isset($_POST['name'], $_POST['description']) and $_POST['name']!='')
 {
 	$name = $_POST['name'];
 	$description = $_POST['description'];
-	if(get_magic_quotes_gpc())
-	{
-		$name = stripslashes($name);
-		$description = stripslashes($description);
-	}
-	$name = mysql_real_escape_string($name);
-	$description = mysql_real_escape_string($description);
+	get_magic_quotes_gpc();
+	
 	if(mysql_query('insert into categories (id, name, description, position) select ifnull(max(id), 0)+1, "'.$name.'", "'.$description.'", count(id)+1 from categories'))
 	{
 	?>
