@@ -100,6 +100,9 @@ En cas de questions à ce sujet, veuillez nous contacter<br/><br/>L'équipe.
 		    Homme* <input type= "radio" name="gender" value="0" required /> <br />
 			Femme* <input type= "radio" name="gender" value="1"/>  <br/><br/>
 			
+			J'accepte les <a href="./CGU.php">Conditions Générales d'Utilisation</a> de Raining Music
+			<input type="checkbox" name="CGU" title="Acceptez les Conditions Générales d'Utilisation" required="required">
+			
 			<br /> <br />
 			
             <input id="sendButton" type="submit" value="Envoyer"/>

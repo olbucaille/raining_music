@@ -28,7 +28,7 @@ function c_RegisterUser()
 
 
 	//elements mandatory present ?
-	if(isset($_POST['pseudo']) && isset($_POST['password']) && isset($_POST['password2'])&&isset($_POST['DoB'])&&isset($_POST['emailAddress'])&&isset($_POST['departement'])&&isset($_POST['localisation'])&&isset($_POST['gender']))
+	if(isset($_POST['CGU'])&&isset($_POST['pseudo']) && isset($_POST['password']) && isset($_POST['password2'])&&isset($_POST['DoB'])&&isset($_POST['emailAddress'])&&isset($_POST['departement'])&&isset($_POST['localisation'])&&isset($_POST['gender']))
 	{
 	//password match ?
 	if($_POST['password']==$_POST['password2'])
