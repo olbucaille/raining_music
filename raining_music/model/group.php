@@ -363,14 +363,60 @@ class Group {
 	
 	
 	
-	public static function followThisGroup($idGroupe, $idMembre){
+	public static function followThisGroup($idGroupe, $idMembre, $todo){
 		$connexion = connect();
-		$requete = $connexion->prepare("INSERT membre_groupe_pref SET Id_membre = '".$idMembre."',Id_groupe='".$idGroupe."'");
+		//$todo="followThem";
+		if ($todo=="follow") {
+			$requete = $connexion->prepare("INSERT `membre_groupe_pref`  SET `Id_membre`= '".$idMembre."',`Id_groupe`='".$idGroupe."'");
+		}
+		else {
+			// DEBUG
+			//$requete = $connexion->prepare("INSERT `membre_groupe_pref`  SET `Id_membre`= '".'42'."',`Id_groupe`='".'42'."'");
+			$requete = $connexion->prepare("DELETE FROM `membre_groupe_pref` WHERE `Id_membre` = '".$idMembre."' AND `Id_groupe`='".$idGroupe."'");
+		}
+		
 
 		if($requete->execute())
 			return true;
 		return false;
 	} 
+	
+	
+	
+	
+	public static function getAllFollowers($idGroupe) {
+	
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT `Id_membre` FROM `membre_groupe_pref` WHERE `Id_groupe`='".$idGroupe."'");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
 
+
+//fonctions relatives aux concerts (flemme de recréer un model, on n'a plus le temps ^^)
+	
+	public static function getConcert() {
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT * FROM `concert`");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
+	
+	public static function getConcertAroundMe($userDep) {
+		$connexion = connect();
+		//SELECT * FROM `concert` AS c JOIN `salle` AS s ON c.salle=s.Nom WHERE `Departement`='1'
+		$requete=$connexion->prepare("SELECT * FROM `concert` AS c JOIN `salle` AS s ON c.salle=s.Nom WHERE `Departement`='".$userDep."'");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
 }
 ?>

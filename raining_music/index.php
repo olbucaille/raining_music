@@ -56,6 +56,9 @@ switch ((string)$action) {
 	case '\'lire_notification\'':
 		c_lire_notification();
 		break;
+	case '\'follow\'':
+		c_followThisGroup($_GET['idmembre'],$_GET['idgroupe'],$_GET['todo']);
+		break;
 
 	default :
 		header("location:./template/accueil.php");

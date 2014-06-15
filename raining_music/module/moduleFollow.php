@@ -11,48 +11,85 @@
 <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
 
 
-<div style="text-align: left;" id="votesGroupe">
+<div style="text-align: right;" id="votesGroupe">
 	<!-- Script permettant de récupérer les résultats des votes et le nombre de votes en BDD pour calculer la popularité d'un groupe-->
 
 		<?php
-	$resultat = Group::getPopulariteGroup ( $_GET ['id_groupe'] );
-	// print_r($resultat);
-	$nb_resultats = count ( $resultat );
-	?>
+		
+		// CHECK IF USER CONNECTE
+		if (isset ( $_SESSION ['user'] )) {
 			
+			$resultUserId = User::getUserId ( $user->login );
+			foreach ( $resultUserId as $Row ) {
+				$userId = $Row ['Id'];
+			}
+			//DEBUG
+			//print_r ( $userId );
+			$resultat = Group::getAllFollowers ( $_GET ["id_groupe"] );
+			//DEBUG
+			//print_r ( $resultat );
+			
+			if (empty ( $resultat )) {
+$tempIdGrp=$_GET ["id_groupe"];
+				echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo=follow\"
+style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspSuivre cet artiste&nbsp</a> ";
+	
+
+
+				} else {
+				
+				$nb_resultats = count ( $resultat );
+				
+				$counter = 0;
+				?>
 		<?php
-	if ($nb_resultats != 0) {
-		foreach ( $resultat as $Row ) {
-			// parsing des valeurs récupérées
-			$Nvotes = $Row ['NbVotes'];
-			$ScoreTot = $Row ['ScoreTotal'];
+				if ($nb_resultats != 0) {
+					foreach ( $resultat as $Row ) {
+						// parsing des valeurs récupérées
+						$idMembre = $Row ['Id_membre'];
+						//DEBUG
+						//print_r ( $idMembre );
+						//print_r ( $userId );
+						if ($userId != $idMembre) {
+							$counter = $counter + 1;
+						}
+					}
+					if ($counter != $nb_resultats) {
+						$tempIdGrp=$_GET["id_groupe"];
+			  echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo=stopfollow\"
+			  style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspNe plus suivre cet artiste&nbsp</a> ";
+				
+					} else {
+						?>		
+			<?php  //affichage du bouton pour follow l'artiste ?>
+			 
+			 <?php 
+			  echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo=follow\"
+			  style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspSuivre cet artiste&nbsp</a> ";
+			 ?>
+			 
 
+<?php
+					}
+				}
+			}
+			?>
+<?php
+		} else { // SI USER NON CONNECTE
+			?>
 
-			 //CHECK IF USER CONNECTE
-			 if(isset($_SESSION['user'])){
-			 ?>		
-			 <a href="#" style="background-color: #379BC6; width: 150px; height: 150px; color: white;margin-top:50px; padding:4px;border-radius: 5px; ">&nbsp;Suivre cet artiste&nbsp;</a>
+<p>
+		Pour suivre cet artiste, veuillez vous connecter à l'aide du menu
+		déroulant <b>connexion</b> situé <a href="#hautpage">en haut à droite</a>
+		du site ! :)
+	</p>
+
+	
+
+<?php
+		}
+		?>
+
 </div>
-
-<?php
-	}//SI USER NON CONNECTE
-	else{
-?>
-
-<p>Pour suivre cet artiste, veuillez vous connecter à l'aide du menu déroulant <b>connexion</b> situé <a href="#hautpage">en haut à droite</a> du site ! :)</p>
-<?php
-}
-	
-	
-	
-	
-	}?>
-	
-
-<?php
-}
-?>
-
-
 <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
