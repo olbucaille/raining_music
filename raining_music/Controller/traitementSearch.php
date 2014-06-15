@@ -288,11 +288,11 @@ function remplirCondition($Motcle, $Checkbox) {
 		if ($_POST ['motcleSearch'] != "") {
 			if ($musicStyle != "NonSpecifie") {
 				
-				$Recherche .= "AND Nom IN (SELECT Nom From concert Where Id IN(Select Id_concert From concert_genre_musical Where Nom_genre='" . $musicStyle . "'))";
+				$Recherche .= "AND Nom IN (SELECT Nom From concert Where Id IN(Select Id_concert From concert_genre_musical Where Nom_genre='" . $musicStyle . "')ORDER BY `Date`)";
 			}
 		} else {
 			if ($musicStyle != "NonSpecifie") {
-				$Recherche .= "Nom IN (SELECT Nom From concert Where Id IN(Select Id_concert From concert_genre_musical Where Nom_genre='" . $musicStyle . "'))";
+				$Recherche .= "Nom IN (SELECT Nom From concert Where Id IN(Select Id_concert From concert_genre_musical Where Nom_genre='" . $musicStyle . "')ORDER BY `Date`)";
 			} else {
 				$Recherche .= "";
 			}
