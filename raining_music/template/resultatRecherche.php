@@ -211,7 +211,45 @@ endforeach
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="concert")): ?>
     
              <?php foreach ($resultats as $infos): ?>
+             <?php 
+             $nomConcert=$infos['Nom'];
+             $dateConcert=$infos['Date'];
+             $heureConcert=$infos['Heure'];
+             $prixConcert=$infos['Cout'];
+             $descriptionConcert=$infos['Description'];
+             $salleConcert=$infos['salle'];
+             $groupeConcert=$infos['Groupe'];
+             $salleAcceptation=$infos['salle_acceptee'];
+             $groupeAcceptation=$infos['Concert_accepte'];             
              
+
+             $now = date ( 'Y-m-d' );
+             $next = $dateConcert;
+             
+             // test
+             $now = new DateTime ( $now );
+             $now = $now->format ( 'Ymd' );
+             $next = new DateTime ( $next );
+             $next = $next->format ( 'Ymd' );
+             if ($salleAcceptation== 1 && $groupeAcceptation == 1) {
+             	if ($now < $next) {?>
+             	
+<h4 class="resultNames"><?php echo"<a href='#'> ". $nomConcert;?></a></h4>
+
+		<div>
+		<p> <?php echo "Ce concert se déroulera dans la salle ".$salleConcert.".<br/>"; ?>
+		 <?php echo "On y retrouvera ".$groupeConcert." pour un spectacle exceptionnel."; ?>
+		<br/> <?php echo "Notez bien la date : le ".$dateConcert." à ".$heureConcert." !"; ?>
+		<?php echo "<br/><span style='font-size:12px; font-style:italic; '>Pour plus d'informations, cliquez sur le nom du concert.</span>"?></p>
+
+			</div><hr/>
+
+			<?php 	}
+			}
+             
+             ?>
+
+
 <div>
 			<h2><?php echo $infos['Date'];?></h2>
 			<div>
@@ -220,6 +258,7 @@ endforeach
 			
 			</div>
 		</div>
+
 
 <?php endforeach; ?>
 <!-- ------------------------------------------- -->
