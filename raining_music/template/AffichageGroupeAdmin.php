@@ -120,6 +120,49 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 				</span>
 			<br/>
 			<br/>
+			<?php $allDataFromConcert=Group::getConcert()?>
+
+			<?php
+			
+			foreach ( $allDataFromConcert as $Row ) {
+				
+		
+				$nomConcert = $Row ['Nom'];
+				$dateConcert = $Row ['Date'];
+				$groupeConcert = $Row ['Groupe'];
+				$concertAccepte = $Row ['Concert_accepte'];
+				$salleAccepte = $Row ['salle_acceptee'];
+				
+				// date à tester :
+				$now = date ( 'Y-m-d' );
+				$next = $dateConcert;
+				
+				// test
+				$now = new DateTime ( $now );
+				$now = $now->format ( 'Ymd' );
+				$next = new DateTime ( $next );
+				$next = $next->format ( 'Ymd' );
+				
+				if($groupeConcert == $groupe->nom){
+				if ($concertAccepte = $Row ['Concert_accepte'] == 1 && $salleAccepte = $Row ['salle_acceptee'] == 1) {
+					if($now > $next)	{ 
+						echo "<h4 class=resultNames><a>'Concerts déjà passés '</a></h4>";
+						
+					}				
+					else  {
+						// echo "next est dans le futur";
+?>
+						<fieldset>
+						<span style="font-weight: bold;">Nom de concert</span> : <span><a href="affichageConcert.php?id_groupe=<?php echo $_GET ['id_groupe']?>&concert=<?php echo $nomConcert?>"><?php echo $nomConcert?></a></span><br />
+						<span style="font-weight: bold;">Date de concert</span> : <span><?php echo $dateConcert?> </span><br />	
+						</fieldset>
+						</br>
+						<?php }
+}
+}
+}
+?>			
+
 			<?php          
       	// ajouter un concert si on est autorisé
 
@@ -133,6 +176,18 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 
             </div>
                   
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
