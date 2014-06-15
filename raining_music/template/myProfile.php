@@ -133,7 +133,26 @@ et PAF ça fait des chocapics \o/
 			<input class="btn-right-loupe" name="go" type="submit"
 				value="Creer salle" />
 		</form>
+			<?php 
+	
+		if(isset($_SESSION['admin']))
+			if($_SESSION['admin'])
+		{
+			?>
+			<br/>
+			<form action="./../index.php?action='reset_user'&user=<?php echo $user->login;?>" method="post">
+			<input class="btn-right-loupe"  type="submit"
+			value="desactiver le compte" />
+			</form>
+			
+			
+		<?php }?>
+	
+	
+		
 	</div>
+	
+
 	
 	
 	

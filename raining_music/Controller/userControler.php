@@ -180,4 +180,21 @@ function c_RegisterUser()
 	}
 
 	
+	function c_reset_user($user)
+	{
+		if(User::resetUser($user))
+		{
+			$_SESSION['message'] = "Vous avez reset le user avec succès, les informations serons actualisé la prochaine fois que vous vous connecterez(seul l'admin peut à présent se connecter!)";
+			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
+			
+		}		
+		else
+		{
+			$_SESSION['message'] = "Une erreure s'est produite, recommencez plus tard ";
+			header("location:./template/MessageEtape.php");//redirection vers une page disant bravo t'as reussit \o/
+					
+		}
+			
+	}
+	
 	?>

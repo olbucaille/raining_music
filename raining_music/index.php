@@ -59,7 +59,9 @@ switch ((string)$action) {
 	case '\'follow\'':
 		c_followThisGroup($_GET['idmembre'],$_GET['idgroupe'],$_GET['todo']);
 		break;
-
+	case '\'reset_user\'':
+		c_reset_user($_GET['user']);
+		break;	
 	default :
 		header("location:./template/accueil.php");
 }

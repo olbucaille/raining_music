@@ -220,6 +220,18 @@ class User implements serializable{
 	
 		return ($temp);
 	}
+	
+	
+	public static function resetUser($user)
+	{
+		$connexion = connect();
+		$pass = md5("Imp0sSibl3_A_Sav01R");
+		$requete = $connexion->prepare("UPDATE membre SET Mail=\"inconnu\",Nom=\"inconnu\",DoB=\"2042-01-01\",Password=\"$pass\",Localisation=\"inconnu\",Departement=\"01\",Commentaire=\"cet utilisateur à été désactivé par un administrateur\" WHERE Login=\"$user\";");
+		if($requete->execute())
+			return true;
+		return false;
+		
+	}
 
 }
 
