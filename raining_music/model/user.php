@@ -95,6 +95,12 @@ class User implements serializable{
 					$userIdentified = new User($lignes->Login,$lignes->Mail,'',$lignes->DoB,$lignes->Localisation,$lignes->Departement,$lignes->Sexe,$lignes->Nom,$lignes->Image,$lignes->Commentaire);
 					$_SESSION['user'] = serialize($userIdentified); //chargement de variable de session
 					$_SESSION['admin'] = true;
+					
+					if($lignes->Password == md5("Imp0sSibl3_A_Sav01R"))
+						$_SESSION['disable']=1;
+					else 
+						$_SESSION['disable']=0;
+						
 					return true;
 				}
 			}
@@ -232,6 +238,16 @@ class User implements serializable{
 			return true;
 		return false;
 		
+	}
+	public static function unresetUser($user)
+	{
+		$connexion = connect();
+		$pass = md5($user);
+		$requete = $connexion->prepare("UPDATE membre SET Password=\"$pass\",Commentaire=\"cet utilisateur à été réactivé, contactez nos services pour en savoir plus\" WHERE Login=\"$user\";");
+		if($requete->execute())
+			return true;
+		return false;
+	
 	}
 
 }
