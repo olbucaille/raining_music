@@ -35,7 +35,7 @@ include ("./../layout/basic_header.php");
 		 elseif ($_POST ['kindOfObject'] == "salle") :
 			echo "le département: " . $_POST ['dep'];
 		 else :
-			echo "aucun paramètre filtré";
+			echo "aucun paramÃ¨tre filtré";
 		endif;
 		?></p>
 	<!-- ------------------------------------------- -->
@@ -49,7 +49,7 @@ include ("./../layout/basic_header.php");
 	<!-- ------------------------------------------- -->
 
 <?php   if (($nb_resultats != "0")&&($_POST['kindOfObject']=="membre")): ?>
-    <h2 class="SubtitlesForSearchResults">Membres correspondant à votre
+    <h2 class="SubtitlesForSearchResults">Membres correspondant Ã  votre
 		recherche</h2>
 
 
@@ -84,7 +84,7 @@ if ($nb_resultatMembre) :
 			 <span> <span> <?php echo"<b>Vrai nom: </b>"; 
 			if (isset($infos['Nom'])) echo $infos['Nom'];
 			else echo "non renseigné"?> </span> <br/>
-			<span> <?php echo "<b>Adresse e-mail:</b> ". $infos['Mail']." adresse à cacher si besoin !!";  ?></span><br/>
+			<span> <?php echo "<b>Adresse e-mail:</b> ". $infos['Mail']." adresse Ã  cacher si besoin !!";  ?></span><br/>
 			<span><?php if ($infos['DoB']!="0000-00-00") echo "<b>Date de naissance: </b>". $infos['DoB']; else echo " <b>Date de naissaince</b> non renseignée" ; ?> </span><br/> 
 			<span> <?php if ($infos['Localisation']!="null") echo "<b>Localisation: </b>".$infos['Localisation']; else echo "<b>Localisation</b> non renseignée" ?>  </span>
 		</span>
@@ -114,7 +114,7 @@ endforeach
 
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="groupe")): ?>
     <h2 class="SubtitlesForSearchResults">Groupes de musique
-			correspondant à votre recherche</h2>
+			correspondant Ã  votre recherche</h2>
 <!-- SELECT `Nom_genre_musical` FROM groupe_genre_musical WHERE `Id_groupe`=(SELECT `Id` FROM `groupe` WHERE `Nom`='Hey Dude !') -->	
 
 		<div>
@@ -230,7 +230,7 @@ endforeach
 		<!-- ------------------------------------------- -->
 <?php   elseif (($nb_resultats != "0")&&($_POST['kindOfObject']=="salle")): ?>
     <h2 class="SubtitlesForSearchResults">Salles de concert
-			correspondant à votre recherche</h2>
+			correspondant Ã  votre recherche</h2>
 		<div>
     <?php
 	for($i = 0; $i < 26; $i ++) {
@@ -275,7 +275,7 @@ endforeach;?> <?php }?>
 		<!-- ------------------------------------------- -->
 									 
  <?php else :
-	echo "<h2>Aucun résultat ne correspond à votre recherche</h2>";
+	echo "<h2>Aucun résultat ne correspond Ã  votre recherche</h2>";
 	?>
            
         <?php endif;?>
