@@ -393,10 +393,24 @@ class Group {
 		return ($temp);
 	}
 
+
+
+//fonctions relatives aux concerts (flemme de recréer un model, on n'a plus le temps ^^)
 	
 	public static function getConcert() {
 		$connexion = connect();
 		$requete=$connexion->prepare("SELECT * FROM `concert`");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
+	
+	public static function getConcertAroundMe($userDep) {
+		$connexion = connect();
+		//SELECT * FROM `concert` AS c JOIN `salle` AS s ON c.salle=s.Nom WHERE `Departement`='1'
+		$requete=$connexion->prepare("SELECT * FROM `concert` AS c JOIN `salle` AS s ON c.salle=s.Nom WHERE `Departement`='".$userDep."'");
 		$requete->execute();
 		$temp=$requete->fetchAll();
 		$connexion=null;

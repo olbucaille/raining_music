@@ -291,6 +291,75 @@ $liste = Song::getSongName ( 'abc' );
 			
 			
 			</div>
+			
+			
+						<!-- AFFICHAGE DES CONCERTS PRES DE CHEZ MOI -->
+			<div
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width: 40%; float: left;">
+
+				<span
+					style="background-color: #174156; font-weight: bold; color: #fff; border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">&nbsp;Les
+					concerts près de chez moi ! </span> <br /> <br />
+			<?php if(isset($_SESSION['user'])){?>
+			<?php $userDepartement=$user->departement;?>
+						<?php
+			// echo "debug user departement <br/>";
+			// print_r($userDepartement)			?>
+			<?php $allDataFromConcertAroundMe=Group::getConcertAroundMe($userDepartement)?>
+			<?php $nb_allDataFromConcertAroundMe= count($allDataFromConcertAroundMe);?>
+			<?php
+			 //echo "TEST AVANT foreach";
+			 //print_r($allDataFromConcertAroundMe)			?>
+			<?php
+			if ($nb_allDataFromConcertAroundMe!=0){
+			foreach ( $allDataFromConcertAroundMe as $Row ) {
+				
+				$idConcert = $Row ['Id'];
+				$nomConcert = $Row ['Nom'];
+				$dateConcert = $Row ['Date'];
+				$heureConcert = $Row ['Heure'];
+				$prixConcert = $Row ['Cout'];
+				$descriptionConcert = $Row ['Description'];
+				$salleConcert = $Row ['salle'];
+				$groupeConcert = $Row ['Groupe'];
+				$concertAccepte = $Row ['Concert_accepte'];
+				$salleAccepte = $Row ['salle_acceptee'];
+				
+				// $link = "../index.php?action='visualiser_User'&Nom=".$loginMembre;
+				
+				// date à tester :
+				$now = date ( 'Y-m-d' );
+				$next = $dateConcert;
+				
+				// test
+				$now = new DateTime ( $now );
+				$now = $now->format ( 'Ymd' );
+				$next = new DateTime ( $next );
+				$next = $next->format ( 'Ymd' );
+				if ($concertAccepte = $Row ['Concert_accepte'] == 1 && $salleAccepte = $Row ['salle_acceptee'] == 1) {
+					if ($now < $next) {
+						// echo "next est dans le futur";
+						
+						echo "<h4 class=resultNames><a>" . $nomConcert . "</a></h4>";
+						
+						echo "Le groupe " . $nomGroupe . " se produira sur la scène de " . $salleConcert . " le " . $dateConcert . "</p><hr />";
+					}
+				}
+			}
+			}else{
+				echo"Aucun concert n'est prochainement annoncé dans votre département ! :( <br/><br/>Pour prendre connaissance des prochains concerts dans d'autres départements, faites une recherche avancée !";
+			}
+			}else {
+				echo "Pour voir les prochains concerts près de chez vous, inscrivez sur notre site ! Vous pourrez ainsi bénéficier des tous les avantages qu'ont les autres membre de Raining Music. <br/>Pour plus d'informations, consultez notre F.A.Q. <br/><br/>L'équipe.";
+			}
+			// }
+			?>
+			
+			
+			</div>
+			
+			
+			
 			<br />
 
 		</div>
