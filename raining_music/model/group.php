@@ -462,14 +462,22 @@ public static function getmonGroupe($user) {
 	
 	return ($temp);
 }
-public static function getidGroupe($nomgroupe) {
-	$connexion = connect();
-	$requete=$connexion->prepare("SELECT Id FROM groupe WHERE Nom='".$nomgroupe."'");
-	$requete->execute();
-	$temp=$requete->fetchAll();
-	$connexion=null;
+	public static function getgroupid($groupename)
+	{
 
-	return ($temp);
-}
+		$connexion = connect();
+
+
+		$requete = $connexion->prepare("SELECT Id FROM groupe WHERE Nom='$groupename'");
+
+		if($requete->execute())//execution(pas de verification securité a faire => automatique)
+		{
+			$Groupeid=$requete->fetch(PDO::FETCH_OBJ);//recup de la premiere requete
+			
+
+
+		}
+		return $Groupeid;
+	}
 }
 ?>
