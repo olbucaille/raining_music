@@ -62,6 +62,10 @@ switch ((string)$action) {
 	case '\'reset_user\'':
 		c_reset_user($_GET['user']);
 		break;	
+	case '\'unreset_user\'':
+		c_unreset_user($_GET['user']);
+	break;
+		
 	default :
 		header("location:./template/accueil.php");
 }

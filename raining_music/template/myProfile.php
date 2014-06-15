@@ -138,8 +138,13 @@ et PAF ça fait des chocapics \o/
 			<?php 
 	
 		if(isset($_SESSION['admin']))
-			if($_SESSION['admin'])
 		{
+			if($_SESSION['admin'])
+			{
+				if(isset($_SESSION['disable']))
+				{
+				if($_SESSION['disable']==0)
+				{
 			?>
 			<br/>
 			<form action="./../index.php?action='reset_user'&user=<?php echo $user->login;?>" method="post">
@@ -148,8 +153,16 @@ et PAF ça fait des chocapics \o/
 			</form>
 			
 			
-		<?php }?>
-	
+		<?php }
+		else 
+		{
+			?><br/>
+			<form action="./../index.php?action='unreset_user'&user=<?php echo $user->login;?>" method="post">
+			<input class="btn-right-loupe"  type="submit"
+			value="réactiver le compte" />
+			</form>
+			
+		<?php }}}}?>
 	
 		
 	</div>

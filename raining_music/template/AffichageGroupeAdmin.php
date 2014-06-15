@@ -53,6 +53,8 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 }
 ?>
 
+<!-- AFFICHAGE des photos -->	
+
 <div class="center">
 <font color="blue"><font size = 6> Galerie de photos </font></font>
 <br/>
@@ -75,7 +77,8 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 	</div>       
 	
 	<br/>
-
+	
+<!-- AFFICHAGE de description -->	
 	<div
 				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width:40%; float: left;">
 
@@ -108,7 +111,10 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 			
 			</div>	
 
-<div
+			
+				
+<!-- AFFICHAGE  des dates de concerts-->						
+				<div
 				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width:40%; float: right;">
 
 				<span
@@ -175,29 +181,85 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 <?php }?>	
 
             </div>
-                  
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+            
+ <!-- AFFICHAGE des membres -->	
+ 		
+				<div
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width: 40%; float: left;">
+				<span
+					style="background-color:#174156; font-weight: bold; color: #fff;
+					border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; 
+					padding: 11px; font-family: Arial, Helvetica, sans-serif; 
+					font-size: 20px;">&nbsp;Membres de groupes !
+				
+				</span>
+			<br/>
+			<br/>
+			<?php
+			$resultat = Group::getCreatorGroupe($groupe->nom);
+			$result = Group::getValideGroupe($groupe->nom);			
+			?>
+<h4 class=resultNames><a>Créateur</a></h4>
+ <?php 
+ 
+ foreach ( $resultat as $Row ) {
+$nomCreator = $Row ['Login_membre'];
+$role_c =$Row['Role'];
+?>
+<fieldset>
+<span style="font-weight: bold;"> <?php echo $nomCreator?> </span> : <span> <?php echo $role_c?> </span><br /> 
+</fieldset>
+<?php 
+}?>
 
+<h4 class=resultNames><a>Membre</a></h4>
+ <?php 
+ if (empty ( $resultat )) {
+}
+else{
+ foreach ( $result as $Row ) {
+$nomMembre = $Row ['Login_membre'];
+$role_v =$Row['Role'];
+?>
+<fieldset>
+<span style="font-weight: bold;"> <?php echo $nomMembre?> </span> : <span> <?php echo $role_v?> </span><br /> 
+</fieldset>
+<?php 
+}
+}?>
+
+
+				</div>	                 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 	<!-- boite de musique-->
 

@@ -429,5 +429,29 @@ class Group {
 	
 		return ($temp);
 	}
+
+
+//fonctions pour récupérer les membres de groupe
+
+public static function getValideGroupe($groupe) {
+
+	$connexion = connect();
+	$requete=$connexion->prepare("SELECT Login_membre,Role FROM membre_groupe WHERE Nom_groupe='".$groupe."' AND Valide=1 AND Creator=0");
+	$requete->execute();
+	$temp=$requete->fetchAll();
+	$connexion=null;
+
+	return ($temp);
+}
+public static function getCreatorGroupe($groupe) {
+
+	$connexion = connect();
+	$requete=$connexion->prepare("SELECT Login_membre, Role FROM membre_groupe WHERE Nom_groupe='".$groupe."' AND Creator=1");
+	$requete->execute();
+	$temp=$requete->fetchAll();
+	$connexion=null;
+
+	return ($temp);
+}
 }
 ?>
