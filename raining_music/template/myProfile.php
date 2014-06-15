@@ -110,6 +110,8 @@ et PAF ça fait des chocapics \o/
 						naissance </span>: <span Id="InfoDoB"><?php echo $user->DoB; ?> </span>
 					<br /> <br /> <span style="font-weight: bold;">Habite à </span>: <span
 						Id="InfoLocalisation"><?php echo $user->localisation?> </span><br />
+					<br /> <span style="font-weight: bold;"> Departement</span> : <span
+						Id="InfoDep"><?php echo $user->departement?> </span><br /> 
 					<br /> <span style="font-weight: bold;">commentaire </span>: <span
 						Id="InfoCommentaire"><?php echo $user->commentaire?> </span> <br />
 					<br /> <input class="btn-right-loupe" Id="modif" name="go"

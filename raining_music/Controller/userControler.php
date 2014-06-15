@@ -113,7 +113,12 @@ function c_RegisterUser()
 
 				if (isset($_POST['commentaire']))
 				$user->commentaire = $_POST['commentaire'];
-
+				
+				if(isset($_POST['departement']))
+					$user->departement = $_POST['departement'];
+				else 
+					$user->departement = 1;
+				 
 				//envois de tout ça au model pour enregistrement
 			$user->update($req);
 
