@@ -2,8 +2,7 @@
 include("./../layout/basic_header.php");
 include ("./../db_connect.inc.php");
 include ("./../model/group.php");
-$idgroupe=array ();
-
+$id=array();
 if(isset ( $_SESSION ['user'] )){
 $user = unserialize($_SESSION['user']);
 $resultat=Group::getmonGroupe($user->login);
@@ -31,25 +30,20 @@ echo "Vous n'avez pas encore de groupe. Venez vite rejoindre un groupe ou en cré
  else{
  foreach ( $resultat as $Row ) {
 $mongroupe = $Row ['Nom_groupe'];
+$i=0;
+
+$id[$i] =Group::getgroupid($mongroupe);
 
 ?>
-
 <tb>
-
-<li><span style="font-weight: bold;"> <?php echo $mongroupe?> </span></li><br /> 
+<li><span style="font-weight: bold;"> <a href="affichageGroupeAdmin.php?id_groupe=<?php echo $id[$i]->Id ?>"><?php echo $mongroupe?></a> </span></li><br /> 
 <?php 
-$id =Group::getmonGroupe($mongroupe); 
-foreach ( $id as $Row ) {
-$idgroupe =$Row ['Id'];
+$i++;
 ?>
-<li><span style="font-weight: bold;"> <?php echo $idgroupe?> </span></li><br /> 
+
 </tb>
 <?php }
-
-
 }
-}
-
 
 ?>
 </div>
