@@ -156,5 +156,14 @@ class Salle {
 	
 		return ($temp);
 	}
+	public static function getmaSalle($user) {
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT Nom FROM salle WHERE Proprietaire='".$user."'");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+	
+		return ($temp);
+	}
 }
 ?>
