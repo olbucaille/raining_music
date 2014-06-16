@@ -283,23 +283,24 @@ function remplirCondition($Motcle, $Checkbox) {
 	// /////////////////////////////////////////////////////////////////////////////////////////////////
 	//SELECT * FROM `concert` WHERE `salle` IN (SELECT `Nom` FROM `salle` WHERE `Departement`='75')
 	if ($_POST ['kindOfObject'] == "concert") {
-		$selectedDep = $_POST ['dep'];
+		$selectedDep = $_POST ['depConcert'];
 		
 			
 		if ($_POST ['motcleSearch'] == "") {
 			if ($selectedDep != "0") {
 				
-				$Recherche .= "salle IN (SELECT Nom From salle where Departement='" . $selectedDep . "') AND salle_acceptee='1' AND Concert_accepte='1' ";
+				$Recherche .= "salle IN (SELECT Nom From salle where Departement='" . $selectedDep . "') AND salle_acceptee='1' AND Concert_accepte='1' ORDER BY Date ASC";
 			} else {
 				$Recherche .= "";
 			}
 		} else {
 			if ($selectedDep == "0") {
 				if ($RMotClef != "") {
+					$Recherche .= " ";
 				}
 			} else {
 				
-				$Recherche .= "AND salle IN (SELECT Nom From salle where Departement='" . $selectedDep . "') AND salle_acceptee='1' AND Concert_accepte='1'";
+				$Recherche .= "AND salle IN (SELECT Nom From salle where Departement='" . $selectedDep . "') AND salle_acceptee='1' AND Concert_accepte='1' ORDER BY Date ASC";
 			}
 		}
 	}
@@ -309,7 +310,7 @@ function remplirCondition($Motcle, $Checkbox) {
 	// /////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	if ($_POST ['kindOfObject'] == "salle") {
-		$selectedDep = $_POST ['dep'];
+		$selectedDep = $_POST ['depSalle'];
 		
 		if ($_POST ['motcleSearch'] == "") {
 			if ($selectedDep != "0") {

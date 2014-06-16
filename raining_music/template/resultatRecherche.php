@@ -33,9 +33,9 @@ include ("./../model/group.php");
 		if ($_POST ['kindOfObject'] == "groupe") :
 			echo "le style de musique => " . $_POST ['styleMusique'];
 		 elseif ($_POST ['kindOfObject'] == "concert") :
-			echo "rien";
+			echo "le département: " . $_POST ['depConcert'];
 		 elseif ($_POST ['kindOfObject'] == "salle") :
-			echo "le département: " . $_POST ['dep'];
+			echo "le département: " . $_POST ['depSalle'];
 		 else :
 			echo "aucun paramètre filtré";
 		endif;
@@ -269,8 +269,9 @@ echo "<b>Vrai nom: </b>";
 
 			<?php
 				}
-			}?>
-			</div>
+				}
+			?>
+			
 			<?php
 		}
 		
