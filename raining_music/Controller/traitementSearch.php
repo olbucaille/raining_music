@@ -291,12 +291,12 @@ function remplirCondition($Motcle, $Checkbox) {
 				
 				$Recherche .= "salle IN (SELECT Nom From salle where Departement='" . $selectedDep . "') AND salle_acceptee='1' AND Concert_accepte='1' ORDER BY Date ASC";
 			} else {
-				$Recherche .= "";
+				$Recherche .= "salle_acceptee='1' AND Concert_accepte='1' ORDER BY Date ASC";
 			}
 		} else {
 			if ($selectedDep == "0") {
 				if ($RMotClef != "") {
-					$Recherche .= " ";
+					$Recherche .= "AND salle_acceptee='1' AND Concert_accepte='1' ORDER BY Date";
 				}
 			} else {
 				
