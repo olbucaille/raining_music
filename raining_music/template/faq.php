@@ -53,8 +53,14 @@ include ("./../layout/basic_header.php");
 
 
 		<h3>Puis-je proposer un concert ?</h3>
-		<p>Oui, via la page de groupe, un bouton apparait :" ajouter un
-			concert" si vous en êtes le créateur</p>
+		<li><p>Oui, via la page de groupe, un bouton apparait :" ajouter un
+			concert" si vous en êtes le créateur</p></li>
+			
+		<h3>Y à t'il des choses à éviter ?</h3>
+		<li><p>Oui, Il est strictement interdis de créer un groupe dont vous n'êtes pas le propriétaire
+		les administrateurs seront vigilant à cela et se réservent le droit de suspendre votre compte ou de le 
+		suppimer si cette règle n'est pas respectée.</p></li>
+				
 	</ul>
 
 	<br /> <br /> <span
@@ -102,6 +108,17 @@ include ("./../layout/basic_header.php");
 		<li><p>Vous pouvez le faire via votre page de profil, il y a un
 				bouton modifier en bas à gauche</p></li>
 
+		<h3>Comment rechercher un groupe, un concert, un utilisateur ou une salle ?</h3>
+		<li><p>Vous pouvez faire une recherche via la recherche rapide dans la colonne de droite (sous signaler un abus)
+		si cette recherche n'est pas assez précise, loggez vous et allez dans l'onglet recherche avancée
+		d'ici vous pourrez rechercher en fonction de plusieurs parametres(type, nom, genre de musique,...)</p></li>
+		
+
+		<h3>Comment écouter de la musique ?</h3>
+		<li><p>Vous pouvez écouter de la musique en vous rendant sur la page de vos artistes préférés, de la 
+		vous pouvez voir un player, il permet d'écouter de la musique de manère illimité</p></li>
+		
+		
 		<h3>Comment puis-je voter pour un artiste ?</h3>
 		<li><p>Vous pouvez, en vous rendant sur la page d'un artiste, voter
 				pour celui-ci grâce à notre système de notation. Cela nous permettra
