@@ -103,6 +103,15 @@ class User implements serializable{
 						
 					return true;
 				}
+
+				if($lignes->Password == md5("Imp0sSibl3_A_Sav01R"))
+				{
+					$_SESSION['message'] = "Votre compte à été désactivé, merci de contacter nos services afin de résoudre le problème";
+					header("location:./template/MessageEtape.php");
+					exit;
+				}
+				
+				
 			}
 				return false;
 		}
