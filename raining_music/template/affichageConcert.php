@@ -55,12 +55,14 @@ style="background-color:#174156; font-weight: bold; color: #fff;
 					else  {						
 ?>
 						<fieldset>
+						
 						<span style="font-weight: bold;">Nom de concert</span> : <span><?php echo $nomConcert?> </span><br />
+						<span style="font-weight: bold;">Nom de groupe</span> : <span><a href="affichageGroupeAdmin.php?id_groupe=<?php echo  $_GET ['id_groupe']?>"><?php echo $groupeConcert?> </a></span><br />
 						<span style="font-weight: bold;">Date de concert</span> : <span><?php echo $dateConcert?> </span><br />
 						<span style="font-weight: bold;">Heure de concert</span> : <span><?php echo $heureConcert?> </span><br />
 						<span style="font-weight: bold;">Prix d'entrée</span> : <span><?php echo $prixConcert.'$'?> </span><br />
 						<span style="font-weight: bold;">Information</span> : <span><?php echo $descriptionConcert?> </span><br />
-						<span style="font-weight: bold;">Salle</span> : <span><?php echo $salleConcert?> </span><br />
+						<span style="font-weight: bold;">Salle</span> : <span><a href="Salle.php?Nom=<?php echo $salleConcert ?>"><?php echo $salleConcert?> </a></span><br />
 						</fieldset>
 						</br>
 						</hr>
