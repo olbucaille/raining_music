@@ -56,9 +56,9 @@ include ("./../layout/basic_header.php");
 		<li><p>Oui, via la page de groupe, un bouton apparait :" ajouter un
 			concert" si vous en êtes le créateur</p></li>
 			
-		<h3>Y à t'il des choses à éviter ?</h3>
-		<li><p>Oui, Il est strictement interdis de créer un groupe dont vous n'êtes pas le propriétaire
-		les administrateurs seront vigilant à cela et se réservent le droit de suspendre votre compte ou de le 
+		<h3>Y a-t-il des choses à éviter ?</h3>
+		<li><p>Oui, il est strictement interdit de créer un groupe dont vous n'êtes pas le propriétaire
+		les administrateurs seront vigilants à cela et se réservent le droit de suspendre votre compte ou de le 
 		suppimer si cette règle n'est pas respectée.</p></li>
 				
 	</ul>
