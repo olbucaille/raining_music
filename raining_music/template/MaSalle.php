@@ -49,7 +49,7 @@ $masalle = $Row ['Nom'];
 					style="background-color:#174156; font-weight: bold; color: #fff;
 					border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; 
 					padding: 11px; font-family: Arial, Helvetica, sans-serif; 
-					font-size: 20px;">&nbsp;Envie de créer ou une salle ?
+					font-size: 20px;">&nbsp;Envie de créer une salle ?
 				
 				</span>
 			<br/>

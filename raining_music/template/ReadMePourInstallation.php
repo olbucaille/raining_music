@@ -1,7 +1,7 @@
 
 
 -les mots de passe de BDD sont à remplir dans le fichier dbconnect à la racine
--l'admin du forum est à determiner dans forum/config -> variable forum
+-l'admin du forum est à determiner dans forum/config -> variable admin
 -la BDD est dans Database/ -> prendre la dernière (bd_raining_music_UPDATEDDMMYY_VERSION)
 
 ADMIN : 
