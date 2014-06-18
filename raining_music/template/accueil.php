@@ -226,6 +226,10 @@ $liste = Song::getSongName ( 'abc' );
 				$groupeConcert = $Row ['Groupe'];
 				$concertAccepte = $Row ['Concert_accepte'];
 				$salleAccepte = $Row ['salle_acceptee'];
+				$groupNameResult=Group::getIdFromGroupName($groupeConcert);
+				foreach ($groupNameResult as $RowInter){
+					$idGroupeConcert=$RowInter['Id'];
+				}
 				
 				// $link = "../index.php?action='visualiser_User'&Nom=".$loginMembre;
 				
@@ -242,7 +246,8 @@ $liste = Song::getSongName ( 'abc' );
 					if ($now < $next) {
 						// echo "next est dans le futur";
 						
-						echo "<h4 class=resultNames><a>" . $nomConcert . "</a></h4>";
+						?><h4 class=resultNames><a href="affichageConcert.php?id_groupe=<?php echo $idGroupeConcert?>&concert=<?php echo $nomConcert?>">
+						<?php echo  $nomConcert . "</a></h4>";
 						
 						echo "Le groupe " . $nomGroupe . " se produira sur la scène de " . $salleConcert . " le " . $dateConcert . "</p><hr />";
 					}
@@ -282,7 +287,7 @@ $liste = Song::getSongName ( 'abc' );
 				
 				// $link = "../index.php?action='visualiser_User'&Nom=" . $loginMembre;
 				
-				echo "<h4 class=resultNames><a href='#'>" . $nomSalle . "</a></h4>";
+				echo "<h4 class=resultNames><a href='Salle.php?Nom=".$nomSalle."'>" . $nomSalle . "</a></h4>";
 				
 				echo " Nouvelle salle dans le département " . $departementSalle . " qui appartient à " . $proprietaireSalle . " et dispose d'environ " . $nbPlaces . " places.</p><hr />";
 			}
@@ -313,9 +318,11 @@ $liste = Song::getSongName ( 'abc' );
 			<?php
 			if ($nb_allDataFromConcertAroundMe!=0){
 			foreach ( $allDataFromConcertAroundMe as $Row ) {
-				
+				//DEBUG
+				//print_r($allDataFromConcertAroundMe);
+				//print_r($allDataFromConcertAroundMe[0][1]);
 				$idConcert = $Row ['Id'];
-				$nomConcert = $Row ['Nom'];
+				$nomConcert = $Row [1];
 				$dateConcert = $Row ['Date'];
 				$heureConcert = $Row ['Heure'];
 				$prixConcert = $Row ['Cout'];
@@ -324,6 +331,13 @@ $liste = Song::getSongName ( 'abc' );
 				$groupeConcert = $Row ['Groupe'];
 				$concertAccepte = $Row ['Concert_accepte'];
 				$salleAccepte = $Row ['salle_acceptee'];
+				
+				
+				$groupNameResult=Group::getIdFromGroupName($groupeConcert);
+				foreach ($groupNameResult as $RowInter){
+					$idGroupeConcert=$RowInter['Id'];
+				}
+				
 				
 				// $link = "../index.php?action='visualiser_User'&Nom=".$loginMembre;
 				
@@ -340,7 +354,7 @@ $liste = Song::getSongName ( 'abc' );
 					if ($now < $next) {
 						// echo "next est dans le futur";
 						
-						echo "<h4 class=resultNames><a>" . $nomConcert . "</a></h4>";
+						?><h4 class=resultNames><a href="affichageConcert.php?id_groupe=<?php echo $idGroupeConcert?>&concert=<?php echo $nomConcert?>"><?php echo  $nomConcert . "</a></h4>";
 						
 						echo "Le groupe " . $nomGroupe . " se produira sur la scène de " . $salleConcert . " le " . $dateConcert . "</p><hr />";
 					}
@@ -356,7 +370,7 @@ $liste = Song::getSongName ( 'abc' );
 			?>
 			
 			
-			</div>
+			
 			
 			
 			

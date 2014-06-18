@@ -395,6 +395,15 @@ class Group {
 		return ($temp);
 	}
 
+	public static function getIdFromGroupName($groupName){
+		$connexion = connect();
+		$requete=$connexion->prepare("SELECT `Id` FROM `groupe` WHERE `Nom`='".$groupName."'");
+		$requete->execute();
+		$temp=$requete->fetchAll();
+		$connexion=null;
+		
+		return ($temp);
+	}
 
 //fonctions relatives aux concerts (flemme de recréer un model, on n'a plus le temps ^^)
 	
