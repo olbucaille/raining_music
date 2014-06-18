@@ -32,6 +32,6 @@ $liste_song = Song::getSongName($_GET['groupename']);
 <br/>
 <input type="hidden" name="posted" value="1">
 <input type="submit" value="Supprimer">
-<input TYPE="button" VALUE="Retour" OnClick='document.location.href="Redirection.php";'>
+<input TYPE="button" VALUE="Retour" OnClick='document.location.href="AffichageGroupeAdmin.php?id_groupe=<?php echo $_GET['id_groupe']?>";'>
 </form>
 

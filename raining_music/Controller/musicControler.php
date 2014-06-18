@@ -72,8 +72,6 @@ if($_POST['posted'])
   				echo '<li>Taille : '.$_FILES['fichier']['size'].' Octets</li>';
   				echo '<li>Sauvegardé dans: '. $chemin.'</li>';	
   				
-  				echo '<p align=center><b> Redirection dans 3 secondes </b> </p>';
-
   				$nom_fichier=explode(".",$nom_file);
   				$nom_groupe = $_POST['groupe'];
   				$nom_album  = $_POST['album'];
@@ -83,8 +81,7 @@ if($_POST['posted'])
   				$connexion = connect();
   				$requete= $connexion->prepare($req); //preparation requete
   				$requete->execute();//execution(pas de verification securité a faire => automatique)
-  				header("Refresh: 3; URL=./template/Redirection.php");
-
+  				
   			}
   			else
   			{
@@ -131,8 +128,7 @@ if($_POST['posted'])
   			$connexion = connect();
   			$requete= $connexion->prepare($req); //preparation requete
   			$requete->execute();//execution(pas de verification securité a faire => automatique)
-  			echo '<p align=center><b> Redirection dans 3 secondes </b> </p>';
-  			header("Refresh: 3; URL=./template/Redirection.php");
+  			
   			}	
   			else
   			echo "Erreur lors de la suppression du fichier $fichier";

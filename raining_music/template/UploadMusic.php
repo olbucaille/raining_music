@@ -12,6 +12,6 @@ include("./../layout/basic_header.php");
 <input type="hidden" name="posted" value="1">
 <input name="fichier" type="file"> <br />
 <input type="submit" value="Ajouter">
-<input TYPE="button" VALUE="Retour" OnClick='document.location.href="Redirection.php";'>
+<input TYPE="button" VALUE="Retour" OnClick='document.location.href="AffichageGroupeAdmin.php?id_groupe=<?php echo $_GET ['id_groupe']?>";'>
 </form>
 
