@@ -56,7 +56,7 @@ if (isset ( $_GET ['id_groupe'] ) && isset ( $_SESSION ['user'] )) {
 <!-- AFFICHAGE des photos -->	
 
 <div class="center">
-<font color="blue"><font size = 6> Galerie de photos </font></font>
+
 <br/>
 
 <?php   
@@ -233,33 +233,18 @@ $role_v =$Row['Role'];
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
+<div
+				style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; width: 93%; float: left;">
+				<span
+					style="background-color:#174156; font-weight: bold; color: #fff;
+					border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; 
+					padding: 11px; font-family: Arial, Helvetica, sans-serif; 
+					font-size: 20px;">&nbsp;Music box !
+				
+				</span>
+			<br/>
+			<br/>
 
 	<!-- boite de musique-->
 
@@ -295,8 +280,8 @@ $role_v =$Row['Role'];
     </div> 
     <div class="List"> 
     <?php 
-   $link = "document.location.href=\"UploadMusic.php?groupename=".$liste[0]->nom."\" ";
-    $link_sup = "document.location.href=\"DeleteMusic.php?groupename=".$liste[0]->nom."\" ";
+   $link = "document.location.href=\"UploadMusic.php?id_groupe=".$id_groupe."&groupename=".$liste[0]->nom."\" ";
+    $link_sup = "document.location.href=\"DeleteMusic.php?id_groupe=".$id_groupe."&groupename=".$liste[0]->nom."\" ";
 if ($autorise) {
 
 ?>
@@ -325,6 +310,7 @@ while ( isset ( $liste_song [$i]->nom ) ) {
     </div>
 	</div>
 	</br> </br> </br>
+	</div>
 
 
 <?php }
