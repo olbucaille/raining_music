@@ -32,7 +32,7 @@
 			if (empty ( $resultat )) {
 $tempIdGrp=$_GET ["id_groupe"];
 				echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo=follow\"
-style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspSuivre cet artiste&nbsp</a> ";
+style=\"position:fixed;text-align:center;;left:30px;background-color: #379BC6; width: 150px; height:; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspSuivre cet artiste&nbsp</a> ";
 	
 
 
@@ -57,7 +57,7 @@ style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; ma
 					if ($counter != $nb_resultats) {
 						$tempIdGrp=$_GET["id_groupe"];
 			  echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo=stopfollow\"
-			  style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspNe plus suivre cet artiste&nbsp</a> ";
+			  style=\"position:fixed;text-align:center;;left:30px;background-color: #379BC6; width: 150px; height: ; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspNe plus suivre cet artiste&nbsp</a> ";
 				
 					} else {
 						?>		
@@ -65,7 +65,7 @@ style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; ma
 			 
 			 <?php $tempIdGrp=$_GET["id_groupe"];
 			  echo "<a href=\"./../index.php?action='follow'&amp;idmembre=".$userId."&amp;idgroupe=".$tempIdGrp."&amp;todo=follow\"
-			  style=\"background-color: #379BC6; width: 150px; height: 150px; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspSuivre cet artiste&nbsp</a> ";
+			  style=\"position:fixed;text-align:center;;left:30px;background-color: #379BC6; width: 150px; height: ; color: white; margin-top: 50px; padding: 4px; border-radius: 5px;\">&nbspSuivre cet artiste&nbsp</a> ";
 			 ?>
 			 
 

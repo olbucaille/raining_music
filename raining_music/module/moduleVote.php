@@ -10,7 +10,9 @@
 <!-- Côte de popularité pour les groupes (vote possible uniquement pour les Membres inscrits) Le parametre de popularité existe déjà en BDD-->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
 
+<div style="border-top: #174156 thick solid; border-radius: 0px 7px 7px 7px; box-shadow: 0 2px 4px 5px #424346; padding: 10px; margin-bottom: 30px; ; width: 40%; float: left;">
 
+<span	style="background-color: #174156; font-weight: bold; color: #fff; border-radius: 0px 0px 7px 7px; box-shadow: #666 6px 6px 6px 0px; padding: 11px; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">&nbsp;Évaluer cet artiste </span> <br /> <br />
 <div style="text-align: left;" id="votesGroupe">
 	<!-- Script permettant de récupérer les résultats des votes et le nombre de votes en BDD pour calculer la popularité d'un groupe-->
 
@@ -41,12 +43,12 @@
 			} else
 				$popGrp = 0;
 			if ($popGrp != 0) {
-				echo "La popularité actuelle de l'artiste est " . $popGrp . "<br/>";
+				echo "Popularité actuelle de l'artiste: " .  "<br/>";
 				
 				for($note = 1; $note <= 5; $note += 0.5) {
 					if ($popGrp == $note) {
 						$chemin="./../pictures/".$note."tr100px.png";
-						echo "<img alt='.$note.' src='$chemin'/> <br/>";
+						echo "<img style='float:right; margin-right:30%;' alt='.$note.' src='$chemin'/> <br/>";
 					}
 				}
 			} else
@@ -76,13 +78,13 @@
 					} 
 
 					else {
-						echo "<b>Vous</b> avez déjà voté pour cet artiste<br/>";
+						echo "Vous avez déjà voté pour cet artiste<br/>";
 					}
 				endforeach
 				;
 				// echo "le compteur est à : " . $compteur . "<br/>";
 				if ($compteur != $nb_alreadyVoted) {
-					echo "<b>ERREUR : Vous ne pouvez pas re-voter pour cet artiste!</b>";
+					echo "<b>Vous ne pouvez pas re-voter pour cet artiste!</b>";
 				} else {
 					//echo "Vous pouvez voter<br/>";
 					
@@ -143,7 +145,7 @@
 <?php
 }
 ?>
-
+</div>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->

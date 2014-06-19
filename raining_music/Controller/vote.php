@@ -58,7 +58,7 @@ if ($_POST ['btnVote'] == 1) {
 //nouvelle cote de popularite
 $popuAfter=$ScoreTotalAfter/$NbVotesAfter;
 $popuAfterRounded= ceil ($popuAfter*2)/2;
-echo "La nouvelle popularite est : ".$popuAfterRounded." (~ ".$ScoreTotalAfter."/".$NbVotesAfter.")";
+//Secho "La nouvelle popularite est : ".$popuAfterRounded;//." (~ ".$ScoreTotalAfter."/".$NbVotesAfter.")";
 
 
 
@@ -73,7 +73,7 @@ $userLogin=$user->login;
 Group::insertVote($idGroupe, $userLogin);
 
 
-echo "Votre vote a bien été pris en compte. <br/>La nouvelle cote de popularité pour ce groupe est : ".$popuAfterRounded."/5 <br/>";
+echo "<br/>Votre vote a bien été pris en compte. <br/>La nouvelle cote de popularité pour cet artiste est : ".$popuAfterRounded."/5 <br/>";
 echo "Vous allez être redirigé vers la page du groupe dans 5 secondes. <br/>Si la redirection ne s'effectue pas, <a href=" . $URL . ">cliquez ici</a>."?><?php
 
 	header ( "Refresh: 5;URL=".$URL );
