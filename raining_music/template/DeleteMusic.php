@@ -6,7 +6,7 @@ $liste_song= array();
 $liste_song = Song::getSongName($_GET['groupename']);
 ?>
 <h1 align ="center"><b>Supprimer une chanson</b></h1> <br />
-<form enctype="multipart/form-data" action="../index.php?action='delete_music'" method="POST">
+<form enctype="multipart/form-data" action="../index.php?action='delete_music'&id_groupe=<?php echo $_GET ['id_groupe']?>" method="POST">
 <label for="groupe">Groupe: </label><span><?php echo $_GET['groupename']?></span>
 <input type="hidden" id="groupe" name="groupe" value="<?php echo $_GET['groupename']?>"/><br />
 
